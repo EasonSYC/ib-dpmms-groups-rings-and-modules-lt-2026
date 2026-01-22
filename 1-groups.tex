@@ -1,0 +1,169 @@
+\section{Groups}
+
+\subsection{Basic Concepts}
+
+\begin{definition}[Group]
+    \label{def:group}%
+    A \emph{group} is a triple \(\para{G, \cdot, e}\) where:
+    \begin{itemize}
+        \item \(G\) is a set;
+        \item \(\functiondomain{\cdot}{G \times G}{G}\) is a binary operation on \(G\); and
+        \item \(e\) is an element \(e \in G\);
+    \end{itemize}
+    such that the following properties hold:
+    \begin{itemize}
+        \item \emph{Associativity.} For all \(a, b, c \in G\), we have \(\para{a \cdot b} \cdot c = a \cdot \para{b \cdot c}\);
+        \item \emph{Identity.} For all \(a \in G\), we have \(e \cdot a = a \cdot e = a\);
+        \item \emph{Inverses.} For all \(a \in G\), there exists \(a \inverse \in G\), such that \(a \cdot a \inverse = a \inverse \cdot a = e\).
+    \end{itemize}
+
+    The size of \(G\) is called the \emph{order} of \(\para{G, \cdot, e}\), written by \(\abs{G}\).
+\end{definition}
+
+From now on we refer to the group just using \(G\), the set itself.
+
+\begin{proposition}[Inverses are Unique]
+    \label{prop:inverses-unique}%
+    Inverses are unique.
+\end{proposition}
+
+\begin{proof}
+    Left as an exercise. Outline: let \(a \in G\) have inverses \(x, y \in G\), and we expand \(x \cdot a \cdot y\) in different ways.
+\end{proof}
+
+\begin{definition}[Subgroup]
+    \label{def:subgroup}%
+    If \(G\) is a group, and \(H \subseteq G\) is a subset of \(G\), then we say \(H\) is a \emph{subgroup} of \(G\), if the following three conditions hold:
+    \begin{itemize}
+        \item \emph{Identity.} \(e \in H\);
+        \item \emph{Closure.} For any \(a, b \in H\), we have \(a \cdot b \in H\).
+        \item \emph{Group as subgroup.} \(\para{H, \cdot, e}\) is a subgroup.
+    \end{itemize}
+\end{definition}
+
+We often think of subgroups simply as the third point here; the first two points here are just such that this triple makes sense.
+
+\begin{proposition}[Condition on Subgroup]
+    \label{prop:condition-subgroup}%
+    A \emph{non-empty} subset \(H \subseteq G\) is a subgroup if and only if for all \(h_1, h_2 \in H\), the product \(h_1 h_2\inverse \in H\).
+\end{proposition}
+
+\begin{proof}
+    Left as an exercise.
+\end{proof}
+
+\begin{definition}[Abelian Group]
+    \label{def:abelian-groups}%
+    A group \(G\) is \emph{abelian} if for all \(g_1, g_2 \in G\), we have \(g_1 g_2 = g_2 g_1\).
+\end{definition}
+
+We can classify all finitely-generated abelian groups: in fact they are just direct products of cyclic groups. However, the proof involves a result towards the end of this course (finite-generate modules over principle ideal domain) --- and this result implies Jordan Canonical Form's existance as well!
+
+\begin{examples}[Examples of Groups]
+    \label{ex:examples-of-groups}%
+    \(\para{\ZZ, +, 0}, \para{\QQ, +, 0}, \RR, \CC, \ZZ/n\ZZ\) are examples of number groups.
+
+    The permutations/symmetries (bijections) of \(\brce{1, 2, \ldots, n}\) under composition, form a group called the symmetric group, written as \(S_n\).
+    
+    More generally, for \emph{any} set \(X\) (which could be infinite/uncountable), there is a group \(\Sym\para{X}\) defined in the same way.
+
+    The \emph{dihedral group} \(D_{2n}\) is the group of symmetries of a regular \(n\)-gon.
+
+    If we label the \(6\) vertices of the hexagon as \(1, 2, \ldots, 6\), then we see that element in \(D_{12}\) in fact \emph{permutes} the elements -- so in some sense, \(D_{12} \subseteq S_6\), and we will see that it means there is some \emph{injective} homomorphism from \(D_{12}\) to \(S_6\).
+
+    The \emph{general linear group over \(\RR\)}, denoted \(\GL\para{n, \RR}\) or \(\GL_n\para{\RR}\), is
+    \begin{align*}
+        \GL\para{n, \RR} &= \set{\functiondomain{f}{\RR^n}{\RR^n}}{f \text{ is an }\RR\text{--linear bijection}} \subseteq \Sym\para{\RR^n} \\
+        &= \brce{n \times n \emph{ invertible matrices over }\RR}.
+    \end{align*}
+
+    We have some examples of subgroups:
+    \begin{itemize}
+        \item The even permutations in \(S_n\) form the \emph{alternating group} \(A_n \subgroup S_n\).
+        \item The rotational symmetries of an \(n\)-gon as \(C_n \subgroup D_{2n}\).
+        \item The determinant-\(1\) matrices \(\SL\para{n, \RR} \subgroup \GL\para{n, \RR}\).
+    \end{itemize}
+
+    Other nice examples include \(C_2 \times C_2\) and the group
+    \[
+        Q_8 = \set{\pm 1, \pm i, \pm j, \pm k}{ij = k, ji = -k, i^2 = j^2 = k^2 = -1, \para{-1}^2 = 1}.
+    \]
+\end{examples}
+
+\begin{definition}[Coset]
+    \label{def:coset}%
+    Let \(G\) be a group and  \(g \in G\). Let \(H \subgroup G\) be a subgroup.
+    
+    The \emph{left-coset} \(gH\) is defined as
+    \[
+        gH = \set{x \in G}{x = gh \text{ for some } h \in H}.
+    \]
+\end{definition}
+
+Since \(e \in H\), we know for certain \(g \in gH\). Therefore, we have the cosets \(gH\) partition \(G\), meaning the cosets intersect trivially (no overlaps), and the union of cosets is \(G\).
+
+Furthermore, the map
+\[
+    \function{f}{H}{gH}{h}{gh}
+\]
+defines a bijection between \(H\) and \(gH\).
+
+\begin{theorem}[Lagrange]
+    \label{thm:lagrange}%
+    If \(G\) is a finite group and \(H \subgroup G\), then
+    \[
+        \abs{G} = \abs{H} \cdot \abs{G : H},
+    \]
+    where \(\abs{G : H}\) is the \emph{index of \(H\) in \(G\)}, the number of cosets of \(H\) in \(G\).
+\end{theorem}
+
+\begin{definition}[Order of an Element]
+    \label{def:order-of-element}%
+    Let \(G\) be a group and \(g \in G\). The \emph{order} of \(g\) is the smallest positive integer \(n \in \NN\) such that \(g^n = e\).
+
+    By convention, if no such \(n\) exists, we take \(n = \infty\).
+
+    We denote this as \(\ord\para{g}\).
+\end{definition}
+
+\begin{proposition}[Order of Element divides Order of Group]
+    \label{prop:order-of-element-divides-order-of-group}%
+    Let \(g \in G\). Then \(\ord\para{g}\) divides \(\abs{G}\).
+\end{proposition}
+
+\begin{proof}
+    Let \(g \in G\), and considering the subset
+    \[
+        H = \brce{e, g, g^2, \ldots, g^{n - 1}}
+    \]
+    where \(n = \ord\para{g}\). (If \(\ord\para{g} = \infty\), there is nothing to prove.)
+
+    \(H\) is a subgroup: since \(e \in H\), we have \(H \neq \emptyset\), hence we can apply subgroup test
+    \[
+        g^r \cdot g^{-s} = g^{r - s}
+    \]
+    lies in \(H\). (We may need to make \(r - s\) positive, but since \(g^n = e\), this is fine.)
+
+    Note the elements of \(H\) are distinct: if \(g^{i} = g^{j}\) for \(i \neq j\), and \(0 \leq i < j < n\), then \(g^{j - i} = e\), contradicting with the minimality of \(n\).
+
+    This is now a corollary of \autoref{thm:lagrange} (Lagrange's Theorem).
+\end{proof}
+
+\subsection{Normal Subgroups, Quotients, and Homomorphisms}
+
+Let \(H \subgroup G\), when are two cosets of \(H\) in \(G\) equal?
+
+If \(gH = g' H\), then \(g \in g' H\), so we can write \(g = g' h\) for some \(h \in H\). Hence, \(\para{g'}\inverse g \in H\). The argument is reversible.
+
+Hence, we have
+\[
+    gH = g' H \iff \para{g'}\inverse g \in H.
+\]
+
+Hence, we denote the set of \emph{left-cosets} of \(H \subgroup G\) by
+\[
+    G / H = \set{gH}{g \in G},
+\]
+and such set \emph{always exists} -- the normality of \(H\) in \(G\) gives this set a well-defined algebraic structure.
+
+The next question is, if \(G / H\) carry a \emph{natural} group structure?
