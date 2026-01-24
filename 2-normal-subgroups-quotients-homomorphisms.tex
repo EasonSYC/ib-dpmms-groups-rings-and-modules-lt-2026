@@ -1,0 +1,193 @@
+\section{Normal Subgroups, Quotients, and Homomorphisms}
+
+Let \(H \subgroup G\), when are two cosets of \(H\) in \(G\) equal?
+
+If \(gH = g' H\), then \(g \in g' H\), so we can write \(g = g' h\) for some \(h \in H\). Hence, \(\para{g'}\inverse g \in H\). The argument is reversible.
+
+Therefore, we have
+\[
+    gH = g' H \iff \para{g'}\inverse g \in H.
+\]
+
+We denote the set of \emph{left-cosets} of \(H \subgroup G\) by
+\[
+    G / H = \set{gH}{g \in G},
+\]
+and such set \emph{always exists} -- the normality of \(H\) in \(G\) gives this set a well-defined algebraic structure.
+
+The next question is, if \(G / H\) carry a \emph{natural} group structure? A natural way to define a group operation is such that
+\[
+    g_1 H \cdot g_2 H = \para{g_1 g_2} H.
+\]
+
+But note this formula may depend on the way in which we write the cosets \(g_1 H\) and \(g_2 H\), i.e. the choice of the particular elements elemenet \(g_1, g_2 \in G\).
+
+If \(g_2 H = g_2' H\), then by previously, \(g_2' = g_2 h\) for some \(h \in H\). Therefore, we have
+\[
+    g_1 H \cdot g_2' H = \para{g_1 g_2' H} = g_1 g_2 h H = g_1 g_2 H
+\]
+so this is fine. However, if \(g_1 H = g_1' H\), then \(g_1' = g_1 h\) for some \(h \in H\). We need
+\[
+    g_1 g_2 H = g_1 h g_2 H.
+\]
+
+But this is not necessarily true for all subgroups \(H \subgroup G\) and \(g_1, g_2 \in G\). It is certainly true for abelian groups -- but there is a weaker equivalent condition for this hold to hold, i.e.,
+\[
+    g_2 \inverse h g_2 \in H,
+\]
+for all \(h \in H\) and \(g_2 \in G\), in order for the proposed rule to define a well-defined group structure.
+
+\begin{definition}[Normality]
+    \label{def:normality}%
+    A subgroup \(H \subgroup G\) is \emph{normal}, if for all \(g \in G\), and \(h \in H\), we have \(g h g \inverse \in H\). We denote this as \(H \normalsub G\).
+\end{definition}
+
+\begin{definition}[Quotient Group]
+    \label{def:quotient-group}%
+    When \(H \normalsub G\), then \(G / H\) does inherit a group structure by the rule above. We refer to this as the \emph{quotient group of \(G\) by \(H\)}, where the identity is \(H\).
+\end{definition}
+
+We recall the definition of a homomorphism in group theory.
+
+\begin{definition}[Group Homomorphism]
+    \label{def:group-homomorphism}%
+    Let \(G\) and \(H\) be groups. A \emph{homomorphism} from \(G\) to \(H\) is a function \(\functiondomain{f}{G}{H}\), such that for all \(g_1, g_2 \in G\),
+    \[
+        f\para{g_1 g_2} = f\para{g_1} f\para{g_2}.
+    \]
+\end{definition}
+
+It follows that we must have \(f\para{e_G} = e_H\) by calculating \(f\para{e_G \cdot e_G} = f\para{e_G}\).
+
+\begin{lemma}[Group Homomorphisms Respect Inverses]
+    \label{lem:group-homomorphisms-inverses}%
+    If \(\functiondomain{f}{G}{H}\) is a homomorphism, then \(f\para{g\inverse} = f\para{g}\inverse\).
+\end{lemma}
+
+\begin{proof}
+    We find \(f\para{g g\inverse}\) in two ways. First, note
+    \[
+        f\para{g g\inverse} = f\para{e_G} = e_H.
+    \]
+
+    On the other hand, we have
+    \[
+        f\para{g g\inverse} = f\para{g} f\para{g \inverse},
+    \]
+    which shows that
+    \[
+        f \para{g} f\para{g \inverse} = e_H.
+    \]
+
+    The result follows from the uniqueness of inverses.
+\end{proof}
+
+In other words, \emph{homomorphism are maps between groups that preserve the group structure}.
+
+\begin{definition}[Kernel, Image]
+    \label{def:group-homomorphism-kernel-image}%
+    Let \(\functionmap{f}{G}{H}\) be a homomorphism. The \emph{kernel} of \(f\) is given by
+    \[
+        \ker \para{f} = \set{g \in G}{f\para{g} = e_H}
+    \]
+    and the \emph{image} of \(f\) is given by
+    \[
+        \img \para{f} = \set{h \in H}{\exists g \in G: f\para{g} = h}.
+    \]
+\end{definition}
+
+\begin{proposition}[Kernels are Normal Subgroups, Images are Subgroups]
+    \label{prop:kernel-normal-subgroup-image-subgroup}%
+    Let \(\functiondomain{f}{G}{H}\) be a homomorphism. Then \(\ker\para{f} \normalsub G\) and \(\img\para{f} \subgroup H\).
+\end{proposition}
+
+\begin{proof}
+    Observe \(e \in \ker\para{f}\) so \(\ker\para{f} \neq \emptyset\). Now, if \(x, y \in \ker\para{f}\), then
+    \[
+        f\para{x y \inverse} = f\para{x} \cdot f\para{y}\inverse = e \cdot e\inverse = e
+    \]
+    so \(x y \inverse \in \ker \para{f}\). This shows \(\ker \para{f} \subgroup G\).
+
+    As for the normality, let \(x \in G\) and \(g \in \ker \para{f}\). We calculate
+    \[
+        f\para{x g x\inverse} = f\para{x} f\para{g} f\para{x}\inverse = f\para{x} f\para{x}\inverse = e
+    \]
+    so \(x g x\inverse \in \ker \para{f}\). This concludes that \(\ker \para{f} \normalsub G\).
+
+    For the image \(\img \para{f}\), observe that if \(a, b \in \img\para{f}\), say \(a = f\para{x}\) and \(b = f\para{y}\) for \(x, y \in G\), then we have
+    \[
+        a b \inverse = f\para{x} f\para{y}\inverse = f\para{x y \inverse} \in \img \para{f}
+    \]
+    and note \(e \in \img \para{f}\), so \(\img \para{f} \subgroup H\) indeed.
+\end{proof}
+
+\begin{remark}
+    For \(H \normalsub G\), observe that
+    \[
+        \function{q_H}{G}{G/H}{g}{gH}
+    \]
+    is a homomorphism.
+\end{remark}
+
+\begin{definition}[Group Isomorphism]
+    \label{def:group-isomorphism}%
+    A group homomorphism \(\functiondomain{f}{G}{H}\) is an \emph{isomorphism} when it is a bijection. Two gropus are said to be \emph{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
+\end{definition}
+
+\begin{theorem}[First Isomorphism Theorem]
+    \label{def:first-isomorphism-theorem}%
+    Let \(\functiondomain{f}{G}{H}\) be a homomorphism. Then \(\ker \para{f}\) is normal in \(G\), and the homomorphism 
+    \[
+        \function{\phi}{G / \ker \para{f}}{\img \para{f}}{g \ker \para{f}}{f\para{g}}
+    \]
+    is an isomorphism. In particular,
+    \[
+        G / \ker \para{f} \isomorphic \img \para{f}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    We have already shown the normality part reviously.
+
+    We first show \(\phi\) is well defined. Indeed, if \(g \ker f = g' \ker f\), then \(g' g\inverse \in \ker \para{f}\), so \(f\para{g' g\inverse} = e\). This gives \(f\para{g} = f\para{g'}\).
+
+    For the surjectivity of \(\phi\), let \(h \in \img \para{f}\), then \(h = f \para{g}\) for some \(g \in G\), and hence \(h = \phi\para{g \ker f}\).
+
+    For the injectivity of \(\phi\), if \(\phi\para{g \ker f} = \phi\para{g' \ker f}\), then \(f\para{g} = f\para{g'}\), which shows that \(g' g\inverse \in \ker f\). So \(g \ker f = g' \ker f\) and this gives injectivity.
+\end{proof}
+
+\begin{example}
+    Consider the homomorphism
+    \[
+        \function{\exp}{\CC}{\CC\multiplicative}{z}{e^z.}
+    \]
+    
+    The kernel of \(\exp\) is \(2\pi i \ZZ\), so the first isomorphism theorem shows that
+    \[
+        \CC\multiplicative \isomorphic \CC / 2\pi i \ZZ.
+    \]
+\end{example}
+
+\begin{theorem}[Second Isomorphism Theorem]
+    \label{thm:second-isomorphism-theorem}%
+    Let \(H \subgroup G\) and \(K \normalsub G\). Then
+    \[
+        HK = \set{hk}{h \in H, k \in K}
+    \]
+    is a subgroup of \(G\), and \(H \cap K\) is normal in \(H\), then there is an isomorphism
+    \[
+        HK / K \isomorphic H / H \cap K.
+    \]
+\end{theorem}
+
+\begin{proof}
+    We first show \(HK\) is a subgroup. It certanily contains \(e = e \cdot e \in HK\) so it is non-empty. Let \(x = hk\) and \(y = h' k'\) for \(x, y \in HK\). We show that \(y x \inverse HK\). Observe that indeeed
+    \begin{align*}
+        y x \inverse &= \para{h' k'}{h k}\inverse \\
+        &= h' k' k \inverse h\inverse \\
+        &= \para{h' h\inverse} h \para{k' k\inverse} h\inverse \\
+        &= \para{h' h\inverse} k'' \\
+        &\in HK,
+    \end{align*}
+    where \(k'' = h \para{k' k\inverse} h\inverse \in K\) since \(K \normalsub G\).
+\end{proof}

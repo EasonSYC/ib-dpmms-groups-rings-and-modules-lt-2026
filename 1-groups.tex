@@ -1,6 +1,4 @@
-\section{Groups}
-
-\subsection{Basic Concepts}
+\section{Basic Concepts of Groups}
 
 \begin{definition}[Group]
     \label{def:group}%
@@ -148,22 +146,3 @@ defines a bijection between \(H\) and \(gH\).
 
     This is now a corollary of \autoref{thm:lagrange} (Lagrange's Theorem).
 \end{proof}
-
-\subsection{Normal Subgroups, Quotients, and Homomorphisms}
-
-Let \(H \subgroup G\), when are two cosets of \(H\) in \(G\) equal?
-
-If \(gH = g' H\), then \(g \in g' H\), so we can write \(g = g' h\) for some \(h \in H\). Hence, \(\para{g'}\inverse g \in H\). The argument is reversible.
-
-Hence, we have
-\[
-    gH = g' H \iff \para{g'}\inverse g \in H.
-\]
-
-Hence, we denote the set of \emph{left-cosets} of \(H \subgroup G\) by
-\[
-    G / H = \set{gH}{g \in G},
-\]
-and such set \emph{always exists} -- the normality of \(H\) in \(G\) gives this set a well-defined algebraic structure.
-
-The next question is, if \(G / H\) carry a \emph{natural} group structure?
