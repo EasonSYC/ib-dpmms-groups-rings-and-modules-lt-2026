@@ -20,11 +20,11 @@ The next question is, if \(G / H\) carry a \emph{natural} group structure? A nat
     g_1 H \cdot g_2 H = \para{g_1 g_2} H.
 \]
 
-But note this formula may depend on the way in which we write the cosets \(g_1 H\) and \(g_2 H\), i.e. the choice of the particular elements elemenet \(g_1, g_2 \in G\).
+But note this formula may depend on the way in which we write the cosets \(g_1 H\) and \(g_2 H\), i.e. the choice of the particular elements \(g_1, g_2 \in G\).
 
 If \(g_2 H = g_2' H\), then by previously, \(g_2' = g_2 h\) for some \(h \in H\). Therefore, we have
 \[
-    g_1 H \cdot g_2' H = \para{g_1 g_2' H} = g_1 g_2 h H = g_1 g_2 H
+    g_1 H \cdot g_2' H = \para{g_1 g_2' H} = g_1 g_2 h H = g_1 g_2 H,
 \]
 so this is fine. However, if \(g_1 H = g_1' H\), then \(g_1' = g_1 h\) for some \(h \in H\). We need
 \[
@@ -131,7 +131,7 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
 
 \begin{definition}[Group Isomorphism]
     \label{def:group-isomorphism}%
-    A group homomorphism \(\functiondomain{f}{G}{H}\) is an \emph{isomorphism} when it is a bijection. Two gropus are said to be \emph{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
+    A group homomorphism \(\functiondomain{f}{G}{H}\) is an \emph{isomorphism} when it is a bijection. Two groups are said to be \emph{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
 \end{definition}
 
 \begin{theorem}[First Isomorphism Theorem]
@@ -147,9 +147,9 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
 \end{theorem}
 
 \begin{proof}
-    We have already shown the normality part reviously.
+    We have already shown the normality part previously.
 
-    We first show \(\phi\) is well defined. Indeed, if \(g \ker f = g' \ker f\), then \(g' g\inverse \in \ker \para{f}\), so \(f\para{g' g\inverse} = e\). This gives \(f\para{g} = f\para{g'}\).
+    We first show \(\phi\) is well-defined. Indeed, if \(g \ker f = g' \ker f\), then \(g' g\inverse \in \ker \para{f}\), so \(f\para{g' g\inverse} = e\). This gives \(f\para{g} = f\para{g'}\).
 
     For the surjectivity of \(\phi\), let \(h \in \img \para{f}\), then \(h = f \para{g}\) for some \(g \in G\), and hence \(h = \phi\para{g \ker f}\).
 
@@ -181,7 +181,7 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
 \end{theorem}
 
 \begin{proof}
-    We first show \(HK\) is a subgroup. It certanily contains \(e = e \cdot e \in HK\) so it is non-empty. Let \(x = hk\) and \(y = h' k'\) for \(x, y \in HK\). We show that \(y x \inverse HK\). Observe that indeeed
+    We first show \(HK\) is a subgroup. It certainly contains \(e = e \cdot e \in HK\) so it is non-empty. Let \(x = hk\) and \(y = h' k'\) for \(x, y \in HK\). We show that \(y x \inverse HK\). Observe that indeed
     \begin{align*}
         y x \inverse &= \para{h' k'}{h k}\inverse \\
         &= h' k' k \inverse h\inverse \\
