@@ -180,6 +180,11 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
     \]
 \end{theorem}
 
+This theorem might seem unnatural at first, but the idea is as follows. We not only want to be able to take the quotient of the original group \(G\) with some normal subgroup \(K \normalsub G\) -- we want to take the quotient with \emph{any} subgroup \(H \subgroup G\), i.e., `\(H / K\)'. But the problem is, \(K\) might not be entirely contained in \(H\). The above two quotients are both choices to make when we take such quotients, and what the theorem states is that they are in fact both isomorphic, to the `quotient'
+\[
+    \set{hK}{h \in H} \subgroup \set{gK}{g \in G} = G / K.
+\]
+
 \begin{proof}
     We first show \(HK\) is a subgroup. It certainly contains \(e = e \cdot e \in HK\) so it is non-empty. Let \(x = hk\) and \(y = h' k'\) for \(x, y \in HK\). We show that \(y x \inverse HK\). Observe that indeed
     \begin{align*}
