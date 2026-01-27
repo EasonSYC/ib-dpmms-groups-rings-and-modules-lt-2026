@@ -1,0 +1,22 @@
+\section{Group Actions and Permutations}
+
+\begin{definition}[Symmetric Group]
+    \label{def:symmetric-group}
+    Let \(X\) be a set, and \(\Sym\para{X}\) be the set of permutations of \(X\)
+    \[
+        \Sym\para{X} = \set{\functiondomain{f}{X}{X}}{f\text{ is bijection}},
+    \]
+    equipped with the identity as the identity function. For \(f, g \in \Sym\para{X}\), we define the group operation as composition. This gives the \emph{symmetric group} of \(X\).
+    
+    If \(\brac{n} = \brce{1, 2, \ldots, n}\), then we write \(\Sym\para{\brac{n}} = S_n\).
+\end{definition}
+
+Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) as a product of disjoint cycles. Furthermore, every \(\sigma \in S_n\) is a product of transpositions, and the number of such transpositions needed is the \emph{sign} of \(\sigma\), i.e.
+\[
+    \function{\sign}{S_n}{\brce{\pm 1}}{\sigma}{\sign\para{\sigma} = \begin{cases}
+        1, & \sigma \text{ is a product of an even number of transpositions}, \\
+        -1, & \sigma \text{ is a product of an odd number of transpositions}.
+    \end{cases}}
+\]
+
+We observe that \(\sign\) is a homomorphism, and it is surjective (onto) when \(n \geq 2\).
