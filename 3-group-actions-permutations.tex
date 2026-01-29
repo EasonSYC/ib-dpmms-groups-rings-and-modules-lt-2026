@@ -11,12 +11,220 @@
     If \(\brac{n} = \brce{1, 2, \ldots, n}\), then we write \(\Sym\para{\brac{n}} = S_n\).
 \end{definition}
 
-Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) as a product of disjoint cycles. Furthermore, every \(\sigma \in S_n\) is a product of transpositions, and the number of such transpositions needed is the \emph{sign} of \(\sigma\), i.e.
-\[
-    \function{\sign}{S_n}{\brce{\pm 1}}{\sigma}{\sign\para{\sigma} = \begin{cases}
-        1, & \sigma \text{ is a product of an even number of transpositions}, \\
-        -1, & \sigma \text{ is a product of an odd number of transpositions}.
-    \end{cases}}
-\]
+Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) as a product of disjoint cycles. Furthermore, every \(\sigma \in S_n\) is a product of transpositions, and the number of such transpositions needed, although not fixed, has some `invariant', and is related to the \emph{sign} of \(\sigma\).
+
+\begin{definition}[Sign of Permutation]
+    \label{def:sign-of-permutation}%
+    The \emph{sign} of a permutation is defined as
+    \[
+        \function{\sign}{S_n}{\brce{\pm 1}}{\sigma}{\sign\para{\sigma} = \begin{cases}
+            1, & \sigma \text{ is a product of an even number of transpositions}, \\
+            -1, & \sigma \text{ is a product of an odd number of transpositions}.
+        \end{cases}}
+    \]
+\end{definition}
 
 We observe that \(\sign\) is a homomorphism, and it is surjective (onto) when \(n \geq 2\).
+
+Let \(X\) be a set and \(G\) be a group. We contemplate a homomorphism \(G \to \Sym\para{X}\). This is called a \emph{permutation representation} of \(G\).
+
+\begin{definition}[Action]
+    An \emph{action} of a group \(G\) on a set \(X\) is a function
+    \[
+        \function{\alpha}{G \times X}{X}{\para{g, x}}{g \ast x}
+    \]
+    satisfying
+    \begin{itemize}
+        \item \(e \ast x = x\) for all \(x \in X\);
+        \item \(\para{g_1 \cdot g_2} \ast x = g_1 \ast \para{g_2 \ast x}\) for all \(g_1, g_2 \in G\) and all \(x \in X\).
+    \end{itemize}
+\end{definition}
+
+We denote this as \(G \actson X\).
+
+Now, we think of the relation between
+\[
+    H = \brce{\text{Homomorphisms } G \to \Sym\para{X}} \quad \text{and} \quad \brce{\text{Actions } G \actson X} = A.
+\]
+
+These are just sets. But we are going to define some relationship between them. Let
+\[
+    \function{a}{H}{A}{
+        \functiondomain{f}{G}{\Sym\para{X}}}{
+            \function{a\para{\phi}}{G\times X}{X}{\para{g, x}}{\para{\phi\para{g}}\para{x}.}
+        }
+\]
+
+Note that \(a\para{\phi}\) is a group action by the homomorphism property, so this is a well-defined map.
+
+\begin{proposition}[Bijection between Permutation Representaion and Actions]
+    \label{prop:permutation-representation-actions}%
+    The map \(a\) defined above is a bijection.
+\end{proposition}
+
+\begin{proof}
+    We just construct an inverse map to \(a\). Let \(\functiondomain{\ast}{G \times X}{X}\) be an action. We map this to
+    \[
+        \function{\phi}{G}{\Sym\para{X}}{g}{\function{\phi\para{g}}{X}{X}{x}{g \ast x}.}
+    \]
+
+    We denote this as \(\phi\para{g} = g \ast - : X \to X\)
+
+    Now, we claim that \(\para{g\inverse} \ast -: X \to X\) is the inverse, since
+    \begin{align*}
+        \para{\phi\para{g\inverse} \circ \phi\para{g}} \para{x} &= \phi\para{g\inverse} \para{\phi\para{g} \para{x}} \\
+        &= g\inverse \ast \para{g \ast x} \\
+        &= \para{g\inverse \cdot g} \ast x \\
+        &= e \ast x \\
+        &= x
+    \end{align*}
+    so \(\phi\para{g\inverse} \circ \phi\para{g} = \identity_X\).
+
+    Similarly,
+    \[
+        \phi\para{g} \circ \phi\para{g\inverse} = \identity_X,
+    \]
+    which shows that \(\phi\para{g}\) is indeed \(\Sym\para{X}\).
+
+    To see \(\phi\) is indeed is a homomorphism, we see
+    \begin{align*}
+        \phi\para{g_1} \circ \phi\para{g_2} \para{x} &= \phi\para{g_1} \para{\phi\para{g_2} \para{x}} \\
+        &= g_1 \ast \para{g_2 \ast x} \\
+        &= \para{g_1 g_2} \ast x \\
+        &= \phi\para{g_1 g_2} \para{x}
+    \end{align*}
+    for all \(x \in X, g_1, g_2 \in G\), so we indeed have that \(\phi\para{g_1 g_2} = \phi\para{g_1} \circ \phi\para{g_2}\).
+\end{proof}
+
+\begin{notation}
+    For an action \(G \actson X\) given by the homomorphism \(\functiondomain{\phi}{G}{\Sym\para{X}}\), we denote
+    \begin{align*}
+        G^X &= \img \para{\phi} \subgroup \Sym\para{X}, \\
+        G_X &= \ker \para{\phi} \normalsub G.
+    \end{align*}
+\end{notation}
+
+By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
+\[
+    G^X \isomorphic G / G_X.
+\]
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.8]{fig/1-cube.pdf}
+    \caption{Cube and its Diagonals}
+    \label{fig:cube-diagonals}
+\end{figure}
+
+\begin{example}[Symmetry of the Cube]
+    \label{ex:symmetry-of-cube}
+    Let \(G\) be the symmetry group of the cube, and let \(X\) be the set of diagonals (between opposite vertices), as in \autoref{fig:cube-diagonals}. Then \(G \actson X\).
+
+    Consider the associated  homomorphism \(\functiondomain{\phi}{G}{\Sym\para{X} \isomorphic S_4}\).
+    
+    We first show that \(\img \para{\phi} \isomorphic S_4\), and this can be shown by showing the transpositions lie in the image. This is trivial and left as an exercise.
+
+    Now, consider the kernel of this map. There are two maps that keeps the diagonal unchanged: one is trivial (the identity), and one is which sends every vertex to its opposite. This means \(\ker \para{\phi} \isomorphic C_2\).
+
+    Hence, we have
+    \[
+        \abs{G} = \abs{S_4} \cdot \abs{C_2} = 48
+    \]
+    by \autoref{thm:lagrange} (Lagrange's Theorem) and \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem).
+\end{example}
+
+\begin{example}[Cayley's Theorem]
+    \label{ex:cayley-theorem}%
+    For any group \(G\), we can write \(G\) act on (the underlying set) \(G\) by
+    \[
+        \function{\alpha}{G \times G}{G}{\para{g_1, g_2}}{g_1 g_2.}
+    \]
+
+    This induces a homomorphism \(\functiondomain{\phi}{G}{\Sym\para{G}}\). The kernel is
+    \[
+        \ker\para{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \brce{e}.
+    \]
+
+    So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\para{G}\) by \autoref{thm:first-isomorphism-theorem} (First Isomorphism theorem).
+
+    This tells us that the symmetric group is \emph{very} complicated!
+\end{example}
+
+\begin{example}[Left-Multiplication on Cosets and its Kernel]
+    \label{ex:left-multiplation-cosets}%
+    Let \(H \subgroup G\) and \(X = G / H\). Let \(G \actson H\) by
+    \[
+        \function{\alpha}{G \times G / H}{G / H}{\para{g, g_1 H}}{\para{g \cdot g_1} H}.
+    \]
+
+    We get the corresponding homomorphism \(\functiondomain{\phi}{G}\Sym\para{X}\). Trivially, we have \(\ker\para{\phi} \subseteq H\).
+
+    But we have more to this. If \(g \in \ker \para{\phi}\), then
+    \[
+        g \cdot g_1 H = g_1 H
+    \]
+    for \emph{all} \(g_1 \in G\). Therefore,
+    \[
+        g_1 \inverse g g_1 \in H,
+    \]
+    so
+    \[
+        \ker\para{\phi} \subseteq \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
+    \]
+
+    This argument is however, indeed, reversible: if
+    \[
+        g \in \bigcap_{g_1 \in G} g_1 H g_1 \inverse,
+    \]
+    then for each \(g_1 \in G\), we have
+    \[
+        g_1 \inverse g g_1 \in H,
+    \]
+    which means
+    \[
+        g g_1 H = g_1 H
+    \]
+    which means \(g \in \ker\para{\phi}\).
+
+    In other words, we have
+    \[
+        \ker\para{\phi} = \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
+    \]
+
+    In the special case where \(H \normalsub G\), then \(\ker\para{\phi} = H\). But in the general case, the right-hand side is an intersection of subgroups, which induce a normal subgroup!
+\end{example}
+
+\begin{theorem}[Normal Subgroup in Subgroup]
+    \label{thm:normal-subgroup-contained-in-subgroup}%
+    Let \(G\) be finite and \(H \subgroup G\) of index \(n\). Then there exists a normal subgroup \(K \normalsub G\) which also satisfies \(K \subgroup H\), such that \(G / K\) is isomorphic to  a subgroup of \(S_n\). Thus, \(\abs{G / K}\) divides \(n!\) and \(\abs{G / K} \geq n\).
+\end{theorem}
+
+\begin{proof}
+    Consider \(\functiondomain{\phi}{G}{\Sym\para{G / H}}\) induced by the action considered in \autoref{ex:left-multiplation-cosets}. The kernel is normal in \(G\), and we let \(K = \ker \para{\phi}\). We have already shown it is contained in \(H\).
+
+    By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
+    \[
+        G / K \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
+    \]
+
+    \autoref{thm:lagrange} (Lagrange's Theorem) gives \(\abs{G / H} \divides n!\), and \(K \subgroup H\), so \(\abs{G / K} \geq \abs{G / H} = n\).
+\end{proof}
+
+\begin{corollary}[Non-Abelian Simple Groups]
+    \label{cor:non-abelian-simple-group}%
+    Let \(G\) be a non-abelian simple group. Let \(H \subgroup G\) be a proper subgroup with index \(n > 1\). Then \(G\) is isomorphic to a subgroup of \(A_n\), where \(n \geq 5\).
+\end{corollary}
+
+\begin{proof}
+    We consider the same action \(G \actson G / X\) and the homomorphism induced
+    \[
+        \functiondomain{\phi}{G}{\Sym\para{G / H}}.
+    \]
+
+    We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
+
+    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and
+    \[
+        G \isomorphic \img \para{\phi} \subgroup S_n
+.    \]
+\end{proof}
