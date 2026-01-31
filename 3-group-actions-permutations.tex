@@ -216,15 +216,61 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
 \end{corollary}
 
 \begin{proof}
-    We consider the same action \(G \actson G / X\) and the homomorphism induced
+    We consider the same action \(G \actson G / X\) by left-multiplication, and the homomorphism induced
     \[
-        \functiondomain{\phi}{G}{\Sym\para{G / H}}.
+        \functiondomain{\phi}{G}{\Sym\para{G / H} \isomorphic S_n}.
     \]
 
     We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
 
-    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and
+    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem),
     \[
-        G \isomorphic \img \para{\phi} \subgroup S_n
-.    \]
+        G \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
+    \]
+
+    For simplicity of notation, identify \(G\) with \(\img \para{\phi}\) and \(\Sym\para{G/H}\) with \(S_n\). We know that
+    \[
+        G \subgroup S_n
+    \]
+    and we in fact want \(G \subgroup A_n\), i.e., \(G \cap A_n = G\).
+
+    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem} (Second Isomorphism Theorem). But \(G\) is simple, so \(G \cap A_n = \brce{e}\), or \(G \cap A_n = G\).
+
+    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem} (Second Isomorphism Theorem), if \(G \cap A_n = \brce{e}\), we see that
+    \[
+        G \isomorphic G / G \cap A_n \isomorphic G A_n / A_n \leq S_n / A_n \isomorphic C_2,
+    \]
+    but this is stupid since \(G\) is non-abelian.
+
+    We last directly verify that \(S_1\) and \(S_2\) are abelian, and \(S_3\) and \(S_4\) has no non-abelian simple subgroup.
 \end{proof}
+
+\begin{definition}[Orbits, Stabalisers]
+    \label{def:orbits-stablisers}%
+    Let \(G \actson X\) be a group action. Let \(x \in X\).
+    
+    \begin{itemize}
+        \item The \emph{orbit} of \(x\), denoted as \(G x\), is defined to be
+        \[
+            G x = \set{gx}{g \in G} \subseteq x.
+        \]
+        \item The \emph{stabiliser}  of \(x\), denoted as \(G_x\),is defined to be
+        \[
+            \set{g \in G}{gx = x} \subgroup G.
+        \]
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Orbit--Stabiliser]
+    \label{def:orbit-stabiliser}%
+    For \(G \actson X\) and \(x \in X\), the map \(\phi\) given as follows, is a bijection.
+
+    \[
+        \function{\phi}{Gx}{G/G_x}{gx}{g G_x}
+    \]
+    
+    In particular, if \(G\) is finite, we have
+    \[
+        \abs{G} = \abs{Gx} \cdot \abs{G_x}.
+    \]
+\end{theorem}
