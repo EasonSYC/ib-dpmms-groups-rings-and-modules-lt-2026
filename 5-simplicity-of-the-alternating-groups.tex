@@ -41,4 +41,43 @@ Recall that a conjugacy class in \(S_n\) consists of the set of all elements of 
         \]
         and hence \(\sigma \tau \in A_n\), showing \(\delta\) and \(\delta'\)are conjugate in \(A_n\).
     \end{proof}
+
+    \begin{proof}[of 3]
+        Let \(H \normalsub A_n\) be non-trivial. There are several cases to consider.
+        \begin{enumerate}
+            \item If \(H\) contains an element with a cycle of length \(4\) or more in its decomposition, i.e., of the form \(\sigma = \perm{1 2 {\ldots} r} \tau\) for some \(\tau\) disjoint from \(\brce{1, 2, \ldots, r}\), and \(r \geq 4\). By the normality of \(H\), if \(\delta = \perm{1 2 3}\) then we have \(\delta\inverse \sigma \delta \in H\), and hence \(\sigma\inverse \delta\inverse \sigma \delta \in H\).
+            
+            Since \(\tau\) is disjoint with \(\brce{1, 2, 3}\) by assumption, it commutes with \(\delta\), and by assumption, also with \(\perm{1 2 {\ldots} r}\).
+
+            We now expand this product to get
+            \begin{align*}
+                \sigma\inverse \delta\inverse \sigma \delta &= \perm{r {\ldots} 2 1} \perm{1 3 2} \perm{1 2 {\ldots} r} \perm{1 2 3}\\
+                &= \perm{2 3 r},
+            \end{align*}
+            which gives a \(3\)-cycle.
+
+            \item If \(H\) contains an element with two or more cycles of length \(3\) in its decomposition, i.e., \(\sigma = \perm{1 2 3} \perm{4 5 6} \tau\), then we take \(\delta = \perm{1 2 4}\) and taking the similar expression \(\sigma \inverse \delta \inverse \sigma \delta\), which is a \(5\)-cycle, and we apply the first part.
+            
+            \item If \(H\) contains an element with only one cycle of length \(3\) in its decomposition, i.e., \(\sigma = \perm{1 2 3} \tau\) where \(\tau\) is a product of disjoint transpositions. If \(\tau\) contains anything more, then relabel and apply the first two parts. Then, we have
+            \[
+                \sigma^2 = \perm{1 2 3} \perm{1 2 3} = \perm{1 3 2}
+            \]
+            is indeed a \(3\)-cycle.
+
+            \item If elements of \(H\) are all made up of transpositions, i.e., \(\sigma = \perm{12} \perm{34} \tau\) where \(\tau\) is a product of transpositions. Let \(\delta = \perm{1 2 3}\) and let \(\mu = \sigma\inverse \delta\inverse \sigma \delta = \perm{14} \perm{23}\).
+            
+            Now, let
+            \[
+                \nu = \perm{1 5 2} \mu \perm{1 2 5} = \perm{1 3 4 5}.
+            \]
+
+            Since \(\mu \nu = \perm{1 2 3 4 5} \in H\), then \(H\) contains a \(3\)-cycle by the first part. 
+        \end{enumerate}
+
+        The proof then finishes by labelling \(\brce{1, 2, \ldots, n}\) with some permutation.
+    \end{proof}
 \end{proof}
+
+\begin{remark}
+    We did in fact use \(n \geq 5\) in the proof -- most obviously in the second claim, and also in the 4th case in the final claim as well.
+\end{remark}

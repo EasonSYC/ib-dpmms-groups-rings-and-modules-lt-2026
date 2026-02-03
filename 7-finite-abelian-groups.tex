@@ -1,0 +1,30 @@
+\section{Finite Abelian Groups}
+
+\begin{theorem}[Classification of Finite Abelian Groups]
+    \label{thm:classification-finite-abelian-group}%
+    Let \(G\) be a finite abelian group. Then \(G\) must be a product of cyclic groups. More precisely, there exist positive integers \(d_1, \ldots, d_r\), such that
+    \[
+        G \isomorphic C_{d_1} \times \cdots \times C_{d_r}.
+    \]
+
+    Moreover, we can choose the \(d_i\) such that \(d_{i + 1} \divides d_i\), in which case the expression is unique.
+\end{theorem}
+
+The proof will not be until the end of the course, where we prove the Structure Theorem for Finitely-Generated Modules over a PID (Principle Ideal Domain) -- the PID Structure Theorem -- which would imply also, the existence of the Smith normal form and the Jordan normal form. (P.S. \href{https://pumac.princeton.edu/archives#2022}{PUMaC 2022* Power Round} has a good introduction to this -- \href{https://static1.squarespace.com/static/570450471d07c094a39efaed/t/642304302502a43377dedfed/1680016432869/PUMaC2023PowerRoundMarch28Update.pdf}{the questions are linked})
+
+\begin{example}[Abelian Groups of Order \(8\)]
+    The only abelian groups of order \(8\) are exactly \(C_8\), \(C_4 \times C_2\), and \(C_2 \times C_2 \times C_2\).
+\end{example}
+
+\begin{lemma}[Chinese Remainder Theorem]
+    \label{lem:chinese-remainder-theorem}
+    If \(n, m\) are coprime, then \(C_n \times C_m \isomorphic C_{nm}\).
+\end{lemma}
+
+\begin{proof}
+    It suffices to find an order \(nm\) element in \(C_n \times C_m\). If \(g \in C_n\) is order \(n\) and \(h \in C_m\) is order \(m\), then consider \(\para{g, h} \in C_n \times C_m\).
+
+    Suppose it has order \(k\). Then \(\para{g, h}^k = \para{g^k, h^k} = \para{e, e}\). Coordinate-wise, we may conclude that \(n \divides k\) and \(m \divides k\). But \(\gcd\para{m, n} = 1\), so \(nm \divides k\).
+    
+    But \(k \divides mn\) as well by \autoref{thm:lagrange} (Lagrange's Theorem), so \(k = mn\).
+\end{proof}
