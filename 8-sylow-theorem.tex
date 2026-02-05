@@ -1,0 +1,109 @@
+\section{Sylow Theorem}
+
+Let \(G\) be a finite group of size \(p^{a} m\) where \(p \notdivides m\), which means we collected all the prime factors \(p\) in the first part of the product. A \emph{Sylow \(p\)-Subgroup} of \(G\) is a subgroup of order \(p^a\).
+
+\begin{theorem}[Sylow Theorems]
+    \label{thm:sylow}%
+    Let \(G\) be a finite group, and let \(p\) be a prime, with \(p \divides \abs{G}\).
+
+    \begin{enumerate}
+        \item The set \(\Syl_p\para{G} = \set{P \leq G}{P \text{ is a Sylow } p\text{-subgroup}}\) is non-empty.
+        \item Any \(H, H' \in \Syl_p \para{G}\) are conjugate, i.e., there is some \(g\) such that \(H' = g H g\inverse\).
+        \item If \(n_p = \abs{\Syl_p \para{G}}\), then \(n_p \equiv 1 \pmod{p}\), and hence \(n_p\) divides \(\abs{G}\), so \(m\).
+    \end{enumerate}
+\end{theorem}
+
+The first part of \autoref{thm:sylow} (Sylow Theorem) itself is already very interesting -- since it is not easy to specify that we have a subgroup is of a particular size. The second is also non-trivial, since there could be subgroups with different structures, or with the same structure but not conjugate. Nevertheless, we will build up the necessary foundations to a proof.
+
+\begin{lemma}[Unique Sylow \(p\)-Subgroup implies Normality]
+    If \(\Syl_p\para{G} = \brce{P}\) has size \(1\), then \(P\) is normal.
+\end{lemma}
+
+\begin{proof}
+    For any \(g \in G\), \(g P g\inverse\) is isomorphic to \(P\) as a subgroup, so we have \(g P g\inverse \in \Syl_p\para{G}\). It follows that \(P = g P g\inverse\), and this finishes a proof.
+\end{proof}
+
+Another consequence of Sylow's theorem is as follows.
+
+\begin{corollary}[Number of Sylow \(p\)-Subgroups and Size of \(G\)]
+    \label{cor:np-and-g}%
+    Let \(G\) be a non-abelian simple group and let \(p \divides \abs{G}\). Then \(\abs{G}\) divides \(\frac{n_p!}{2}\), and \(n_p \geq 5\).
+\end{corollary}
+
+\begin{proof}
+    The conjugation action of \(G\) on \(\Syl_p\para{G}\) gives a homomorphism
+    \[
+        \functiondomain{\phi}{G}{\Sym\para{\Syl_p\para{G}} \isomorphic S_{n_p}}.
+    \]
+
+    By simplicity of \(G\), since \(\ker \phi \normalsub G\), we therefore have \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
+
+    If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \brce{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\para{P} \normalsub P\).
+
+    Therefore, \(\ker \phi = \brce{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
+
+    \[
+        G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \brce{\pm 1}.
+    \]
+
+    If the composition is surjective, then \(\ker \para{\sign \circ \phi}\) is an index \(2\) subgroup of \(G\). But \(G\) is simple, so this is impossible, unless \(G \isomorphic C_2\) but this is abelian. (Alternatively, since this composition cannot be injective and since \(G\) is simple, we have \(\ker \para{\sign \circ \phi} = G\), so this map is trivial.)
+
+    Therefore, \(\img \para{\phi} \subgroup A_{n_p}\) and we have \(\frac{n_ p!}{2}\), so we can calculate by Lagrange.
+
+    Now we may verify directly that \(A_1, A_2, \ldots, A_4\) are not simple directly.
+\end{proof}
+
+A nice application of the numerology provided by \autoref{thm:sylow} (Sylow's Theorems) is explored below.
+
+\begin{example*}[Counting Subgroups of Simple Group]
+    Suppose \(G\) has size \(11 \times 12 = 132\). If \(g\) is simple, then none of the \(n_p\)s are equal to \(1\).
+
+    By \autoref{thm:sylow} (Sylow's Third Theorem), we have \(n_{11} \equiv 1 \pmod{11}\) but also \(n_{11} \divides 12\), so \(n_{11} = 12\), so there are \(12\) Sylow \(11\)-subgroups.
+
+    Similarly, we know that \(n_3 \equiv 1 \pmod{3}\) and \(n_3 \divides 44\). So by simplicity, \(n_3 = 4\) or \(22\).
+
+    By \autoref{cor:np-and-g}, we have \(n_3 = 22\) since \(n_3 \geq 5\).
+
+    Any two Sylow \(11\)-Subgroups intersect trivially at \(\brce{e}\), which gives already \(120\) elements. Similarly, any two Sylow \(3\)-Subgroups contribute another \(44\) elements. But we only have a total of \(132\) elements, which is impossible.
+\end{example*}
+
+Now we prove Sylow's theorems.
+
+\begin{proof}[of Sylow's First Theorem, Part of \autoref{thm:sylow}]
+    We produce a Sylow \(p\)-Subgroup as a stabiliser of an orbit in an appropriate action.
+    
+    Let \(\abs{G} = n = p^a m\) with \(p \notdivides m\). Define the collection of \textbf{subsets} (not subgroups!)
+    \[
+        \Omega = \set{X \subseteq G}{\abs{X} = p^a} \subseteq \powerset\para{G}.
+    \]
+
+    Let \(G\) act on \(\Omega\) by left-multiplication element-wise, i.e.,
+    \[
+        g \ast \brce{g_1, g_2, \ldots, g_{p^a}} = \brce{g g_1, \ldots, g g_{p^a}}.
+    \]
+
+    We want to have an orbit of size \(m\), so its stabiliser would have size \(p^a\).
+
+    We first claim that \(\abs{\Omega} = \binom{n}{p^a} \equiv m \nequiv 0 \pmod{p}\). This part is elementary algebra.
+
+    The second claim is that, if \(U \in \Omega\), and \(H \subgroup G\) stabilises \(U\), then \(\abs{H} \divides \abs{U}\).
+    
+    Since \(H\) stabilises \(U\), this means \(hU = U\) for all \(h \in H\). In other words, for each \(u \in U\), the coset \(Hu\) is contained in \(U\). Every \(u \in U\) lies in some coset of \(H\), and since cosets are disjoint with same size, they therefore partition \(U\), we get \(\abs{H} \divides \abs{U}\).
+
+    Now, we know that \(\abs{\Omega} \nequiv 0 \pmod{p}\), and by partitioning of orbits \(O_i\), we have
+    \[
+        \abs{\Omega} = \abs{O_1} + \abs{O_2} + \cdots + \abs{O_r}.
+    \]
+
+    Since \(p \notdivides \abs{\Omega}\), there exists an orbit, say \(\Theta\), whose size is not a multiple of \(p\).
+
+    Let \(X \in \Theta\). By \autoref{thm:orbit-stabiliser}, we have
+    \[
+        \abs{G} = \abs{\Theta} \cdot \abs{\Stab\para{X}},
+    \]
+    so \(p^a m = \abs{\Theta} \cdot \abs{\Stab\para{X}}\).
+
+    Since no factors of \(p\) is in \(\abs{\Theta}\), they must be wholly contained in \(\abs{\Stab\para{X}}\), i.e., \(p^a \divides \abs{\Stab\para{X}}\). But by definition of \(\Omega\), we have \(\abs{X} = p^a\), and by the second claim, \(\abs{\Stab\para{X}} \divides p^a\).
+
+    Therefore, \(\abs{\Stab\para{X}} = p^a\) is a Sylow \(p\)-Subgroup which finishes our proof.
+\end{proof}

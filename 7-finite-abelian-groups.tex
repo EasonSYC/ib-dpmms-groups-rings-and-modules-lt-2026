@@ -28,3 +28,18 @@ The proof will not be until the end of the course, where we prove the Structure 
     
     But \(k \divides mn\) as well by \autoref{thm:lagrange} (Lagrange's Theorem), so \(k = mn\).
 \end{proof}
+
+\begin{corollary}[Finite Abelian Groups as Prime Powers]
+    \label{cor:finite-abelian-groups-prime-powers}
+    If \(G\) is a finite, abelian group, then we have
+    \[
+        G \isomorphic C_{l_1} \times C_{l_2} \times \cdots \times C_{l_2}
+    \]
+    where each \(l_i\) is a prime power.
+\end{corollary}
+
+\begin{proof}
+    Combine \autoref{lem:chinese-remainder-theorem} and \autoref{thm:classification-finite-abelian-group}.
+\end{proof}
+
+This is another form of the factorisation of finite abelian groups into cyclic groups. For example, in \autoref{thm:classification-finite-abelian-group}, \(C_6 \isomorphic C_6\), but here, \(C_6 \isomorphic C_2 \times C_3\) is the alternative factorisation.
