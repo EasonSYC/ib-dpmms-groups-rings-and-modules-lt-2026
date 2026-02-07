@@ -9,7 +9,7 @@ Let \(G\) be a finite group of size \(p^{a} m\) where \(p \notdivides m\), which
     \begin{enumerate}
         \item The set \(\Syl_p\para{G} = \set{P \leq G}{P \text{ is a Sylow } p\text{-subgroup}}\) is non-empty.
         \item Any \(H, H' \in \Syl_p \para{G}\) are conjugate, i.e., there is some \(g\) such that \(H' = g H g\inverse\).
-        \item If \(n_p = \abs{\Syl_p \para{G}}\), then \(n_p \equiv 1 \pmod{p}\), and hence \(n_p\) divides \(\abs{G}\), so \(m\).
+        \item If \(n_p = \abs{\Syl_p \para{G}}\), then \(n_p \equiv 1 \pmod{p}\), and \(n_p\) divides \(\abs{G}\), so \(m\).
     \end{enumerate}
 \end{theorem}
 
@@ -97,7 +97,7 @@ Now we prove Sylow's theorems.
 
     Since \(p \notdivides \abs{\Omega}\), there exists an orbit, say \(\Theta\), whose size is not a multiple of \(p\).
 
-    Let \(X \in \Theta\). By \autoref{thm:orbit-stabiliser}, we have
+    Let \(X \in \Theta\). By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), we have
     \[
         \abs{G} = \abs{\Theta} \cdot \abs{\Stab\para{X}},
     \]
@@ -107,3 +107,83 @@ Now we prove Sylow's theorems.
 
     Therefore, \(\abs{\Stab\para{X}} = p^a\) is a Sylow \(p\)-Subgroup which finishes our proof.
 \end{proof}
+
+\begin{proof}[of Sylow's Second Theorem, Part of \autoref{thm:sylow}]
+    We show a stronger statement, that if \(Q \normalsub G\) is a \(p\)-group in \(G\), and \(P \in \Syl_p\para{G}\), then there exists \(g \in G\) such that
+    \[
+        g Q g\inverse \subseteq P.
+    \]
+
+    This therefore implies the claim, since \(Q \in \Syl_p\para{G}\) gives \(Q\) is a \(p\)-group.
+
+    Let \(Q\) act on \(G / P\) by \(q \ast gP = q gP\). The orbit of that action have size either \(1\) or divisible by \(p\). But \(\abs{G / P}\) is not divisible by \(p\), so there is some orbit with size \(1\).
+
+    In other words, there exists some \(g \in G\), such that \(qgP = gP\) for all \(q \in Q\).
+
+    We rearrange to say, that for all \(q \in Q\), \(g \inverse q g \in P\). Therefore, \(g \inverse Q g \subseteq P\), as desired.
+\end{proof}
+
+Recall that \(n_p = \abs{\Syl_p\para{G}}\).
+
+\begin{proof}[of Sylow's Third Theorem, Part of \autoref{thm:sylow}]
+    We need to show \(n_p \divides \abs{G}\) and \(n_p \equiv 1 \pmod{p}\).
+
+    The first part is straightforward. The conjugation action of \(G\) on \(\Syl_{\para{G}}\) is transitive, so it has only one orbit. Therefore, the size of the orbit is \(n_p\), and hence \(n_p \divides G\).
+
+    Now, let \(P \in \Syl_p\para{G}\). We consider an action \(P \actson \Syl_p\para{G}\) by conjugation.
+
+    By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), the orbits have size \(1\) or divisible by \(p\). Now \(\brce{P}\) has size \(1\) and is hence a size-\(1\) orbit. It suffices to show that all the remaining orbits have size \(p\).
+
+    Say \(\brce{Q}\) is another size \(1\) orbit. So for any \(h \in P\), we have \(h Q h\inverse = Q\).
+
+    Thus, \(P\) is contained in the normaliser
+    \[
+        N_G\para{Q} = \set{g \in G}{g Q g\inverse = Q}.
+    \]
+
+    Observe that
+    \[
+        Q \subgroup N_G\para{Q} \subgroup G
+    \]
+    and therefore \(Q\) is in fact \(Q \in \Syl_p \para{N_G\para{Q}}\).
+
+    But by definition, \(Q\) is normal in \(N_G\para{Q}\), and \(P\) is another Sylow-\(p\) subgroup of the normaliser. By \autoref{thm:sylow}, Part 2, we know that \(P\) and \(Q\) are therefore conjugate in \(N_G\para{Q}\), so \(Q = P\).
+\end{proof}
+
+\begin{example}[General Linear Group in Finite Fields]
+    \label{ex:gln-p}
+    Let \(p\) be a prime. Let \(G = \GL_n \para{\ZZ / p}\) be the \(n \times n\) matrices on \(\ZZ / p\) that are invertible.
+
+    We first find \(\abs{G}\) by building this invertible matrix column-wise.
+
+    \[
+        \begin{bmatrix}
+            \vert & \vert & & \vert \\
+            \vm{v}_1 & \vm{v}_2 & \cdots & \vm{v}_n \\
+            \vert & \vert & & \vert
+        \end{bmatrix}
+    \]
+
+    We have \(p^n - 1\) choices for the first column \(\vm{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vm{v}_2\), since \(\vm{v}_2 \notin \spn \brce{\vm{v}_1}\), and the span has size \(p\).
+
+    Similarly, there are \(p^n - p^2\) choices for the third column \(\vm{v}_3\), since \(\vm{v}_3 \notin \spn \brce{\vm{v}_1, \vm{v}_2}\), and the span has size \(p^2\).
+
+    Therefore,
+    \[
+        \abs{G} = \para{p^n - 1} \para{p^n - p} \cdots \para{p^n - p^{n - 1}}.
+    \]  
+
+    The largest power of \(p\) dividing \(\abs{G}\) is given by \(p^{\binom{n}{2}}\). We now attempt to find some element in \(\Syl_{p} \para{G}\).
+
+    For example,
+    \[
+        \begin{bmatrix}
+            1 & \ast & \ast   & \cdots & \ast \\
+              & 1    & \ast   & \ddots & \vdots \\
+              &      & \ddots & \ast   & \ast \\
+              &      &        & 1      & \ast \\
+            0 &      &        &        & 1 
+        \end{bmatrix}
+    \]
+    is a Sylow-\(p\) subgroup, and hence by conjugation we may find all the Sylow \(p\)-subgroups.
+\end{example}

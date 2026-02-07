@@ -1,0 +1,88 @@
+\section{Basic Concepts of Rings}
+
+Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
+
+\begin{definition}[Ring]
+    \label{def:ring}%
+    A \emph{ring} is a quintuple \(\para{R, +, \cdot, 0_R, 1_R}\) where \(R\) is a set, \(0_R, 1_R \in R\), and
+    \begin{align*}
+        \functiondomain{+&}{R \times R}{R} && \text{``addition''} \\
+        \functiondomain{\cdot&}{R \times R}{R}, && \text{``multiplication''}
+    \end{align*}
+    such that
+    \begin{itemize}
+        \item \(\para{R, +, 0_R}\) is an abelian group;
+        \item the operation \(\cdot\) is associative: for all \(a, b, c \in R\), \(a \cdot \para{b \cdot c} = \para{a \cdot b} \cdot c\);
+        \item \(1_R\) is a multiplicative identity for \(R\): for all \(a \in R\), \(1_R \cdot a = a \cdot 1_R = a\);
+        \item multiplication is distributive over addition: for all \(r_1, r_2, r_3 \in R\), \(r_1 \cdot \para{r_2 + r_3} = r_1 \cdot r_2 + r_1 \cdot r_3\), and \(\para{r_1 + r_2} \cdot r_3 = r_1 \cdot r_3 + r_2 \cdot r_3\).
+    \end{itemize}
+\end{definition}
+
+\begin{notation}
+    We will denote this as ``\(R\) is a ring''. The symbol \(-r\) will mean the additive inverse of \(r\), and note \(r - s = r + \para{-s}\).
+\end{notation}
+
+\begin{remark}
+    In this course, all rings are assumed to \emph{commutative}, that \(r_1 \cdot r_2 = r_2 \cdot r_1\) for all \(r_1, r_2 \in R\).
+\end{remark}
+
+\begin{definition}[Subring]
+    \label{def:subring}%
+    A \emph{subring} of a ring \(R\) is a subset \(S \subseteq R\), such that \(0_R, 1_R \in S\), and if \(s, s' \in S\), then \(s + s', s \cdot s'\) also lie in \(S\), and \(\para{S, +, \cdot, 0_R, 1_R}\) is a ring.
+
+    We note this as \(S \subring R\).
+\end{definition}
+
+\begin{example}[Examples of Rings]
+    \label{ex:rings}%
+    We have (the familiar number sets)
+    \[
+        \ZZ \subring \QQ \subring \RR \subring \CC
+    \]
+    are all rings.
+
+    The \emph{Gaussian Integers} is
+    \[
+        \ZZ \brac{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC.
+    \]
+
+    Similarly,
+    \[
+        \QQ \brac{\sqrt{2}} = \set{a + b \sqrt{2}}{a, b \in \QQ} \subring \RR.
+    \]
+
+    Less familiarly,
+    \[
+        \CC \ang{\epsilon} = \set{a + b\epsilon}{a, b \in \CC}
+    \]
+    with operations
+    \[
+        \para{a + b\epsilon} + \para{c + d\epsilon} = \para{a + c} + \para{b + d}\epsilon
+    \]
+    and
+    \[
+        \para{a + b\epsilon} \cdot \para{c + d\epsilon} = ac + \para{ad + bc} \epsilon,
+    \]
+    with
+    \[
+        0 = 0 + 0 \cdot \epsilon, 1 = 1 + 0 \cdot \epsilon.
+    \]
+
+    This is the ring of \emph{dual numbers}. In particular, \(\epsilon^2 = 0\) even though \(\epsilon \neq 0\).
+\end{example}
+
+\begin{definition}[Unit]
+    \label{def:unit}%
+    An element \(u \in R\) is a \emph{unit} if there exists \(v \in R\), such that \(uv = 1\).
+\end{definition}
+
+\begin{remark}
+    Note that \(2 \in \ZZ \subring \QQ\), and \(2\) is a unit in \(\QQ\), but \textbf{not in \(\ZZ\)}. A unit in a ring is not necessarily a unit in a subring: \textbf{subrings do not preserve units}.
+\end{remark}
+
+\begin{definition}[Field]
+    \label{def:field}%
+    A ring \(R\) is a \emph{field} if every non-zero element is a unit.
+\end{definition}
+
+Note that the product of units must be a unit, although their sum might not be. The units form a subgroup under multiplication.
