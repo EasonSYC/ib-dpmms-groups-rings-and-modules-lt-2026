@@ -1,0 +1,92 @@
+\section{Homomorphisms, Ideals and Quotients}
+
+\begin{definition}[Ring Homomorphism]
+    \label{def:ring-homomorphism}%
+    Let \(R\) and \(S\) be rings. A function \(\functiondomain{f}{R}{S}\) is a \emph{ring homomorphism} if
+    \begin{enumerate}
+        \item \(f\para{r_1 + r_2} = f\para{r_1} + f\para{r_2}\);
+        \item \(f\para{0} = 0\);
+        \item \(f\para{r_1 r_2} = f\para{r_1} f\para{r_2}\);
+        \item \(f\para{1} = 1\).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Point 4 is \textbf{not implied by} Point 3 (unlike Point 2 is implied by Point 1) since addition and multiplication are not symmetric -- addition gives a group structure, but multiplication does not (we cannot invert multiplication).
+\end{remark}
+
+\begin{definition}[Ring Isomorphism, Kernel, Image]
+    \label{def:ring-isomorphism-kernel-image}%
+    If \(\functiondomain{f}{R}{S}\) is a bijective ring homomorphism, it is an \emph{isomorphism}.
+
+    The kernel and image of \(f\) is the kernel and image of the corresponding group homomorphism (when the operation is restricting to addition), i.e.,
+    \[
+        \ker f = \set{r \in R}{f \para{r} = 0}
+    \]
+    and
+    \[
+        \img f = \set{s \in S}{\exists r \in R: s = f\para{r}}.
+    \]
+\end{definition}
+
+\begin{remark}
+    The inverse of a ring isomorphism is also a ring isomorphism.
+\end{remark}
+
+\begin{lemma}[Homomorphisms are Injective if and only if it has Trivial Kernel]
+    \label{lem:homomorphisms-injective-trivial-kernel}%
+    A ring homomorphism \(\functiondomain{f}{R}{S}\) is \emph{injective} if and only if \(\ker f = \brce{0}\).
+\end{lemma}
+
+\begin{proof}
+    This is implied from the statement on group homomorphisms.
+\end{proof}
+
+Recall a group homomorphism's kernel must be a \emph{normal subgroup} -- there is a very similar key notion in rings.
+
+\begin{definition}[Ideal]
+    \label{def:ideal}%
+    A subset \(I \subseteq R\) is called an \emph{ideal}, written as \(I \idealsub R\), if
+    \begin{enumerate}
+        \item \(I\) is a subgroup of \(R\) under addition; and
+        \item \emph{Absorbing Rule.} If \(a \in I\) and \(b \in R\), then \(ab \in I\).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    An ideal is not a subring, since it not necessarily contains \(1 \in R\). Indeed, if \(1 \in I \idealsub R\), then \(R = I\).
+\end{remark}
+
+\begin{lemma}[Kernels are Ideals]
+    \label{lem:kernel-are-ideal}%
+    If \(\functiondomain{\phi}{R}{S}\) is a homomorphism, then \(\ker \phi \idealsub R\) is an ideal.
+\end{lemma}
+
+\begin{proof}
+    Since \(\phi\) is a group homomorphism, \(\ker \phi\) is a subgroup under addition.
+
+    If \(a \in \ker \phi\) and \(b \in R\), then
+    \[
+        \phi\para{ab} = \phi\para{a} \cdot \phi\para{b} = 0 \cdot \phi\para{b} = 0
+    \]
+    so \(ab \in \ker \phi\), which finishes the proof.
+\end{proof}
+
+\begin{remark}
+    Let \(u \in R\) is a unit, and \(I \idealsub R\) is an ideal. If \(u \in I\), then \(I = R\). This is since \(1 = u v\) for \(u \in I\) and \(v \in R\), then \(1 \in I\).
+\end{remark}
+
+\begin{example}[Ideals of \(\ZZ\)]
+    \label{ex:ideals-of-z}%
+    Let \(\ZZ\) be the ring of integers. Then
+    \[
+        n \ZZ = \brce{\ldots, -2n, -n, 0, n, 2n, \ldots}
+    \]
+    is an ideal. In fact, every (non-zero) ideal of \(\ZZ\) has this form, for some \(n \in \ZZ\). This result follows from the subgroup structure of \(\ZZ\), but we reproduce the proof of follows to motivate an algebraic structure.
+
+    Indeed, if \(I \neq \brce{0}\), let \(n \in \ZZ\) be the smallest positive element \(n\) that lies in \(I\). We claim \(I = n\ZZ\).
+
+    By the Euclidean algorithm, \(m = q \cdot n + r\) for \(q \in \ZZ\) and \(0 \leq r < n\), but \(q \cdot n \in I\) by definition of an ideal, so \(r \in I\). If \(r \neq 0\), then this contradicts minimality. So \(r = 0\) and this finishes the proof.
+\end{example}
+
+But we may generalise this idea -- this only required the Euclidean algorithm -- and we may abstract this to algebraic structures where such an `Euclidean algorithm' exists.

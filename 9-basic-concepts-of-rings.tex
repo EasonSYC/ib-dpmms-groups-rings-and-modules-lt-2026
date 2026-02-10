@@ -86,3 +86,115 @@ Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
 \end{definition}
 
 Note that the product of units must be a unit, although their sum might not be. The units form a subgroup under multiplication.
+
+Notice that for any ring \(R\), we have \(0 + 0 = 0\), and hence using multiplication and distribution rules, for any \(r \in \RR\)
+\[
+    r \cdot 0 + r \cdot 0 = r \cdot 0
+\]
+and if we cancel terms additively, we get \(r \cdot 0 = 0\), as desired.
+
+In particular, if \(1 = 0\), then for any \(r \in R\), we have \(r = 0\) by multiplying \(r \in R\) on both sides. This gives the \emph{zero ring}.
+
+Similar to what we do with sets and groups, with the rings, we also want to construct new rings from them.
+
+\begin{definition}[Direct Product of Rings]
+    \label{def:direct-product-ring}%
+    Let \(R\), \(S\) be rings. The \emph{direct product} \(R \times S\) is a ring by addition and multiplication by coordinate, i.e.,
+    \[
+        \para{r_1, s_1} + \para{r_2, s_2} = \para{r_1 + r_2, s_1 + s_2}
+    \]
+    and
+    \[
+        \para{r_1, s_1} \cdot \para{r_2, s_2} = \para{r_1 r_2, s_1 s_2}
+    \]
+    with the identities being \(0_{R \times S} = \para{0_R, 0_S}\) and \(1_{R \times S} = \para{1_R, 1_S}\).
+\end{definition}
+
+The following is perhaps one of the most important rings.
+
+\begin{definition}[Polynomial]
+    \label{def:polynomial}%
+    Let \(R\) be a ring. A \emph{polynomial in \(x\) of coefficients in R} is an expression
+    \[
+    f\para{x} = a_0 + a_1 x + \cdots + a_n x^n,
+    \]
+    where \(a_i \in R\) and \(x^i\) are formal symbols. As convention, we may identify \(f\para{x}\) with \(f\para{x} + 0 \cdot x^{n + 1}\) (which allows us to talk about coefficients larger than \(n\)).
+    
+    The largest \(n\) such that \(a_n \neq 0\) is called \emph{the degree} of \(f\para{x}\), and as a convention, the zero polynomial has degree \(\minusinfty\).
+
+    A polynomial \(f\para{x}\) is \emph{monic} if it has degree \(n\) and \(a_n = 1\).
+\end{definition}
+
+\begin{definition}[Polynomial Ring]
+    \label{def:polynomial-ring}%
+    The \emph{polynomial ring} \(R\brac{x}\) is
+    \[
+        R \brac{x} = \set{f\para{x}}{f\para{x} \text{ is a polynomial with coefficients in }R},
+    \]
+    with the usual addition and multiplication for polynomials.
+    
+    Specifically, for
+    \[
+        f\para{x} = a_0 + a_1 x + \cdots + a_n x^n \quad \text{and} \quad g\para{x} = b_0 + b_1 x + \cdots + b_m x^m,
+    \]
+    we define
+    \[
+        f\para{x} + g\para{x} = \sum_{i = 0}^{\max\brce{m, n}} \para{a_i + b_i} x^i
+    \]
+    and
+    \[
+        f\para{x} g\para{x} = \sum_{i = 0}^{m + n} \para{\sum_{j = 0}^{i} a_j b_{i - j}} x^i.
+    \]
+\end{definition}
+
+\begin{remark}
+    For \(f \para{x} \in R\brac{x}\), not only do we get an algebraic object for the polynomial, we also get a function
+    \[
+        \function{f}{R}{R}{x}{f\para{x}}
+    \]
+    but note that this does \emph{not} give the same information as the algebraic object itself.
+\end{remark}
+
+\begin{definition}[Formal Power Series]
+    \label{def:formal-power-series}%
+    The \emph{ring of formal power series over \(R\) with variable \(x\)} is
+    \[
+        R \bbrac{x} = \set{\sum_{i = 0}^{\infty} r_i x^i}{r_i \in R}
+    \]
+    with standard operations.
+\end{definition}
+
+\(R\brac{x}\) `lives in' \(R\bbrac{x}\) -- but remember that restriction don't preserve units -- as we will see in \autoref{ex:inverse-in-power-series}!
+
+\begin{example}[Inverse in Power Series]
+    \label{ex:inverse-in-power-series}%
+    Consider the element \(\para{1 - x}\) in \(R\brac{x}\). Is this a unit?
+
+    Suppose \(g\para{x} \cdot \para{1 - x} = 1\). Then let
+    \[
+        g\para{x} = a_0 + a_1 x + \cdots + a_n x^n
+    \]
+    for \(x_n \neq 0\). Thus,
+    \[
+        \para{1 - x} g\para{x} = a_0 + x\para{a_! - a_0} + \cdots + \para{a_n - a_{n - 1}} x^n - a_n x^{n + 1}.
+    \]
+
+    But this is clearly not \(1\) by computing the \(x^{n + 1}\) coefficient.
+
+    However, if we view \(\para{1 - x} \in R\bbrac{x}\), then we have an inverse
+    \[
+        \para{1 - x} \para{1 + x + x^2 + \cdots} = 1
+    \]
+    in \(R\bbrac{x}\).
+\end{example}
+
+There is also another series that gives an interesting ring.
+
+\begin{definition}[Laurent Polynomials]
+    \label{def:laurent-polynomials}%
+    Write \(R\brac{x, x\inverse}\) for the ring of \emph{Laurent polynomials}, i.e.,
+    \[
+        f = \sum_{i = \minusinfty}^{\plusinfty} a_i x^i
+    \]
+    for \(a_i \i R\), with all but finitely many \(a_i = 0\), and with the standard operations.
+\end{definition}
