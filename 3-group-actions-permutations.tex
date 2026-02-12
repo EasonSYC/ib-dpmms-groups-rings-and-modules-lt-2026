@@ -104,7 +104,7 @@ Note that \(a\para{\phi}\) is a group action by the homomorphism property, so th
     \end{align*}
 \end{notation}
 
-By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
+By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups), we have
 \[
     G^X \isomorphic G / G_X.
 \]
@@ -130,7 +130,7 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
     \[
         \abs{G} = \abs{S_4} \cdot \abs{C_2} = 48
     \]
-    by \autoref{thm:lagrange} (Lagrange's Theorem) and \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem).
+    by \autoref{thm:lagrange} (Lagrange's Theorem) and \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
 \end{example}
 
 \begin{example}[Cayley's Theorem]
@@ -145,7 +145,7 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
         \ker\para{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \brce{e}.
     \]
 
-    So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\para{G}\) by \autoref{thm:first-isomorphism-theorem} (First Isomorphism theorem).
+    So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\para{G}\) by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
 
     This tells us that the symmetric group is \emph{very} complicated!
 \end{example}
@@ -202,7 +202,7 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
 \begin{proof}
     Consider \(\functiondomain{\phi}{G}{\Sym\para{G / H}}\) induced by the action considered in \autoref{ex:left-multiplation-cosets}. The kernel is normal in \(G\), and we let \(K = \ker \para{\phi}\). We have already shown it is contained in \(H\).
 
-    By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
+    By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups), we have
     \[
         G / K \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
     \]
@@ -223,7 +223,7 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
 
     We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
 
-    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem),
+    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups),
     \[
         G \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
     \]
@@ -234,9 +234,9 @@ By \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem), we have
     \]
     and we in fact want \(G \subgroup A_n\), i.e., \(G \cap A_n = G\).
 
-    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem} (Second Isomorphism Theorem). But \(G\) is simple, so \(G \cap A_n = \brce{e}\), or \(G \cap A_n = G\).
+    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups). But \(G\) is simple, so \(G \cap A_n = \brce{e}\), or \(G \cap A_n = G\).
 
-    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem} (Second Isomorphism Theorem), if \(G \cap A_n = \brce{e}\), we see that
+    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups), if \(G \cap A_n = \brce{e}\), we see that
     \[
         G \isomorphic G / G \cap A_n \isomorphic G A_n / A_n \leq S_n / A_n \isomorphic C_2,
     \]

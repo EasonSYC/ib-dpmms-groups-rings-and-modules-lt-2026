@@ -134,8 +134,8 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
     A group homomorphism \(\functiondomain{f}{G}{H}\) is an \emph{isomorphism} when it is a bijection. Two groups are said to be \emph{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
 \end{definition}
 
-\begin{theorem}[First Isomorphism Theorem]
-    \label{thm:first-isomorphism-theorem}%
+\begin{theorem}[First Isomorphism Theorem for Groups]
+    \label{thm:first-isomorphism-theorem-groups}%
     Let \(\functiondomain{f}{G}{H}\) be a homomorphism. Then \(\ker \para{f}\) is normal in \(G\), and the homomorphism 
     \[
         \function{\phi}{G / \ker \para{f}}{\img \para{f}}{g \ker \para{f}}{f\para{g}}
@@ -156,7 +156,7 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
     For the injectivity of \(\phi\), if \(\phi\para{g \ker f} = \phi\para{g' \ker f}\), then \(f\para{g} = f\para{g'}\), which shows that \(g' g\inverse \in \ker f\). So \(g \ker f = g' \ker f\) and this gives injectivity.
 \end{proof}
 
-\begin{example*}
+\begin{example*}[Multiplicative Group of \(\CC\)]
     Consider the homomorphism
     \[
         \function{\exp}{\CC}{\CC\multiplicative}{z}{e^z.}
@@ -168,8 +168,8 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
     \]
 \end{example*}
 
-\begin{theorem}[Second Isomorphism Theorem]
-    \label{thm:second-isomorphism-theorem}%
+\begin{theorem}[Second Isomorphism Theorem for Groups]
+    \label{thm:second-isomorphism-theorem-groups}%
     Let \(H \subgroup G\) and \(K \normalsub G\). Then
     \[
         HK = \set{hk}{h \in H, k \in K}
@@ -205,7 +205,7 @@ This theorem might seem unnatural at first, but the idea is as follows. We not o
         \ker \phi = H \cap K.
     \]
 
-    We apply the \autoref{thm:first-isomorphism-theorem} (First Isomorphism Theorem) to \(\phi\), then we have
+    We apply the \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups) to \(\phi\), then we have
     \[
         \img \phi \isomorphic H / \ker \phi = H / H \cap K.
     \]
@@ -244,8 +244,8 @@ This theorem might seem unnatural at first, but the idea is as follows. We not o
     \end{enumerate}
 \end{remark}
 
-\begin{theorem}[Third Isomorphism Theorem]
-    \label{thm:third-isomorphism-theorem}%
+\begin{theorem}[Third Isomorphism Theorem for Groups]
+    \label{thm:third-isomorphism-theorem-groups}%
     Let \(K \subgroup L \subgroup G\) be normal subgroups of \(G\). Then there exists an isomorphism
     \[
         \para{G / K} / \para{L / K} \isomorphic G / L.
@@ -265,7 +265,7 @@ This theorem might seem unnatural at first, but the idea is as follows. We not o
         \ker \phi = \set{gK}{gL = L} = \set{gK}{g \in L} = L / K.
     \]
 
-    This finishes the proof by \autoref{thm:first-isomorphism-theorem}.
+    This finishes the proof by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
 \end{proof}
 
 We often study groups by taking quotients of normal subgroups -- but this only works for groups with \emph{non-trivial} normal subgroups.
@@ -318,5 +318,5 @@ We often study groups by taking quotients of normal subgroups -- but this only w
 \end{proof}
 
 \begin{remark}
-    We also have another infinite class of finite simple groups, that \(A_m\) for \(m \geq 5\) are all simple. We will prove this shortlly.
+    We also have another infinite class of finite simple groups, that \(A_m\) for \(m \geq 5\) are all simple. We will prove this shortly.
 \end{remark}
