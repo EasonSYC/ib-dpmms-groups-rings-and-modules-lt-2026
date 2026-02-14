@@ -266,3 +266,57 @@ Similar to the isomorphism theorems we had in groups, we have them in rings as w
     \]
     as rings.
 \end{proof}
+
+\begin{remark}
+    Similar to rings, there is a correspondence for rings and ideals. Let \(I \idealsub R\) be an ideal. There is a bijection
+    \[
+        \function{f}{\brce{\text{subrings of }R / I}}{\brce{\text{subrings of }R\text{ containing }I}}{L \subring R / I}{\set{r \in R}{r + I \in L}}
+    \]
+    and the inverse is given by
+    \[
+        \function{f\inverse}{\brce{\text{subrings of }R\text{ containing }I}}{\brce{\text{subrings of }R / I}}{I \idealsub S \subring R}{S / I \subring R / I.}
+    \]
+\end{remark}
+
+\begin{theorem}[Third Isomorphism Theorem for Rings]
+    \label{thm:third-isomorphism-theorem-ring}%
+    Let \(I \idealsub R\) and \(J \idealsub R\), with \(I \subseteq J\). Then we have
+    \[
+        J / I \idealsub R / I \quad\text{and}\quad \para{R / I} / \para{J / I} \isomorphic R / J.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Define the function
+    \[
+        \function{f}{R / I}{R / J}{r + I}{r + J.}
+    \]
+
+    It is well-defined by considering this as a group homomorphism.
+
+    This is a ring homomorphism, with kernel
+    \[
+        \ker f = \set{r + I}{r + J = 0} = J / I.
+    \]
+
+    Applying \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings) gives us the result, as desired.
+\end{proof}
+
+\begin{proposition}[Ring Homomorphism from \(\ZZ\), Characteristic of a Ring]
+    \label{prop:ring-homomorphism-z-characteristic-of-ring}%
+    Let \(R\) be any ring. Then there is a homomorphism
+    \[
+        \functiondomain{i}{\ZZ}{R}
+    \]
+    sending \(1\) to \(1_R\). For \(i\), we have
+    \[
+        \ker\para{i} = n \ZZ
+    \]
+    for some \(n \in \ZZ\), where \(\abs{n}\) is known as the \emph{characteristic} of \(R\).
+\end{proposition}
+
+Therefore, \(\ZZ\) is sometimes called the \emph{initial ring}. Furthermore, note that the zero ring does \textbf{not} have any homomorphisms to another ring (not a single one) -- this is different role from the trivial group back for group homomorphism.
+
+\begin{example}[Characteristics of Commong Rings]
+    The infinite number rings \(\ZZ, \RR, \CC\) all have characteristic \(0\). The ring \(\ZZ / k\ZZ\) has characteristic \(k\).
+\end{example}

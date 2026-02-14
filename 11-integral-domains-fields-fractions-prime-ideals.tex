@@ -1,0 +1,139 @@
+\section{Integral Domains, Fields of Fractions, Prime Ideals}
+
+Notice that in the ring \(\ZZ / 6\), we have \(2 \cdot 3 = 0\) but \(2 \neq 0\) and \(3 \neq 0\).
+
+\begin{definition}[Integral Domain, Zero Divisor]
+    \label{def:integral-domain-zero-divisor}%
+    A non-zero ring \(R\) is an \emph{integral domain}, if for all \(a, b \in R\), we have
+    \[
+        a b = 0 \implies a = 0 \quad\text{or}\quad b = 0.
+    \]
+
+    A \emph{zero divisor} if a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
+\end{definition}
+
+For example, in \(\ZZ / 6\), we say both \(2\) and \(3\) are zero divisors.
+
+\begin{examples}[Examples of Integral Domains]
+    \label{ex:integral-domain}%
+    \begin{itemize}
+        \item Any field is an integral domain. Indeed, if \(a b = 0\) in a field, say \(b \neq 0\), then \(b\inverse\) exists, and
+    \[
+        a = a b b\inverse = a \cdot 0 = 0
+    \]
+    so \(a = 0\).
+        \item Similarly, any subring of a field is also an integral domain. This is really how we should think of integral domains.
+        \item The rings \(\ZZ\), \(\ZZ\brac{i}\), \(\QQ\), \(\CC\), \(\RR\brac{x}\) \(\ZZ\brac{X}\) are integral domains.
+        \item The rings \(\ZZ / 6\), \(\ZZ / \para{pq}\), \(\ZZ / 2 \times \ZZ / 2\), etc.
+        \item In particular, direct products cannot be integral domains, since \(\para{0, 1}\) and \(\para{1, 0}\) product to \(0\).
+    \end{itemize}
+\end{examples}
+
+\begin{lemma}[Finite Integral Domains are Finite Fields]
+    \label{lem:finite-integral-domain-finate-field}%
+    Let \(R\) be a finite integral domain. Then \(R\) is a field.
+\end{lemma}
+
+An example of this is \(\ZZ / p\) for a prime \(p\).
+
+\begin{proof}
+    Let \(a \in R\) be non-zero, we want to prove it is a unit. Consider the multiplication function
+    \[
+        \function{\mu_a}{R}{R}{r}{ar.}
+    \]
+
+    This is a group homomorphism for the underlying group structure. Since \(R\) is an integral domain, by definition, we have
+    \[
+        \ker \para{\mu_a} = \brce{0}.
+    \]
+
+    So \(\mu_a\) is injective. Recall that \(R\) is finite, which means \(\mu_a\) is bijective.
+
+    In particular, \(1 \in \img \para{\mu_a}\), so there is some \(b \in R\) with \(b \neq 0\), such that
+    \[
+        a \cdot b = 1
+    \]
+    so \(a\) is indeed a unit, finishing our proof.
+\end{proof}
+
+\begin{definition}[Field of Fractions]
+    \label{def:field-of-fractions}%
+    Let \(R\) be an integral domain. A \emph{field of fractions} of \(R\) is a field \(F\), such that
+    \begin{enumerate}
+        \item \(R \subring F\) is a subring, meaning there is an injective ring homomorphism from \(R\) to \(F\); and
+        \item any \(x \in F\) can be written as \(a b \inverse\), for \(a, b \in R\), and \(b\inverse\) as the multiplicative inverse of \(b\) in \(F\).
+    \end{enumerate}
+\end{definition}
+
+The first requirement is `sticking \(R\) into some field \(F\)', while the second requirement is `\(F\) is only contained of fractions in \(R\)'.
+
+\begin{example}[Field of Fractions]
+    \label{ex:field-of-fractions}
+    The field \(\QQ\) is a field of fractions of \(\ZZ\).
+\end{example}
+
+\begin{theorem}[Existence of Field of Fractions]
+    \label{thm:existence-field-of-fractions}%
+    Every integral domain \(R\) has a field of fractions.
+\end{theorem}
+
+Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings are effectively subrings. The proof is inspired by the construction of \(\QQ\) by \(\ZZ\).
+
+\begin{proof}
+    Define a set
+    \[
+        S = \set{\para{a, b} \in R \times R}{b \neq 0}.
+    \]
+
+    We define a relation \(\sim\) over \(S\), being
+    \[
+        \para{a, b} \sim \para{c, d} \iff ad = bc,
+    \]
+    where here the multiplication is in \(R\).
+
+    We want to show \(\sim\) is an equivalence relation. \emph{Symmetry} and \emph{reflective} are obvious. We conduct a non-trivial check on the \emph{transitivity}. Suppose that
+    \[
+        \para{a, b} \sim \para{c, d} \quad\text{and}\quad \para{c, d} \sim \para{e, f}.
+    \]
+
+    We have \(ad = bc\) and \(cf = de\). Multiplying the first equality by \(f\), and the second by \(b\), we have
+    \[
+        adf = bcf \quad\text{and}\quad bcf = bde,
+    \]
+    and hence \(adf = bde\). So we may rearrange and combine terms to get
+    \[
+        d \para{af - be} = 0.
+    \]
+
+    We have \(d \neq 0\), by our definition of \(S\). Using that \(R\) is an integral domain, we have \(af - be = 0\), so indeed \(af = be\), and we have \(\para{a, b} \sim \para{e, f}\).
+
+    Now, we take the equivalence classes
+    \[
+        F = S / \sim,
+    \]
+    and we denote \(\frac{a}{b} = \brac{\para{a, b}}\) for the conjugacy class. We make \(F\) a ring by the following operations.
+
+    \[
+        \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad\text{and}\quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.
+    \]
+
+    Elementary checks show that these operations are well-defined and \(F\) is a ring.
+
+    To see \(F\) is a field, note that \(\frac{a}{b} \neq 0_F\), then \(\frac{a}{b} \neq \frac{0}{1}\), so \(a \cdot 1 \neq b \cdot 0\), so \(a \neq 0\). Then \(\frac{b}{a} \in F\) is an inverse of \(\frac{a}{b}\).
+
+    Finally, we define a homomorphism
+    \[
+        \function{\phi}{R}{F}{r}{\frac{r}{1}.}
+    \]
+
+    Clearly, \(\phi\) is a ring homomorphism, and observe that
+    \[
+        \ker\para{\phi} = \set{r \in R}{\frac{r}{1} = 0} = \brce{0}.
+    \]
+
+    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\img \para{\phi} \isomorphic R\). Since every \(\frac{a}{b} \in R\) can be written as
+    \[
+        \frac{a}{b} = \frac{a}{1} \cdot \frac{1}{b} = \para{\frac{a}{1}} \cdot \para{\frac{b}{1}}\inverse
+    \]
+    so we have completed the proof.
+\end{proof}
