@@ -67,10 +67,10 @@ An example of this is \(\ZZ / p\) for a prime \(p\).
 
 The first requirement is `sticking \(R\) into some field \(F\)', while the second requirement is `\(F\) is only contained of fractions in \(R\)'.
 
-\begin{example}[Field of Fractions of \(\ZZ\)]
+\begin{example*}[Field of Fractions of \(\ZZ\)]
     \label{ex:field-of-fractions-z}%
     The field \(\QQ\) is a field of fractions of \(\ZZ\).
-\end{example}
+\end{example*}
 
 \begin{theorem}[Existence of Field of Fractions]
     \label{thm:existence-field-of-fractions}%
@@ -136,4 +136,92 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
         \frac{a}{b} = \frac{a}{1} \cdot \frac{1}{b} = \para{\frac{a}{1}} \cdot \para{\frac{b}{1}}\inverse, 
     \]
     so we have completed the proof.
+\end{proof}
+
+\begin{proposition}[Ideals of Fields]
+    \label{prop:ideals-fields}%
+    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\brce{0}\) and \(R\)/
+\end{proposition}
+
+\begin{proof}
+    Let \(R\) be a field and take some ideal \(I \idealsub R\). Say \(I \neq \brce{0}\). Then \(I\) contains a unit, say \(u \in I\). But then \(1 \in I\) since \(1 = uv\) for some \(v \in R\). So \(I = R\).
+
+    Conversely, take \(0 \neq r \in R\). Then we have \(\para{r} = R\), and hence \(1 \in R\) gives \(1 = r \cdot s\) for some \(s \in R\). So \(r\) is a unit, and \(R\) is a field.
+\end{proof}
+
+\begin{definition}[Maximal Ideal]
+    \label{def:maximal-ideal}%
+    An ideal \(I \idealsub R\) with \(I \neq R\) is \emph{maximal}, if for any \(J \idealsub R\), such that \(I \subseteq J \subseteq R\), we have either \(J = I\) or \(J = R\).
+\end{definition}
+
+Note that the zero ideal is maximal if and only if the ring itself is a field.
+
+\begin{proposition}[Ideals are Maximal if and only if Quotient is Field]
+    \label{prop:ideal-maximal-quotient-field}%
+    An ideal \(I \idealsub R\) is maximal if and only if the quotient \(R / I\) is a field.
+\end{proposition}
+
+\begin{proof}
+    \(R / I\) is a field if and only if its only ideals are the trivial ones, i.e., \(\brce{0}\) and \(R / I\) itself, by \autoref{prop:ideals-fields}.
+
+    Using the correspondence result for ideals between \(R\) and \(R / I\) finishes the proof.
+\end{proof}
+
+\begin{definition}[Prime Ideal]
+    \label{def:prime-ideal}%
+    An ideal \(I \idealsub R\) with \(I \neq R\) is \emph{prime}, if whenever \(ab \in I\), we have \(a \in I\) or \(b \in I\).
+\end{definition}
+
+\begin{example}[Prime Ideals of \(\ZZ\)]
+    \label{ex:prime-ideals-of-z}%
+    An ideal \(n\ZZ \idealsub \ZZ\) is a prime ideal if and only if \(n\) is zero, or a prime.
+    
+    Indeed, if \(ab \in p\ZZ\) for some prime \(p\), then \(ab\) is a multiple of \(p\), so either \(a\) or \(b\) is also a multiple of \(p\).
+
+    Conversely, if \(n\) is composite, consider \(n \ZZ\). Let \(n = n_1 n_2\) where \(1 < n_1, n_2 < n\). Then \(n_1\) and \(n_2\) product to a multiple of \(n\), in \(n \ZZ\), but neither are in the ideal \(n \ZZ\).
+\end{example}
+
+Note the similarity in this definition with \autoref{def:integral-domain-zero-divisor} (Integral Domain), i.e., a ring is an integral domain if and only if the zero ideal is prime.
+
+\begin{proposition}[Ideals are Prime if and only if Quotient is Integral]
+    \label{prop:ideal-prime-quotient-integral}%
+    An ideal \(I \idealsub R\) is prime if and only if \(R / I\) is an integral domain.
+\end{proposition}
+
+\begin{proof}
+    If \(I\) is prime, let \(\para{a + I}\) and \(\para{b + I}\) be cosets in \(R / I\) for some \(a, b \in R\). The product satisfies
+    \[
+        \para{a + I} \cdot \para{b + I} = ab + I = 0 + I
+    \]
+    is the zero ideal if and only if \(ab \in I\). This, since \(I\) is prime, implies that \(a \in I\) or \(b \in I\), so \(a + I = 0 + I\) or \(b + I = 0 + I\), showing that \(R / I\) is indeed integral.
+
+    Conversely, if \(R / I\) is integral, consider \(ab \in I\) where \(ab = 0\). Then
+    \[
+        ab + I = \para{a + I} \para{b + I} = 0 + I
+    \]
+    in \(R / I\) which is integral. Therefore, \(a + I = 0\) or \(b + I = 0\).
+\end{proof}
+
+\begin{proposition}[Maximal Ideals are Prime]
+    \label{prop:maximal-ideal-prime}%
+    Every maximal ideal is a prime ideal.
+\end{proposition}
+
+\begin{proof}
+    Every field is an integral domain. \autoref{prop:ideal-maximal-quotient-field} and \autoref{prop:ideal-prime-quotient-integral} implies the result.
+\end{proof}
+
+\begin{remark}
+    The converse is false. Consider the example \(\para{0} \idealsub \ZZ\), and \(\para{x} \idealsub \RR\brac{x, y}\) are both prime but not maximal.
+\end{remark}
+
+\begin{proposition}[Characteristic of Integral Domain is Zero or Prime]
+    \label{prop:characteristic-integral-domain}%
+    The characteristic of an integral domain \(R\) is either \(0\) or prime.
+\end{proposition}
+
+\begin{proof}
+    Consider the unique homomorphism \(\functiondomain{f}{{\ZZ}}{R}\). Characteristic \(n\) implies that \(\para{n} \idealsub \ZZ\) is the kernel.
+
+    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\ZZ / n \ZZ \subring R\). Then \(\ZZ / n\ZZ\) is therefore integral, and hence \(\para{n}\) must be a prime ideal.
 \end{proof}

@@ -1,0 +1,64 @@
+\section{Factorisation of Integral Domains}
+
+Throughout this section, we assume \(R\) is an integral domain.
+
+\begin{definition}[Divisor]
+    \label{def:divisor}%
+    Let \(a, b \in R\). We say \(a\) \emph{divides} \(b\), written as \(a \divides b\), if there exists some \(c \in R\), such that \(b = ac\).
+
+    Equivalently, \(a\) divides \(b\) if and only if \(\para{b} \subseteq \para{a}\).
+\end{definition}
+
+\begin{definition}[Associate]
+    \label{def:associate}%
+    Let \(a, b \in R\). We say \(a, b \in R\) are \emph{associates}, if \(a = bc\) for \(c \in R\) is a unit.
+
+    Equivalently, \(a\) and \(b\) are associates if and only if \(\para{a} = \para{b}\), and equivalently, \(a \divides b\) and \(b \divides a\).
+\end{definition}
+
+In a ring like the power series \(\RR\bbrac{x}\), then \(x\) and \(\para{x + x^2 + x^3 + \cdots}\) are associates. This is
+\[
+    x + x^2 + x^3 + \cdots = x \cdot \para{1 + x + x^2 + \cdots} = x \cdot \para{1 - x}\inverse.
+\]
+
+\begin{definition}[Irreducible]
+    \label{def:irreducible}%
+    An element \(r \in R\) is \emph{irreducible}, if \(r \neq 0\), \(r\) is not a unit, and if \(r = xy\), then \(x\) is a unit or \(y\) is a unit.
+\end{definition}
+
+\begin{definition}[Prime Element]
+    \label{def:prime-element}%
+    We say some \(p \in R\) is a \emph{prime element}, if \(p \neq 0\), \(p\) is not a unit, and if \(p \divides x \cdot y\), then \(p \divides x\) or \(p \divides y\).
+\end{definition}
+
+Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this is generally not the case.
+
+\begin{proposition}[Prime Elements and Prime Ideals]
+    \label{prop:prime-element-ideal}%
+    Let \(r \in R\). Then \(r \neq 0\) is a prime element if and only if \(\para{r}\) is a prime ideal.
+\end{proposition}
+
+\begin{proof}
+    Let \(\para{r}\) be a prime ideal. Prime ideals are not unit (by definition), so \(r\) is not a unit.
+
+    Suppose \(r \divides ab\). Then \(ab \in \para{r}\) which is prime, so \(a \in \para{r}\) or \(b \in \para{r}\), so \(r \divides a\) or \(r \divides b\).
+
+    Conversely, let \(r\) be a prime element. Now, suppose \(ab \in \para{r}\). Then \(r \divides ab\), and since \(r\) is prime, we have \(r \divides a\) and \(r \divides b\), and hence \(a \in \para{r}\) or \(b \in \para{r}\).
+\end{proof}
+
+\begin{proposition}[Primes are Irreducible]
+    Let \(r \in R\) be prime. Then \(r\) is irreducible.
+\end{proposition}
+
+\begin{proof}
+    Let \(r \in R\) be a prime, and let \(r = xy\). Since \(r \divides r\), we have \(r \divides xy\), so using the prime property, \(r \divides x\) or \(r \divides y\). Assume \(r \divides x\).
+
+    Therefore, \(x = rc\) for some \(c \in R\), and hence, we have
+    \[
+        r = xy = rcy.
+    \]
+
+    Recall that we are working in integral domains. Therefore, \(r = 0\) or \(cy = 1\). But \(r \neq 0\) by definition, so \(cy = 1\), showing \(y\) is a unit, and hence \(r\) is irreducible.
+\end{proof}
+
+The converse is false. We consider \(R = \ZZ\brac{\sqrt{-5}}\).
