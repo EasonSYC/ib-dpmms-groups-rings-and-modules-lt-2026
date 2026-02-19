@@ -62,3 +62,144 @@ Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this 
 \end{proof}
 
 The converse is false. We consider \(R = \ZZ\brac{\sqrt{-5}}\).
+
+\begin{example}[Irreducibles that are not Primes]
+    \label{ex:irreducible-not-prime}%
+    Consider the ring \(R = \ZZ\brac{\sqrt{-5}} \subring \CC\) is obviously an integral domain, since it is a subring of a field (and a field is always integral). This ring structure comes with the \emph{norm}:
+    \[
+        \function{N}{\ZZ\brac{\sqrt{-5}}}{\ZZ_{\geq 0}}{a + b \sqrt{5}}{a^2 + 5 b^2.}
+    \]
+
+    This function is multiplicative, namely \(N\para{a} N\para{b} = N\para{ab}\) for any \(a, b \in R\).
+
+    We first claim all units in \(R\) have norm \(1\). Note that if \(1 = uv\) for \(u, v \in \RR\), we have \(N\para{1} = N\para{u} \cdot N\para{v}\), so both norms have to be \(1\).
+
+    The only units are in fact \(\pm 1 \in R\), because they are indeed units, and they are the only elements with norm \(1\). 
+
+    Now, we claim that the element \(2 \in R\) is irreducible. To see this, we notice \(N\para{2} = 4\). But there are no elements \(r \in R\) with \(N\para{r} = 2\), so if \(2 = ab\) for \(a, b \in R\), then \(N\para{a} = 1\) or \(N\para{b} = 1\), so one of \(a\) or \(b\) is a unit. Therefore, \(2\) is irreducible.
+
+    By a similar argument, the numbers \(3\) and \(1 \pm \sqrt{-5}\) are all irreducible elements.
+
+    However, these four elements \textbf{are not prime}. Observe that
+    \[
+        6 = \para{1 + \sqrt{-5}} \para{1 - \sqrt{-5}} = 2 \cdot 3.
+    \]
+
+    We claim that \(2 \notdivides 1 \pm \sqrt{-5}\). If it did, then
+    \[
+        4 = N\para{2} \divides N\para{1 \pm \sqrt{-5}} = 6
+    \]
+    but this is not true. Therefore, we have \(2 \divides 6 = \para{1 + \sqrt{-5}} \para{1 - \sqrt{-5}}\), but \(2 \notdivides 1 \pm \sqrt{-5}\). Therefore, \(2\) is not prime.
+
+    We will soon see later that unique factorisation fails as well.
+\end{example}
+
+We try abstract arithmetic properties by describing them in more general algebraic objects.
+
+\begin{definition}[Euclidean Domain]
+    \label{def:euclidean-domain}%
+    An integral domain \(R\) is a \emph{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \brce{0}}{\ZZ_{\geq 0}}\), such that
+    \begin{enumerate}
+        \item \(\phi\para{ab} \geq \phi\para{b}\) for all non-zero \(a, b\); and
+        \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\para{r} \leq \phi\para{b}\).
+    \end{enumerate}
+
+    Such a function \(\phi\) is called a \emph{Euclidean function}.
+\end{definition}
+
+\begin{example*}[Examples and Non-Examples of Euclidean Domains]
+    \(\para{\ZZ, \phi = \abs{ \cdot }}\), the integers, and for any field \(K\), \(\para{K\brac{x}, \phi = \deg}\), the polynomial ring.
+
+    Note that \(\ZZ\brac{\sqrt{-5}}\) is \emph{not Euclidean}.
+\end{example*}
+
+\begin{example}[Gaussian Integers are a Euclidean Domain]
+    \label{ex:gaussian-integers-euclidean-domain}%
+    Let \(R = \ZZ\brac{i} \subring \CC\) be the \emph{Gaussian Integers}. We define the function
+    \[
+        \phi\para{z} = \abs{z}^2
+    \]
+    where \(\abs{ \cdot }\) denotes the complex norm. Note that it does satisfy the first property, so it remains to show that the division algorithm shows.
+
+    Consider \(a, b \in \ZZ\brac{i}\), and we let \(b \neq 0\). Since \(\CC\) is a field, we have \(a / b \in \CC\), then there is a point \(q \in \ZZ\brac{i}\), such that
+    \[
+        \abs{\frac{a}{b} - q} < 1,
+    \]
+    as demonstrated in \autoref{fig:div-gaussian}.
+
+    So we let \(\frac{a}{b} = q + c\) with \(\abs{c} < 1\), and hence \(a = bq + bc\). Take \(r = bc\), we know that \(r = a - bq \in \ZZ\brac{i}\), and we have
+    \[
+        \phi\para{r} = \phi\para{bc} = \abs{bc}^2 < \abs{b}^2 = \phi\para{b},
+    \]
+    so this Euclidean function satisfies the division algorithm, finishing our proof.
+\end{example}
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.3]{fig/gaussian-integers.png}
+    \caption{Division in Gaussian Integers}
+    \label{fig:div-gaussian}
+\end{figure}
+
+In particular, this means that any ideal \(I \idealsub \ZZ\brac{i}\) is principle -- recall \autoref{ex:ideals-of-z}.
+
+\begin{definition}[Principle Ideal Domain]
+    \label{def:pid}%
+    An integral domain \(R\) is a \emph{principle ideal domain} (PID) such that every ideal \(I \idealsub R\) is principle.
+\end{definition}
+
+\begin{proposition}[Euclidean Domains are PIDs]
+    \label{prop:euclidean-pid}%
+    Every Euclidean domain is a Principle Ideal Domain.
+\end{proposition}
+
+\begin{proof}
+    See \autoref{ex:ideals-of-z} and/or \autoref{prop:euclidean-algorithm-polynomials}.
+\end{proof}
+
+\begin{example}[Non-Example of PID]
+    \label{ex:non-example-pid}%
+    Let \(R = \ZZ\brac{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \para{2, x}\). We claim that this ideal is not principle.
+
+    Say \(I = \para{f}\). Then \(f \divides 2\), so \(f \in \brce{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\para{f} = \ZZ\brac{x}\). But \(\para{2, x} \neq \ZZ\brac{x}\) by looking at constant terms.
+
+    Therefore, \(f = \pm 2\). But \(2 \notdivides x\), so \(\para{f} \neq \para{2, x}\).
+\end{example}
+
+\begin{definition}[Unique Factorisation Domain]
+    \label{def:ufd}%
+    An integral domain \(R\) is a \emph{unique factorisation domain} (UFD) if:
+    \begin{enumerate}
+        \item Every non-unit in \(R\) is a product of (finitely many) irreducibles.
+        \item If \(p_1 \cdot \cdots p_n = q_1 \cdot \cdots q_m\), with all \(p_i\) and \(q_j\)s are irreducible, then \(n = m\), and after some possible re-ordering, we have \(p_i\) and \(q_i\) are associates for all \(i\).
+    \end{enumerate}
+\end{definition}
+
+We want to show that all PIDs are UFDs.
+
+\begin{lemma}[Irreducibles are Primes in PID]
+    \label{lem:irreducible-primes-pid}%
+    In a principle ideal domain, any irreducible is prime.
+\end{lemma}
+
+\begin{proof}
+    Let \(p \in R\) be irreducible, and let \(p \divides ab\) but \(p \notdivides a\). We want to show \(p \divides b\).
+
+    Consider \(\para{p, a} \idealsub R\). This is principle, so
+    \[
+        \para{d} = \para{p, a}
+    \]
+    for some \(d \in R\). So \(d \divides p\) and \(d \divides a\).
+
+    Therefore, \(p = q_1 \cdot d\), but by irreducibility of \(p\), we know either \(q_1\) is a unit, or \(d\) is a unit.
+
+    If \(q_1\) is a unit, then \(d = q\inverse p\). But \(d \divides a\), so \(p \divides a\), which gives a contradiction.
+
+    Therefore, \(d\) is a unit, so \(\para{d} = \para{1} = R\). Therefore, \(\para{p, a} = R\), so \(1 = rp + sa\).
+
+    Hence,
+    \[
+        b = r p b + s a b
+    \]
+    and \(p\) divides the right-hand side. So \(p\) divides \(b\).
+\end{proof}
