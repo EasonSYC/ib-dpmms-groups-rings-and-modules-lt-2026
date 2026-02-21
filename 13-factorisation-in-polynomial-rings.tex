@@ -1,0 +1,34 @@
+\section{Factorisation in Polynomial Rings}
+
+Recall that is \(K\) is a field, then \(K\brac{x}\) is Euclidean (recall \autoref{prop:euclidean-algorithm-polynomials}). Therefore, we have
+\begin{itemize}
+    \item any ideal \(I \idealsub K\brac{x}\) is principle (so \(I = \para{f}\)), by \autoref{prop:euclidean-pid};
+    \item \(f \in K\brac{x}\) is irreducible if and only if it is prime, by \autoref{lem:irreducible-primes-pid} and \autoref{prop:primes-are-irreducible};
+    \item let \(f\) be irreducible, and we consider \(\para{f} \idealsub K\brac{x}\). Suppose \(\para{f} \subseteq J \idealsub k\brac{x}\), then \(J = \para{g}\), so \(f = gh\). But either \(g\) and \(f\) are associates, or \(g\) is a unit. So \(\para{f}\) must be maximal. In fact, this is true for all PIDs.
+\end{itemize}
+
+In particular, for \(f \in K\brac{x}\),
+\[
+    f \text{ is irreducible} \iff K\brac{x} / \para{f} \text{ is a field}.
+\]
+
+\begin{definition}[Content of a Polynomial, Primitive Polynomials]
+    \label{def:content-polynomial-primitive}%
+    Let \(R\) be a UFD, and \(f = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n\in R\brac{x}\). The \emph{content} of \(f\) is
+    \[
+        C\para{f} = \gcd\brce{a_0, \cdots, a_n} \in R.
+    \]
+
+    If \(C\para{f}\) is a unit, then we say \(f\) is \emph{primitive}.
+\end{definition}
+
+\begin{theorem}[Gauss's Lemma]
+    \label{thm:gauss-lemma}%
+    Let \(R\) be a UFD, and \(f \in R\brac{x}\). If \(f\) is primitive, then \(f\) is irreducible in \(R \brac{x}\) if and only if \(f\) is reducible in \(F\brac{x}\), where \(F\) is a fraction field over \(R\).
+\end{theorem}
+
+Recall \autoref{def:field-of-fractions} for fraction fields.
+
+\begin{remark}
+    For example, in \(\para{2x + 2} \in \ZZ\brac{x}\) is \emph{not} primitive, since \(\gcd\brce{2, 2} = 2\) is not a unit, and is reducible. However, \(\para{2x + 2} \in \QQ\brac{x}\) \emph{is} primitive, but is irreducible.
+\end{remark}

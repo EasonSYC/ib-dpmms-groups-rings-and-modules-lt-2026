@@ -47,6 +47,7 @@ Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this 
 \end{proof}
 
 \begin{proposition}[Primes are Irreducible]
+    \label{prop:primes-are-irreducible}%
     Let \(r \in R\) be prime. Then \(r\) is irreducible.
 \end{proposition}
 
@@ -202,4 +203,78 @@ We want to show that all PIDs are UFDs.
         b = r p b + s a b
     \]
     and \(p\) divides the right-hand side. So \(p\) divides \(b\).
+\end{proof}
+
+\begin{theorem}[PIDs are UFDs]
+    \label{thm:pid-ufd}%
+    Any principle ideal domain is a unique factorisation domain.
+\end{theorem}
+
+We first prove the following. Let \(R\) be a principle ideal domain. If \(I_1 \idealsub I_2 \idealsub I_3 \idealsub \cdots\) is a chain of ideals in a chain of ideals in \(R\), there exists \(N > 0\) such that for all \(n \geq N\), we have \(I_n = I_{n + 1}\). (In \(\ZZ\), this is very familiar.)
+
+\begin{proof}
+    Consider the infinite intersection of the ideals
+    \[
+        I = \bigcup_{j \in \NN} I_j.
+    \]
+
+    This is an ideal in \(R\), and hence principle, since \(R\) is principle. Therefore, \(I = \para{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
+\end{proof}
+
+Rings that satisfy this property are \emph{Noetherian} -- we will come back to this later.
+
+\begin{proof}[of \autoref{thm:pid-ufd}]
+    First we show that \(r \in R\) is a product of irreducibles. If \(r\) is itself irreducible, then we are done.
+
+    If not, we let \(r = r_1 s_1\), where \(r_1, s_1\) are not units. If \(r_1\) and \(r_2\) be products of irreducibles, we are done. Otherwise, without loss of generality, assume \(r_1\) cannot be written as such.
+
+    Now, let \(r_1 = r_2 s_2\), where \(r_2, s_2\) are non-units. Again, suppose that \(r_2\) cannot be written as a product of irreducibles. If not, we continue, by letting \(r_2 = r_3 s_3\), where \(r_3, s_3\) are non-units.
+
+    So we get \(\para{r} \subseteq \para{r_1} \subseteq \para{r_2} \subseteq \cdots\). Therefore, by the lemma, this increasing chain of ideals stabilises, say \(\para{r_N}\).
+
+    So for \(n \geq N\), \(\para{r_n} = \para{r_{n + 1} s_{n + 1}} = \para{r_{n + 1}}\), so \(s_{n + 1}\) is a unit. This gives a contradiction.
+
+    For uniqueness, suppose that \(p_1 \cdots p_n = q_1 \cdots q_m\) are a product of irreducibles. Now, recall \autoref{lem:irreducible-primes-pid} (Irreducibles implies Primes in PID), so say \(p_1 \divides q_i\) for some \(i\). But \(q_i\) is irreducible, so \(q_i = a p_1\) for some unit \(a\).
+
+    Up to relabelling, say \(q_i = q_1\). Now, \(p_1 \cdots p_n = a \cdot p_1 q_2 \cdots q_m\). Therefore, cancelling \(p_1\), we have \(p_2 \cdots p_n = a \cdot p_2 \cdots. p_m\).
+
+    We replace \(q_2\) with \(a q_2\), and we run the procedure again. Then \(q_i\) and \(p_i\) become associated for all \(i\). This also shows that \(n = m\), since say otherwise that if \(n = m + k\) for \(k > 0\), then we get
+    \[
+        \prod_{i = m + 1}^{n} p_i
+    \]
+    is a unit, which is false.
+\end{proof}
+
+\begin{remark}
+    In any UFD, irreducibles implies primes. This follows from the factorisation.
+\end{remark}
+
+\begin{definition}[Greatest Common Divisor, Lowest Common Multiple]
+    \label{def:gcd-lcm}%
+    Let \(a_1, \ldots, a_n \in R\). We say that \(d\) is a \emph{greatest common divisor} (GCD) of them, if \(d \divides a_i\) for \(i\), and if \(d'\) is another number such that \(d' \divides a_i\) for all \(i\), then \(d' \divides d\).
+
+    Similarly, we say that \(l\) is a \emph{lowest common multiple} (LCM) of them, if \(a_i \divides m\) for all \(i\), and if \(m'\) is another number such that \(a_i \divides m'\) for all \(i\), then \(m \divides m'\).
+\end{definition}
+
+A ring where any two elements have a greatest common divisor is called a \emph{GCD domain} -- this is equivalent to the notion of a \emph{LCM domain} which is defined similarly.
+
+\begin{theorem}[UFDs are GCD Domains]
+    \label{thm:ufd-gcd}%
+    Let \(R\) be a unique factorisation domain. Then greatest common divisors and least common multiples exist and are unique, up to associates.    
+\end{theorem}
+
+\begin{proof}
+    Let \(p_1, \ldots, p_m\) be the list of all irreducible factors in the factorisations of all the \(a_i\)s, up to associates.
+
+    Let \(a_i = u_i \cdot \prod_{j = 1}^{m} p_j^{n_{i, j}}\) where \(n_{i, j} \geq 0\), and let \(m_j = \min \brce{n_{i, j}}\). We choose
+    \[
+        d = \prod_{j = 1}^{m} p_j^{m_j},
+    \]
+    then by definition, \(m_j \leq n_{i, j}\), so we know \(d \divides a_i\).
+
+    If \(d' \divides a_i\) for all \(i\), then \(d' = v \prod_{j = 1}^{n} p_j^{t_j}\) for \(v\) being a unit. We therefore must have \(t_j \leq m_j\) for all \(j\). So \(d' \divides d\).
+
+    Uniqueness is immediate, since if \(d' \divides d\), and \(d \divides d'\), then \(d\) and \(d'\) are associates. This finishes the proof for greatest common divisors.
+
+    The proof for least common multiples is identical.
 \end{proof}
