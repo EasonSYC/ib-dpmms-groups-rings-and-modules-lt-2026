@@ -32,3 +32,153 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
 \begin{remark}
     For example, in \(\para{2x + 2} \in \ZZ\brac{x}\) is \emph{not} primitive, since \(\gcd\brce{2, 2} = 2\) is not a unit, and is reducible. However, \(\para{2x + 2} \in \QQ\brac{x}\) \emph{is} primitive, but is irreducible.
 \end{remark}
+
+\begin{example}[Gauss's Lemma in \(\ZZ\brac{x}\) and \(\QQ\brac{x}\)]
+    \label{ex:application-gausss-lemma}%
+    We consider the polynomial
+    \[
+        x^3 + x + 1 \in \ZZ\brac{x}.
+    \]
+
+    The content of this polynomial is \(1\). We show this is irreducible in \(\ZZ\brac{x}\) and hence in \(\QQ\brac{x}\).
+
+    If it were reducible, we let
+    \[
+        x^3 + x + 1 = gh
+    \]
+    with \(g, h \in \ZZ\brac{x}\). Therefore, they must have degrees of at least \(1\) (using the content of the polynomials). Therefore, we choose \(g = b_0 + b_1 x\) and \(h = c_0 + c_1 x + c_2 x^2\).
+
+    Since \(x^2 + x + 1 = gh\), we have \(b_0 c_0 = 1\), \(b_1 c_2 = 1\), and so \(b_0\) and \(b_1\) are \(\pm 1\).
+    
+    This means \(\pm 1\) is a root of \(x^3 + x + 1\). But it is not by putting it into the polynomial!
+
+    Therefore, \(x^3 + x + 1\) is irreducible in \(\ZZ\brac{x}\), and hence in \(\QQ\brac{x}\) in \autoref{thm:gauss-lemma}.
+\end{example}
+
+\begin{lemma}[Gauss's Lemma on Primitivity]
+    \label{lem:gauss-lemma-primitive}
+    Let \(R\) be a UFD, and \(f, g \in R\brac{x}\). If \(f\) and \(g\) are primitive, then \(fg\) is primitive.
+\end{lemma}
+
+\begin{proof}
+    Let \(f = a_0 + a_1 x + \cdots + a_n x^n\) and \(g = b_0 + b_1 x + \cdots + b_m x^m\), with \(a_n, b_m \neq 0\) and both primitive.
+
+    Now, suppose \(c\para{fg}\) is not a unit, we may find some \(p \in R\), irreducible, with \(p \divides c\para{fg}\). By the setup, we have \(p\notdivides c\para{f}\), and \(p\notdivides c\para{g}\).
+
+    Suppose \(k\) is the smallest integer such that \(p \notdivides a_k\) and \(l\) is the smallest such that \(p \notdivides b_l\). We consider the coefficient of \(x^{k + l}\), which is given by
+    \[
+        \sum_{i + j = k + l} a_i b_j.
+    \]
+
+    By assumption, \(p\) divides this coefficient, and \(p\) divides the elements
+    \[
+        a_{k - 1} b_{l + 1}, a_{k - 2} b_{l + 2}, \ldots, a_0 b_{l + k},
+    \]
+    and
+    \[
+        a_{k + 1} b_{l - 1}, a_{k + 2} b_{l - 2}, \ldots, a_{l + k} b_0
+    \]
+    by the assumption of the minimality of \(l\) and \(k\). Therefore, \(p \divides a_k b_l\) which gives a contradiction. 
+\end{proof}
+
+\begin{corollary}[Contents are Multiplicative up to Units]
+    \label{cor:content-multiplicative}%
+    Let \(R\) be a UFD and \(f, g \in R\brac{x}\). Then \(c\para{fg}\) and \(c\para{f} \cdot c\para{g}\) are associates.
+\end{corollary}
+
+\begin{proof}
+    Let
+    \[
+        f = c\para{f} f_1, \quad g = c\para{g} g_1
+    \]
+    for \(f_1, g_1 \in R\brac{x}\), primitive, then \(fg = c\para{f} c\para{g} f_1 g_1\), but \(f_1 g_1\) is primitive by \autoref{lem:gauss-lemma-primitive}.
+
+    Since \(f_1, g_1\) are primitive, \(c\para{f} \cdot c\para{g}\) is indeed a gcd for the coefficients of \(fg\).
+\end{proof}
+
+\begin{proof}[of \autoref{thm:gauss-lemma} (Gauss's Lemma)]
+    If \(f = gh\) in \(R\brac{x}\) with \(g, h\) non-units, since \(f\) is primitive, we have \(g, h\) are also primitive. Therefore, \(\deg \para{g}, \deg\para{h} > 0\). Therefore, \(f\) is reducible in \(F\brac{x}\).
+
+    Conversely, let \(f = gh\) in \(F\brac{x}\) with \(g, h\) being non-units, so \(\deg\para{g}, \deg\para{h} > 0\). We may find \(a, b\) such that \(\para{ab}f = \para{ag} \para{bh}\), where \(\para{ag}, \para{bh} \in R\brac{x}\). (This is guaranteed by the definition, see \autoref{def:field-of-fractions}.)
+
+    Now, we can write \(\para{ag} = c\para{ag} g_1\) and \(\para{bh} = c\para{bh} h_1\), with \(g, h\) primitive.
+
+    We know since \(f\) is primitive, we have \(c\para{abf} = ab\). By \autoref{cor:content-multiplicative}, we have
+    \[
+        ab = c\para{abf} = c\para{\para{ag} \cdot \para{bh}} = c\para{ag} \cdot c\para{bh} \cdot u
+    \]
+    where \(u\) is a unit. Also,
+    \[
+        abf = c\para{ag} \cdot c\para{bh} g_1 h_1 = u\inverse ab g_1 h_1,
+    \]
+    and we cancel \(ab\), giving \(f = u\inverse g_1 h_1\), finishing the proof.
+\end{proof}
+
+\begin{proposition}[Divisibility in Polynomial Ring over Field of Fractions]
+    \label{prop:divisibility-polynomial-ring-fof}%
+    Let \(R\) be a UFD, and \(F\) be a field of fractions of \(R\). Let \(g \in R\brac{x}\) be primitive. If \(f\) is divisible by \(g\) in \(F\brac{x}\), then it is also true in \(R\brac{x}\).
+
+    In other words, let
+    \[
+        I = \para{g} \idealsub R\brac{x}, \quad J = \para{g} \idealsub F\brac{x},
+    \]
+    then \(I = J \cap R\brac{x}\).
+\end{proposition}
+
+\begin{proof}
+    Let \(f \in J \cap R\brac{x}\). Then we can write \(f = gh\) for some \(h \in F\brac{x}\). Multiplying by some \(b \in R\), we get
+    \[
+        bf = g \para{bh}
+    \]
+    now for \(\para{bh} \in R\brac{x}\). We now see
+    \[
+        \para{bh} = c\para{bh} \cdot h_1
+    \]
+    with \(h_1\) primitive. Since \(g\) is primitive, we see \(g h_1\) is primitive, so
+    \[
+        c\para{bh} = u \cdot c\para{bf}
+    \] 
+    where \(u\) is a unit. But \(c\para{bf} = b \cdot c\para{f}\), since \(b, f \in R\brac{x}\). Now, observe
+    \[
+        bf = g u b c\para{f} h_1
+    \]
+    and cancelling out the \(b\) gives divisibility as desired.
+\end{proof}
+
+\begin{theorem}[Polynomial Ring over UFD are UFDs]
+    \label{thm:poynomial-over-ufd-ufd}%
+    If \(R\) is a UFD, then \(R\brac{x}\) is a UFD.
+\end{theorem}
+
+\begin{proof}
+    Let \(f \in R\brac{x}\). We let \(f = c\para{f} \cdot f_1\).
+
+    We may first factorise the content as
+    \[
+        c\para{f} = p_1 \cdot p_2 \cdots p_n
+    \]
+    uniquely, since \(R\) is a UFD. This reduces now to proving a factorisation exists in \(f_1\), where \(f_1\) is primitive.
+
+    If \(f_1\) is irreducible, then we are done. If not, then \(f_1 = f_{11} \cdot f_{12}\) where \(f_{11}\) and \(f_{12}\) are of smaller degrees, and primitive. We continue doing the same with \(f_{11}\) and \(f_{12}\), and the process terminates until the degree drops at some step.
+    
+    Therefore, we may factorise
+    \[
+        f_1 = q_1 \cdot q_2 \cdots q_m
+    \]
+    into irreducibles. Therefore, we may factorise \(f\) as
+    \[
+        f_1 = p_1 \cdots p_n \cdot q_1 \cdots q_m
+    \]
+
+    It remains to show the uniqueness of this factorisation. The uniqueness for the \(p_i\)s follows immediately from \(R\) being a UFD, by cancelling content, up to units in \(R\). The uniqueness of the \(q_i\) is as follows. Consider two factorisations
+    \[
+        f_1 = q_1 \cdots q_m = r_1 \cdots r_l
+    \]
+    in \(R\brac{x}\).
+
+    We can view this in \(F\brac{x}\). But \(F\brac{x}\) is Euclidean, and hence a PID (by \autoref{prop:euclidean-pid}), and hence a UFD (by \autoref{thm:pid-ufd}). Therefore, \(l = m\), and up to reordering, \(r_i\)s and \(q_i\)s are associates in \(F\brac{x}\).
+
+    But by \autoref{prop:divisibility-polynomial-ring-fof}, they must also be associates in \(R\brac{x}\). This finishes our proof.
+\end{proof}
+
+Examples of UFDs now include \(\ZZ\brac{x}, \RR\brac{x, y}, F\brac{x, y}\) for a field \(F\), and \(\ZZ\brac{x_1, \ldots, x_n}\). We may start from any UFD and construct a new UFD by taking the polynomial ring. (But recall that \(\ZZ\brac{\sqrt{-5}}\) is not a UFD.)
