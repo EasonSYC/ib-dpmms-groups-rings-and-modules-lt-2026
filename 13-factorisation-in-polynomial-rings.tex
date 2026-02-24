@@ -16,10 +16,10 @@ In particular, for \(f \in K\brac{x}\),
     \label{def:content-polynomial-primitive}%
     Let \(R\) be a UFD, and \(f = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n\in R\brac{x}\). The \emph{content} of \(f\) is
     \[
-        c\para{f} = \gcd\brce{a_0, \cdots, a_n} \in R.
+        \content\para{f} = \gcd\brce{a_0, \cdots, a_n} \in R.
     \]
 
-    If \(c\para{f}\) is a unit, then we say \(f\) is \emph{primitive}.
+    If \(\content\para{f}\) is a unit, then we say \(f\) is \emph{primitive}.
 \end{definition}
 
 \begin{theorem}[Gauss's Lemma]
@@ -63,7 +63,7 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
 \begin{proof}
     Let \(f = a_0 + a_1 x + \cdots + a_n x^n\) and \(g = b_0 + b_1 x + \cdots + b_m x^m\), with \(a_n, b_m \neq 0\) and both primitive.
 
-    Now, suppose \(c\para{fg}\) is not a unit, we may find some \(p \in R\), irreducible, with \(p \divides c\para{fg}\). By the setup, we have \(p\notdivides c\para{f}\), and \(p\notdivides c\para{g}\).
+    Now, suppose \(\content\para{fg}\) is not a unit, we may find some \(p \in R\), irreducible, with \(p \divides \content\para{fg}\). By the setup, we have \(p\notdivides \content\para{f}\), and \(p\notdivides \content\para{g}\).
 
     Suppose \(k\) is the smallest integer such that \(p \notdivides a_k\) and \(l\) is the smallest such that \(p \notdivides b_l\). We consider the coefficient of \(x^{k + l}\), which is given by
     \[
@@ -83,17 +83,17 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
 
 \begin{corollary}[Contents are Multiplicative up to Units]
     \label{cor:content-multiplicative}%
-    Let \(R\) be a UFD and \(f, g \in R\brac{x}\). Then \(c\para{fg}\) and \(c\para{f} \cdot c\para{g}\) are associates.
+    Let \(R\) be a UFD and \(f, g \in R\brac{x}\). Then \(\content\para{fg}\) and \(\content\para{f} \cdot \content\para{g}\) are associates.
 \end{corollary}
 
 \begin{proof}
     Let
     \[
-        f = c\para{f} f_1, \quad g = c\para{g} g_1
+        f = \content\para{f} f_1, \quad g = \content\para{g} g_1
     \]
-    for \(f_1, g_1 \in R\brac{x}\), primitive, then \(fg = c\para{f} c\para{g} f_1 g_1\), but \(f_1 g_1\) is primitive by \autoref{lem:gauss-lemma-primitive}.
+    for \(f_1, g_1 \in R\brac{x}\), primitive, then \(fg = \content\para{f} \content\para{g} f_1 g_1\), but \(f_1 g_1\) is primitive by \autoref{lem:gauss-lemma-primitive}.
 
-    Since \(f_1, g_1\) are primitive, \(c\para{f} \cdot c\para{g}\) is indeed a gcd for the coefficients of \(fg\).
+    Since \(f_1, g_1\) are primitive, \(\content\para{f} \cdot \content\para{g}\) is indeed a gcd for the coefficients of \(fg\).
 \end{proof}
 
 \begin{proof}[of \autoref{thm:gauss-lemma} (Gauss's Lemma)]
@@ -101,15 +101,15 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
 
     Conversely, let \(f = gh\) in \(F\brac{x}\) with \(g, h\) being non-units, so \(\deg\para{g}, \deg\para{h} > 0\). We may find \(a, b\) such that \(\para{ab}f = \para{ag} \para{bh}\), where \(\para{ag}, \para{bh} \in R\brac{x}\). (This is guaranteed by the definition, see \autoref{def:field-of-fractions}.)
 
-    Now, we can write \(\para{ag} = c\para{ag} g_1\) and \(\para{bh} = c\para{bh} h_1\), with \(g, h\) primitive.
+    Now, we can write \(\para{ag} = \content\para{ag} g_1\) and \(\para{bh} = \content\para{bh} h_1\), with \(g, h\) primitive.
 
-    We know since \(f\) is primitive, we have \(c\para{abf} = ab\). By \autoref{cor:content-multiplicative}, we have
+    We know since \(f\) is primitive, we have \(\content\para{abf} = ab\). By \autoref{cor:content-multiplicative}, we have
     \[
-        ab = c\para{abf} = c\para{\para{ag} \cdot \para{bh}} = c\para{ag} \cdot c\para{bh} \cdot u
+        ab = \content\para{abf} = \content\para{\para{ag} \cdot \para{bh}} = \content\para{ag} \cdot \content\para{bh} \cdot u
     \]
     where \(u\) is a unit. Also,
     \[
-        abf = c\para{ag} \cdot c\para{bh} g_1 h_1 = u\inverse ab g_1 h_1,
+        abf = \content\para{ag} \cdot \content\para{bh} g_1 h_1 = u\inverse ab g_1 h_1,
     \]
     and we cancel \(ab\), giving \(f = u\inverse g_1 h_1\), finishing the proof.
 \end{proof}
@@ -132,15 +132,15 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
     \]
     now for \(\para{bh} \in R\brac{x}\). We now see
     \[
-        \para{bh} = c\para{bh} \cdot h_1
+        \para{bh} = \content\para{bh} \cdot h_1
     \]
     with \(h_1\) primitive. Since \(g\) is primitive, we see \(g h_1\) is primitive, so
     \[
-        c\para{bh} = u \cdot c\para{bf}
+        \content\para{bh} = u \cdot \content\para{bf}
     \] 
-    where \(u\) is a unit. But \(c\para{bf} = b \cdot c\para{f}\), since \(b, f \in R\brac{x}\). Now, observe
+    where \(u\) is a unit. But \(\content\para{bf} = b \cdot \content\para{f}\), since \(b, f \in R\brac{x}\). Now, observe
     \[
-        bf = g u b \cdot c\para{f} \cdot h_1
+        bf = g u b \cdot \content\para{f} \cdot h_1
     \]
     and cancelling out the \(b\) gives divisibility as desired.
 \end{proof}
@@ -151,11 +151,11 @@ Recall \autoref{def:field-of-fractions} for fraction fields.
 \end{theorem}
 
 \begin{proof}
-    Let \(f \in R\brac{x}\). We let \(f = c\para{f} \cdot f_1\).
+    Let \(f \in R\brac{x}\). We let \(f = \content\para{f} \cdot f_1\).
 
     We may first factorise the content as
     \[
-        c\para{f} = p_1 \cdot p_2 \cdots p_n
+        \content\para{f} = p_1 \cdot p_2 \cdots p_n
     \]
     uniquely, since \(R\) is a UFD. This reduces now to proving a factorisation exists in \(f_1\), where \(f_1\) is primitive.
 
