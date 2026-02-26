@@ -213,12 +213,12 @@ We want to show that all PIDs are UFDs.
 We first prove the following. Let \(R\) be a principle ideal domain. If \(I_1 \idealsub I_2 \idealsub I_3 \idealsub \cdots\) is a chain of ideals in a chain of ideals in \(R\), there exists \(N > 0\) such that for all \(n \geq N\), we have \(I_n = I_{n + 1}\). (In \(\ZZ\), this is very familiar.)
 
 \begin{proof}
-    Consider the infinite intersection of the ideals
+    Consider the infinite union of the ideals
     \[
         I = \bigcup_{j \in \NN} I_j.
     \]
 
-    This is an ideal in \(R\), and hence principle, since \(R\) is principle. Therefore, \(I = \para{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
+    This is an ideal in \(R\), and hence principle, since \(R\) is a principle ideal domain. Therefore, \(I = \para{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
 \end{proof}
 
 Rings that satisfy this property are \emph{Noetherian} -- we will come back to this later.
