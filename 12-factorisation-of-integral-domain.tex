@@ -236,9 +236,9 @@ Rings that satisfy this property are \emph{Noetherian} -- we will come back to t
 
     For uniqueness, suppose that \(p_1 \cdots p_n = q_1 \cdots q_m\) are a product of irreducibles. Now, recall \autoref{lem:irreducible-primes-pid} (Irreducibles implies Primes in PID), so say \(p_1 \divides q_i\) for some \(i\). But \(q_i\) is irreducible, so \(q_i = a p_1\) for some unit \(a\).
 
-    Up to relabelling, say \(q_i = q_1\). Now, \(p_1 \cdots p_n = a \cdot p_1 q_2 \cdots q_m\). Therefore, cancelling \(p_1\), we have \(p_2 \cdots p_n = a \cdot p_2 \cdots. p_m\).
+    Up to relabelling, say \(q_i = q_1\). Now, \(p_1 \cdots p_n = a \cdot p_1 \cdot q_2 \cdots q_m\). Therefore, cancelling \(p_1\), we have \(p_2 \cdots p_n = a \cdot q_2 \cdots q_m\).
 
-    We replace \(q_2\) with \(a q_2\), and we run the procedure again. Then \(q_i\) and \(p_i\) become associated for all \(i\). This also shows that \(n = m\), since say otherwise that if \(n = m + k\) for \(k > 0\), then we get
+    We replace \(a q_2\) with \(q_2\) (since \(a\) is a unit, \(a q_2\) remains to be irreducible), and we run the procedure again. Then \(q_i\) and \(p_i\) become associated for all \(i\). This also shows that \(n = m\), since say otherwise that if \(n = m + k\) for \(k > 0\), then we get
     \[
         \prod_{i = m + 1}^{n} p_i
     \]
