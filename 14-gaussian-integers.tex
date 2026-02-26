@@ -1,0 +1,74 @@
+\section{Gaussian Integers}
+
+The ring of Gaussian integers is given by
+\[
+    \ZZ\brac{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC,
+\]
+and it is equipped with a norm
+\[
+    N\para{a + ib} = a^2 + b^2.
+\]
+
+This norm enables division with remainder, as discussed in \autoref{ex:gaussian-integers-euclidean-domain}. This makes \(\ZZ\brac{i}\) a Euclidean domain (and hence a PID, and hence a UFD).
+
+We first list some results that are useful for the future.
+
+\begin{proposition}[Properties of Gaussian Integers]
+    \label{prop:properties-gaussian-integers}%
+    \begin{itemize}
+        \item Irreducibles coincides with primes in \(\ZZ\brac{i}\).
+        \item The units have norm \(1\), and they are precisely \(\pm 1\) and \(\pm i\).
+        \item Primes in \(\ZZ\) are \emph{not necessarily} primes in \(\ZZ\brac{i}\): indeed, note \(2 = \para{1 + i} \para{1 - i}\), so \(2\) is not a prime.    
+    \end{itemize}
+\end{proposition}
+
+Although \(2\) is no longer a prime, we note \(3\) is a prime, since \(N\para{3} = 9\). If \(3 = uv\) for \(u, v \in \ZZ\brac{i}\), then \(N\para{3} = 9 = N\para{u} \cdot N\para{v}\). Then either \(N\para{u}\) or \(N\para{v}\) is a unit, or \(N\para{u} = N\para{v} = 3\). But notice \(a^2 + b^2 = 3\) has no integer solutions, so it must be the former case. Hence, either \(u\) or \(v\) is a unit, so \(3\) is prime. (Likewise, \(7\) is also a prime.)
+
+\begin{proposition}[Primes in Gaussian Integers which are Integers]
+    \label{prop:prime-gaussian-int-int}%
+    A prime \(p \in \ZZ\) remains prime in \(\ZZ\brac{i}\), if and only if \(p \neq a^2 + b^2\) for \(a, b \in \ZZ \setminus \brce{0}\).
+\end{proposition}
+
+\begin{proof}
+    If \(p = a^2 + b^2\), then \(p = \para{a + ib} \para{a - ib}\) so \(p\) is not a prime.
+
+    Conversely, suppose \(p = uv\), with \(u\) and \(v\) being non-units in \(\ZZ\brac{i}\). Then \(N\para{p} = p^2 = N\para{u} \cdot N\para{v}\). Therefore, \(N\para{u} = N\para{v} = p\), so let \(u = a + ib\), then \(p = N\para{u} = a^2 + b^2\).
+\end{proof} 
+
+This is not completely conclusive -- it only talks about the primes which lie in the set \(\ZZ\brac{i} \cap \ZZ\).
+
+\begin{lemma}[Multiplicative Group of Integers modulo \(p\) is Cyclic]
+    \label{lem:multiplicative-group-int-mod-p-cyclic}%
+    Let \(p\) be a prime, and \(\FF_p \isomorphic \ZZ / p \ZZ\) be the finite field with \(p\) elements. Then the group \(\FF_p\multiplicative\) (the non-zero elements under multiplication) is cyclic, i.e., \(\FF_p\multiplicative \isomorphic C_{p - 1}\).
+\end{lemma}
+
+\begin{proof}
+    We first note that \(\FF_p\multiplicative\) is an abelian group of order \(\para{p - 1}\). Then by \autoref{thm:classification-finite-abelian-group} (Classification of Finite Abelian Groups), if \(\FF_p\multiplicative\) is not cyclic, then it contains a subgroup \(C_m \times C_n\) for \(m > 1\) as a subgroup.
+
+    Therefore, there are at least \(m^2\) elements in \(\FF_p\), such that \(x^m - 1 = 0\).
+
+    But \(x^m - 1\) can have at most \(m\) roots (as it is over a field).
+\end{proof}
+
+\begin{theorem}[Primes in Gaussian Integrs]
+    \label{thm:prime-gaussian}%
+    The primes in \(\ZZ\brac{i}\), up to associates, are given by
+    \begin{enumerate}
+        \item the primes \(p \in \ZZ\), such that \(p \equiv 3 \pmod{4}\); or
+        \item Gaussian \(z \in \ZZ\brac{i}\), with \(N\para{z} = p\) with prime \(p\), where \(p\) is \(2\), or \(p \equiv 1 \pmod{4}\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    First, we show that the given elements are indeed prime. If \(p \equiv 3 \pmod{4}\), then \(p \neq a^2 + b^2\) since \(a^2, b^2 \equiv 0 \text{ or } 1 \pmod{4}\), which tells us sum of two squares never takes value \(3\).
+
+    If \(N\para{z} = p\) and \(z = uv\), then \(N\para{u} \cdot N\para{v} = p\). So either \(u\) or \(v\) has norm \(1\), so \(z\) is irreducible.
+
+    Now, we suppose \(z \in \ZZ\brac{i}\) which is prime. Then \(\conjugate{z}\) is also irreducible. Therefore, \(N\para{z} = z \bar{z}\) is a factorisation of the norm \(N\para{z}\) into irreducibles.
+
+    Suppose now, that \(p \divides N\para{z}\) in \(\ZZ\) where \(p\) is a prime.
+    
+    If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\brac{i}\), so \(p \divides z \conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\), and therefore \(p = z\), up to associates.
+
+    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\para{z} = p\).
+\end{proof}
