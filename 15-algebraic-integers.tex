@@ -1,0 +1,93 @@
+\section{Algebraic Integers}
+
+\begin{definition}[Algebraic Integer]
+    \label{def:algebraic-integer}%
+    A complex number \(\alpha \in \CC\) is an \emph{algebraic integer} if it is the root of a monic polynomial in \(\ZZ\brac{x}\).
+
+    We define
+    \[
+        \ZZ\brac{\alpha} = \bigcap_{\alpha \in R \subring \CC} R,
+    \]
+    or equivalently, for the \emph{evaluation homomorphism}
+    \[
+        \function{e_\alpha}{\ZZ\brac{x}}{\CC}{g\para{x}}{g\para{\alpha},}
+    \]
+    we define
+    \[
+        \ZZ\brac{\alpha} = \img e_{\alpha}.
+    \]
+\end{definition}
+
+Note that \(\pi\) is not an algebraic integer, but nonetheless we may put \(\ZZ\brac{\pi}\) into this definition. However, this process never `terminates', and this process is clearly very differently behaved for such transcendental numbers and algebraic integers.
+
+\begin{proposition}[Ideal of Polynomial with an Algebraic Integer as Root is Principle]
+    \label{prop:ideal-polynomial-algebraic-integer-principle}%
+    Let \(\alpha\) be an algebraic integer. The ideal
+    \[
+        I = \ker e_{\alpha} \idealsub \ZZ\brac{x}
+    \]
+    is \emph{principle}. It is equal to \(\para{f_\alpha}\) with \(f_\alpha\) irreducible and monic.
+\end{proposition}
+
+Note this is a non-trivial result! \(\ZZ\brac{x}\) is not a PID.
+
+\begin{proof}
+    First, we note
+    \[
+        \ker e_\alpha = I
+    \]
+    is non-zero. Take \(f_\alpha \in I\) with non-trivial minimal degree. We can assume that \(f_\alpha\) is primitive, because \(\alpha\) satisfies a monic equation. We want to show \(I = \para{f_{\alpha}}\).
+
+    Let \(h \in I\). In \(\QQ\brac{x}\) we have division algorithm, so
+    \[
+        h = f_{\alpha} \cdot q + r
+    \]
+    with \(\deg\para{r} < \deg\para{f_{\alpha}}\). We clear the denominators, such that
+    \[
+        ah = af_{\alpha} \cdot q + ar
+    \]
+    for \(a \in \ZZ\). Putting in \(\alpha\), we have \(\para{ah} \para{\alpha} = 0\), and \(f_{\alpha} \para{\alpha} = 0\), so \(\para{ar} \para{\alpha} = 0\). By the minimality of the degree of \(f_\alpha\), we get \(\para{ar} = 0\) is the zero polynomial, so \(r = 0\).
+
+    Therefore, \(ah = af_{\alpha} \cdot q\). But recall \(f_{\alpha}\) is primitive. Taking contents, we have
+    \[
+        \content\para{ah} = \content\para{aq}.
+    \]
+    
+    We see that \(h \in I \idealsub \ZZ\brac{x}\), and \(a \divides \content\para{ah}\), so \(a \divides \content\para{aq}\). Therefore,
+    \[
+        aq = a \bar{q}
+    \]
+    so \(\bar{q} \in \ZZ\brac{x}\). Cancelling \(a\)s gives \(q = \bar{q}\), so \(f_\alpha\) divides \(h\) as claimed, i.e.,
+    \[
+        I = \para{f_{\alpha}}.
+    \]
+
+    It remains to show that \(f_{\alpha}\) is irreducible, note that
+    \[
+        \ZZ\brac{x} / \ker\para{e_\alpha} \isomorphic \ZZ\brac{x} / \para{f_{\alpha}} \subring \CC
+    \]
+    so \(\ZZ\brac{x} / \para{f_{\alpha}}\) is an integral domain. It follows that \(f_\alpha\) is prime, hence irreducible.
+\end{proof}
+
+\begin{example}[Algebraic Integers]
+    \label{ex:algebraic-int}%
+    Note that \(\sqrt{2}\), \(i\), \(\sqrt{-3}\) are algebraic integers. Furthermore, 
+    \[
+        \frac{1 + \sqrt{-3}}{2}
+    \]
+    is an algebraic integer, since it is a root of unity.
+\end{example}
+
+\begin{example}[Non-Algebraic Integers]
+    \label{ex:non-algebraic-int}%
+    \(\pi\), \(e\) are examples of non-algebraic integers. In fact, algebraic integers form a ring, but this is much harder to prove.
+\end{example}
+
+\begin{proposition}[Rational Algebraic Integers are Integers]
+    \label{prop:rational-algebraic-integer}%
+    Let \(\alpha \in \CC\) be an algebraic integer. If \(\alpha \in \QQ\), then \(\alpha \in \ZZ\).
+\end{proposition}
+
+\begin{proof}
+    Let \(f_\alpha\) be the minimal polynomial generating \(\ker e_\alpha\). This is irreducible over \(\ZZ\brac{x}\), so also \(\QQ\brac{x}\) by \autoref{thm:gauss-lemma} (Gauss's Lemma). But \(\para{x - \alpha}\) divides \(f_\alpha\) in \(\QQ\brac{x}\), so \(f_\alpha = x - \alpha\).
+\end{proof}

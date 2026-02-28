@@ -66,9 +66,97 @@ This is not completely conclusive -- it only talks about the primes which lie in
 
     Now, we suppose \(z \in \ZZ\brac{i}\) which is prime. Then \(\conjugate{z}\) is also irreducible. Therefore, \(N\para{z} = z \bar{z}\) is a factorisation of the norm \(N\para{z}\) into irreducibles.
 
-    Suppose now, that \(p \divides N\para{z}\) in \(\ZZ\) where \(p\) is a prime.
+    It remains to show these are all the prime in \(\ZZ\brac{i}\). Suppose now, that \(p \divides N\para{z}\) in \(\ZZ\) where \(p\) is a prime.
     
     If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\brac{i}\), so \(p \divides z \conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\), and therefore \(p = z\), up to associates.
 
-    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\para{z} = p\).
+    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\para{z} = p\). If \(p \equiv 1 \pmod{4}\) or \(2\), then \(p - 1 = 4k\) for some \(k \in \ZZ\). By \autoref{lem:multiplicative-group-int-mod-p-cyclic}, \(\FF_p\multiplicative \isomorphic C_{4k}\), and hence there is a \emph{unique} element in \(\FF_p\multiplicative\) in \(C_{4k}\) with order \(2\), namely \(\para{-1}\).
+
+    Furthermore, we know there is some \(a \in \FF_p\multiplicative\) with order \(4\). This means \(a^2 \equiv -1 \pmod{p}\), and hence \(p \divides a^2 + 1\). Hence, \(p = \para{a + i} \para{a - i}\). In other words, \(p\) is not irreducible.
+
+    Now, let \(p = z_1 z_2\), neither of which are units (since this is possible by above). Therefore,
+    \[
+        p^2 = N\para{z_1} \cdot N\para{z_2}.
+    \]
+    
+    Since neither of \(z_1, z_2\) are units, their norm must not be \(1\), and hence
+    \[
+        N\para{z_1} = N\para{z_2} = p.
+    \]
+
+    This means
+    \[
+        p = z_1 \conjugate{z_1} = z_2 \conjugate{z_2} = z_1 z_2.
+    \]
+
+    Hence, \(\conjugate{z_1} = z_2\), so \(z_1\) and \(z_2\) are complex conjugates.
+
+    Finally, we have
+    \[
+        p = z_1 \conjugate{z_1} \divides N\para{z} = z \conjugate{z}
+    \]
+    but all of \(z_1, \conjugate{z_1}, z, \conjugate{z}\) are all irreducible. This is only possible when all four of them are associates.
+
+    Hence, \(N\para{z} = p\).
 \end{proof}
+
+Note that the proof actually gives a way to find \(\alpha \in \ZZ\brac{i}\), such that \(N\para{\alpha} = p\) whenever \(p = 1 \pmod{4}\).
+
+\begin{corollary}[Integer as Sum of Two Squares]
+    \label{cor:int-sum-of-two-qaures}%
+    An integer \(n\) can be written as a sum of squares \(x^2 + y^2\) if and only if when we write \(n = p_1 ^{n_1} p_2^{n_2} \cdots p_k^{n_k}\) gives even powers of primes of the form \(4k + 3\), i.e., \(p_i \equiv 3 \pmod{4}\) implies \(n_i\) is even.
+\end{corollary}
+
+\begin{proof}
+    If \(n = x^2 + y^2\), then \(n = N\para{x + iy}\) for \(x + iy \in \ZZ\brac{i}\).
+
+    Let \(z = x + iy\) and factorise in \(\ZZ\brac{i}\) as
+    \[
+        z = \alpha_1 \alpha_2 \cdots \alpha_q
+    \]
+    into irreducibles. So either \(\alpha_i\) is a prime in \(\ZZ\) which is \(\alpha_i \equiv 3 \pmod{4}\) (which means the factor of it would double when taking the norm), or \(N\para{\alpha_i} = 2\) or \(N\para{\alpha_i} \equiv 1 \pmod{4}\).
+
+    Now we take the norm to get
+    \[
+        x^2 + y^2 = N\para{z} = \prod N\para{a_i}
+    \]
+    and each \(N\para{a_i}\) is \(p^2\) for \(p \equiv 3 \pmod{4}\), or \(N\para{\alpha_i}\) is \(p\) for \(p \equiv 1 \pmod{4}\) or \(p = 2\).
+
+    Conversely, let \(n = \prod p_i n^i\) with the given conditions. In this case, if \(p_i \equiv 3 \pmod{4}\), we have
+    \[
+        p_i^{n_i} = \para{p_i^{n_i / 2}}^2 = N\para{p_i^{n_i / 2}}.
+    \]
+
+    If \(p_i \equiv 1 \pmod{4}\) or \(p_i = 2\), then we know
+    \[
+        p_i = N \para{\alpha_i}
+    \]
+    from the proof of the theorem. The norm is multiplicative, so \(n\) is the norm of some \(z \in \ZZ\brac{i}\), which finishes the proof.
+\end{proof}
+
+\begin{example}[Expressing Integers as Sum of Two Squares]
+    \label{ex:integers-sum-of-squares}%
+    We note
+    \[
+        65 = 13 \times 5.
+    \]
+
+    Following the proof, we have
+    \[
+        13 = \para{2 + 3i} \cdot \para{2 - 3i},
+    \]
+    and
+    \[
+        5 = \para{2 + i} \cdot \para{2 - i}.
+    \]
+
+    Hence,
+    \[
+        65 = N\para{\para{2 + i} \para{2 + 3i}} = N\para{1 + 8i} = 1^2 + 8^2.
+    \]
+
+    Picking other factors may give us
+    \[
+        7^2 + 4^2 = 65.
+    \]
+\end{example}
