@@ -1,0 +1,54 @@
+\section{Basic Concepts of Modules}
+
+Let \(R\) be a ring and \(\para{M, +, 0}\) be an abelian group.
+
+\begin{definition}[\(R\)-Module]
+    \label{def:r-module}%
+    A quadruple \(\para{M, \cdot}\) is an \emph{\(R\)-module} if the operation
+    \[
+        \function{\cdot}{R \times M}{M}{\para{r, m}}{rm}
+    \]
+    satisfies the following.
+
+    \begin{enumerate}
+        \item \textit{Distributivity over Scalar.} \(\para{r_1 + r_2} m = r_1 m + r_2 m\).
+        \item \textit{Distributivity over `Vector'.} \(r \para{m_1 + m_2} = r m_1 + r m_2\).
+        \item \textit{`Associativity' in Scalar Multiplication.} \(r_1 \cdot \para{r_2 m} = \para{r_1 \cdot r_2} m\).
+        \item \textit{Unitary Condition.} \(1_{R} \cdot m = m\).
+    \end{enumerate}
+\end{definition}
+
+\begin{examples}[Examples of \(R\)-Modules]
+    \label{ex:examples-r-modules}%
+    \begin{itemize}
+        \item If \(R = k\) is a field, then an \(R\)-module \(M\) is the same thing as a \(k\)-vector space.
+        \item Any abelian group \(G\) is a \(\ZZ\)-module, by the operation
+        \[
+            n \cdot g = g^n.
+        \]
+        \item Take any ring \(R\). The product \(R^m = R \times \cdots \times R\) is an \(R\)-module, via the action
+        \[
+            \function{\cdot}{R \times R^m}{R^m}{\para{r, \para{r_1, \ldots, r_m}}}{\para{r \cdot r_1, \ldots, r \cdot r_m}.}
+        \]
+
+        [Note \(R^m\) is also equipped with a ring structure, but we do not use it here.]
+
+        \item If \(I \idealsub R\) is an ideal, then \(I\) is an \(R\)-module, via the multiplication action
+        \[
+            \function{\cdot}{R \times I}{I}{\para{r, x}}{rx.}
+        \]
+
+        Similarly, \(R / I\) is also an \(R\)-module, via the multiplication action
+        \[
+            \function{\cdot}{R \times R / I}{R / I}{\para{r, x + I}}{\para{r + I} \cdot \para{x + I}.}
+        \]
+    \end{itemize}
+\end{examples}
+
+\begin{example}[\(k\)-Vector Space as a \(k\brac{x}\)-Module]
+    \label{ex:k-vector-space-k-x-module}%
+    Let \(V\) be a \(k\)-vector space, and we fix \(\alpha \in \End\para{V}\) be an endomorphism of \(V\), i.e., a linear map \(\functiondomain{\alpha}{V}{V}\). We can make \(V\) into a \(k\brac{x}\)-module as follows
+    \[
+        \function{\cdot_{\alpha}}{k\brac{x} \times V}{V}{\para{f, \vm{v}}}{\para{f\para{\alpha} \vm{v}}.}
+    \]
+\end{example}

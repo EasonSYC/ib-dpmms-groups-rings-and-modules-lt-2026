@@ -1,0 +1,83 @@
+\section{Hilbert Basis Theorem}
+
+\begin{definition}[Noetherian Ring]
+    \label{def:noetherian-ring}%
+    A ring \(R\) is \emph{noetherian} if it satisfies the \emph{ascending chain condition (ACC)} of ideals, i.e., for any ascending chain of ideals
+    \[
+        I_1 \subseteq I_2 \subseteq \cdots
+    \]
+    in \(R\) \emph{stabilises}, i.e., there is some \(N > 0\), such that \(I_{n + 1} = I_n\) for all \(n \geq N\).
+\end{definition}
+
+Recall that an ideal is \emph{finitely generated} if it is equal to \(\para{r_1, \ldots, r_k}\) for \(r_i \in R\).
+
+\begin{proposition}[Noetherian Rings are those with Finitely Generated Ideals]
+    \label{prop:noetherian-ring-finitely-generated-ideal}%
+    A ring \(R\) is noetherian if and only if all ideals are finitely generated.
+\end{proposition}
+
+\begin{proof}
+    Suppose all ideals are finitely generated. Given any ascending chain of ideals \(I_1 \subseteq I_2 \subseteq \cdots\). Consider the union
+    \[
+        I = \bigcup_{n \in \NN} I_n
+    \]
+    which is an ideal. This is an ideal that is finitely generated, say by elemenets \(r_1, \ldots, r_k\). But there is some \(N\), such that \(r_i \in I_N\) for all \(i\). From this point onwards, for all \(j \geq N\), we have \(I_j = I_{j + 1}\), and this chain stabilises.
+
+    Conversely, if some ideal \(I\) is not finitely generated, pick \(r_1 \in I\) such that \(\para{r_1} \neq I\), then pick \(r_2 \in I \setminus \para{r_1}\),   \(r_3 \in I \setminus \para{r_1, r_2}\), etc. Then we have
+    \[
+        \para{r_1} \subsetneq \para{r_1, r_2} \subsetneq \para{r_1, r_2, r_3} \subsetneq \cdots
+    \]
+    does not stabilise.
+\end{proof}
+
+\begin{theorem}[Hilbert Basis Theorem]
+    If \(R\) is noetherian, then \(R\brac{x}\) is noetherian.
+\end{theorem}
+
+\begin{proof}
+    Suppose \(J \idealsub R\brac{x}\), we want to show \(J\) is finitely generated. Let \(f_1 \in J\) have minimal degree. If \(J = \para{f_1}\), then we are done. Suppose not, and choose \(f_2 \in J \setminus \para{f_1}\) of minimal degree.
+
+    We continue in this fashion, to produce a sequence of \(f_i\)s. Let \(a_i \in R\) be the leading coefficient of \(f_i\). We get an ascending chain of ideals
+    \[
+        \para{a_1} \subseteq \para{a_1, a_2} \subseteq \para{a_1, a_2, a_3} \subseteq \cdots
+    \]
+    which eventually stabilises, since \(R\) is increasing. This means
+    \[
+        \para{a_1, a_2, \ldots} = \para{a_1, \ldots, a_m}
+    \]
+    for some \(m > 0\). Therefore, let
+    \[
+        a_{m + 1} = \sum_{i = 1}^{m} a_i b_i
+    \]
+    for some \(b_i \in R\).
+
+    Consider the polynomial
+    \[
+        g = \sum_{i = 1}^{m} b_i f_i \cdot x^{\deg f_{m + 1} - \deg f_i},
+    \]
+    note this is allowed because of minimality of degree of \(f_i\)s.
+
+    This \(g\) has the properties, that \(g\) has the same degree as \(f_{m + 1}\), and the same leading coefficient as \(f_{m + 1}\). Then the polynomial \(\para{f_{m + 1} - g}\) has smaller degree than \(f_{m + 1}\), but it is not in the ideal \(\para{f_1, \ldots, f_m}\). This contradicts the minimality of \(\deg\para{f_{m + 1}}\).
+
+    Therefore, the process of choosing these \(f_i\)s must terminate, and this means that any ideal is finitely generated, so \(R\brac{x}\) is noetherian.
+\end{proof}
+
+\begin{examples}[Examples of Noetherian Rings]
+    \label{ex:noetherian-rings}%
+    \(\CC\brac{x}\), \(\ZZ\brac{x}\), \(\CC\brac{x_1, x_2, x_3}\), etc., are noetherian.
+\end{examples}
+
+\begin{proposition}[Quotient of Noetherian Ring by Ideal is Noetherian]
+    \label{prop:quotient-noetherian-by-ideal-noetherian}%
+    If \(R\) is noetherian, and \(I \idealsub R\), then \(R / I\) is also noetherian.
+\end{proposition}
+
+\begin{proof}
+    Let \(J \idealsub R / I\), and let \(J' \idealsub R / I\) be the corresponding ideal in \(R\). If \(r_1, \ldots, r_m\) generates \(J'\), then because \(J\) is the image (as a set) of \(J'\) under the homomorphism \(R \to R / I\), then \(r_1 + I, \ldots, r_m + I\) must generate \(J\).
+\end{proof}
+
+This gives more examples, for example, \(\CC\brac{x, y} / \para{y^2 - x^3}\), is noetherian, but not a PID.
+
+\begin{remark}
+    Although \autoref{prop:quotient-noetherian-by-ideal-noetherian} tells us that noetherian properties pass to quotients by ideals, but note that \textbf{subrings need not be noetherian}. Take \(R = \CC\brac{x_1, x_2, \ldots}\) be a polynomial ring of countably many variables. Let \(F\) be a fraction field of \(R\). \(F\) is noetherian, but \(R \subring F\) is not.
+\end{remark}
