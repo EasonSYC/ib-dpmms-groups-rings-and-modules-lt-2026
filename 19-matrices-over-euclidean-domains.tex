@@ -1,0 +1,237 @@
+\section{Matrices over Euclidean Domains}
+
+At this point of the course, we are interested in proving and generalising the previous result on finite/finitely generated abelian groups -- which are just \(\ZZ\)-modules. Furthermore, a matrix \(\vm{A}\) on \(\ZZ\) (or any Euclidean domain) gives a module homomorphism \(\functiondomain{\vm{A}}{\ZZ^m}{\ZZ^n}\) (or generally, \(\functiondomain{\vm{A}}{R^m}{R^n}\)). The groups/modules we are interested in will be \(\ZZ^n / \img \vm{A}\), since they are finitely generated, and this perspective will give us a classification.
+
+Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\functiondomain{\phi}{R \setminus \brce{0}}{\NN_0}\). By Euclid's algorithm, for \(a, b \in R\), we can find \(x, y \in R\), such that
+\[
+    ax + by = \gcd\brce{a, b}.
+\]
+
+\setcounter{MaxMatrixCols}{20}
+
+\begin{definition}[Elementary Row/Column Operations]
+    \label{def:elementary-row-column-operation}%
+    Let \(\vm{A}\) be a matrix with entries in \(R\). The \emph{elementary row operations} are the following:
+    \begin{enumerate}
+        \item Add \(c \in R\) times the \(i\)th row to the \(j\)th row, i.e., left-multiply by the matrix
+        \[
+            \begin{pmatrix}
+                1& & & &0\\
+                 &1& & & \\
+                 & &\ddots&c& \\
+                 & & &1& \\
+                0& & & &1
+            \end{pmatrix}
+        \]
+        where \(c\) is in the \(\para{j, i}\)-th position.
+
+        \item Swap rows \(i\) and \(j\), i.e., left-multiply by the matrix
+        \[
+            \begin{pmatrix}
+                1& & & & & & & & & &0\\
+                 & \ddots & & & & & & & & & \\
+                 & &1& & & & & & & & \\
+                 & & &0&0&\cdots&0&1& & & \\
+                 & & &0&1& &0&0& & & \\
+                 & & &\vdots& & \ddots & & \vdots & & & \\
+                 & & &0&0& &1&0& & & \\
+                 & & &1&0&\cdots&0&0& & & \\
+                 & & & & & & & &1& & \\
+                 & & & & & & & & & \ddots & \\
+                0& & & & & & & & & &1
+            \end{pmatrix}
+        \]
+        where the \(\para{i, j}\) and \(\para{j, i}\) entries are \(1\), and all diagonal entries are \(1\) apart from the entries \(\para{i, i}\) and \(\para{j, j}\) are \(0\).
+
+        \item Multiply row \(i\) by a \emph{unit} \(c \in R\multiplicative\), i.e., left-multiply by the matrix
+        \[
+            \begin{pmatrix}
+                1& & & & & &0\\
+                 &\ddots& & & & &\\
+                 & &1& & & & \\
+                 & & &c& & & \\
+                 & & & &1& & \\
+                 & & & & &\ddots& \\
+                0& & & & & &1  
+            \end{pmatrix} = \diag\para{1, \ldots, 1, c, 1, \ldots, 1}
+        \]
+        where \(c\) is in the \(\para{i, i}\)th position.
+    \end{enumerate}
+
+    \emph{Elementary column operations} are defined similarly.
+\end{definition}
+
+\begin{definition}[Equivalent Matrices]
+    \label{def:equivalent-matrix}%
+    Matrices \(\vm{A}\) and \(\vm{B}\) are \emph{equivalent}, if \(A\) can be obtained from \(\vm{B}\) via row/column operations. Equivalently,
+    \[
+        \vm{B} = \vm{Q} \vm{A} \vm{T}\inverse
+    \]
+    for \(\vm{Q}\) and \(\vm{T}\) invertible.
+\end{definition}
+
+Observe that the matrix
+\[
+    \begin{pmatrix}
+        2 & 0 \\ 0 & 0
+    \end{pmatrix}
+\]
+cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can always be reduced to a number of \(1\)s followed by \(0\)s in the diagonal.
+
+\begin{theorem}[Smith Normal Form]
+    \label{thm:smith-normal-form}%
+    Any \(m \times n\) matrix is equivalent to one of the form
+    \[
+        \begin{pmatrix}
+            d_1 & & & & & 0 \\
+            & \ddots & & & & & \\
+            & & d_r & & & \\
+            & & & 0 & & \\
+            & & & & \ddots & \\
+            0 & & & & & 0
+        \end{pmatrix} = \diag\para{d_1, \ldots, d_r, 0, \ldots, 0}
+    \]
+    where \(d_i \divides d_{i + 1}\). The \(d_i\)s are called the \emph{invariant factor} of the matrix.
+\end{theorem}
+
+\begin{proof}
+    Let the matrix be \(\vm{A}\). If \(\vm{A}\) is \(\zeroM\), then we are done.
+
+    So assume \(A_{i, j} \neq 0\) for some \(i, j\). Then perform row/column operations, so that \(A_{1, 1}\) is non-zero.
+
+    \begin{enumerate}
+        \item If \(A_{1, j}\) is not divisible by \(A_{1, 1}\), then we write \(A_{1, j} = q A_{1, 1} + r\) for some \(q, r \in R\), and \(\phi\para{r} < \phi\para{A_{i, i}}\). By column operations, make \(\para{i, j}\) entry equal to \(r\). Now swap so that the \(\phi\) value of \(\para{1, 1}\) reduces.
+
+        \item Similarly, we do the same for \(A_{j, 1}\) using row operations. After finitely many such moves, \(A_{1, 1}\) must divide all the first row and the first column.
+
+        By row and column operations again, we can make the first row and column zero outside the \(\para{1, 1}\) entry. This gives the matrix
+        \[
+            \begin{pmatrix}
+                d & 0 & \cdots & 0 \\
+                0 & & & \\
+                \vdots & & \vm{C} & \\
+                0 & & &
+            \end{pmatrix}
+        \]
+
+        \item Now, suppose \(A_{i, j}\) in \(\vm{C}\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\para{r}, \phi\para{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\para{i, j}\) entry. Now, swap back this \(r\) to the \(\para{1, 1}\) position, and then we have \(\phi\para{r} < \phi\para{d}\).
+
+        \item We return to 1 and 2, and replace \(\vm{A}\) with the new matrix
+        \[
+            \begin{pmatrix}
+                d' & 0 & \cdots & 0 \\
+                0 & & & \\
+                \vdots & & \vm{C}' & \\
+                0 & & &
+            \end{pmatrix}
+        \]
+        with \(\phi\para{d'} < \phi\para{r} < \phi\para{d}\). Repeat finitely many times, so eventually \(\vm{A}\) becomes
+        \[
+            \begin{pmatrix}
+                d & 0 & \cdots & 0 \\
+                0 & & & \\
+                \vdots & & \vm{C} & \\
+                0 & & &
+            \end{pmatrix},
+        \]
+        but this time with \(d \divides C_{i, j}\) for all entries \(\para{i, j}\).
+
+        \item Now, we recurse the algorithm, and the output is as claimed.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}[Minors, Fitting Ideals]
+    \label{def:minor-fit-ideals}%
+    For a matrix \(\vm{A}\), a \emph{\(k \times k\) minor} is the determinant of a \(k \times k\) sub-matrix. The \emph{\(k\)th Fitting ideal}
+    \[
+        \Fit_k \para{\vm{A}} \idealsub R
+    \]
+    is the ideal generated by the \(k \times k\) minors of \(\vm{A}\).
+\end{definition}
+
+\begin{proposition}[Row/Column Operations preserve Fitting Ideals]
+    \label{prop:row-column-operations-preserve-fit}%
+    If \(\vm{A}\) and \(\vm{B}\) are equivalent matrices, then
+    \[
+        \Fit_k \para{\vm{A}} = \Fit_k \para{\vm{B}}
+    \]
+    for all \(k\).
+\end{proposition}
+
+\begin{proof}
+    It suffices to check that individual row/column operations do not change the Fitting ideals. Since \(\Fit_k\para{\vm{A}} = \Fit_k\para{\vm{A}\transpose}\), it suffices to check this for the row operations. Swapping row are straightforward.
+
+    Consider \(\vm{C}\) a \(k \times k\) sub-matrix, and consider adding \(c\) times row \(i\) of \(\vm{A}\) to row \(j\). This gives a new sub-matrix \(\vm{C}'\). We show that \(\det\para{\vm{C}'} \in \Fit\para{\vm{A}}\).
+
+    If the \(j\)th row is outside \(\vm{C}\), then this does not change anything.
+
+    If both rows lie in \(\vm{C}\), this follows from the properties of the determinant.
+
+    Now, suppose the \(j\)th row is in \(\vm{C}\), and the \(i\)th row is not. Suppose row \(i\) is given by
+    \[
+        \begin{bmatrix}
+            f_1 & \cdots & f_k
+        \end{bmatrix}.
+    \]
+
+    Then the new row \(j\) is given by
+    \[
+        \begin{bmatrix}
+            C_{j, 1} + c f_1 & \cdots & C_{j, k} + c f_k
+        \end{bmatrix}.
+    \]
+
+    Now compute \(\det \para{\vm{C}'}\) along this row. Using the additivity of the determinant, we have
+    \[
+        \det\para{\vm{C}'} = \det\para{\vm{C}} + c \det\para{\vm{D}},
+    \]
+    where \(\vm{D}\) is obtained by row \(j\) of \(\vm{C}\) with the original row \(i\). But both \(\vm{C}\) and \(\vm{D}\) are in fact \(k \times k\) sub-matrices, so we are done.
+
+    So we concluded
+    \[
+        \Fit_k \para{\vm{B}} \subseteq \Fit_k \para{\vm{A}}.
+    \]
+
+    But such operations are invertible, so
+    \[
+        \Fit_k \para{\vm{A}} = \Fit_k \para{\vm{B}}
+    \]
+    as desired.
+\end{proof}
+
+\begin{corollary}[Fitting Ideal from Smith Normal Form, Uniqueness of Invariant Factors]
+    \label{cor:fit-ideal-snf-uniqueness-if}%
+    If \(\vm{A}\) has Smith normal form given by
+    \[
+        \diag\para{d_1, \ldots, d_r, 0, \ldots, 0},
+    \]
+    then
+    \[
+        \Fit_k \para{\vm{A}} = \para{d_1, \ldots, d_k},
+    \]
+    and in particular, the \(d_i\)s are unique, up to associates.
+\end{corollary}
+
+\begin{proposition}[Size of Generating Set of a Submodule of a Free Module]
+    \label{prop:size-generating-set-free-module}%
+    Let \(R\) be a PID. Then any submodule of \(R^m\) can be generated by \(m\) or fewer elements.
+\end{proposition}
+
+\begin{proof}
+    We proceed by induction on \(m\). Let \(N \submodule \RR^m\) be a submodule. We consider the ideal
+    \[
+        I = \set{r \in R}{\para{r, r_2, \ldots, r_m} \in N \text{ for some }r_i}.
+    \]
+
+    Observe \(I \idealsub R\). Since \(R\) is a PID, \(I = \para{a}\) for some \(a \in R\). So let
+    \[
+        n = \para{a, a_2, \ldots, a_m} \in N.
+    \]
+
+    So we know for \(\para{r_1, \ldots, r_m} \in N\), \(a \divides r_1\), and hence
+    \[
+        \para{r_1, \ldots, r_m} - r \cdot n = \para{0, r_2 - r a_2, \ldots, r_m - r a_m} \in N.
+    \]
+
+    So everything in \(N\) is a multiple of \(n\), plus something in \(N \cap \para{\brce{0} \times R^{m - 1}}\). Now we apply induction.
+\end{proof}
