@@ -1,0 +1,70 @@
+\section{Matrices over \(\FF\brac{x}\) and Normal Forms of Matrices}
+
+In a previous example, we considered a vector space \(V\) over a field \(\FF\). Fix \(\alpha \in \End\para{V}\), we may construct a \(\FF\brac{x}\) module
+\[
+    \function{\cdot}{\FF\brac{x} \times V}{V}{\para{f, v}}{f\para{\alpha} \cdot v.}
+\]
+
+We call this module \(V_{\alpha}\).
+
+If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\brac{x}\) module.
+
+\begin{example}
+    Suppose \(V_{\alpha}\) is the module
+    \[
+        V_{\alpha} \isomorphic \FF\brac{x} / \para{x^r}.
+    \]
+
+    As a \(\FF\)-vector space, the right-hand side has basis
+    \[
+        1, x, x^2, \ldots, x^{r - 1}.
+    \]  
+
+    The endomorphism \(\functiondomain{\alpha}{V}{V}\) acts as multiplication by \(x\), i.e.,
+    \[
+        \function{\alpha}{\FF\brac{x} / \para{x^r}}{\FF\brac{x} / \para{x^r}}{f}{xf.}
+    \]
+
+    Take the endomorphism in the basis \(\brce{1, x, \ldots, x^{r - 1}}\) as a matrix
+    \[
+        \alpha = \begin{pmatrix}
+            0 & 0 & \cdots & 0 & 0 & 0 \\
+            1 & 0 & \cdots & 0 & 0 & 0 \\
+            0 & 1 & \ddots & 0 & 0 & 0 \\
+            \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+            0 & 0 & \cdots & 1 & 0 & 0 \\
+            0 & 0 & \cdots & 0 & 1 & 0
+        \end{pmatrix}.
+    \]
+\end{example}
+
+\begin{example}
+    Suppose now instead
+    \[
+        V_{\alpha} \isomorphic \FF\brac{x} / \para{x - \lambda}^r.
+    \]
+
+    Now we choose \(\functiondomain{\beta}{V}{V}\) such that \(\beta = \alpha - \lambda \identity\). Then there is a basis for \(V\), where
+    \[
+        \beta = \begin{pmatrix}
+            0 & 0 & \cdots & 0 & 0 & 0 \\
+            1 & 0 & \cdots & 0 & 0 & 0 \\
+            0 & 1 & \ddots & 0 & 0 & 0 \\
+            \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+            0 & 0 & \cdots & 1 & 0 & 0 \\
+            0 & 0 & \cdots & 0 & 1 & 0
+        \end{pmatrix}.
+    \]
+
+    We note that in this basis, \(\alpha\) is a Jordan block of the form
+    \[
+        \alpha = \begin{pmatrix}
+            \lambda & 0 & \cdots & 0 & 0 & 0 \\
+            1 & \lambda & \cdots & 0 & 0 & 0 \\
+            0 & 1 & \ddots & 0 & 0 & 0 \\
+            \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+            0 & 0 & \cdots & 1 & \lambda & 0 \\
+            0 & 0 & \cdots & 0 & 1 & \lambda
+        \end{pmatrix}.
+    \]
+\end{example}
