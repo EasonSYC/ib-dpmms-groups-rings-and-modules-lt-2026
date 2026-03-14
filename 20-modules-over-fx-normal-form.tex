@@ -10,6 +10,7 @@ We call this module \(V_{\alpha}\).
 If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\brac{x}\) module.
 
 \begin{example}
+    \label{ex:lower-diagonal-1}%
     Suppose \(V_{\alpha}\) is the module
     \[
         V_{\alpha} \isomorphic \FF\brac{x} / \para{x^r}.
@@ -38,7 +39,8 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
     \]
 \end{example}
 
-\begin{example}
+\begin{example}[Jordan Block]
+    \label{ex:jordan-block}%
     Suppose now instead
     \[
         V_{\alpha} \isomorphic \FF\brac{x} / \para{x - \lambda}^r.
@@ -67,4 +69,99 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
             0 & 0 & \cdots & 0 & 1 & \lambda
         \end{pmatrix}.
     \]
+
+    This is the \emph{Jordan block} of \emph{size} \(r\) and \emph{eigenvalue} \(\lambda\), and is denoted as \(\vm{J}_{r} \para{\lambda}\).
 \end{example}
+
+\begin{example}[Companion Matrix]
+    \label{ex:companion-matrix}%
+    Suppose now
+    \[
+        V_{\alpha} \isomorphic \FF\brac{x} / p\para{x}
+    \]
+    with \(\deg p = r\). A basis for the \(\FF\)-module on the right-hand side is given by
+    \[
+        1, x, x^2, \ldots, x^{r - 1}.
+    \]
+
+    Let
+    \[
+        p\para{x} = a_0 + a_1 x + \cdots + x^r,
+    \]
+    then the matrix for the map
+    \[
+        \function{\alpha}{\FF\brac{x} / p\para{x}}{\FF\brac{x} / p\para{x}}{f}{xf}
+    \]
+    is represented by, under this basis,
+    \[
+        \alpha = \begin{pmatrix}
+            0 & 0 & \cdots & 0 & 0 & - a_0 \\
+            1 & 0 & \cdots & 0 & 0 & - a_1 \\
+            0 & 1 & \ddots & 0 & 0 & - a_2 \\
+            \vdots & \vdots & \ddots & \ddots & \vdots & \vdots \\
+            0 & 0 & \cdots & 1 & 0 & - a_{r - 2} \\
+            0 & 0 & \cdots & 0 & 1 & - a_{r - 1}
+        \end{pmatrix}.
+    \]
+
+    This is called the \emph{companion matrix} for \(p\para{x}\), and is denoted as \(\vm{C}\para{p}\).
+\end{example}
+
+\begin{theorem}[Rational Canonical Form]
+    \label{thm:rational-canonical-form}%
+    Let \(\alpha \in \End\para{V}\). Then
+    \[
+        V_{\alpha} \isomorphic \FF\brac{x} / \para{f_1} \oplus \cdots \oplus \FF\brac{x} / \para{f_s}
+    \]
+    with \(f_i \divides f_{i + 1}\).
+
+    There exists a basis of \(V\), such that
+    \[
+        \alpha = \begin{pmatrix}
+            \vm{C} \para{f_1} \\
+            & \vm{C} \para{f_2} \\
+            & & \ddots \\
+            & & & \vm{C} \para{f_s}
+        \end{pmatrix} = \diag\para{\vm{C} \para{f_1}, \ldots, \vm{C} \para{f_s}}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    We apply \autoref{thm:classification-finitely-generated-modules-euclidean-domains} (Structure Theorem for Finitely-Generated Modules over Euclidean Domains) for \(\FF\brac{x}\) and \autoref{ex:companion-matrix} (Companion Matrix).
+\end{proof}
+
+\begin{remark}
+    The \emph{minimal polynomial} of \(\alpha\) is \(f_s\), and the \emph{characteristic polynomial} of \(\alpha\) is the product of \(f_i\)s.
+\end{remark}
+
+\begin{lemma}[Fundamental Theorem of Algebra]
+    \label{lem:fundamental-theorem-of-algebra}%
+    The primes in \(\CC\brac{x}\) are exactly \(\para{x - \alpha}\) for \(\alpha \in \CC\).
+\end{lemma}
+
+\begin{theorem}[Jordan Canonical Form]
+    \label{thm:jordan-canonical-form}%
+    Let \(\alpha \in \End\para{V}\), where \(V\) is a finite-dimensional vector space over \(\CC\). Then we have
+    \[
+        V_{\alpha} \isomorphic \CC\brac{x} / \para{x - \lambda_1}^{\alpha_1} \oplus \cdots \oplus \CC\brac{x} / \para{x - \lambda_t}^{a_t}.
+    \]
+
+    There exists a basis of \(V\), such that
+    \[
+        \alpha = \begin{pmatrix}
+            \vm{J}_{a_1} \para{\lambda_1} \\
+            & \vm{J}_{a_2} \para{\lambda_2} \\
+            & & \ddots \\
+            & & & \vm{J}_{a_t} \para{\lambda_t}
+        \end{pmatrix}
+        = \diag\para{\vm{J}_{a_1} \para{\lambda_1}, \ldots, \vm{J}_{a_t} \para{\lambda_t}}.
+    \]
+\end{theorem}
+
+\begin{proof}
+    Apply \autoref{thm:primary-decomposition-classification} (Primary Decomposition of Structure Theorem) to \(V_{\alpha}\), use \autoref{lem:fundamental-theorem-of-algebra} (Fundamental Theorem of Algebra), and \autoref{ex:jordan-block} (Jordan Block).
+\end{proof}
+
+\begin{remark}
+    We chose \(\CC\) here for the complete factorisation of a polynomial, since \(\CC\) is an algebraically closed field. However, Jordan Canonical Forms do exist for \emph{real} matrices as well -- but we can only factorise them into \emph{at most} quadratics, not necessarily linear terms. Things that look like \emph{rotation matrices} will come in as Jordan blocks for those, and they look slightly messier, but it is mathematically possible.
+\end{remark}
