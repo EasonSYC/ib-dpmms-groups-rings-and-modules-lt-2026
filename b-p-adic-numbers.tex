@@ -1,0 +1,160 @@
+\section{\(p\)-Adic Numbers (Non-Examinable)}
+
+In the late 19th century, Kurt Hensel explored an analogy between the rings \(\CC\brac{x}\) and \(\ZZ\).
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|cc}
+        Properties & \(\CC\brac{x}\) & \(\ZZ\) \\
+        \hline\hline
+        Primes & \(x, x - 1, x - \alpha, \) etc. & \(2, 3, p, \) etc. \\
+        Fraction Field & \(\CC\para{x}\) & \(\QQ\) \\
+        Related Rings & \(\CC\brac{x, y}\) & \(\ZZ\brac{x}\) \\
+         & \(\CC\brac{x, y} / \para{y^2 - x^3}\) & \(\ZZ\brac{\sqrt{8}}\) \\
+        ``Completions'' & \(\CC\bbrac{x}\) & ???
+    \end{tabular}
+    \caption{Analogies between \(\CC\brac{x}\) and \(\ZZ\)}
+    \label{tab:analogy-cx-z}
+\end{table}
+
+Throughout this section, we assume \(p\) is a prime.
+
+\begin{definition}[\(p\)-Adic Integer]
+    \label{def:p-adic-integer}%
+    A \emph{\(p\)-adic integer} is a sequence \(\para{a_n}_{n = 1}^{\infty}\) such that \(a_n \in \ZZ / p^n \ZZ\), and such that the projective map
+    \[
+        \functiondomain{\pi_n}{\ZZ / p^n \ZZ}{\ZZ / p^{n - 1} \ZZ}
+    \]
+    maps \(\pi_n \para{a_n} = a_{n - 1}\).
+
+    The set of all such sequences is called the set of \emph{\(p\)-adic integers}, denoted by \(\ZZ_p\).
+\end{definition}
+
+We may equip \(\ZZ_p\) with a ring structure by term-by-term addition and multiplication, and this works because the projective maps \(\pi_n\) are ring homomorphisms.
+
+\begin{remark}
+    This is often written as an \emph{inverse limit}, and is denoted as
+    \[
+        \ZZ_p = \varprojlim \para{\ZZ / p^n \ZZ}.
+    \]
+
+    Similarly, we denote
+    \[
+        \CC\bbrac{t} = \varprojlim \para{\CC\brac{t} / t^n}.
+    \]
+\end{remark}
+
+The set \(\ZZ_p\) is uncountable, and we may embed \(\ZZ\) into \(\ZZ_p\), sending every integer \(a \in \ZZ\) into the constant sequence \(a_n \equiv a \pmod{p^n}\).
+
+\begin{proposition}[\(p\)-Adic Integers form an Integral Domain]
+    \label{prop:p-adic-integral-domain}%
+    The ring \(\ZZ_p\) is an integral domain.
+\end{proposition}
+
+\begin{proof}
+    Suppose some sequence \(\para{a_n b_n}\) is zero, the zero sequence. Then this means \(p^n\) divides \(a_n b_n\) for all \(n\). Now, suppose that \(\para{a_n}\) is non-zero, then this means that \(p^n \divides a_n\) for all but finitely many \(n\).
+
+    Let \(N \in \NN\) be such that \(p^n \notdivides a_n\) for all \(n \geq N\). Then the number of factors of \(p\) in \(a_n\) is constant (because of the projective property), say \(k < N\).
+    
+    In particular, this means that \(p^{n - k} \divides b_n\) for all \(n \geq N\), and hence, \(p^{n - k} \divides b_{n - k}\) for all \(n \geq N\). This shows that \(b\) is the zero sequence, as desired.
+\end{proof}
+
+\begin{notation}
+    We denote the field of fractions of \(\ZZ_p\) as \(\QQ_p\).
+\end{notation}
+
+We may represent the elements in \(\ZZ_p\) as \(b_0 + b_1 p + b_2 p^2 + \cdots\), where
+\[
+    b_0 = a_1, \quad b_1 = \frac{a_2 - a_1}{p}, \quad  b_2 = \frac{a_3 - a_2}{p^2}, \quad \ldots
+\]
+are all elements of \(\ZZ / p \ZZ\).
+
+This is called the \emph{\(p\)-adic expansion} for \(a \in \ZZ_p\). This turns the sequences into na\"ive arithmetic. (Note that this series, however, need not converge.)
+
+\begin{proposition}[Units in \(p\)-Adic Integers]
+    \label{prop:units-p-adic}%
+    The sequence \(a = \para{a_n} \in \ZZ_p\) is a unit, if and only if \(a_1 \nequiv 0 \pmod{p}\).
+\end{proposition}
+
+\begin{proof}
+    If \(a = b_0 + b_1 p + \cdots\) is a unit, with \(a\inverse = c_0 + c_1 p + \cdots\), then
+    \[
+        b_0 c_0 \equiv 1 \pmod{p}.
+    \]
+
+    In particular, \(b_0 = a_1\), so \(a_1 \nequiv 0 \pmod{p}\).
+
+    If given \(a_1 = b_0 \nequiv 0 \pmod{p}\), then we can simply solve linear congruences inductively to find the inverse. 
+\end{proof}
+
+Note the similarity with \(\CC\bbrac{x}\): in \(\CC\bbrac{x}\), a formal power series in \(\CC\bbrac{x}\) is a unit if and only if the constant term is non-zero.
+
+\begin{proposition}[Ideals in \(p\)-Adic Integers]
+    \label{prop:ideals-p-adic}%
+    \begin{itemize}
+        \item The ideal \(p \ZZ_p\) is maximal, hence prime.
+        \item Every \(a \in \ZZ_p \setminus \brce{0}\) can be written as \(p^k \cdot u\), where \(k \in \ZZ_{\geq 0}\) and \(u \in \ZZ_p\) is a unit.
+        \item Every ideal is of the form \(\para{p^k}\).
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+    We may check that \(\ZZ_p / p \ZZ p \isomorphic \FF_p\), the field of order \(p\).
+    
+    For any element \(a \in \ZZ_p\), let \(k \in \ZZ_{\geq 0}\) be the smallest index such that \(b_k \neq 0\), then we have
+    \[
+        a = p^k \para{b_k + b_{k + 1} p + \cdots}
+    \]
+    which is a product of a power of \(p\) and a unit, by \autoref{prop:units-p-adic}.
+
+    For the final part, note that for any ideal \(I \idealsub \ZZ_p\), let \(a \in I\) be an element with the smallest \(k\) as defined for the previous part. Then \(a = p^k u\) with \(u\) a unit, and hence \(\para{p^k} \subseteq I\). By the minimality of \(k\), we have \(I \subseteq \para{p^k}\). This finishes the proof.
+\end{proof}
+
+\begin{theorem}[Hensel's Lemma]
+    \label{thm:hensel-lemma}%
+    Let \(F\para{x}\) be the polynomial
+    \[
+        a_0 + a_1 x + \cdots + a_n x^n
+    \]
+    for \(a_i \in \ZZ_p\). Suppose that there exists \(\alpha_1 \in \ZZ_p\) such that
+    \[
+        F\para{\alpha_1} \equiv 0 \pmod{p}, \quad \text{and} \quad F'\para{\alpha_1} \nequiv 0 \pmod{p}.
+    \]
+
+    Then there is a unique \(p\)-adic root to \(F \equiv 0 \pmod{p}\).
+\end{theorem}
+
+\begin{proof}
+    This is essentially Newton's Method from analysis. We want to construct \(\alpha_1, \alpha_2, \ldots\) such that for all \(n \geq 1\), we have
+    \[
+        F\para{\alpha_n} = 0 \pmod{p^n}, \quad \text{and} \quad \alpha_{n + 1} \equiv \alpha_n \pmod{p^n}.
+    \]
+
+    Given \(\alpha_n\) with \(F\para{\alpha_n} \equiv 0 \pmod{p^n}\), we let \(a_{n + 1} = a_n + b_n p^n\). Expanding \(F\) around \(\alpha_n\), we have
+    \[
+        F\para{\alpha_n + b_n p^n} = F\para{\alpha_n} + F'\para{\alpha_n} \cdot b_n p^n + \bigO\para{b_n^2 p^{2n}},
+    \]
+    but the remainder terms are zero modulo \(p^{n + 1}\), since \(2n \geq n + 1\). Hence, in modulo \(p^{n + 1}\), we have
+    \[
+        F\para{\alpha_n + b_n p^n} \equiv F\para{\alpha_n} + F'\para{\alpha_n} \cdot b_n p^n \pmod{p^{n + 1}}.
+    \]
+
+    Let \(F\para{\alpha_n} = p^n x\) for some \(x \in \ZZ_p\). Then letting
+    \[
+        b_n \equiv -x \cdot F'\para{\alpha_n}\inverse \pmod{p}
+    \]
+    gives a solution. This is solvable since \(F'\para{\alpha_n} \equiv F'\para{\alpha_1} \pmod{p}\).
+\end{proof}
+
+For example, for the polynomial \(F\para{x} = x^2 + 1\), we have \(F'\para{x} = 2x\). Note that \(\alpha_1 = 2\) satisfies the condition in \autoref{thm:hensel-lemma} (Hensel's Lemma). Hence, there is some unique \(5\)-adic integer \(\alpha\) with \(\alpha^2 = -1\).
+
+\begin{theorem}[Hasse--Minkowski]
+    \label{thm:hasse-minkowski}%
+    Let \(q\para{x_1, \ldots, x_n}\) be a quadratic polynomial over \(\QQ\) with no constant/linear terms. Then \(q\) has a non-trivial solution over \(\QQ\), if and only if it has solutions over \(\RR\) and over \(\QQ_p\) for all primes \(p\).
+\end{theorem}
+
+Some cool consequences of this theorem include that:
+\begin{itemize}
+    \item a natural number is the sum of three squares, if and only if it is not of the form \(4^a \para{8b - 1}\); and
+    \item any natural number can be written as the sum of four squares (Lagrange's Four-Square Theorem).
+\end{itemize} 
