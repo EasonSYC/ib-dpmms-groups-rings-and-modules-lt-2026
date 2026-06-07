@@ -1,25 +1,25 @@
 \section{Basic Concepts of Rings}
 
-Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
+Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x}\).
 
 \begin{definition}[Ring]
     \label{def:ring}%
-    A \emph{ring} is a quintuple \(\para{R, +, \cdot, 0_R, 1_R}\) where \(R\) is a set, \(0_R, 1_R \in R\), and
+    A \emph{ring} is a quintuple \(\pqty{R, +, \cdot, 0_R, 1_R}\) where \(R\) is a set, \(0_R, 1_R \in R\), and
     \begin{align*}
         \functiondomain{+&}{R \times R}{R} && \text{``addition''} \\
         \functiondomain{\cdot&}{R \times R}{R}, && \text{``multiplication''}
     \end{align*}
     such that
     \begin{itemize}
-        \item \(\para{R, +, 0_R}\) is an abelian group;
-        \item the operation \(\cdot\) is associative: for all \(a, b, c \in R\), \(a \cdot \para{b \cdot c} = \para{a \cdot b} \cdot c\);
+        \item \(\pqty{R, +, 0_R}\) is an abelian group;
+        \item the operation \(\cdot\) is associative: for all \(a, b, c \in R\), \(a \cdot \pqty{b \cdot c} = \pqty{a \cdot b} \cdot c\);
         \item \(1_R\) is a multiplicative identity for \(R\): for all \(a \in R\), \(1_R \cdot a = a \cdot 1_R = a\);
-        \item multiplication is distributive over addition: for all \(r_1, r_2, r_3 \in R\), \(r_1 \cdot \para{r_2 + r_3} = r_1 \cdot r_2 + r_1 \cdot r_3\), and \(\para{r_1 + r_2} \cdot r_3 = r_1 \cdot r_3 + r_2 \cdot r_3\).
+        \item multiplication is distributive over addition: for all \(r_1, r_2, r_3 \in R\), \(r_1 \cdot \pqty{r_2 + r_3} = r_1 \cdot r_2 + r_1 \cdot r_3\), and \(\pqty{r_1 + r_2} \cdot r_3 = r_1 \cdot r_3 + r_2 \cdot r_3\).
     \end{itemize}
 \end{definition}
 
 \begin{notation}
-    We will denote this as ``\(R\) is a ring''. The symbol \(-r\) will mean the additive inverse of \(r\), and note \(r - s = r + \para{-s}\).
+    We will denote this as ``\(R\) is a ring''. The symbol \(-r\) will mean the additive inverse of \(r\), and note \(r - s = r + \pqty{-s}\).
 \end{notation}
 
 \begin{remark}
@@ -28,7 +28,7 @@ Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
 
 \begin{definition}[Subring]
     \label{def:subring}%
-    A \emph{subring} of a ring \(R\) is a subset \(S \subseteq R\), such that \(0_R, 1_R \in S\), and if \(s, s' \in S\), then \(s + s', s \cdot s'\) also lie in \(S\), and \(\para{S, +, \cdot, 0_R, 1_R}\) is a ring.
+    A \emph{subring} of a ring \(R\) is a subset \(S \subseteq R\), such that \(0_R, 1_R \in S\), and if \(s, s' \in S\), then \(s + s', s \cdot s'\) also lie in \(S\), and \(\pqty{S, +, \cdot, 0_R, 1_R}\) is a ring.
 
     We note this as \(S \subring R\).
 \end{definition}
@@ -43,12 +43,12 @@ Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
 
     The \emph{Gaussian Integers} is
     \[
-        \ZZ \brac{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC.
+        \ZZ \bqty{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC.
     \]
 
     Similarly,
     \[
-        \QQ \brac{\sqrt{2}} = \set{a + b \sqrt{2}}{a, b \in \QQ} \subring \RR.
+        \QQ \bqty{\sqrt{2}} = \set{a + b \sqrt{2}}{a, b \in \QQ} \subring \RR.
     \]
 
     Less familiarly,
@@ -57,11 +57,11 @@ Good examples of rings to keep in mind are \(\ZZ, \ZZ / n, \RR \brac{x}\).
     \]
     with operations
     \[
-        \para{a + b\epsilon} + \para{c + d\epsilon} = \para{a + c} + \para{b + d}\epsilon
+        \pqty{a + b\epsilon} + \pqty{c + d\epsilon} = \pqty{a + c} + \pqty{b + d}\epsilon
     \]
     and
     \[
-        \para{a + b\epsilon} \cdot \para{c + d\epsilon} = ac + \para{ad + bc} \epsilon,
+        \pqty{a + b\epsilon} \cdot \pqty{c + d\epsilon} = ac + \pqty{ad + bc} \epsilon,
     \]
     with
     \[
@@ -101,13 +101,13 @@ Similar to what we do with sets and groups, with the rings, we also want to cons
     \label{def:direct-product-ring}%
     Let \(R\), \(S\) be rings. The \emph{direct product} \(R \times S\) is a ring by addition and multiplication by coordinate, i.e.,
     \[
-        \para{r_1, s_1} + \para{r_2, s_2} = \para{r_1 + r_2, s_1 + s_2}
+        \pqty{r_1, s_1} + \pqty{r_2, s_2} = \pqty{r_1 + r_2, s_1 + s_2}
     \]
     and
     \[
-        \para{r_1, s_1} \cdot \para{r_2, s_2} = \para{r_1 r_2, s_1 s_2}
+        \pqty{r_1, s_1} \cdot \pqty{r_2, s_2} = \pqty{r_1 r_2, s_1 s_2}
     \]
-    with the identities being \(0_{R \times S} = \para{0_R, 0_S}\) and \(1_{R \times S} = \para{1_R, 1_S}\).
+    with the identities being \(0_{R \times S} = \pqty{0_R, 0_S}\) and \(1_{R \times S} = \pqty{1_R, 1_S}\).
 \end{definition}
 
 The following is perhaps one of the most important rings.
@@ -116,41 +116,41 @@ The following is perhaps one of the most important rings.
     \label{def:polynomial}%
     Let \(R\) be a ring. A \emph{polynomial in \(x\) of coefficients in R} is an expression
     \[
-    f\para{x} = a_0 + a_1 x + \cdots + a_n x^n,
+    f\pqty{x} = a_0 + a_1 x + \cdots + a_n x^n,
     \]
-    where \(a_i \in R\) and \(x^i\) are formal symbols. As convention, we may identify \(f\para{x}\) with \(f\para{x} + 0 \cdot x^{n + 1}\) (which allows us to talk about coefficients larger than \(n\)).
+    where \(a_i \in R\) and \(x^i\) are formal symbols. As convention, we may identify \(f\pqty{x}\) with \(f\pqty{x} + 0 \cdot x^{n + 1}\) (which allows us to talk about coefficients larger than \(n\)).
     
-    The largest \(n\) such that \(a_n \neq 0\) is called \emph{the degree} of \(f\para{x}\), and as a convention, the zero polynomial has degree \(\minusinfty\).
+    The largest \(n\) such that \(a_n \neq 0\) is called \emph{the degree} of \(f\pqty{x}\), and as a convention, the zero polynomial has degree \(\minusinfty\).
 
-    A polynomial \(f\para{x}\) is \emph{monic} if it has degree \(n\) and \(a_n = 1\).
+    A polynomial \(f\pqty{x}\) is \emph{monic} if it has degree \(n\) and \(a_n = 1\).
 \end{definition}
 
 \begin{definition}[Polynomial Ring]
     \label{def:polynomial-ring}%
-    The \emph{polynomial ring} \(R\brac{x}\) is
+    The \emph{polynomial ring} \(R\bqty{x}\) is
     \[
-        R \brac{x} = \set{f\para{x}}{f\para{x} \text{ is a polynomial with coefficients in }R},
+        R \bqty{x} = \set{f\pqty{x}}{f\pqty{x} \text{ is a polynomial with coefficients in }R},
     \]
     with the usual addition and multiplication for polynomials.
     
     Specifically, for
     \[
-        f\para{x} = a_0 + a_1 x + \cdots + a_n x^n \quad \text{and} \quad g\para{x} = b_0 + b_1 x + \cdots + b_m x^m,
+        f\pqty{x} = a_0 + a_1 x + \cdots + a_n x^n \qand g\pqty{x} = b_0 + b_1 x + \cdots + b_m x^m,
     \]
     we define
     \[
-        f\para{x} + g\para{x} = \sum_{i = 0}^{\max\brce{m, n}} \para{a_i + b_i} x^i
+        f\pqty{x} + g\pqty{x} = \sum_{i = 0}^{\max\Bqty{m, n}} \pqty{a_i + b_i} x^i
     \]
     and
     \[
-        f\para{x} g\para{x} = \sum_{i = 0}^{m + n} \para{\sum_{j = 0}^{i} a_j b_{i - j}} x^i.
+        f\pqty{x} g\pqty{x} = \sum_{i = 0}^{m + n} \pqty{\sum_{j = 0}^{i} a_j b_{i - j}} x^i.
     \]
 \end{definition}
 
 \begin{remark}
-    For \(f \para{x} \in R\brac{x}\), not only do we get an algebraic object for the polynomial, we also get a function
+    For \(f \pqty{x} \in R\bqty{x}\), not only do we get an algebraic object for the polynomial, we also get a function
     \[
-        \function{f}{R}{R}{x}{f\para{x}}
+        \function{f}{R}{R}{x}{f\pqty{x}}
     \]
     but note that this does \emph{not} give the same information as the algebraic object itself.
 \end{remark}
@@ -164,26 +164,26 @@ The following is perhaps one of the most important rings.
     with standard operations.
 \end{definition}
 
-\(R\brac{x}\) `lives in' \(R\bbrac{x}\) -- but remember that restriction don't preserve units -- as we will see in \autoref{ex:inverse-in-power-series}!
+\(R\bqty{x}\) `lives in' \(R\bbrac{x}\) -- but remember that restriction don't preserve units -- as we will see in \autoref{ex:inverse-in-power-series}!
 
 \begin{example}[Inverse in Power Series]
     \label{ex:inverse-in-power-series}%
-    Consider the element \(\para{1 - x}\) in \(R\brac{x}\). Is this a unit?
+    Consider the element \(\pqty{1 - x}\) in \(R\bqty{x}\). Is this a unit?
 
-    Suppose \(g\para{x} \cdot \para{1 - x} = 1\). Then let
+    Suppose \(g\pqty{x} \cdot \pqty{1 - x} = 1\). Then let
     \[
-        g\para{x} = a_0 + a_1 x + \cdots + a_n x^n
+        g\pqty{x} = a_0 + a_1 x + \cdots + a_n x^n
     \]
     for \(x_n \neq 0\). Thus,
     \[
-        \para{1 - x} g\para{x} = a_0 + x\para{a_! - a_0} + \cdots + \para{a_n - a_{n - 1}} x^n - a_n x^{n + 1}.
+        \pqty{1 - x} g\pqty{x} = a_0 + x\pqty{a_! - a_0} + \cdots + \pqty{a_n - a_{n - 1}} x^n - a_n x^{n + 1}.
     \]
 
     But this is clearly not \(1\) by computing the \(x^{n + 1}\) coefficient.
 
-    However, if we view \(\para{1 - x} \in R\bbrac{x}\), then we have an inverse
+    However, if we view \(\pqty{1 - x} \in R\bbrac{x}\), then we have an inverse
     \[
-        \para{1 - x} \para{1 + x + x^2 + \cdots} = 1
+        \pqty{1 - x} \pqty{1 + x + x^2 + \cdots} = 1
     \]
     in \(R\bbrac{x}\).
 \end{example}
@@ -192,7 +192,7 @@ There is also another series that gives an interesting ring.
 
 \begin{definition}[Laurent Polynomials]
     \label{def:laurent-polynomials}%
-    Write \(R\brac{x, x\inverse}\) for the ring of \emph{Laurent polynomials}, i.e.,
+    Write \(R\bqty{x, x\inverse}\) for the ring of \emph{Laurent polynomials}, i.e.,
     \[
         f = \sum_{i = \minusinfty}^{\plusinfty} a_i x^i
     \]

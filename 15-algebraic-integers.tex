@@ -2,71 +2,71 @@
 
 \begin{definition}[Algebraic Integer]
     \label{def:algebraic-integer}%
-    A complex number \(\alpha \in \CC\) is an \emph{algebraic integer} if it is the root of a monic polynomial in \(\ZZ\brac{x}\).
+    A complex number \(\alpha \in \CC\) is an \emph{algebraic integer} if it is the root of a monic polynomial in \(\ZZ\bqty{x}\).
 
     We define
     \[
-        \ZZ\brac{\alpha} = \bigcap_{\alpha \in R \subring \CC} R,
+        \ZZ\bqty{\alpha} = \bigcap_{\alpha \in R \subring \CC} R,
     \]
     or equivalently, for the \emph{evaluation homomorphism}
     \[
-        \function{e_\alpha}{\ZZ\brac{x}}{\CC}{g\para{x}}{g\para{\alpha},}
+        \function{e_\alpha}{\ZZ\bqty{x}}{\CC}{g\pqty{x}}{g\pqty{\alpha},}
     \]
     we define
     \[
-        \ZZ\brac{\alpha} = \img e_{\alpha}.
+        \ZZ\bqty{\alpha} = \img e_{\alpha}.
     \]
 \end{definition}
 
-Note that \(\pi\) is not an algebraic integer, but nonetheless we may put \(\ZZ\brac{\pi}\) into this definition. However, this process never `terminates', and this process is clearly very differently behaved for such transcendental numbers and algebraic integers.
+Note that \(\pi\) is not an algebraic integer, but nonetheless we may put \(\ZZ\bqty{\pi}\) into this definition. However, this process never `terminates', and this process is clearly very differently behaved for such transcendental numbers and algebraic integers.
 
 \begin{proposition}[Ideal of Polynomial with an Algebraic Integer as Root is Principle]
     \label{prop:ideal-polynomial-algebraic-integer-principle}%
     Let \(\alpha\) be an algebraic integer. The ideal
     \[
-        I = \ker e_{\alpha} \idealsub \ZZ\brac{x}
+        I = \ker e_{\alpha} \idealsub \ZZ\bqty{x}
     \]
-    is \emph{principle}. It is equal to \(\para{f_\alpha}\) with \(f_\alpha\) irreducible and monic.
+    is \emph{principle}. It is equal to \(\pqty{f_\alpha}\) with \(f_\alpha\) irreducible and monic.
 \end{proposition}
 
-Note this is a non-trivial result! \(\ZZ\brac{x}\) is not a PID.
+Note this is a non-trivial result! \(\ZZ\bqty{x}\) is not a PID.
 
 \begin{proof}
     First, we note
     \[
         \ker e_\alpha = I
     \]
-    is non-zero. Take \(f_\alpha \in I\) with non-trivial minimal degree. We can assume that \(f_\alpha\) is primitive, because \(\alpha\) satisfies a monic equation. We want to show \(I = \para{f_{\alpha}}\).
+    is non-zero. Take \(f_\alpha \in I\) with non-trivial minimal degree. We can assume that \(f_\alpha\) is primitive, because \(\alpha\) satisfies a monic equation. We want to show \(I = \pqty{f_{\alpha}}\).
 
-    Let \(h \in I\). In \(\QQ\brac{x}\) we have division algorithm, so
+    Let \(h \in I\). In \(\QQ\bqty{x}\) we have division algorithm, so
     \[
         h = f_{\alpha} \cdot q + r
     \]
-    with \(\deg\para{r} < \deg\para{f_{\alpha}}\). We clear the denominators, such that
+    with \(\deg\pqty{r} < \deg\pqty{f_{\alpha}}\). We clear the denominators, such that
     \[
         ah = af_{\alpha} \cdot q + ar
     \]
-    for \(a \in \ZZ\). Putting in \(\alpha\), we have \(\para{ah} \para{\alpha} = 0\), and \(f_{\alpha} \para{\alpha} = 0\), so \(\para{ar} \para{\alpha} = 0\). By the minimality of the degree of \(f_\alpha\), we get \(\para{ar} = 0\) is the zero polynomial, so \(r = 0\).
+    for \(a \in \ZZ\). Putting in \(\alpha\), we have \(\pqty{ah} \pqty{\alpha} = 0\), and \(f_{\alpha} \pqty{\alpha} = 0\), so \(\pqty{ar} \pqty{\alpha} = 0\). By the minimality of the degree of \(f_\alpha\), we get \(\pqty{ar} = 0\) is the zero polynomial, so \(r = 0\).
 
     Therefore, \(ah = af_{\alpha} \cdot q\). But recall \(f_{\alpha}\) is primitive. Taking contents, we have
     \[
-        \content\para{ah} = \content\para{aq}.
+        \content\pqty{ah} = \content\pqty{aq}.
     \]
     
-    We see that \(h \in I \idealsub \ZZ\brac{x}\), and \(a \divides \content\para{ah}\), so \(a \divides \content\para{aq}\). Therefore,
+    We see that \(h \in I \idealsub \ZZ\bqty{x}\), and \(a \divides \content\pqty{ah}\), so \(a \divides \content\pqty{aq}\). Therefore,
     \[
         aq = a \bar{q}
     \]
-    so \(\bar{q} \in \ZZ\brac{x}\). Cancelling \(a\)s gives \(q = \bar{q}\), so \(f_\alpha\) divides \(h\) as claimed, i.e.,
+    so \(\bar{q} \in \ZZ\bqty{x}\). Cancelling \(a\)s gives \(q = \bar{q}\), so \(f_\alpha\) divides \(h\) as claimed, i.e.,
     \[
-        I = \para{f_{\alpha}}.
+        I = \pqty{f_{\alpha}}.
     \]
 
     It remains to show that \(f_{\alpha}\) is irreducible, note that
     \[
-        \ZZ\brac{x} / \ker\para{e_\alpha} \isomorphic \ZZ\brac{x} / \para{f_{\alpha}} \subring \CC
+        \ZZ\bqty{x} / \ker\pqty{e_\alpha} \isomorphic \ZZ\bqty{x} / \pqty{f_{\alpha}} \subring \CC
     \]
-    so \(\ZZ\brac{x} / \para{f_{\alpha}}\) is an integral domain. It follows that \(f_\alpha\) is prime, hence irreducible.
+    so \(\ZZ\bqty{x} / \pqty{f_{\alpha}}\) is an integral domain. It follows that \(f_\alpha\) is prime, hence irreducible.
 \end{proof}
 
 \begin{example}[Algebraic Integers]
@@ -89,5 +89,5 @@ Note this is a non-trivial result! \(\ZZ\brac{x}\) is not a PID.
 \end{proposition}
 
 \begin{proof}
-    Let \(f_\alpha\) be the minimal polynomial generating \(\ker e_\alpha\). This is irreducible over \(\ZZ\brac{x}\), so also \(\QQ\brac{x}\) by \autoref{thm:gauss-lemma} (Gauss's Lemma). But \(\para{x - \alpha}\) divides \(f_\alpha\) in \(\QQ\brac{x}\), so \(f_\alpha = x - \alpha\).
+    Let \(f_\alpha\) be the minimal polynomial generating \(\ker e_\alpha\). This is irreducible over \(\ZZ\bqty{x}\), so also \(\QQ\bqty{x}\) by \autoref{thm:gauss-lemma} (Gauss's Lemma). But \(\pqty{x - \alpha}\) divides \(f_\alpha\) in \(\QQ\bqty{x}\), so \(f_\alpha = x - \alpha\).
 \end{proof}

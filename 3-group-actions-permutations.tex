@@ -2,13 +2,13 @@
 
 \begin{definition}[Symmetric Group]
     \label{def:symmetric-group}
-    Let \(X\) be a set, and \(\Sym\para{X}\) be the set of permutations of \(X\)
+    Let \(X\) be a set, and \(\Sym\pqty{X}\) be the set of permutations of \(X\)
     \[
-        \Sym\para{X} = \set{\functiondomain{f}{X}{X}}{f\text{ is bijection}},
+        \Sym\pqty{X} = \set{\functiondomain{f}{X}{X}}{f\text{ is bijection}},
     \]
-    equipped with the identity as the identity function. For \(f, g \in \Sym\para{X}\), we define the group operation as composition. This gives the \emph{symmetric group} of \(X\).
+    equipped with the identity as the identity function. For \(f, g \in \Sym\pqty{X}\), we define the group operation as composition. This gives the \emph{symmetric group} of \(X\).
     
-    If \(\brac{n} = \brce{1, 2, \ldots, n}\), then we write \(\Sym\para{\brac{n}} = S_n\).
+    If \(\bqty{n} = \Bqty{1, 2, \ldots, n}\), then we write \(\Sym\pqty{\bqty{n}} = S_n\).
 \end{definition}
 
 Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) as a product of disjoint cycles. Furthermore, every \(\sigma \in S_n\) is a product of transpositions, and the number of such transpositions needed, although not fixed, has some `invariant', and is related to the \emph{sign} of \(\sigma\).
@@ -17,7 +17,7 @@ Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) a
     \label{def:sign-of-permutation}%
     The \emph{sign} of a permutation is defined as
     \[
-        \function{\sign}{S_n}{\brce{\pm 1}}{\sigma}{\sign\para{\sigma} = \begin{cases}
+        \function{\sign}{S_n}{\Bqty{\pm 1}}{\sigma}{\sign\pqty{\sigma} = \begin{cases}
             1, & \sigma \text{ is a product of an even number of transpositions}, \\
             -1, & \sigma \text{ is a product of an odd number of transpositions}.
         \end{cases}}
@@ -26,17 +26,17 @@ Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) a
 
 We observe that \(\sign\) is a homomorphism, and it is surjective (onto) when \(n \geq 2\).
 
-Let \(X\) be a set and \(G\) be a group. We contemplate a homomorphism \(G \to \Sym\para{X}\). This is called a \emph{permutation representation} of \(G\).
+Let \(X\) be a set and \(G\) be a group. We contemplate a homomorphism \(G \to \Sym\pqty{X}\). This is called a \emph{permutation representation} of \(G\).
 
 \begin{definition}[Action]
     An \emph{action} of a group \(G\) on a set \(X\) is a function
     \[
-        \function{\alpha}{G \times X}{X}{\para{g, x}}{g \ast x}
+        \function{\alpha}{G \times X}{X}{\pqty{g, x}}{g \ast x}
     \]
     satisfying
     \begin{itemize}
         \item \(e \ast x = x\) for all \(x \in X\);
-        \item \(\para{g_1 \cdot g_2} \ast x = g_1 \ast \para{g_2 \ast x}\) for all \(g_1, g_2 \in G\) and all \(x \in X\).
+        \item \(\pqty{g_1 \cdot g_2} \ast x = g_1 \ast \pqty{g_2 \ast x}\) for all \(g_1, g_2 \in G\) and all \(x \in X\).
     \end{itemize}
 \end{definition}
 
@@ -44,18 +44,18 @@ We denote this as \(G \actson X\).
 
 Now, we think of the relation between
 \[
-    H = \brce{\text{Homomorphisms } G \to \Sym\para{X}} \quad \text{and} \quad \brce{\text{Actions } G \actson X} = A.
+    H = \Bqty{\text{Homomorphisms } G \to \Sym\pqty{X}} \qand \Bqty{\text{Actions } G \actson X} = A.
 \]
 
 These are just sets. But we are going to define some relationship between them. Let
 \[
     \function{a}{H}{A}{
-        \functiondomain{f}{G}{\Sym\para{X}}}{
-            \function{a\para{\phi}}{G\times X}{X}{\para{g, x}}{\para{\phi\para{g}}\para{x}.}
+        \functiondomain{f}{G}{\Sym\pqty{X}}}{
+            \function{a\pqty{\phi}}{G\times X}{X}{\pqty{g, x}}{\pqty{\phi\pqty{g}}\pqty{x}.}
         }
 \]
 
-Note that \(a\para{\phi}\) is a group action by the homomorphism property, so this is a well-defined map.
+Note that \(a\pqty{\phi}\) is a group action by the homomorphism property, so this is a well-defined map.
 
 \begin{proposition}[Bijection between Permutation Representaion and Actions]
     \label{prop:permutation-representation-actions}%
@@ -65,48 +65,48 @@ Note that \(a\para{\phi}\) is a group action by the homomorphism property, so th
 \begin{proof}
     We just construct an inverse map to \(a\). Let \(\functiondomain{\ast}{G \times X}{X}\) be an action. We map this to
     \[
-        \function{\phi}{G}{\Sym\para{X}}{g}{\function{\phi\para{g}}{X}{X}{x}{g \ast x}.}
+        \function{\phi}{G}{\Sym\pqty{X}}{g}{\function{\phi\pqty{g}}{X}{X}{x}{g \ast x}.}
     \]
 
-    We denote this as \(\phi\para{g} = g \ast - : X \to X\)
+    We denote this as \(\phi\pqty{g} = g \ast - : X \to X\)
 
-    Now, we claim that \(\para{g\inverse} \ast -: X \to X\) is the inverse, since
+    Now, we claim that \(\pqty{g\inverse} \ast -: X \to X\) is the inverse, since
     \begin{align*}
-        \para{\phi\para{g\inverse} \circ \phi\para{g}} \para{x} &= \phi\para{g\inverse} \para{\phi\para{g} \para{x}} \\
-        &= g\inverse \ast \para{g \ast x} \\
-        &= \para{g\inverse \cdot g} \ast x \\
+        \pqty{\phi\pqty{g\inverse} \circ \phi\pqty{g}} \pqty{x} &= \phi\pqty{g\inverse} \pqty{\phi\pqty{g} \pqty{x}} \\
+        &= g\inverse \ast \pqty{g \ast x} \\
+        &= \pqty{g\inverse \cdot g} \ast x \\
         &= e \ast x \\
         &= x
     \end{align*}
-    so \(\phi\para{g\inverse} \circ \phi\para{g} = \identity_X\).
+    so \(\phi\pqty{g\inverse} \circ \phi\pqty{g} = \identity_X\).
 
     Similarly,
     \[
-        \phi\para{g} \circ \phi\para{g\inverse} = \identity_X,
+        \phi\pqty{g} \circ \phi\pqty{g\inverse} = \identity_X,
     \]
-    which shows that \(\phi\para{g}\) is indeed \(\Sym\para{X}\).
+    which shows that \(\phi\pqty{g}\) is indeed \(\Sym\pqty{X}\).
 
     To see \(\phi\) is indeed is a homomorphism, we see
     \begin{align*}
-        \phi\para{g_1} \circ \phi\para{g_2} \para{x} &= \phi\para{g_1} \para{\phi\para{g_2} \para{x}} \\
-        &= g_1 \ast \para{g_2 \ast x} \\
-        &= \para{g_1 g_2} \ast x \\
-        &= \phi\para{g_1 g_2} \para{x}
+        \phi\pqty{g_1} \circ \phi\pqty{g_2} \pqty{x} &= \phi\pqty{g_1} \pqty{\phi\pqty{g_2} \pqty{x}} \\
+        &= g_1 \ast \pqty{g_2 \ast x} \\
+        &= \pqty{g_1 g_2} \ast x \\
+        &= \phi\pqty{g_1 g_2} \pqty{x}
     \end{align*}
-    for all \(x \in X, g_1, g_2 \in G\), so we indeed have that \(\phi\para{g_1 g_2} = \phi\para{g_1} \circ \phi\para{g_2}\).
+    for all \(x \in X, g_1, g_2 \in G\), so we indeed have that \(\phi\pqty{g_1 g_2} = \phi\pqty{g_1} \circ \phi\pqty{g_2}\).
 \end{proof}
 
 \begin{notation}
-    For an action \(G \actson X\) given by the homomorphism \(\functiondomain{\phi}{G}{\Sym\para{X}}\), we denote
+    For an action \(G \actson X\) given by the homomorphism \(\functiondomain{\phi}{G}{\Sym\pqty{X}}\), we denote
     \begin{align*}
-        G^X &= \img \para{\phi} \subgroup \Sym\para{X}, \\
-        G_X &= \ker \para{\phi} \normalsub G.
+        G^X &= \img \pqty{\phi} \subgroup \Sym\pqty{X}, \\
+        G_X &= \ker \pqty{\phi} \normalsub G.
     \end{align*}
 \end{notation}
 
 By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups), we have
 \[
-    G^X \isomorphic G / G_X.
+    G^X \isomorphic \flatfrac{G}{G_X}.
 \]
 
 \begin{figure}[ht!]
@@ -120,11 +120,11 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \label{ex:symmetry-of-cube}
     Let \(G\) be the symmetry group of the cube, and let \(X\) be the set of diagonals (between opposite vertices), as in \autoref{fig:cube-diagonals}. Then \(G \actson X\).
 
-    Consider the associated  homomorphism \(\functiondomain{\phi}{G}{\Sym\para{X} \isomorphic S_4}\).
+    Consider the associated  homomorphism \(\functiondomain{\phi}{G}{\Sym\pqty{X} \isomorphic S_4}\).
     
-    We first show that \(\img \para{\phi} \isomorphic S_4\), and this can be shown by showing the transpositions lie in the image. This is trivial and left as an exercise.
+    We first show that \(\img \pqty{\phi} \isomorphic S_4\), and this can be shown by showing the transpositions lie in the image. This is trivial and left as an exercise.
 
-    Now, consider the kernel of this map. There are two maps that keeps the diagonal unchanged: one is trivial (the identity), and one is which sends every vertex to its opposite. This means \(\ker \para{\phi} \isomorphic C_2\).
+    Now, consider the kernel of this map. There are two maps that keeps the diagonal unchanged: one is trivial (the identity), and one is which sends every vertex to its opposite. This means \(\ker \pqty{\phi} \isomorphic C_2\).
 
     Hence, we have
     \[
@@ -137,29 +137,29 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \label{ex:cayley-theorem}%
     For any group \(G\), we can write \(G\) act on (the underlying set) \(G\) by
     \[
-        \function{\alpha}{G \times G}{G}{\para{g_1, g_2}}{g_1 g_2.}
+        \function{\alpha}{G \times G}{G}{\pqty{g_1, g_2}}{g_1 g_2.}
     \]
 
-    This induces a homomorphism \(\functiondomain{\phi}{G}{\Sym\para{G}}\). The kernel is
+    This induces a homomorphism \(\functiondomain{\phi}{G}{\Sym\pqty{G}}\). The kernel is
     \[
-        \ker\para{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \brce{e}.
+        \ker\pqty{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \Bqty{e}.
     \]
 
-    So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\para{G}\) by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
+    So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\pqty{G}\) by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
 
     This tells us that the symmetric group is \emph{very} complicated!
 \end{example}
 
 \begin{example}[Left-Multiplication on Cosets and its Kernel]
     \label{ex:left-multiplation-cosets}%
-    Let \(H \subgroup G\) and \(X = G / H\). Let \(G \actson H\) by
+    Let \(H \subgroup G\) and \(X = \flatfrac{G}{H}\). Let \(G \actson H\) by
     \[
-        \function{\alpha}{G \times G / H}{G / H}{\para{g, g_1 H}}{\para{g \cdot g_1} H}.
+        \function{\alpha}{G \times \flatfrac{G}{H}}{\flatfrac{G}{H}}{\pqty{g, g_1 H}}{\pqty{g \cdot g_1} H}.
     \]
 
-    We get the corresponding homomorphism \(\functiondomain{\phi}{G}\Sym\para{X}\). Trivially, we have \(\ker\para{\phi} \subseteq H\).
+    We get the corresponding homomorphism \(\functiondomain{\phi}{G}\Sym\pqty{X}\). Trivially, we have \(\ker\pqty{\phi} \subseteq H\).
 
-    But we have more to this. If \(g \in \ker \para{\phi}\), then
+    But we have more to this. If \(g \in \ker \pqty{\phi}\), then
     \[
         g \cdot g_1 H = g_1 H
     \]
@@ -169,7 +169,7 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \]
     so
     \[
-        \ker\para{\phi} \subseteq \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
+        \ker\pqty{\phi} \subseteq \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
     \]
 
     This argument is however, indeed, reversible: if
@@ -184,30 +184,30 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \[
         g g_1 H = g_1 H
     \]
-    which means \(g \in \ker\para{\phi}\).
+    which means \(g \in \ker\pqty{\phi}\).
 
     In other words, we have
     \[
-        \ker\para{\phi} = \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
+        \ker\pqty{\phi} = \bigcap_{g_1 \in G} g_1 H g_1 \inverse.
     \]
 
-    In the special case where \(H \normalsub G\), then \(\ker\para{\phi} = H\). But in the general case, the right-hand side is an intersection of subgroups, which induce a normal subgroup!
+    In the special case where \(H \normalsub G\), then \(\ker\pqty{\phi} = H\). But in the general case, the right-hand side is an intersection of subgroups, which induce a normal subgroup!
 \end{example}
 
 \begin{theorem}[Normal Subgroup in Subgroup]
     \label{thm:normal-subgroup-contained-in-subgroup}%
-    Let \(G\) be finite and \(H \subgroup G\) of index \(n\). Then there exists a normal subgroup \(K \normalsub G\) which also satisfies \(K \subgroup H\), such that \(G / K\) is isomorphic to  a subgroup of \(S_n\). Thus, \(\abs{G / K}\) divides \(n!\) and \(\abs{G / K} \geq n\).
+    Let \(G\) be finite and \(H \subgroup G\) of index \(n\). Then there exists a normal subgroup \(K \normalsub G\) which also satisfies \(K \subgroup H\), such that \(\flatfrac{G}{K}\) is isomorphic to  a subgroup of \(S_n\). Thus, \(\abs{\flatfrac{G}{K}}\) divides \(n!\) and \(\abs{\flatfrac{G}{K}} \geq n\).
 \end{theorem}
 
 \begin{proof}
-    Consider \(\functiondomain{\phi}{G}{\Sym\para{G / H}}\) induced by the action considered in \autoref{ex:left-multiplation-cosets}. The kernel is normal in \(G\), and we let \(K = \ker \para{\phi}\). We have already shown it is contained in \(H\).
+    Consider \(\functiondomain{\phi}{G}{\Sym\pqty{\flatfrac{G}{H}}}\) induced by the action considered in \autoref{ex:left-multiplation-cosets}. The kernel is normal in \(G\), and we let \(K = \ker \pqty{\phi}\). We have already shown it is contained in \(H\).
 
     By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups), we have
     \[
-        G / K \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
+        \flatfrac{G}{K} \isomorphic \img \pqty{\phi} \subgroup \Sym\pqty{\flatfrac{G}{H}} \isomorphic S_n.
     \]
 
-    \autoref{thm:lagrange} (Lagrange's Theorem) gives \(\abs{G / H} \divides n!\), and \(K \subgroup H\), so \(\abs{G / K} \geq \abs{G / H} = n\).
+    \autoref{thm:lagrange} (Lagrange's Theorem) gives \(\abs{\flatfrac{G}{H}} \divides n!\), and \(K \subgroup H\), so \(\abs{\flatfrac{G}{K}} \geq \abs{\flatfrac{G}{H}} = n\).
 \end{proof}
 
 \begin{corollary}[Non-Abelian Simple Groups]
@@ -216,29 +216,29 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
 \end{corollary}
 
 \begin{proof}
-    We consider the same action \(G \actson G / X\) by left-multiplication, and the homomorphism induced
+    We consider the same action \(G \actson \flatfrac{G}{X}\) by left-multiplication, and the homomorphism induced
     \[
-        \functiondomain{\phi}{G}{\Sym\para{G / H} \isomorphic S_n}.
+        \functiondomain{\phi}{G}{\Sym\pqty{\flatfrac{G}{H}} \isomorphic S_n}.
     \]
 
-    We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
+    We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \Bqty{e}\) or \(\ker \phi = G\).
 
-    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \brce{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups),
+    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \Bqty{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups),
     \[
-        G \isomorphic \img \para{\phi} \subgroup \Sym\para{G / H} \isomorphic S_n.
+        G \isomorphic \img \pqty{\phi} \subgroup \Sym\pqty{\flatfrac{G}{H}} \isomorphic S_n.
     \]
 
-    For simplicity of notation, identify \(G\) with \(\img \para{\phi}\) and \(\Sym\para{G/H}\) with \(S_n\). We know that
+    For simplicity of notation, identify \(G\) with \(\img \pqty{\phi}\) and \(\Sym\pqty{\flatfrac{G}{H}}\) with \(S_n\). We know that
     \[
         G \subgroup S_n
     \]
     and we in fact want \(G \subgroup A_n\), i.e., \(G \cap A_n = G\).
 
-    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups). But \(G\) is simple, so \(G \cap A_n = \brce{e}\), or \(G \cap A_n = G\).
+    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups). But \(G\) is simple, so \(G \cap A_n = \Bqty{e}\), or \(G \cap A_n = G\).
 
-    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups), if \(G \cap A_n = \brce{e}\), we see that
+    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups), if \(G \cap A_n = \Bqty{e}\), we see that
     \[
-        G \isomorphic G / G \cap A_n \isomorphic G A_n / A_n \leq S_n / A_n \isomorphic C_2,
+        G \isomorphic \flatfrac{G}{G \cap A_n} \isomorphic \flatfrac{G A_n}{A_n} \leq \flatfrac{S_n}{A_n} \isomorphic C_2,
     \]
     but this is stupid since \(G\) is non-abelian.
 
@@ -266,7 +266,7 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     For \(G \actson X\) and \(x \in X\), the map \(\phi\) given as follows, is a bijection.
 
     \[
-        \function{\phi}{Gx}{G/G_x}{gx}{g G_x}
+        \function{\phi}{Gx}{\flatfrac{G}{G_x}}{gx}{g G_x}
     \]
     
     In particular, if \(G\) is finite, we have

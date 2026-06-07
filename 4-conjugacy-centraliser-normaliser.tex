@@ -2,7 +2,7 @@
 
 A group \(G\) can act on itself by conjugation as
 \[
-    \function{\ast}{G \times G}{G}{\para{g, h}}{g h g\inverse}.
+    \function{\ast}{G \times G}{G}{\pqty{g, h}}{g h g\inverse}.
 \]
 
 \begin{lemma}[Conjugation by Element gives Homomorphism from the Group to Itself]
@@ -20,33 +20,33 @@ A group \(G\) can act on itself by conjugation as
 
     The set of all automorphisms of \(G\) form a group, namely the \emph{automorphism group}, denoted as
     \[
-        \Aut\para{G} = \set{\functiondomain{f}{G}{G}}{f \text{ is an automorphism}} \subgroup \Sym\para{G}.
+        \Aut\pqty{G} = \set{\functiondomain{f}{G}{G}}{f \text{ is an automorphism}} \subgroup \Sym\pqty{G}.
     \]
 \end{definition}
 
 \begin{example*}
-    Let \(G = \RR^2\) be under addition. Then \(\Aut\para{G} \supgroup \GL_2\para{\RR}\).
+    Let \(G = \RR^2\) be under addition. Then \(\Aut\pqty{G} \supgroup \GL_2\pqty{\RR}\).
 \end{example*}
 
 \begin{notation}
-    The automorphisms given by conjugation action are called \emph{inner automorphisms}, denoted as \(\Inn\para{G}\). This is a normal subgroup of \(\Aut\para{G}\), and the quotient is the \emph{outer automorphism group}, denoted as \(\Out\para{G}\).
+    The automorphisms given by conjugation action are called \emph{inner automorphisms}, denoted as \(\Inn\pqty{G}\). This is a normal subgroup of \(\Aut\pqty{G}\), and the quotient is the \emph{outer automorphism group}, denoted as \(\Out\pqty{G}\).
 \end{notation}
 
 \begin{definition}[Conjugation Class, Centraliser, Centre]
     \label{def:ccl-centraliser-centre}%
     Fix \(g \in G\). The \emph{conjugacy class} of \(g\) is the orbit under conjugation action, given by
     \[
-        \ccl_G\para{g} = \set{hgh\inverse}{h \in G}.
+        \ccl_G\pqty{g} = \set{hgh\inverse}{h \in G}.
     \]
 
     The \emph{centraliser} of \(g \in G\) is the stabiliser under conjugation action, given by
     \[
-        C_G\para{g} = \set{h \in G}{h g h\inverse = g}.
+        C_G\pqty{g} = \set{h \in G}{h g h\inverse = g}.
     \]
 
     The \emph{centre} of \(G\) is the kernel of conjugation action, given by
     \[
-        Z\para{G} = \set{z \in G}{\forall g \in G: zg = gz}.
+        Z\pqty{G} = \set{z \in G}{\forall g \in G: zg = gz}.
     \]
 \end{definition}
 
@@ -54,7 +54,7 @@ A group \(G\) can act on itself by conjugation as
     \label{prop:size-conjugacy-class}%
     Let \(G\) be a finite group. Then for all \(x \in G\), we have
     \[
-        \abs{\ccl\para{x}} = \abs{G : C_G\para{x}} = \frac{\abs{G}}{\abs{C_G\para{x}}}.
+        \abs{\ccl\pqty{x}} = \abs{G : C_G\pqty{x}} = \frac{\abs{G}}{\abs{C_G\pqty{x}}}.
     \]
 \end{proposition}
 
@@ -66,8 +66,8 @@ A group \(G\) can act on itself by conjugation as
     \label{def:normaliser}%
     Let \(H \subgroup G\). The \emph{normaliser} of \(H \in G\) is
     \[
-        N_G \para{H} = \set{g \in G}{gHg\inverse = H}.
+        N_G \pqty{H} = \set{g \in G}{gHg\inverse = H}.
     \]
 \end{definition}
 
-Observe that \(H \normalsub N_G\para{H}\), and in fact by definition, \(N_G\para{H}\) is the \emph{largest} subgroup of \(G\), inside which \(H\) is normal.
+Observe that \(H \normalsub N_G\pqty{H}\), and in fact by definition, \(N_G\pqty{H}\) is the \emph{largest} subgroup of \(G\), inside which \(H\) is normal.

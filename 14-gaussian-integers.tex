@@ -2,40 +2,40 @@
 
 The ring of Gaussian integers is given by
 \[
-    \ZZ\brac{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC,
+    \ZZ\bqty{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC,
 \]
 and it is equipped with a norm
 \[
-    N\para{a + ib} = a^2 + b^2.
+    N\pqty{a + ib} = a^2 + b^2.
 \]
 
-This norm enables division with remainder, as discussed in \autoref{ex:gaussian-integers-euclidean-domain}. This makes \(\ZZ\brac{i}\) a Euclidean domain (and hence a PID, and hence a UFD).
+This norm enables division with remainder, as discussed in \autoref{ex:gaussian-integers-euclidean-domain}. This makes \(\ZZ\bqty{i}\) a Euclidean domain (and hence a PID, and hence a UFD).
 
 We first list some results that are useful for the future.
 
 \begin{proposition}[Properties of Gaussian Integers]
     \label{prop:properties-gaussian-integers}%
     \begin{itemize}
-        \item Irreducibles coincides with primes in \(\ZZ\brac{i}\).
+        \item Irreducibles coincides with primes in \(\ZZ\bqty{i}\).
         \item The units have norm \(1\), and they are precisely \(\pm 1\) and \(\pm i\).
-        \item Primes in \(\ZZ\) are \emph{not necessarily} primes in \(\ZZ\brac{i}\): indeed, note \(2 = \para{1 + i} \para{1 - i}\), so \(2\) is not a prime.    
+        \item Primes in \(\ZZ\) are \emph{not necessarily} primes in \(\ZZ\bqty{i}\): indeed, note \(2 = \pqty{1 + i} \pqty{1 - i}\), so \(2\) is not a prime.    
     \end{itemize}
 \end{proposition}
 
-Although \(2\) is no longer a prime, we note \(3\) is a prime, since \(N\para{3} = 9\). If \(3 = uv\) for \(u, v \in \ZZ\brac{i}\), then \(N\para{3} = 9 = N\para{u} \cdot N\para{v}\). Then either \(N\para{u}\) or \(N\para{v}\) is a unit, or \(N\para{u} = N\para{v} = 3\). But notice \(a^2 + b^2 = 3\) has no integer solutions, so it must be the former case. Hence, either \(u\) or \(v\) is a unit, so \(3\) is prime. (Likewise, \(7\) is also a prime.)
+Although \(2\) is no longer a prime, we note \(3\) is a prime, since \(N\pqty{3} = 9\). If \(3 = uv\) for \(u, v \in \ZZ\bqty{i}\), then \(N\pqty{3} = 9 = N\pqty{u} \cdot N\pqty{v}\). Then either \(N\pqty{u}\) or \(N\pqty{v}\) is a unit, or \(N\pqty{u} = N\pqty{v} = 3\). But notice \(a^2 + b^2 = 3\) has no integer solutions, so it must be the former case. Hence, either \(u\) or \(v\) is a unit, so \(3\) is prime. (Likewise, \(7\) is also a prime.)
 
 \begin{proposition}[Primes in Gaussian Integers which are Integers]
     \label{prop:prime-gaussian-int-int}%
-    A prime \(p \in \ZZ\) remains prime in \(\ZZ\brac{i}\), if and only if \(p \neq a^2 + b^2\) for \(a, b \in \ZZ \setminus \brce{0}\).
+    A prime \(p \in \ZZ\) remains prime in \(\ZZ\bqty{i}\), if and only if \(p \neq a^2 + b^2\) for \(a, b \in \ZZ \setminus \Bqty{0}\).
 \end{proposition}
 
 \begin{proof}
-    If \(p = a^2 + b^2\), then \(p = \para{a + ib} \para{a - ib}\) so \(p\) is not a prime.
+    If \(p = a^2 + b^2\), then \(p = \pqty{a + ib} \pqty{a - ib}\) so \(p\) is not a prime.
 
-    Conversely, suppose \(p = uv\), with \(u\) and \(v\) being non-units in \(\ZZ\brac{i}\). Then \(N\para{p} = p^2 = N\para{u} \cdot N\para{v}\). Therefore, \(N\para{u} = N\para{v} = p\), so let \(u = a + ib\), then \(p = N\para{u} = a^2 + b^2\).
+    Conversely, suppose \(p = uv\), with \(u\) and \(v\) being non-units in \(\ZZ\bqty{i}\). Then \(N\pqty{p} = p^2 = N\pqty{u} \cdot N\pqty{v}\). Therefore, \(N\pqty{u} = N\pqty{v} = p\), so let \(u = a + ib\), then \(p = N\pqty{u} = a^2 + b^2\).
 \end{proof} 
 
-This is not completely conclusive -- it only talks about the primes which lie in the set \(\ZZ\brac{i} \cap \ZZ\).
+This is not completely conclusive -- it only talks about the primes which lie in the set \(\ZZ\bqty{i} \cap \ZZ\).
 
 \begin{lemma}[Multiplicative Group of Integers modulo \(p\) is Cyclic]
     \label{lem:multiplicative-group-int-mod-p-cyclic}%
@@ -43,7 +43,7 @@ This is not completely conclusive -- it only talks about the primes which lie in
 \end{lemma}
 
 \begin{proof}
-    We first note that \(\FF_p\multiplicative\) is an abelian group of order \(\para{p - 1}\). Then by \autoref{thm:classification-finite-abelian-group} (Classification of Finite Abelian Groups), if \(\FF_p\multiplicative\) is not cyclic, then it contains a subgroup \(C_m \times C_n\) for \(m > 1\) as a subgroup.
+    We first note that \(\FF_p\multiplicative\) is an abelian group of order \(\pqty{p - 1}\). Then by \autoref{thm:classification-finite-abelian-group} (Classification of Finite Abelian Groups), if \(\FF_p\multiplicative\) is not cyclic, then it contains a subgroup \(C_m \times C_n\) for \(m > 1\) as a subgroup.
 
     Therefore, there are at least \(m^2\) elements in \(\FF_p\), such that \(x^m - 1 = 0\).
 
@@ -52,36 +52,36 @@ This is not completely conclusive -- it only talks about the primes which lie in
 
 \begin{theorem}[Primes in Gaussian Integrs]
     \label{thm:prime-gaussian}%
-    The primes in \(\ZZ\brac{i}\), up to associates, are given by
+    The primes in \(\ZZ\bqty{i}\), up to associates, are given by
     \begin{enumerate}
         \item the primes \(p \in \ZZ\), such that \(p \equiv 3 \pmod{4}\); or
-        \item Gaussian \(z \in \ZZ\brac{i}\), with \(N\para{z} = p\) with prime \(p\), where \(p\) is \(2\), or \(p \equiv 1 \pmod{4}\).
+        \item Gaussian \(z \in \ZZ\bqty{i}\), with \(N\pqty{z} = p\) with prime \(p\), where \(p\) is \(2\), or \(p \equiv 1 \pmod{4}\).
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
     First, we show that the given elements are indeed prime. If \(p \equiv 3 \pmod{4}\), then \(p \neq a^2 + b^2\) since \(a^2, b^2 \equiv 0 \text{ or } 1 \pmod{4}\), which tells us sum of two squares never takes value \(3\).
 
-    If \(N\para{z} = p\) and \(z = uv\), then \(N\para{u} \cdot N\para{v} = p\). So either \(u\) or \(v\) has norm \(1\), so \(z\) is irreducible.
+    If \(N\pqty{z} = p\) and \(z = uv\), then \(N\pqty{u} \cdot N\pqty{v} = p\). So either \(u\) or \(v\) has norm \(1\), so \(z\) is irreducible.
 
-    Now, we suppose \(z \in \ZZ\brac{i}\) which is prime. Then \(\conjugate{z}\) is also irreducible. Therefore, \(N\para{z} = z \bar{z}\) is a factorisation of the norm \(N\para{z}\) into irreducibles.
+    Now, we suppose \(z \in \ZZ\bqty{i}\) which is prime. Then \(\conjugate{z}\) is also irreducible. Therefore, \(N\pqty{z} = z \bar{z}\) is a factorisation of the norm \(N\pqty{z}\) into irreducibles.
 
-    It remains to show these are all the prime in \(\ZZ\brac{i}\). Suppose now, that \(p \divides N\para{z}\) in \(\ZZ\) where \(p\) is a prime.
+    It remains to show these are all the prime in \(\ZZ\bqty{i}\). Suppose now, that \(p \divides N\pqty{z}\) in \(\ZZ\) where \(p\) is a prime.
     
-    If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\brac{i}\), so \(p \divides z \conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\), and therefore \(p = z\), up to associates.
+    If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\bqty{i}\), so \(p \divides z \conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\), and therefore \(p = z\), up to associates.
 
-    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\para{z} = p\). If \(p \equiv 1 \pmod{4}\) or \(2\), then \(p - 1 = 4k\) for some \(k \in \ZZ\). By \autoref{lem:multiplicative-group-int-mod-p-cyclic}, \(\FF_p\multiplicative \isomorphic C_{4k}\), and hence there is a \emph{unique} element in \(\FF_p\multiplicative\) in \(C_{4k}\) with order \(2\), namely \(\para{-1}\).
+    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\pqty{z} = p\). If \(p \equiv 1 \pmod{4}\) or \(2\), then \(p - 1 = 4k\) for some \(k \in \ZZ\). By \autoref{lem:multiplicative-group-int-mod-p-cyclic}, \(\FF_p\multiplicative \isomorphic C_{4k}\), and hence there is a \emph{unique} element in \(\FF_p\multiplicative\) in \(C_{4k}\) with order \(2\), namely \(\pqty{-1}\).
 
-    Furthermore, we know there is some \(a \in \FF_p\multiplicative\) with order \(4\). This means \(a^2 \equiv -1 \pmod{p}\), and hence \(p \divides a^2 + 1\). Hence, \(p \divides \para{a + i} \para{a - i}\). In other words, \(p\) is not irreducible.
+    Furthermore, we know there is some \(a \in \FF_p\multiplicative\) with order \(4\). This means \(a^2 \equiv -1 \pmod{p}\), and hence \(p \divides a^2 + 1\). Hence, \(p \divides \pqty{a + i} \pqty{a - i}\). In other words, \(p\) is not irreducible.
 
     Now, let \(p = z_1 z_2\), neither of which are units (since this is possible by above). Therefore,
     \[
-        p^2 = N\para{z_1} \cdot N\para{z_2}.
+        p^2 = N\pqty{z_1} \cdot N\pqty{z_2}.
     \]
     
     Since neither of \(z_1, z_2\) are units, their norm must not be \(1\), and hence
     \[
-        N\para{z_1} = N\para{z_2} = p.
+        N\pqty{z_1} = N\pqty{z_2} = p.
     \]
 
     This means
@@ -93,14 +93,14 @@ This is not completely conclusive -- it only talks about the primes which lie in
 
     Finally, we have
     \[
-        p = z_1 \conjugate{z_1} \divides N\para{z} = z \conjugate{z}
+        p = z_1 \conjugate{z_1} \divides N\pqty{z} = z \conjugate{z}
     \]
     but all of \(z_1, \conjugate{z_1}, z, \conjugate{z}\) are all irreducible. This is only possible when all four of them are associates.
 
-    Hence, \(N\para{z} = p\).
+    Hence, \(N\pqty{z} = p\).
 \end{proof}
 
-Note that the proof actually gives a way to find \(\alpha \in \ZZ\brac{i}\), such that \(N\para{\alpha} = p\) whenever \(p = 1 \pmod{4}\).
+Note that the proof actually gives a way to find \(\alpha \in \ZZ\bqty{i}\), such that \(N\pqty{\alpha} = p\) whenever \(p = 1 \pmod{4}\).
 
 \begin{corollary}[Integer as Sum of Two Squares]
     \label{cor:int-sum-of-two-qaures}%
@@ -108,30 +108,30 @@ Note that the proof actually gives a way to find \(\alpha \in \ZZ\brac{i}\), suc
 \end{corollary}
 
 \begin{proof}
-    If \(n = x^2 + y^2\), then \(n = N\para{x + iy}\) for \(x + iy \in \ZZ\brac{i}\).
+    If \(n = x^2 + y^2\), then \(n = N\pqty{x + iy}\) for \(x + iy \in \ZZ\bqty{i}\).
 
-    Let \(z = x + iy\) and factorise in \(\ZZ\brac{i}\) as
+    Let \(z = x + iy\) and factorise in \(\ZZ\bqty{i}\) as
     \[
         z = \alpha_1 \alpha_2 \cdots \alpha_q
     \]
-    into irreducibles. So either \(\alpha_i\) is a prime in \(\ZZ\) which is \(\alpha_i \equiv 3 \pmod{4}\) (which means the factor of it would double when taking the norm), or \(N\para{\alpha_i} = 2\) or \(N\para{\alpha_i} \equiv 1 \pmod{4}\).
+    into irreducibles. So either \(\alpha_i\) is a prime in \(\ZZ\) which is \(\alpha_i \equiv 3 \pmod{4}\) (which means the factor of it would double when taking the norm), or \(N\pqty{\alpha_i} = 2\) or \(N\pqty{\alpha_i} \equiv 1 \pmod{4}\).
 
     Now we take the norm to get
     \[
-        x^2 + y^2 = N\para{z} = \prod N\para{a_i}
+        x^2 + y^2 = N\pqty{z} = \prod N\pqty{a_i}
     \]
-    and each \(N\para{a_i}\) is \(p^2\) for \(p \equiv 3 \pmod{4}\), or \(N\para{\alpha_i}\) is \(p\) for \(p \equiv 1 \pmod{4}\) or \(p = 2\).
+    and each \(N\pqty{a_i}\) is \(p^2\) for \(p \equiv 3 \pmod{4}\), or \(N\pqty{\alpha_i}\) is \(p\) for \(p \equiv 1 \pmod{4}\) or \(p = 2\).
 
     Conversely, let \(n = \prod p_i n^i\) with the given conditions. In this case, if \(p_i \equiv 3 \pmod{4}\), we have
     \[
-        p_i^{n_i} = \para{p_i^{n_i / 2}}^2 = N\para{p_i^{n_i / 2}}.
+        p_i^{n_i} = \pqty{p_i^{n_i / 2}}^2 = N\pqty{p_i^{n_i / 2}}.
     \]
 
     If \(p_i \equiv 1 \pmod{4}\) or \(p_i = 2\), then we know
     \[
-        p_i = N \para{\alpha_i}
+        p_i = N \pqty{\alpha_i}
     \]
-    from the proof of the theorem. The norm is multiplicative, so \(n\) is the norm of some \(z \in \ZZ\brac{i}\), which finishes the proof.
+    from the proof of the theorem. The norm is multiplicative, so \(n\) is the norm of some \(z \in \ZZ\bqty{i}\), which finishes the proof.
 \end{proof}
 
 \begin{example}[Expressing Integers as Sum of Two Squares]
@@ -143,16 +143,16 @@ Note that the proof actually gives a way to find \(\alpha \in \ZZ\brac{i}\), suc
 
     Following the proof, we have
     \[
-        13 = \para{2 + 3i} \cdot \para{2 - 3i},
+        13 = \pqty{2 + 3i} \cdot \pqty{2 - 3i},
     \]
     and
     \[
-        5 = \para{2 + i} \cdot \para{2 - i}.
+        5 = \pqty{2 + i} \cdot \pqty{2 - i}.
     \]
 
     Hence,
     \[
-        65 = N\para{\para{2 + i} \para{2 + 3i}} = N\para{1 + 8i} = 1^2 + 8^2.
+        65 = N\pqty{\pqty{2 + i} \pqty{2 + 3i}} = N\pqty{1 + 8i} = 1^2 + 8^2.
     \]
 
     Picking other factors may give us

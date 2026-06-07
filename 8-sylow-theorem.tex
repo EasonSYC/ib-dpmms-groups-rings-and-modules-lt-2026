@@ -7,20 +7,20 @@ Let \(G\) be a finite group of size \(p^{a} m\) where \(p \notdivides m\), which
     Let \(G\) be a finite group, and let \(p\) be a prime, with \(p \divides \abs{G}\).
 
     \begin{enumerate}
-        \item The set \(\Syl_p\para{G} = \set{P \leq G}{P \text{ is a Sylow } p\text{-subgroup}}\) is non-empty.
-        \item Any \(H, H' \in \Syl_p \para{G}\) are conjugate, i.e., there is some \(g\) such that \(H' = g H g\inverse\).
-        \item If \(n_p = \abs{\Syl_p \para{G}}\), then \(n_p \equiv 1 \pmod{p}\), and \(n_p\) divides \(\abs{G}\), so \(m\).
+        \item The set \(\Syl_p\pqty{G} = \set{P \leq G}{P \text{ is a Sylow } p\text{-subgroup}}\) is non-empty.
+        \item Any \(H, H' \in \Syl_p \pqty{G}\) are conjugate, i.e., there is some \(g\) such that \(H' = g H g\inverse\).
+        \item If \(n_p = \abs{\Syl_p \pqty{G}}\), then \(n_p \equiv 1 \pmod{p}\), and \(n_p\) divides \(\abs{G}\), so \(m\).
     \end{enumerate}
 \end{theorem}
 
 The first part of \autoref{thm:sylow} (Sylow Theorem) itself is already very interesting -- since it is not easy to specify that we have a subgroup is of a particular size. The second is also non-trivial, since there could be subgroups with different structures, or with the same structure but not conjugate. Nevertheless, we will build up the necessary foundations to a proof.
 
 \begin{lemma}[Unique Sylow \(p\)-Subgroup implies Normality]
-    If \(\Syl_p\para{G} = \brce{P}\) has size \(1\), then \(P\) is normal.
+    If \(\Syl_p\pqty{G} = \Bqty{P}\) has size \(1\), then \(P\) is normal.
 \end{lemma}
 
 \begin{proof}
-    For any \(g \in G\), \(g P g\inverse\) is isomorphic to \(P\) as a subgroup, so we have \(g P g\inverse \in \Syl_p\para{G}\). It follows that \(P = g P g\inverse\), and this finishes a proof.
+    For any \(g \in G\), \(g P g\inverse\) is isomorphic to \(P\) as a subgroup, so we have \(g P g\inverse \in \Syl_p\pqty{G}\). It follows that \(P = g P g\inverse\), and this finishes a proof.
 \end{proof}
 
 Another consequence of Sylow's theorem is as follows.
@@ -31,24 +31,24 @@ Another consequence of Sylow's theorem is as follows.
 \end{corollary}
 
 \begin{proof}
-    The conjugation action of \(G\) on \(\Syl_p\para{G}\) gives a homomorphism
+    The conjugation action of \(G\) on \(\Syl_p\pqty{G}\) gives a homomorphism
     \[
-        \functiondomain{\phi}{G}{\Sym\para{\Syl_p\para{G}} \isomorphic S_{n_p}}.
+        \functiondomain{\phi}{G}{\Sym\pqty{\Syl_p\pqty{G}} \isomorphic S_{n_p}}.
     \]
 
-    By simplicity of \(G\), since \(\ker \phi \normalsub G\), we therefore have \(\ker \phi = \brce{e}\) or \(\ker \phi = G\).
+    By simplicity of \(G\), since \(\ker \phi \normalsub G\), we therefore have \(\ker \phi = \Bqty{e}\) or \(\ker \phi = G\).
 
-    If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \brce{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\para{P} \normalsub P\).
+    If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \Bqty{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\pqty{P} \normalsub P\).
 
-    Therefore, \(\ker \phi = \brce{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
+    Therefore, \(\ker \phi = \Bqty{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
 
     \[
-        G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \brce{\pm 1}.
+        G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \Bqty{\pm 1}.
     \]
 
-    If the composition is surjective, then \(\ker \para{\sign \circ \phi}\) is an index \(2\) subgroup of \(G\). But \(G\) is simple, so this is impossible, unless \(G \isomorphic C_2\) but this is abelian. (Alternatively, since this composition cannot be injective and since \(G\) is simple, we have \(\ker \para{\sign \circ \phi} = G\), so this map is trivial.)
+    If the composition is surjective, then \(\ker \pqty{\sign \circ \phi}\) is an index \(2\) subgroup of \(G\). But \(G\) is simple, so this is impossible, unless \(G \isomorphic C_2\) but this is abelian. (Alternatively, since this composition cannot be injective and since \(G\) is simple, we have \(\ker \pqty{\sign \circ \phi} = G\), so this map is trivial.)
 
-    Therefore, \(\img \para{\phi} \subgroup A_{n_p}\) and we have \(\frac{n_ p!}{2}\), so we can calculate by Lagrange.
+    Therefore, \(\img \pqty{\phi} \subgroup A_{n_p}\) and we have \(\frac{n_ p!}{2}\), so we can calculate by Lagrange.
 
     Now we may verify directly that \(A_1, A_2, \ldots, A_4\) are not simple directly.
 \end{proof}
@@ -64,7 +64,7 @@ A nice application of the numerology provided by \autoref{thm:sylow} (Sylow's Th
 
     By \autoref{cor:np-and-g}, we have \(n_3 = 22\) since \(n_3 \geq 5\).
 
-    Any two Sylow \(11\)-Subgroups intersect trivially at \(\brce{e}\), which gives already \(120\) elements. Similarly, any two Sylow \(3\)-Subgroups contribute another \(44\) elements. But we only have a total of \(132\) elements, which is impossible.
+    Any two Sylow \(11\)-Subgroups intersect trivially at \(\Bqty{e}\), which gives already \(120\) elements. Similarly, any two Sylow \(3\)-Subgroups contribute another \(44\) elements. But we only have a total of \(132\) elements, which is impossible.
 \end{example*}
 
 Now we prove Sylow's theorems.
@@ -74,12 +74,12 @@ Now we prove Sylow's theorems.
     
     Let \(\abs{G} = n = p^a m\) with \(p \notdivides m\). Define the collection of \textbf{subsets} (not subgroups!)
     \[
-        \Omega = \set{X \subseteq G}{\abs{X} = p^a} \subseteq \powerset\para{G}.
+        \Omega = \set{X \subseteq G}{\abs{X} = p^a} \subseteq \powerset\pqty{G}.
     \]
 
     Let \(G\) act on \(\Omega\) by left-multiplication element-wise, i.e.,
     \[
-        g \ast \brce{g_1, g_2, \ldots, g_{p^a}} = \brce{g g_1, \ldots, g g_{p^a}}.
+        g \ast \Bqty{g_1, g_2, \ldots, g_{p^a}} = \Bqty{g g_1, \ldots, g g_{p^a}}.
     \]
 
     We want to have an orbit of size \(m\), so its stabiliser would have size \(p^a\).
@@ -99,81 +99,81 @@ Now we prove Sylow's theorems.
 
     Let \(X \in \Theta\). By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), we have
     \[
-        \abs{G} = \abs{\Theta} \cdot \abs{\Stab\para{X}},
+        \abs{G} = \abs{\Theta} \cdot \abs{\Stab\pqty{X}},
     \]
-    so \(p^a m = \abs{\Theta} \cdot \abs{\Stab\para{X}}\).
+    so \(p^a m = \abs{\Theta} \cdot \abs{\Stab\pqty{X}}\).
 
-    Since no factors of \(p\) is in \(\abs{\Theta}\), they must be wholly contained in \(\abs{\Stab\para{X}}\), i.e., \(p^a \divides \abs{\Stab\para{X}}\). But by definition of \(\Omega\), we have \(\abs{X} = p^a\), and by the second claim, \(\abs{\Stab\para{X}} \divides p^a\).
+    Since no factors of \(p\) is in \(\abs{\Theta}\), they must be wholly contained in \(\abs{\Stab\pqty{X}}\), i.e., \(p^a \divides \abs{\Stab\pqty{X}}\). But by definition of \(\Omega\), we have \(\abs{X} = p^a\), and by the second claim, \(\abs{\Stab\pqty{X}} \divides p^a\).
 
-    Therefore, \(\abs{\Stab\para{X}} = p^a\) is a Sylow \(p\)-Subgroup which finishes our proof.
+    Therefore, \(\abs{\Stab\pqty{X}} = p^a\) is a Sylow \(p\)-Subgroup which finishes our proof.
 \end{proof}
 
 \begin{proof}[of Sylow's Second Theorem, Part of \autoref{thm:sylow}]
-    We show a stronger statement, that if \(Q \normalsub G\) is a \(p\)-group in \(G\), and \(P \in \Syl_p\para{G}\), then there exists \(g \in G\) such that
+    We show a stronger statement, that if \(Q \normalsub G\) is a \(p\)-group in \(G\), and \(P \in \Syl_p\pqty{G}\), then there exists \(g \in G\) such that
     \[
         g Q g\inverse \subseteq P.
     \]
 
-    This therefore implies the claim, since \(Q \in \Syl_p\para{G}\) gives \(Q\) is a \(p\)-group.
+    This therefore implies the claim, since \(Q \in \Syl_p\pqty{G}\) gives \(Q\) is a \(p\)-group.
 
-    Let \(Q\) act on \(G / P\) by \(q \ast gP = q gP\). The orbit of that action have size either \(1\) or divisible by \(p\). But \(\abs{G / P}\) is not divisible by \(p\), so there is some orbit with size \(1\).
+    Let \(Q\) act on \(\flatfrac{G}{P}\) by \(q \ast gP = q gP\). The orbit of that action have size either \(1\) or divisible by \(p\). But \(\abs{\flatfrac{G}{P}}\) is not divisible by \(p\), so there is some orbit with size \(1\).
 
     In other words, there exists some \(g \in G\), such that \(qgP = gP\) for all \(q \in Q\).
 
     We rearrange to say, that for all \(q \in Q\), \(g \inverse q g \in P\). Therefore, \(g \inverse Q g \subseteq P\), as desired.
 \end{proof}
 
-Recall that \(n_p = \abs{\Syl_p\para{G}}\).
+Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
 
 \begin{proof}[of Sylow's Third Theorem, Part of \autoref{thm:sylow}]
     We need to show \(n_p \divides \abs{G}\) and \(n_p \equiv 1 \pmod{p}\).
 
-    The first part is straightforward. The conjugation action of \(G\) on \(\Syl_{\para{G}}\) is transitive, so it has only one orbit. Therefore, the size of the orbit is \(n_p\), and hence \(n_p \divides G\).
+    The first part is straightforward. The conjugation action of \(G\) on \(\Syl_{\pqty{G}}\) is transitive, so it has only one orbit. Therefore, the size of the orbit is \(n_p\), and hence \(n_p \divides G\).
 
-    Now, let \(P \in \Syl_p\para{G}\). We consider an action \(P \actson \Syl_p\para{G}\) by conjugation.
+    Now, let \(P \in \Syl_p\pqty{G}\). We consider an action \(P \actson \Syl_p\pqty{G}\) by conjugation.
 
-    By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), the orbits have size \(1\) or divisible by \(p\). Now \(\brce{P}\) has size \(1\) and is hence a size-\(1\) orbit. It suffices to show that all the remaining orbits have size \(p\).
+    By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), the orbits have size \(1\) or divisible by \(p\). Now \(\Bqty{P}\) has size \(1\) and is hence a size-\(1\) orbit. It suffices to show that all the remaining orbits have size \(p\).
 
-    Say \(\brce{Q}\) is another size \(1\) orbit. So for any \(h \in P\), we have \(h Q h\inverse = Q\).
+    Say \(\Bqty{Q}\) is another size \(1\) orbit. So for any \(h \in P\), we have \(h Q h\inverse = Q\).
 
     Thus, \(P\) is contained in the normaliser
     \[
-        N_G\para{Q} = \set{g \in G}{g Q g\inverse = Q}.
+        N_G\pqty{Q} = \set{g \in G}{g Q g\inverse = Q}.
     \]
 
     Observe that
     \[
-        Q \subgroup N_G\para{Q} \subgroup G
+        Q \subgroup N_G\pqty{Q} \subgroup G
     \]
-    and therefore \(Q\) is in fact \(Q \in \Syl_p \para{N_G\para{Q}}\).
+    and therefore \(Q\) is in fact \(Q \in \Syl_p \pqty{N_G\pqty{Q}}\).
 
-    But by definition, \(Q\) is normal in \(N_G\para{Q}\), and \(P\) is another Sylow-\(p\) subgroup of the normaliser. By \autoref{thm:sylow}, Part 2, we know that \(P\) and \(Q\) are therefore conjugate in \(N_G\para{Q}\), so \(Q = P\).
+    But by definition, \(Q\) is normal in \(N_G\pqty{Q}\), and \(P\) is another Sylow-\(p\) subgroup of the normaliser. By \autoref{thm:sylow}, Part 2, we know that \(P\) and \(Q\) are therefore conjugate in \(N_G\pqty{Q}\), so \(Q = P\).
 \end{proof}
 
 \begin{example}[General Linear Group over Finite Fields]
     \label{ex:gln-p}
-    Let \(p\) be a prime. Let \(G = \GL_n \para{\ZZ / p}\) be the \(n \times n\) matrices on \(\ZZ / p\) that are invertible.
+    Let \(p\) be a prime. Let \(G = \GL_n \pqty{\flatfrac{\ZZ}{p}}\) be the \(n \times n\) matrices on \(\flatfrac{\ZZ}{p}\) that are invertible.
 
     We first find \(\abs{G}\) by building this invertible matrix column-wise.
 
     \[
         \begin{bmatrix}
             \vert & \vert & & \vert \\
-            \vm{v}_1 & \vm{v}_2 & \cdots & \vm{v}_n \\
+            \vb{v}_1 & \vb{v}_2 & \cdots & \vb{v}_n \\
             \vert & \vert & & \vert
         \end{bmatrix}
     \]
 
-    We have \(p^n - 1\) choices for the first column \(\vm{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vm{v}_2\), since \(\vm{v}_2 \notin \spn \brce{\vm{v}_1}\), and the span has size \(p\).
+    We have \(p^n - 1\) choices for the first column \(\vb{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vb{v}_2\), since \(\vb{v}_2 \notin \spn \Bqty{\vb{v}_1}\), and the span has size \(p\).
 
-    Similarly, there are \(p^n - p^2\) choices for the third column \(\vm{v}_3\), since \(\vm{v}_3 \notin \spn \brce{\vm{v}_1, \vm{v}_2}\), and the span has size \(p^2\).
+    Similarly, there are \(p^n - p^2\) choices for the third column \(\vb{v}_3\), since \(\vb{v}_3 \notin \spn \Bqty{\vb{v}_1, \vb{v}_2}\), and the span has size \(p^2\).
 
     Therefore,
     \[
-        \abs{G} = \para{p^n - 1} \para{p^n - p} \cdots \para{p^n - p^{n - 1}}.
+        \abs{G} = \pqty{p^n - 1} \pqty{p^n - p} \cdots \pqty{p^n - p^{n - 1}}.
     \]  
 
-    The largest power of \(p\) dividing \(\abs{G}\) is given by \(p^{\binom{n}{2}}\). We now attempt to find some element in \(\Syl_{p} \para{G}\).
+    The largest power of \(p\) dividing \(\abs{G}\) is given by \(p^{\binom{n}{2}}\). We now attempt to find some element in \(\Syl_{p} \pqty{G}\).
 
     For example,
     \[

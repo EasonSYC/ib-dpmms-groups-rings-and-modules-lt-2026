@@ -1,19 +1,19 @@
-\section{Matrices over \(\FF\brac{x}\) and Normal Forms of Matrices}
+\section{Matrices over \(\FF\bqty{x}\) and Normal Forms of Matrices}
 
-In a previous example, we considered a vector space \(V\) over a field \(\FF\). Fix \(\alpha \in \End\para{V}\), we may construct a \(\FF\brac{x}\) module
+In a previous example, we considered a vector space \(V\) over a field \(\FF\). Fix \(\alpha \in \End\pqty{V}\), we may construct a \(\FF\bqty{x}\) module
 \[
-    \function{\cdot}{\FF\brac{x} \times V}{V}{\para{f, v}}{f\para{\alpha} \cdot v.}
+    \function{\cdot}{\FF\bqty{x} \times V}{V}{\pqty{f, v}}{f\pqty{\alpha} \cdot v.}
 \]
 
 We call this module \(V_{\alpha}\).
 
-If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\brac{x}\) module.
+If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\bqty{x}\) module.
 
 \begin{example}
     \label{ex:lower-diagonal-1}%
     Suppose \(V_{\alpha}\) is the module
     \[
-        V_{\alpha} \isomorphic \FF\brac{x} / \para{x^r}.
+        V_{\alpha} \isomorphic \FF\bqty{x} / \pqty{x^r}.
     \]
 
     As a \(\FF\)-vector space, the right-hand side has basis
@@ -23,10 +23,10 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
 
     The endomorphism \(\functiondomain{\alpha}{V}{V}\) acts as multiplication by \(x\), i.e.,
     \[
-        \function{\alpha}{\FF\brac{x} / \para{x^r}}{\FF\brac{x} / \para{x^r}}{f}{xf.}
+        \function{\alpha}{\FF\bqty{x} / \pqty{x^r}}{\FF\bqty{x} / \pqty{x^r}}{f}{xf.}
     \]
 
-    Take the endomorphism in the basis \(\brce{1, x, \ldots, x^{r - 1}}\) as a matrix
+    Take the endomorphism in the basis \(\Bqty{1, x, \ldots, x^{r - 1}}\) as a matrix
     \[
         \alpha = \begin{pmatrix}
             0 & 0 & \cdots & 0 & 0 & 0 \\
@@ -43,7 +43,7 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
     \label{ex:jordan-block}%
     Suppose now instead
     \[
-        V_{\alpha} \isomorphic \FF\brac{x} / \para{x - \lambda}^r.
+        V_{\alpha} \isomorphic \FF\bqty{x} / \pqty{x - \lambda}^r.
     \]
 
     Now we choose \(\functiondomain{\beta}{V}{V}\) such that \(\beta = \alpha - \lambda \identity\). Then there is a basis for \(V\), where
@@ -70,14 +70,14 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
         \end{pmatrix}.
     \]
 
-    This is the \emph{Jordan block} of \emph{size} \(r\) and \emph{eigenvalue} \(\lambda\), and is denoted as \(\vm{J}_{r} \para{\lambda}\).
+    This is the \emph{Jordan block} of \emph{size} \(r\) and \emph{eigenvalue} \(\lambda\), and is denoted as \(\vb{J}_{r} \pqty{\lambda}\).
 \end{example}
 
 \begin{example}[Companion Matrix]
     \label{ex:companion-matrix}%
     Suppose now
     \[
-        V_{\alpha} \isomorphic \FF\brac{x} / p\para{x}
+        V_{\alpha} \isomorphic \FF\bqty{x} / p\pqty{x}
     \]
     with \(\deg p = r\). A basis for the \(\FF\)-module on the right-hand side is given by
     \[
@@ -86,11 +86,11 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
 
     Let
     \[
-        p\para{x} = a_0 + a_1 x + \cdots + x^r,
+        p\pqty{x} = a_0 + a_1 x + \cdots + x^r,
     \]
     then the matrix for the map
     \[
-        \function{\alpha}{\FF\brac{x} / p\para{x}}{\FF\brac{x} / p\para{x}}{f}{xf}
+        \function{\alpha}{\FF\bqty{x} / p\pqty{x}}{\FF\bqty{x} / p\pqty{x}}{f}{xf}
     \]
     is represented by, under this basis,
     \[
@@ -104,30 +104,30 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
         \end{pmatrix}.
     \]
 
-    This is called the \emph{companion matrix} for \(p\para{x}\), and is denoted as \(\vm{C}\para{p}\).
+    This is called the \emph{companion matrix} for \(p\pqty{x}\), and is denoted as \(\vb{C}\pqty{p}\).
 \end{example}
 
 \begin{theorem}[Rational Canonical Form]
     \label{thm:rational-canonical-form}%
-    Let \(\alpha \in \End\para{V}\). Then
+    Let \(\alpha \in \End\pqty{V}\). Then
     \[
-        V_{\alpha} \isomorphic \FF\brac{x} / \para{f_1} \oplus \cdots \oplus \FF\brac{x} / \para{f_s}
+        V_{\alpha} \isomorphic \FF\bqty{x} / \pqty{f_1} \oplus \cdots \oplus \FF\bqty{x} / \pqty{f_s}
     \]
     with \(f_i \divides f_{i + 1}\).
 
     There exists a basis of \(V\), such that
     \[
         \alpha = \begin{pmatrix}
-            \vm{C} \para{f_1} \\
-            & \vm{C} \para{f_2} \\
+            \vb{C} \pqty{f_1} \\
+            & \vb{C} \pqty{f_2} \\
             & & \ddots \\
-            & & & \vm{C} \para{f_s}
-        \end{pmatrix} = \diag\para{\vm{C} \para{f_1}, \ldots, \vm{C} \para{f_s}}.
+            & & & \vb{C} \pqty{f_s}
+        \end{pmatrix} = \diag\pqty{\vb{C} \pqty{f_1}, \ldots, \vb{C} \pqty{f_s}}.
     \]
 \end{theorem}
 
 \begin{proof}
-    We apply \autoref{thm:classification-finitely-generated-modules-euclidean-domains} (Structure Theorem for Finitely-Generated Modules over Euclidean Domains) for \(\FF\brac{x}\) and \autoref{ex:companion-matrix} (Companion Matrix).
+    We apply \autoref{thm:classification-finitely-generated-modules-euclidean-domains} (Structure Theorem for Finitely-Generated Modules over Euclidean Domains) for \(\FF\bqty{x}\) and \autoref{ex:companion-matrix} (Companion Matrix).
 \end{proof}
 
 \begin{remark}
@@ -136,25 +136,25 @@ If \(\dim V\) is finite, then \(V_{\alpha}\) is finitely generated as a \(\FF\br
 
 \begin{lemma}[Fundamental Theorem of Algebra]
     \label{lem:fundamental-theorem-of-algebra}%
-    The primes in \(\CC\brac{x}\) are exactly \(\para{x - \alpha}\) for \(\alpha \in \CC\).
+    The primes in \(\CC\bqty{x}\) are exactly \(\pqty{x - \alpha}\) for \(\alpha \in \CC\).
 \end{lemma}
 
 \begin{theorem}[Jordan Canonical Form]
     \label{thm:jordan-canonical-form}%
-    Let \(\alpha \in \End\para{V}\), where \(V\) is a finite-dimensional vector space over \(\CC\). Then we have
+    Let \(\alpha \in \End\pqty{V}\), where \(V\) is a finite-dimensional vector space over \(\CC\). Then we have
     \[
-        V_{\alpha} \isomorphic \CC\brac{x} / \para{x - \lambda_1}^{\alpha_1} \oplus \cdots \oplus \CC\brac{x} / \para{x - \lambda_t}^{a_t}.
+        V_{\alpha} \isomorphic \CC\bqty{x} / \pqty{x - \lambda_1}^{\alpha_1} \oplus \cdots \oplus \CC\bqty{x} / \pqty{x - \lambda_t}^{a_t}.
     \]
 
     There exists a basis of \(V\), such that
     \[
         \alpha = \begin{pmatrix}
-            \vm{J}_{a_1} \para{\lambda_1} \\
-            & \vm{J}_{a_2} \para{\lambda_2} \\
+            \vb{J}_{a_1} \pqty{\lambda_1} \\
+            & \vb{J}_{a_2} \pqty{\lambda_2} \\
             & & \ddots \\
-            & & & \vm{J}_{a_t} \para{\lambda_t}
+            & & & \vb{J}_{a_t} \pqty{\lambda_t}
         \end{pmatrix}
-        = \diag\para{\vm{J}_{a_1} \para{\lambda_1}, \ldots, \vm{J}_{a_t} \para{\lambda_t}}.
+        = \diag\pqty{\vb{J}_{a_1} \pqty{\lambda_1}, \ldots, \vb{J}_{a_t} \pqty{\lambda_t}}.
     \]
 \end{theorem}
 

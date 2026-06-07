@@ -3,7 +3,7 @@
 Recall that a conjugacy class in \(S_n\) consists of the set of all elements of a fixed cycle type.
 
 \begin{example}
-    For example, all the \(\para{2, 3}\)-cycles in \(S_5\) form a conjugacy class.
+    For example, all the \(\pqty{2, 3}\)-cycles in \(S_5\) form a conjugacy class.
 \end{example}
 
 \begin{theorem}[Simplicity of \(A_n\) for \(n \geq 5\)]
@@ -37,7 +37,7 @@ Recall that a conjugacy class in \(S_n\) consists of the set of all elements of 
         \]
         for \(\sigma \in S_n\). But observe that \(n \geq 5\), so there is some transposition \(\tau \in S_n\) disjoint from \(\delta\), which means it commutes with \(\delta\). Therefore,
         \[
-            \delta' = \para{\sigma \tau} \delta \para{\tau\inverse \sigma\inverse} = \para{\sigma \tau} \delta \para{\sigma \tau}\inverse
+            \delta' = \pqty{\sigma \tau} \delta \pqty{\tau\inverse \sigma\inverse} = \pqty{\sigma \tau} \delta \pqty{\sigma \tau}\inverse
         \]
         and hence \(\sigma \tau \in A_n\), showing \(\delta\) and \(\delta'\)are conjugate in \(A_n\).
     \end{proof}
@@ -45,9 +45,9 @@ Recall that a conjugacy class in \(S_n\) consists of the set of all elements of 
     \begin{proof}[of 3]
         Let \(H \normalsub A_n\) be non-trivial. There are several cases to consider.
         \begin{enumerate}
-            \item If \(H\) contains an element with a cycle of length \(4\) or more in its decomposition, i.e., of the form \(\sigma = \perm{1 2 {\ldots} r} \tau\) for some \(\tau\) disjoint from \(\brce{1, 2, \ldots, r}\), and \(r \geq 4\). By the normality of \(H\), if \(\delta = \perm{1 2 3}\) then we have \(\delta\inverse \sigma \delta \in H\), and hence \(\sigma\inverse \delta\inverse \sigma \delta \in H\).
+            \item If \(H\) contains an element with a cycle of length \(4\) or more in its decomposition, i.e., of the form \(\sigma = \perm{1 2 {\ldots} r} \tau\) for some \(\tau\) disjoint from \(\Bqty{1, 2, \ldots, r}\), and \(r \geq 4\). By the normality of \(H\), if \(\delta = \perm{1 2 3}\) then we have \(\delta\inverse \sigma \delta \in H\), and hence \(\sigma\inverse \delta\inverse \sigma \delta \in H\).
             
-            Since \(\tau\) is disjoint with \(\brce{1, 2, 3}\) by assumption, it commutes with \(\delta\), and by assumption, also with \(\perm{1 2 {\ldots} r}\).
+            Since \(\tau\) is disjoint with \(\Bqty{1, 2, 3}\) by assumption, it commutes with \(\delta\), and by assumption, also with \(\perm{1 2 {\ldots} r}\).
 
             We now expand this product to get
             \begin{align*}
@@ -74,7 +74,7 @@ Recall that a conjugacy class in \(S_n\) consists of the set of all elements of 
             Since \(\mu \nu = \perm{1 2 3 4 5} \in H\), then \(H\) contains a \(3\)-cycle by the first part. 
         \end{enumerate}
 
-        The proof then finishes by labelling \(\brce{1, 2, \ldots, n}\) with some permutation.
+        The proof then finishes by labelling \(\Bqty{1, 2, \ldots, n}\) with some permutation.
     \end{proof}
 \end{proof}
 

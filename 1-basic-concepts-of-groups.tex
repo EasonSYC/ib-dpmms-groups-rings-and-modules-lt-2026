@@ -2,7 +2,7 @@
 
 \begin{definition}[Group]
     \label{def:group}%
-    A \emph{group} is a triple \(\para{G, \cdot, e}\) where:
+    A \emph{group} is a triple \(\pqty{G, \cdot, e}\) where:
     \begin{itemize}
         \item \(G\) is a set;
         \item \(\functiondomain{\cdot}{G \times G}{G}\) is a binary operation on \(G\); and
@@ -10,12 +10,12 @@
     \end{itemize}
     such that the following properties hold:
     \begin{itemize}
-        \item \emph{Associativity.} For all \(a, b, c \in G\), we have \(\para{a \cdot b} \cdot c = a \cdot \para{b \cdot c}\);
+        \item \emph{Associativity.} For all \(a, b, c \in G\), we have \(\pqty{a \cdot b} \cdot c = a \cdot \pqty{b \cdot c}\);
         \item \emph{Identity.} For all \(a \in G\), we have \(e \cdot a = a \cdot e = a\);
         \item \emph{Inverses.} For all \(a \in G\), there exists \(a \inverse \in G\), such that \(a \cdot a \inverse = a \inverse \cdot a = e\).
     \end{itemize}
 
-    The size of \(G\) is called the \emph{order} of \(\para{G, \cdot, e}\), written by \(\abs{G}\).
+    The size of \(G\) is called the \emph{order} of \(\pqty{G, \cdot, e}\), written by \(\abs{G}\).
 \end{definition}
 
 From now on we refer to the group just using \(G\), the set itself.
@@ -35,7 +35,7 @@ From now on we refer to the group just using \(G\), the set itself.
     \begin{itemize}
         \item \emph{Identity.} \(e \in H\);
         \item \emph{Closure.} For any \(a, b \in H\), we have \(a \cdot b \in H\).
-        \item \emph{Group as subgroup.} \(\para{H, \cdot, e}\) is a subgroup.
+        \item \emph{Group as subgroup.} \(\pqty{H, \cdot, e}\) is a subgroup.
     \end{itemize}
 \end{definition}
 
@@ -59,32 +59,32 @@ We can classify all finitely-generated abelian groups: in fact they are just dir
 
 \begin{examples}[Examples of Groups]
     \label{ex:examples-of-groups}%
-    \(\para{\ZZ, +, 0}, \para{\QQ, +, 0}, \RR, \CC, \ZZ/n\ZZ\) are examples of number groups.
+    \(\pqty{\ZZ, +, 0}, \pqty{\QQ, +, 0}, \RR, \CC, \flatfrac{\ZZ}{n \ZZ}\) are examples of number groups.
 
-    The permutations/symmetries (bijections) of \(\brce{1, 2, \ldots, n}\) under composition, form a group called the symmetric group, written as \(S_n\).
+    The permutations/symmetries (bijections) of \(\Bqty{1, 2, \ldots, n}\) under composition, form a group called the symmetric group, written as \(S_n\).
     
-    More generally, for \emph{any} set \(X\) (which could be infinite/uncountable), there is a group \(\Sym\para{X}\) defined in the same way.
+    More generally, for \emph{any} set \(X\) (which could be infinite/uncountable), there is a group \(\Sym\pqty{X}\) defined in the same way.
 
     The \emph{dihedral group} \(D_{2n}\) is the group of symmetries of a regular \(n\)-gon.
 
     If we label the \(6\) vertices of the hexagon as \(1, 2, \ldots, 6\), then we see that element in \(D_{12}\) in fact \emph{permutes} the elements -- so in some sense, \(D_{12} \subseteq S_6\), and we will see that it means there is some \emph{injective} homomorphism from \(D_{12}\) to \(S_6\).
 
-    The \emph{general linear group over \(\RR\)}, denoted \(\GL\para{n, \RR}\) or \(\GL_n\para{\RR}\), is
+    The \emph{general linear group over \(\RR\)}, denoted \(\GL\pqty{n, \RR}\) or \(\GL_n\pqty{\RR}\), is
     \begin{align*}
-        \GL\para{n, \RR} &= \set{\functiondomain{f}{\RR^n}{\RR^n}}{f \text{ is a }\RR\text{--linear bijection}} \subseteq \Sym\para{\RR^n} \\
-        &= \brce{n \times n \emph{ invertible matrices over }\RR}.
+        \GL\pqty{n, \RR} &= \set{\functiondomain{f}{\RR^n}{\RR^n}}{f \text{ is a }\RR\text{--linear bijection}} \subseteq \Sym\pqty{\RR^n} \\
+        &= \Bqty{n \times n \emph{ invertible matrices over }\RR}.
     \end{align*}
 
     We have some examples of subgroups:
     \begin{itemize}
         \item The even permutations in \(S_n\) form the \emph{alternating group} \(A_n \subgroup S_n\).
         \item The rotational symmetries of an \(n\)-gon as \(C_n \subgroup D_{2n}\).
-        \item The determinant-\(1\) matrices \(\SL\para{n, \RR} \subgroup \GL\para{n, \RR}\).
+        \item The determinant-\(1\) matrices \(\SL\pqty{n, \RR} \subgroup \GL\pqty{n, \RR}\).
     \end{itemize}
 
     Other nice examples include \(C_2 \times C_2\) and the group
     \[
-        Q_8 = \set{\pm 1, \pm i, \pm j, \pm k}{ij = k, ji = -k, i^2 = j^2 = k^2 = -1, \para{-1}^2 = 1}.
+        Q_8 = \set{\pm 1, \pm i, \pm j, \pm k}{ij = k, ji = -k, i^2 = j^2 = k^2 = -1, \pqty{-1}^2 = 1}.
     \]
 \end{examples}
 
@@ -121,20 +121,20 @@ defines a bijection between \(H\) and \(gH\).
 
     By convention, if no such \(n\) exists, we take \(n = \infty\).
 
-    We denote this as \(\ord\para{g}\).
+    We denote this as \(\ord\pqty{g}\).
 \end{definition}
 
 \begin{proposition}[Order of Element divides Order of Group]
     \label{prop:order-of-element-divides-order-of-group}%
-    Let \(g \in G\). Then \(\ord\para{g}\) divides \(\abs{G}\).
+    Let \(g \in G\). Then \(\ord\pqty{g}\) divides \(\abs{G}\).
 \end{proposition}
 
 \begin{proof}
     Let \(g \in G\), and considering the subset
     \[
-        H = \brce{e, g, g^2, \ldots, g^{n - 1}}
+        H = \Bqty{e, g, g^2, \ldots, g^{n - 1}}
     \]
-    where \(n = \ord\para{g}\). (If \(\ord\para{g} = \infty\), there is nothing to prove.)
+    where \(n = \ord\pqty{g}\). (If \(\ord\pqty{g} = \infty\), there is nothing to prove.)
 
     \(H\) is a subgroup: since \(e \in H\), we have \(H \neq \emptyset\), hence we can apply subgroup test
     \[

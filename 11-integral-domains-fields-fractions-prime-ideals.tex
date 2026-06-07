@@ -6,7 +6,7 @@ Notice that in the ring \(\ZZ / 6\), we have \(2 \cdot 3 = 0\) but \(2 \neq 0\) 
     \label{def:integral-domain-zero-divisor}%
     A non-zero ring \(R\) is an \emph{integral domain}, if for all \(a, b \in R\), we have
     \[
-        a b = 0 \implies a = 0 \quad\text{or}\quad b = 0.
+        a b = 0 \implies a = 0 \qor b = 0.
     \]
 
     A \emph{zero divisor} if a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
@@ -23,9 +23,9 @@ For example, in \(\ZZ / 6\), we say both \(2\) and \(3\) are zero divisors.
     \]
     so \(a = 0\).
         \item Similarly, any subring of a field is also an integral domain. This is really how we should think of integral domains.
-        \item The rings \(\ZZ\), \(\ZZ\brac{i}\), \(\QQ\), \(\CC\), \(\RR\brac{x}\) \(\ZZ\brac{X}\) are integral domains.
-        \item The rings \(\ZZ / 6\), \(\ZZ / \para{pq}\), \(\ZZ / 2 \times \ZZ / 2\), etc.
-        \item In particular, direct products cannot be integral domains, since \(\para{0, 1}\) and \(\para{1, 0}\) product to \(0\).
+        \item The rings \(\ZZ\), \(\ZZ\bqty{i}\), \(\QQ\), \(\CC\), \(\RR\bqty{x}\) \(\ZZ\bqty{X}\) are integral domains.
+        \item The rings \(\ZZ / 6\), \(\ZZ / \pqty{pq}\), \(\ZZ / 2 \times \ZZ / 2\), etc.
+        \item In particular, direct products cannot be integral domains, since \(\pqty{0, 1}\) and \(\pqty{1, 0}\) product to \(0\).
     \end{itemize}
 \end{examples}
 
@@ -44,12 +44,12 @@ An example of this is \(\ZZ / p\) for a prime \(p\).
 
     This is a group homomorphism for the underlying group structure. Since \(R\) is an integral domain, by definition, we have
     \[
-        \ker \para{\mu_a} = \brce{0}.
+        \ker \pqty{\mu_a} = \Bqty{0}.
     \]
 
     So \(\mu_a\) is injective. Recall that \(R\) is finite, which means \(\mu_a\) is bijective.
 
-    In particular, \(1 \in \img \para{\mu_a}\), so there is some \(b \in R\) with \(b \neq 0\), such that
+    In particular, \(1 \in \img \pqty{\mu_a}\), so there is some \(b \in R\) with \(b \neq 0\), such that
     \[
         a \cdot b = 1
     \]
@@ -82,39 +82,39 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 \begin{proof}
     Define a set
     \[
-        S = \set{\para{a, b} \in R \times R}{b \neq 0}.
+        S = \set{\pqty{a, b} \in R \times R}{b \neq 0}.
     \]
 
     We define a relation \(\sim\) over \(S\), being
     \[
-        \para{a, b} \sim \para{c, d} \iff ad = bc,
+        \pqty{a, b} \sim \pqty{c, d} \iff ad = bc,
     \]
     where here the multiplication is in \(R\).
 
     We want to show \(\sim\) is an equivalence relation. \emph{Symmetry} and \emph{reflective} are obvious. We conduct a non-trivial check on the \emph{transitivity}. Suppose that
     \[
-        \para{a, b} \sim \para{c, d} \quad\text{and}\quad \para{c, d} \sim \para{e, f}.
+        \pqty{a, b} \sim \pqty{c, d} \qand \pqty{c, d} \sim \pqty{e, f}.
     \]
 
     We have \(ad = bc\) and \(cf = de\). Multiplying the first equality by \(f\), and the second by \(b\), we have
     \[
-        adf = bcf \quad\text{and}\quad bcf = bde,
+        adf = bcf \qand bcf = bde,
     \]
     and hence \(adf = bde\). So we may rearrange and combine terms to get
     \[
-        d \para{af - be} = 0.
+        d \pqty{af - be} = 0.
     \]
 
-    We have \(d \neq 0\), by our definition of \(S\). Using that \(R\) is an integral domain, we have \(af - be = 0\), so indeed \(af = be\), and we have \(\para{a, b} \sim \para{e, f}\).
+    We have \(d \neq 0\), by our definition of \(S\). Using that \(R\) is an integral domain, we have \(af - be = 0\), so indeed \(af = be\), and we have \(\pqty{a, b} \sim \pqty{e, f}\).
 
     Now, we take the equivalence classes
     \[
         F = S / \sim,
     \]
-    and we denote \(\frac{a}{b} = \brac{\para{a, b}}\) for the conjugacy class. We make \(F\) a ring by the following operations.
+    and we denote \(\frac{a}{b} = \bqty{\pqty{a, b}}\) for the conjugacy class. We make \(F\) a ring by the following operations.
 
     \[
-        \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \quad\text{and}\quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.
+        \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \qand \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.
     \]
 
     Elementary checks show that these operations are well-defined and \(F\) is a ring.
@@ -128,25 +128,25 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
     Clearly, \(\phi\) is a ring homomorphism, and observe that
     \[
-        \ker\para{\phi} = \set{r \in R}{\frac{r}{1} = 0} = \brce{0}.
+        \ker\pqty{\phi} = \set{r \in R}{\frac{r}{1} = 0} = \Bqty{0}.
     \]
 
-    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\img \para{\phi} \isomorphic R\). Since every \(\frac{a}{b} \in R\) can be written as
+    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\img \pqty{\phi} \isomorphic R\). Since every \(\frac{a}{b} \in R\) can be written as
     \[
-        \frac{a}{b} = \frac{a}{1} \cdot \frac{1}{b} = \para{\frac{a}{1}} \cdot \para{\frac{b}{1}}\inverse, 
+        \frac{a}{b} = \frac{a}{1} \cdot \frac{1}{b} = \pqty{\frac{a}{1}} \cdot \pqty{\frac{b}{1}}\inverse, 
     \]
     so we have completed the proof.
 \end{proof}
 
 \begin{proposition}[Ideals of Fields]
     \label{prop:ideals-fields}%
-    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\brce{0}\) and \(R\)/
+    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\Bqty{0}\) and \(R\)/
 \end{proposition}
 
 \begin{proof}
-    Let \(R\) be a field and take some ideal \(I \idealsub R\). Say \(I \neq \brce{0}\). Then \(I\) contains a unit, say \(u \in I\). But then \(1 \in I\) since \(1 = uv\) for some \(v \in R\). So \(I = R\).
+    Let \(R\) be a field and take some ideal \(I \idealsub R\). Say \(I \neq \Bqty{0}\). Then \(I\) contains a unit, say \(u \in I\). But then \(1 \in I\) since \(1 = uv\) for some \(v \in R\). So \(I = R\).
 
-    Conversely, take \(0 \neq r \in R\). Then we have \(\para{r} = R\), and hence \(1 \in R\) gives \(1 = r \cdot s\) for some \(s \in R\). So \(r\) is a unit, and \(R\) is a field.
+    Conversely, take \(0 \neq r \in R\). Then we have \(\pqty{r} = R\), and hence \(1 \in R\) gives \(1 = r \cdot s\) for some \(s \in R\). So \(r\) is a unit, and \(R\) is a field.
 \end{proof}
 
 \begin{definition}[Maximal Ideal]
@@ -162,7 +162,7 @@ Note that the zero ideal is maximal if and only if the ring itself is a field.
 \end{proposition}
 
 \begin{proof}
-    \(R / I\) is a field if and only if its only ideals are the trivial ones, i.e., \(\brce{0}\) and \(R / I\) itself, by \autoref{prop:ideals-fields}.
+    \(R / I\) is a field if and only if its only ideals are the trivial ones, i.e., \(\Bqty{0}\) and \(R / I\) itself, by \autoref{prop:ideals-fields}.
 
     Using the correspondence result for ideals between \(R\) and \(R / I\) finishes the proof.
 \end{proof}
@@ -189,15 +189,15 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
 \end{proposition}
 
 \begin{proof}
-    If \(I\) is prime, let \(\para{a + I}\) and \(\para{b + I}\) be cosets in \(R / I\) for some \(a, b \in R\). The product satisfies
+    If \(I\) is prime, let \(\pqty{a + I}\) and \(\pqty{b + I}\) be cosets in \(R / I\) for some \(a, b \in R\). The product satisfies
     \[
-        \para{a + I} \cdot \para{b + I} = ab + I = 0 + I
+        \pqty{a + I} \cdot \pqty{b + I} = ab + I = 0 + I
     \]
     is the zero ideal if and only if \(ab \in I\). This, since \(I\) is prime, implies that \(a \in I\) or \(b \in I\), so \(a + I = 0 + I\) or \(b + I = 0 + I\), showing that \(R / I\) is indeed integral.
 
     Conversely, if \(R / I\) is integral, consider \(ab \in I\) where \(ab = 0\). Then
     \[
-        ab + I = \para{a + I} \para{b + I} = 0 + I
+        ab + I = \pqty{a + I} \pqty{b + I} = 0 + I
     \]
     in \(R / I\) which is integral. Therefore, \(a + I = 0\) or \(b + I = 0\).
 \end{proof}
@@ -212,7 +212,7 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
 \end{proof}
 
 \begin{remark}
-    The converse is false. Consider the example \(\para{0} \idealsub \ZZ\), and \(\para{x} \idealsub \RR\brac{x, y}\) are both prime but not maximal.
+    The converse is false. Consider the example \(\pqty{0} \idealsub \ZZ\), and \(\pqty{x} \idealsub \RR\bqty{x, y}\) are both prime but not maximal.
 \end{remark}
 
 \begin{proposition}[Characteristic of Integral Domain is Zero or Prime]
@@ -221,7 +221,7 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
 \end{proposition}
 
 \begin{proof}
-    Consider the unique homomorphism \(\functiondomain{f}{{\ZZ}}{R}\). Characteristic \(n\) implies that \(\para{n} \idealsub \ZZ\) is the kernel.
+    Consider the unique homomorphism \(\functiondomain{f}{{\ZZ}}{R}\). Characteristic \(n\) implies that \(\pqty{n} \idealsub \ZZ\) is the kernel.
 
-    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\ZZ / n \ZZ \subring R\). Then \(\ZZ / n\ZZ\) is therefore integral, and hence \(\para{n}\) must be a prime ideal.
+    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\ZZ / n \ZZ \subring R\). Then \(\ZZ / n\ZZ\) is therefore integral, and hence \(\pqty{n}\) must be a prime ideal.
 \end{proof}

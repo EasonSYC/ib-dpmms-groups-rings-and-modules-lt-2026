@@ -6,19 +6,19 @@ Throughout this section, we assume \(R\) is an integral domain.
     \label{def:divisor}%
     Let \(a, b \in R\). We say \(a\) \emph{divides} \(b\), written as \(a \divides b\), if there exists some \(c \in R\), such that \(b = ac\).
 
-    Equivalently, \(a\) divides \(b\) if and only if \(\para{b} \subseteq \para{a}\).
+    Equivalently, \(a\) divides \(b\) if and only if \(\pqty{b} \subseteq \pqty{a}\).
 \end{definition}
 
 \begin{definition}[Associate]
     \label{def:associate}%
     Let \(a, b \in R\). We say \(a, b \in R\) are \emph{associates}, if \(a = bc\) for \(c \in R\) is a unit.
 
-    Equivalently, \(a\) and \(b\) are associates if and only if \(\para{a} = \para{b}\), and equivalently, \(a \divides b\) and \(b \divides a\).
+    Equivalently, \(a\) and \(b\) are associates if and only if \(\pqty{a} = \pqty{b}\), and equivalently, \(a \divides b\) and \(b \divides a\).
 \end{definition}
 
-In a ring like the power series \(\RR\bbrac{x}\), then \(x\) and \(\para{x + x^2 + x^3 + \cdots}\) are associates. This is
+In a ring like the power series \(\RR\bbrac{x}\), then \(x\) and \(\pqty{x + x^2 + x^3 + \cdots}\) are associates. This is
 \[
-    x + x^2 + x^3 + \cdots = x \cdot \para{1 + x + x^2 + \cdots} = x \cdot \para{1 - x}\inverse.
+    x + x^2 + x^3 + \cdots = x \cdot \pqty{1 + x + x^2 + \cdots} = x \cdot \pqty{1 - x}\inverse.
 \]
 
 \begin{definition}[Irreducible]
@@ -35,15 +35,15 @@ Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this 
 
 \begin{proposition}[Prime Elements and Prime Ideals]
     \label{prop:prime-element-ideal}%
-    Let \(r \in R\). Then \(r \neq 0\) is a prime element if and only if \(\para{r}\) is a prime ideal.
+    Let \(r \in R\). Then \(r \neq 0\) is a prime element if and only if \(\pqty{r}\) is a prime ideal.
 \end{proposition}
 
 \begin{proof}
-    Let \(\para{r}\) be a prime ideal. Prime ideals are not unit (by definition), so \(r\) is not a unit.
+    Let \(\pqty{r}\) be a prime ideal. Prime ideals are not unit (by definition), so \(r\) is not a unit.
 
-    Suppose \(r \divides ab\). Then \(ab \in \para{r}\) which is prime, so \(a \in \para{r}\) or \(b \in \para{r}\), so \(r \divides a\) or \(r \divides b\).
+    Suppose \(r \divides ab\). Then \(ab \in \pqty{r}\) which is prime, so \(a \in \pqty{r}\) or \(b \in \pqty{r}\), so \(r \divides a\) or \(r \divides b\).
 
-    Conversely, let \(r\) be a prime element. Now, suppose \(ab \in \para{r}\). Then \(r \divides ab\), and since \(r\) is prime, we have \(r \divides a\) and \(r \divides b\), and hence \(a \in \para{r}\) or \(b \in \para{r}\).
+    Conversely, let \(r\) be a prime element. Now, suppose \(ab \in \pqty{r}\). Then \(r \divides ab\), and since \(r\) is prime, we have \(r \divides a\) and \(r \divides b\), and hence \(a \in \pqty{r}\) or \(b \in \pqty{r}\).
 \end{proof}
 
 \begin{proposition}[Primes are Irreducible]
@@ -62,35 +62,35 @@ Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this 
     Recall that we are working in integral domains. Therefore, \(r = 0\) or \(cy = 1\). But \(r \neq 0\) by definition, so \(cy = 1\), showing \(y\) is a unit, and hence \(r\) is irreducible.
 \end{proof}
 
-The converse is false. We consider \(R = \ZZ\brac{\sqrt{-5}}\).
+The converse is false. We consider \(R = \ZZ\bqty{\sqrt{-5}}\).
 
 \begin{example}[Irreducibles that are not Primes]
     \label{ex:irreducible-not-prime}%
-    Consider the ring \(R = \ZZ\brac{\sqrt{-5}} \subring \CC\) is obviously an integral domain, since it is a subring of a field (and a field is always integral). This ring structure comes with the \emph{norm}:
+    Consider the ring \(R = \ZZ\bqty{\sqrt{-5}} \subring \CC\) is obviously an integral domain, since it is a subring of a field (and a field is always integral). This ring structure comes with the \emph{norm}:
     \[
-        \function{N}{\ZZ\brac{\sqrt{-5}}}{\ZZ_{\geq 0}}{a + b \sqrt{5}}{a^2 + 5 b^2.}
+        \function{N}{\ZZ\bqty{\sqrt{-5}}}{\ZZ_{\geq 0}}{a + b \sqrt{5}}{a^2 + 5 b^2.}
     \]
 
-    This function is multiplicative, namely \(N\para{a} N\para{b} = N\para{ab}\) for any \(a, b \in R\).
+    This function is multiplicative, namely \(N\pqty{a} N\pqty{b} = N\pqty{ab}\) for any \(a, b \in R\).
 
-    We first claim all units in \(R\) have norm \(1\). Note that if \(1 = uv\) for \(u, v \in \RR\), we have \(N\para{1} = N\para{u} \cdot N\para{v}\), so both norms have to be \(1\).
+    We first claim all units in \(R\) have norm \(1\). Note that if \(1 = uv\) for \(u, v \in \RR\), we have \(N\pqty{1} = N\pqty{u} \cdot N\pqty{v}\), so both norms have to be \(1\).
 
     The only units are in fact \(\pm 1 \in R\), because they are indeed units, and they are the only elements with norm \(1\). 
 
-    Now, we claim that the element \(2 \in R\) is irreducible. To see this, we notice \(N\para{2} = 4\). But there are no elements \(r \in R\) with \(N\para{r} = 2\), so if \(2 = ab\) for \(a, b \in R\), then \(N\para{a} = 1\) or \(N\para{b} = 1\), so one of \(a\) or \(b\) is a unit. Therefore, \(2\) is irreducible.
+    Now, we claim that the element \(2 \in R\) is irreducible. To see this, we notice \(N\pqty{2} = 4\). But there are no elements \(r \in R\) with \(N\pqty{r} = 2\), so if \(2 = ab\) for \(a, b \in R\), then \(N\pqty{a} = 1\) or \(N\pqty{b} = 1\), so one of \(a\) or \(b\) is a unit. Therefore, \(2\) is irreducible.
 
     By a similar argument, the numbers \(3\) and \(1 \pm \sqrt{-5}\) are all irreducible elements.
 
     However, these four elements \textbf{are not prime}. Observe that
     \[
-        6 = \para{1 + \sqrt{-5}} \para{1 - \sqrt{-5}} = 2 \cdot 3.
+        6 = \pqty{1 + \sqrt{-5}} \pqty{1 - \sqrt{-5}} = 2 \cdot 3.
     \]
 
     We claim that \(2 \notdivides 1 \pm \sqrt{-5}\). If it did, then
     \[
-        4 = N\para{2} \divides N\para{1 \pm \sqrt{-5}} = 6
+        4 = N\pqty{2} \divides N\pqty{1 \pm \sqrt{-5}} = 6
     \]
-    but this is not true. Therefore, we have \(2 \divides 6 = \para{1 + \sqrt{-5}} \para{1 - \sqrt{-5}}\), but \(2 \notdivides 1 \pm \sqrt{-5}\). Therefore, \(2\) is not prime.
+    but this is not true. Therefore, we have \(2 \divides 6 = \pqty{1 + \sqrt{-5}} \pqty{1 - \sqrt{-5}}\), but \(2 \notdivides 1 \pm \sqrt{-5}\). Therefore, \(2\) is not prime.
 
     We will soon see later that unique factorisation fails as well.
 \end{example}
@@ -99,38 +99,38 @@ We try abstract arithmetic properties by describing them in more general algebra
 
 \begin{definition}[Euclidean Domain]
     \label{def:euclidean-domain}%
-    An integral domain \(R\) is a \emph{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \brce{0}}{\ZZ_{\geq 0}}\), such that
+    An integral domain \(R\) is a \emph{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
     \begin{enumerate}
-        \item \(\phi\para{ab} \geq \phi\para{b}\) for all non-zero \(a, b\); and
-        \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\para{r} \leq \phi\para{b}\).
+        \item \(\phi\pqty{ab} \geq \phi\pqty{b}\) for all non-zero \(a, b\); and
+        \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\pqty{r} \leq \phi\pqty{b}\).
     \end{enumerate}
 
     Such a function \(\phi\) is called a \emph{Euclidean function}.
 \end{definition}
 
 \begin{example*}[Examples and Non-Examples of Euclidean Domains]
-    \(\para{\ZZ, \phi = \abs{ \cdot }}\), the integers, and for any field \(K\), \(\para{K\brac{x}, \phi = \deg}\), the polynomial ring.
+    \(\pqty{\ZZ, \phi = \abs{ \cdot }}\), the integers, and for any field \(K\), \(\pqty{K\bqty{x}, \phi = \deg}\), the polynomial ring.
 
-    Note that \(\ZZ\brac{\sqrt{-5}}\) is \emph{not Euclidean}.
+    Note that \(\ZZ\bqty{\sqrt{-5}}\) is \emph{not Euclidean}.
 \end{example*}
 
 \begin{example}[Gaussian Integers are a Euclidean Domain]
     \label{ex:gaussian-integers-euclidean-domain}%
-    Let \(R = \ZZ\brac{i} \subring \CC\) be the \emph{Gaussian Integers}. We define the function
+    Let \(R = \ZZ\bqty{i} \subring \CC\) be the \emph{Gaussian Integers}. We define the function
     \[
-        \phi\para{z} = \abs{z}^2
+        \phi\pqty{z} = \abs{z}^2
     \]
     where \(\abs{ \cdot }\) denotes the complex norm. Note that it does satisfy the first property, so it remains to show that the division algorithm shows.
 
-    Consider \(a, b \in \ZZ\brac{i}\), and we let \(b \neq 0\). Since \(\CC\) is a field, we have \(a / b \in \CC\), then there is a point \(q \in \ZZ\brac{i}\), such that
+    Consider \(a, b \in \ZZ\bqty{i}\), and we let \(b \neq 0\). Since \(\CC\) is a field, we have \(a / b \in \CC\), then there is a point \(q \in \ZZ\bqty{i}\), such that
     \[
         \abs{\frac{a}{b} - q} < 1,
     \]
     as demonstrated in \autoref{fig:div-gaussian}.
 
-    So we let \(\frac{a}{b} = q + c\) with \(\abs{c} < 1\), and hence \(a = bq + bc\). Take \(r = bc\), we know that \(r = a - bq \in \ZZ\brac{i}\), and we have
+    So we let \(\frac{a}{b} = q + c\) with \(\abs{c} < 1\), and hence \(a = bq + bc\). Take \(r = bc\), we know that \(r = a - bq \in \ZZ\bqty{i}\), and we have
     \[
-        \phi\para{r} = \phi\para{bc} = \abs{bc}^2 < \abs{b}^2 = \phi\para{b},
+        \phi\pqty{r} = \phi\pqty{bc} = \abs{bc}^2 < \abs{b}^2 = \phi\pqty{b},
     \]
     so this Euclidean function satisfies the division algorithm, finishing our proof.
 \end{example}
@@ -142,7 +142,7 @@ We try abstract arithmetic properties by describing them in more general algebra
     \label{fig:div-gaussian}
 \end{figure}
 
-In particular, this means that any ideal \(I \idealsub \ZZ\brac{i}\) is principle -- recall \autoref{ex:ideals-of-z}.
+In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principle -- recall \autoref{ex:ideals-of-z}.
 
 \begin{definition}[Principle Ideal Domain]
     \label{def:pid}%
@@ -160,11 +160,11 @@ In particular, this means that any ideal \(I \idealsub \ZZ\brac{i}\) is principl
 
 \begin{example}[Non-Example of PID]
     \label{ex:non-example-pid}%
-    Let \(R = \ZZ\brac{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \para{2, x}\). We claim that this ideal is not principle.
+    Let \(R = \ZZ\bqty{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \pqty{2, x}\). We claim that this ideal is not principle.
 
-    Say \(I = \para{f}\). Then \(f \divides 2\), so \(f \in \brce{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\para{f} = \ZZ\brac{x}\). But \(\para{2, x} \neq \ZZ\brac{x}\) by looking at constant terms.
+    Say \(I = \pqty{f}\). Then \(f \divides 2\), so \(f \in \Bqty{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\pqty{f} = \ZZ\bqty{x}\). But \(\pqty{2, x} \neq \ZZ\bqty{x}\) by looking at constant terms.
 
-    Therefore, \(f = \pm 2\). But \(2 \notdivides x\), so \(\para{f} \neq \para{2, x}\).
+    Therefore, \(f = \pm 2\). But \(2 \notdivides x\), so \(\pqty{f} \neq \pqty{2, x}\).
 \end{example}
 
 \begin{definition}[Unique Factorisation Domain]
@@ -186,9 +186,9 @@ We want to show that all PIDs are UFDs.
 \begin{proof}
     Let \(p \in R\) be irreducible, and let \(p \divides ab\) but \(p \notdivides a\). We want to show \(p \divides b\).
 
-    Consider \(\para{p, a} \idealsub R\). This is principle, so
+    Consider \(\pqty{p, a} \idealsub R\). This is principle, so
     \[
-        \para{d} = \para{p, a}
+        \pqty{d} = \pqty{p, a}
     \]
     for some \(d \in R\). So \(d \divides p\) and \(d \divides a\).
 
@@ -196,7 +196,7 @@ We want to show that all PIDs are UFDs.
 
     If \(q_1\) is a unit, then \(d = q\inverse p\). But \(d \divides a\), so \(p \divides a\), which gives a contradiction.
 
-    Therefore, \(d\) is a unit, so \(\para{d} = \para{1} = R\). Therefore, \(\para{p, a} = R\), so \(1 = rp + sa\).
+    Therefore, \(d\) is a unit, so \(\pqty{d} = \pqty{1} = R\). Therefore, \(\pqty{p, a} = R\), so \(1 = rp + sa\).
 
     Hence,
     \[
@@ -218,7 +218,7 @@ We first prove the following. Let \(R\) be a principle ideal domain. If \(I_1 \i
         I = \bigcup_{j \in \NN} I_j.
     \]
 
-    This is an ideal in \(R\), and hence principle, since \(R\) is a principle ideal domain. Therefore, \(I = \para{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
+    This is an ideal in \(R\), and hence principle, since \(R\) is a principle ideal domain. Therefore, \(I = \pqty{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
 \end{proof}
 
 Rings that satisfy this property are \emph{Noetherian} -- we will come back to this later.
@@ -230,9 +230,9 @@ Rings that satisfy this property are \emph{Noetherian} -- we will come back to t
 
     Now, let \(r_1 = r_2 s_2\), where \(r_2, s_2\) are non-units. Again, suppose that \(r_2\) cannot be written as a product of irreducibles. If not, we continue, by letting \(r_2 = r_3 s_3\), where \(r_3, s_3\) are non-units.
 
-    So we get \(\para{r} \subseteq \para{r_1} \subseteq \para{r_2} \subseteq \cdots\). Therefore, by the lemma, this increasing chain of ideals stabilises, say \(\para{r_N}\).
+    So we get \(\pqty{r} \subseteq \pqty{r_1} \subseteq \pqty{r_2} \subseteq \cdots\). Therefore, by the lemma, this increasing chain of ideals stabilises, say \(\pqty{r_N}\).
 
-    So for \(n \geq N\), \(\para{r_n} = \para{r_{n + 1} s_{n + 1}} = \para{r_{n + 1}}\), so \(s_{n + 1}\) is a unit. This gives a contradiction.
+    So for \(n \geq N\), \(\pqty{r_n} = \pqty{r_{n + 1} s_{n + 1}} = \pqty{r_{n + 1}}\), so \(s_{n + 1}\) is a unit. This gives a contradiction.
 
     For uniqueness, suppose that \(p_1 \cdots p_n = q_1 \cdots q_m\) are a product of irreducibles. Now, recall \autoref{lem:irreducible-primes-pid} (Irreducibles implies Primes in PID), so say \(p_1 \divides q_i\) for some \(i\). But \(q_i\) is irreducible, so \(q_i = a p_1\) for some unit \(a\).
 
@@ -266,7 +266,7 @@ An integral domain where any two elements have a greatest common divisor is call
 \begin{proof}
     Let \(p_1, \ldots, p_m\) be the list of all irreducible factors in the factorisations of all the \(a_i\)s, up to associates.
 
-    Let \(a_i = u_i \cdot \prod_{j = 1}^{m} p_j^{n_{i, j}}\) where \(n_{i, j} \geq 0\), and let \(m_j = \min \brce{n_{i, j}}\). We choose
+    Let \(a_i = u_i \cdot \prod_{j = 1}^{m} p_j^{n_{i, j}}\) where \(n_{i, j} \geq 0\), and let \(m_j = \min \Bqty{n_{i, j}}\). We choose
     \[
         d = \prod_{j = 1}^{m} p_j^{m_j},
     \]
