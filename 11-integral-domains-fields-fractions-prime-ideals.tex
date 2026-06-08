@@ -1,6 +1,6 @@
 \section{Integral Domains, Fields of Fractions, Prime Ideals}
 
-Notice that in the ring \(\ZZ / 6\), we have \(2 \cdot 3 = 0\) but \(2 \neq 0\) and \(3 \neq 0\).
+Notice that in the ring \(\flatfrac{\ZZ}{6}\), we have \(2 \cdot 3 = 0\) but \(2 \neq 0\) and \(3 \neq 0\).
 
 \begin{definition}[Integral Domain, Zero Divisor]
     \label{def:integral-domain-zero-divisor}%
@@ -12,7 +12,7 @@ Notice that in the ring \(\ZZ / 6\), we have \(2 \cdot 3 = 0\) but \(2 \neq 0\) 
     A \emph{zero divisor} if a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
 \end{definition}
 
-For example, in \(\ZZ / 6\), we say both \(2\) and \(3\) are zero divisors.
+For example, in \(\flatfrac{\ZZ}{6}\), we say both \(2\) and \(3\) are zero divisors.
 
 \begin{examples}[Examples of Integral Domains]
     \label{ex:integral-domain}%
@@ -24,7 +24,7 @@ For example, in \(\ZZ / 6\), we say both \(2\) and \(3\) are zero divisors.
     so \(a = 0\).
         \item Similarly, any subring of a field is also an integral domain. This is really how we should think of integral domains.
         \item The rings \(\ZZ\), \(\ZZ\bqty{i}\), \(\QQ\), \(\CC\), \(\RR\bqty{x}\) \(\ZZ\bqty{X}\) are integral domains.
-        \item The rings \(\ZZ / 6\), \(\ZZ / \pqty{pq}\), \(\ZZ / 2 \times \ZZ / 2\), etc.
+        \item The rings \(\flatfrac{\ZZ}{6}\), \(\flatfrac{\ZZ}{\pqty{pq}}\), \(\flatfrac{\ZZ}{2} \times \flatfrac{\ZZ}{2}\), etc.
         \item In particular, direct products cannot be integral domains, since \(\pqty{0, 1}\) and \(\pqty{1, 0}\) product to \(0\).
     \end{itemize}
 \end{examples}
@@ -34,7 +34,7 @@ For example, in \(\ZZ / 6\), we say both \(2\) and \(3\) are zero divisors.
     Let \(R\) be a finite integral domain. Then \(R\) is a field.
 \end{lemma}
 
-An example of this is \(\ZZ / p\) for a prime \(p\).
+An example of this is \(\flatfrac{\ZZ}{p}\) for a prime \(p\).
 
 \begin{proof}
     Let \(a \in R\) be non-zero, we want to prove it is a unit. Consider the multiplication function
@@ -109,7 +109,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
     Now, we take the equivalence classes
     \[
-        F = S / \sim,
+        F = \flatfrac{S}{\sim},
     \]
     and we denote \(\frac{a}{b} = \bqty{\pqty{a, b}}\) for the conjugacy class. We make \(F\) a ring by the following operations.
 
@@ -140,7 +140,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
 \begin{proposition}[Ideals of Fields]
     \label{prop:ideals-fields}%
-    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\Bqty{0}\) and \(R\)/
+    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\Bqty{0}\) and \(R\).
 \end{proposition}
 
 \begin{proof}
@@ -158,13 +158,13 @@ Note that the zero ideal is maximal if and only if the ring itself is a field.
 
 \begin{proposition}[Ideals are Maximal if and only if Quotient is Field]
     \label{prop:ideal-maximal-quotient-field}%
-    An ideal \(I \idealsub R\) is maximal if and only if the quotient \(R / I\) is a field.
+    An ideal \(I \idealsub R\) is maximal if and only if the quotient \(\flatfrac{R}{I}\) is a field.
 \end{proposition}
 
 \begin{proof}
-    \(R / I\) is a field if and only if its only ideals are the trivial ones, i.e., \(\Bqty{0}\) and \(R / I\) itself, by \autoref{prop:ideals-fields}.
+    \(\flatfrac{R}{I}\) is a field if and only if its only ideals are the trivial ones, i.e., \(\Bqty{0}\) and \(\flatfrac{R}{I}\) itself, by \autoref{prop:ideals-fields}.
 
-    Using the correspondence result for ideals between \(R\) and \(R / I\) finishes the proof.
+    Using the correspondence result for ideals between \(R\) and \(\flatfrac{R}{I}\) finishes the proof.
 \end{proof}
 
 \begin{definition}[Prime Ideal]
@@ -185,21 +185,21 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
 
 \begin{proposition}[Ideals are Prime if and only if Quotient is Integral]
     \label{prop:ideal-prime-quotient-integral}%
-    An ideal \(I \idealsub R\) is prime if and only if \(R / I\) is an integral domain.
+    An ideal \(I \idealsub R\) is prime if and only if \(\flatfrac{R}{I}\) is an integral domain.
 \end{proposition}
 
 \begin{proof}
-    If \(I\) is prime, let \(\pqty{a + I}\) and \(\pqty{b + I}\) be cosets in \(R / I\) for some \(a, b \in R\). The product satisfies
+    If \(I\) is prime, let \(\pqty{a + I}\) and \(\pqty{b + I}\) be cosets in \(\flatfrac{R}{I}\) for some \(a, b \in R\). The product satisfies
     \[
         \pqty{a + I} \cdot \pqty{b + I} = ab + I = 0 + I
     \]
-    is the zero ideal if and only if \(ab \in I\). This, since \(I\) is prime, implies that \(a \in I\) or \(b \in I\), so \(a + I = 0 + I\) or \(b + I = 0 + I\), showing that \(R / I\) is indeed integral.
+    is the zero ideal if and only if \(ab \in I\). This, since \(I\) is prime, implies that \(a \in I\) or \(b \in I\), so \(a + I = 0 + I\) or \(b + I = 0 + I\), showing that \(\flatfrac{R}{I}\) is indeed integral.
 
-    Conversely, if \(R / I\) is integral, consider \(ab \in I\) where \(ab = 0\). Then
+    Conversely, if \(\flatfrac{R}{I}\) is integral, consider \(ab \in I\) where \(ab = 0\). Then
     \[
         ab + I = \pqty{a + I} \pqty{b + I} = 0 + I
     \]
-    in \(R / I\) which is integral. Therefore, \(a + I = 0\) or \(b + I = 0\).
+    in \(\flatfrac{R}{I}\) which is integral. Therefore, \(a + I = 0\) or \(b + I = 0\).
 \end{proof}
 
 \begin{proposition}[Maximal Ideals are Prime]
@@ -223,5 +223,5 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
 \begin{proof}
     Consider the unique homomorphism \(\functiondomain{f}{{\ZZ}}{R}\). Characteristic \(n\) implies that \(\pqty{n} \idealsub \ZZ\) is the kernel.
 
-    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\ZZ / n \ZZ \subring R\). Then \(\ZZ / n\ZZ\) is therefore integral, and hence \(\pqty{n}\) must be a prime ideal.
+    By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\flatfrac{\ZZ}{n\ZZ} \subring R\). Then \(\flatfrac{\ZZ}{n\ZZ}\) is therefore integral, and hence \(\pqty{n}\) must be a prime ideal.
 \end{proof}

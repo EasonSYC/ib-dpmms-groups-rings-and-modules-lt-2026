@@ -1,6 +1,6 @@
 \section{Matrices over Euclidean Domains}
 
-At this point of the course, we are interested in proving and generalising the previous result on finite/finitely generated abelian groups -- which are just \(\ZZ\)-modules. Furthermore, a matrix \(\vb{A}\) on \(\ZZ\) (or any Euclidean domain) gives a module homomorphism \(\functiondomain{\vb{A}}{\ZZ^m}{\ZZ^n}\) (or generally, \(\functiondomain{\vb{A}}{R^m}{R^n}\)). The groups/modules we are interested in will be \(\ZZ^n / \img \vb{A}\), since they are finitely generated, and this perspective will give us a classification.
+At this point of the course, we are interested in proving and generalising the previous result on finite/finitely generated abelian groups -- which are just \(\ZZ\)-modules. Furthermore, a matrix \(\vb{A}\) on \(\ZZ\) (or any Euclidean domain) gives a module homomorphism \(\functiondomain{\vb{A}}{\ZZ^m}{\ZZ^n}\) (or generally, \(\functiondomain{\vb{A}}{R^m}{R^n}\)). The groups/modules we are interested in will be \(\flatfrac{\ZZ^n}{\img \vb{A}}\), since they are finitely generated, and this perspective will give us a classification.
 
 Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\NN_0}\). By Euclid's algorithm, for \(a, b \in R\), we can find \(x, y \in R\), such that
 \[
@@ -15,19 +15,19 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
     \begin{enumerate}
         \item Add \(c \in R\) times the \(i\)th row to the \(j\)th row, i.e., left-multiply by the matrix
         \[
-            \begin{pmatrix}
+            \pmqty{
                 1& & & &0\\
                  &1& & & \\
                  & &\ddots&c& \\
                  & & &1& \\
                 0& & & &1
-            \end{pmatrix}
+            }
         \]
         where \(c\) is in the \(\pqty{j, i}\)-th position.
 
         \item Swap rows \(i\) and \(j\), i.e., left-multiply by the matrix
         \[
-            \begin{pmatrix}
+            \pmqty{
                 1& & & & & & & & & &0\\
                  & \ddots & & & & & & & & & \\
                  & &1& & & & & & & & \\
@@ -39,21 +39,15 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
                  & & & & & & & &1& & \\
                  & & & & & & & & & \ddots & \\
                 0& & & & & & & & & &1
-            \end{pmatrix}
+            }
         \]
         where the \(\pqty{i, j}\) and \(\pqty{j, i}\) entries are \(1\), and all diagonal entries are \(1\) apart from the entries \(\pqty{i, i}\) and \(\pqty{j, j}\) are \(0\).
 
         \item Multiply row \(i\) by a \emph{unit} \(c \in R\multiplicative\), i.e., left-multiply by the matrix
         \[
-            \begin{pmatrix}
-                1& & & & & &0\\
-                 &\ddots& & & & &\\
-                 & &1& & & & \\
-                 & & &c& & & \\
-                 & & & &1& & \\
-                 & & & & &\ddots& \\
-                0& & & & & &1  
-            \end{pmatrix} = \diag\pqty{1, \ldots, 1, c, 1, \ldots, 1}
+            \pmqty{
+                \dmat{1, \ddots, 1, c, 1, \ddots, 1}
+            } = \diag\pqty{1, \ldots, 1, c, 1, \ldots, 1}
         \]
         where \(c\) is in the \(\pqty{i, i}\)th position.
     \end{enumerate}
@@ -72,9 +66,9 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
 
 Observe that the matrix
 \[
-    \begin{pmatrix}
+    \pmqty{
         2 & 0 \\ 0 & 0
-    \end{pmatrix}
+    }
 \]
 cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can always be reduced to a number of \(1\)s followed by \(0\)s in the diagonal.
 
@@ -82,14 +76,9 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
     \label{thm:smith-normal-form}%
     Any \(m \times n\) matrix is equivalent to one of the form
     \[
-        \begin{pmatrix}
-            d_1 & & & & & 0 \\
-            & \ddots & & & & & \\
-            & & d_r & & & \\
-            & & & 0 & & \\
-            & & & & \ddots & \\
-            0 & & & & & 0
-        \end{pmatrix} = \diag\pqty{d_1, \ldots, d_r, 0, \ldots, 0}
+        \pmqty{
+            \dmat{d_1, \ddots, d_r, 0, \ddots, 0}
+        } = \diag\pqty{d_1, \ldots, d_r, 0, \ldots, 0}
     \]
     where \(d_i \divides d_{i + 1}\). The \(d_i\)s are called the \emph{invariant factor} of the matrix.
 \end{theorem}
@@ -106,33 +95,33 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 
         By row and column operations again, we can make the first row and column zero outside the \(\pqty{1, 1}\) entry. This gives the matrix
         \[
-            \begin{pmatrix}
+            \pmqty{
                 d & 0 & \cdots & 0 \\
                 0 & & & \\
                 \vdots & & \vb{C} & \\
                 0 & & &
-            \end{pmatrix}
+            }
         \]
 
         \item Now, suppose \(A_{i, j}\) in \(\vb{C}\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\pqty{r}, \phi\pqty{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\pqty{i, j}\) entry. Now, swap back this \(r\) to the \(\pqty{1, 1}\) position, and then we have \(\phi\pqty{r} < \phi\pqty{d}\).
 
         \item We return to 1 and 2, and replace \(\vb{A}\) with the new matrix
         \[
-            \begin{pmatrix}
+            \pmqty{
                 d' & 0 & \cdots & 0 \\
                 0 & & & \\
                 \vdots & & \vb{C}' & \\
                 0 & & &
-            \end{pmatrix}
+            }
         \]
         with \(\phi\pqty{d'} < \phi\pqty{r} < \phi\pqty{d}\). Repeat finitely many times, so eventually \(\vb{A}\) becomes
         \[
-            \begin{pmatrix}
+            \pmqty{
                 d & 0 & \cdots & 0 \\
                 0 & & & \\
                 \vdots & & \vb{C} & \\
                 0 & & &
-            \end{pmatrix},
+            },
         \]
         but this time with \(d \divides C_{i, j}\) for all entries \(\pqty{i, j}\).
 
@@ -169,16 +158,16 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 
     Now, suppose the \(j\)th row is in \(\vb{C}\), and the \(i\)th row is not. Suppose row \(i\) is given by
     \[
-        \begin{bmatrix}
+        \bmqty{
             f_1 & \cdots & f_k
-        \end{bmatrix}.
+        }.
     \]
 
     Then the new row \(j\) is given by
     \[
-        \begin{bmatrix}
+        \bmqty{
             C_{j, 1} + c f_1 & \cdots & C_{j, k} + c f_k
-        \end{bmatrix}.
+        }.
     \]
 
     Now compute \(\det \pqty{\vb{C}'}\) along this row. Using the additivity of the determinant, we have
@@ -246,11 +235,11 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
 \begin{proof}
     By \autoref{prop:size-generating-set-free-module}, \(N\) can be generated by \(x_1, \ldots, x_m \in R^m\) with \(n \geq m\). Consider the matrix
     \[
-        \begin{pmatrix}
+        \pmqty{
             \vert & \vert &  & \vert \\
             x_1 & x_2 & \cdots & x_m \\
             \vert & \vert &  & \vert
-        \end{pmatrix}.
+        }.
     \]
 
     We may put the matrix into Smith normal form and obtain
@@ -281,7 +270,7 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
     \label{thm:classification-finitely-generated-modules-euclidean-domains}%
     Let \(R\) be a Euclidean domain. Let \(M\) be a finitely-generated \(R\)-module. Then
     \[
-        M \isomorphic R \oplus \cdots \oplus R \oplus R / \pqty{d_1} \oplus \cdots \oplus R / \pqty{d_r}
+        M \isomorphic R \oplus \cdots \oplus R \oplus \flatfrac{R}{\pqty{d_1}} \oplus \cdots \oplus \flatfrac{R}{\pqty{d_r}}
     \]
     where \(d_i \neq 0\), \(d_i \divides d_{i + 1}\).
 \end{theorem}
@@ -291,7 +280,7 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
 
     Then by \autoref{thm:first-isomorphism-theorem-modules} (First Isomorphism Theorem for Modules), we have
     \[
-        M \isomorphic R^m / \pqty{\pqty{d_1, 0, \ldots, 0}, \pqty{0, d_2, \ldots, 0}, \ldots, \pqty{0, \ldots, d_r, \ldots, 0}}.
+        M \isomorphic \flatfrac{R^m}{\pqty{\pqty{d_1, 0, \ldots, 0}, \pqty{0, d_2, \ldots, 0}, \ldots, \pqty{0, \ldots, d_r, \ldots, 0}}}.
     \]
 \end{proof}
 
@@ -306,15 +295,15 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
 
     The kernel of \(\gamma\) is therefore given by the image of the matrix
     \[
-        \vb{A} = \begin{pmatrix}
+        \vb{A} = \pmqty{
             2 & 1 & 5 \\
             3 & 2 & 6 \\
             1 & 0 & 7
-        \end{pmatrix},
+        },
     \]
     where we view this as a map \(\ZZ^3\) to \(\ZZ^3\). By construction,
     \[
-        G \isomorphic \ZZ^3 / \img \pqty{\vb{A}}.
+        G \isomorphic \flatfrac{\ZZ^3}{\img \pqty{\vb{A}}}.
     \]
 
     To calculate the Smith Normal Form, we proceed by calculating Fitting ideals of 
@@ -329,7 +318,7 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
 
     Since \(d_1 = d_2 = 1, d_3 = 3\), we have
     \[
-        G \isomorphic \ZZ / \pqty{3}.
+        G \isomorphic \flatfrac{\ZZ}{\pqty{3}}.
     \]
 \end{example*}
 
@@ -337,14 +326,14 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
     \label{prop:crt-modules}%
     Let \(R\) be a Euclidean domain, with \(a, b \in R\), such that \(\gcd\pqty{a, b} = 1\). Then
     \[
-        R / \pqty{ab} \isomorphic R/\pqty{a} \oplus R/\pqty{b}.
+        \flatfrac{R}{\pqty{ab}} \isomorphic \flatfrac{R}{\pqty{a}} \oplus \flatfrac{R}{\pqty{b}}.
     \]
 \end{proposition}
 
 \begin{proof}
     Consider the map
     \[
-        \function{\phi}{R / \pqty{a} \oplus R / \pqty{b}}{R / \pqty{ab}}{\pqty{r_1 + \pqty{a}, r_2 + \pqty{b}}}{\pqty{b r_1 + a r_2 + \pqty{ab}}.}
+        \function{\phi}{\flatfrac{R}{\pqty{a}} \oplus \flatfrac{R}{\pqty{b}}}{\flatfrac{R}{\pqty{ab}}}{\pqty{r_1 + \pqty{a}, r_2 + \pqty{b}}}{\pqty{b r_1 + a r_2 + \pqty{ab}}.}
     \]
 
     We may check that this is well-defined.
@@ -366,13 +355,13 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
     \[
         M \isomorphic N_1 \oplus \cdots N_t,
     \]
-    where each \(N_i\) is either \(N_i \isomorphic R\), or \(N_i \isomorphic R / \pqty{{p_i}^{n_i}}\) for some prime \(p_i\) and exponent \(n_i \geq 1\).
+    where each \(N_i\) is either \(N_i \isomorphic R\), or \(N_i \isomorphic \flatfrac{R}{\pqty{{p_i}^{n_i}}}\) for some prime \(p_i\) and exponent \(n_i \geq 1\).
 \end{theorem}
 
 \begin{proof}
     From the previous classification, we have
     \[
-        M \isomorphic R \oplus \cdots \oplus R \oplus R / \pqty{d_1} \oplus \cdots \oplus R / \pqty{d_r}.
+        M \isomorphic R \oplus \cdots \oplus R \oplus \flatfrac{R}{\pqty{d_1}} \oplus \cdots \oplus \flatfrac{R}{\pqty{d_r}}.
     \]
 
     Now we write each \(d_i\) as a product of primes in \(R\), and apply \autoref{prop:crt-modules} (Chinese Remainder Theorem for Modules).

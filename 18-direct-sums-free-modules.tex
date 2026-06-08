@@ -36,9 +36,9 @@ Note that free generating sets may \emph{not} exist!
 
 \begin{example}[Module without Free-Generating Set]
     \label{ex:module-without-free-generating-set}%
-    Consider the \(\ZZ\)-module \(\ZZ / 2\). If it were freely generated, the only possibility for a basis is \(S = \Bqty{1}\). But this is \emph{not} free.
+    Consider the \(\ZZ\)-module \(\flatfrac{\ZZ}{2}\). If it were freely generated, the only possibility for a basis is \(S = \Bqty{1}\). But this is \emph{not} free.
 
-    For example, if \(N = \ZZ\), \(f\pqty{1} = 1\), we would need a non-zero homomorphism \(\ZZ / 2 \to \ZZ\), but this does not exist.
+    For example, if \(N = \ZZ\), \(f\pqty{1} = 1\), we would need a non-zero homomorphism \(\flatfrac{\ZZ}{2} \to \ZZ\), but this does not exist.
 \end{example}
 
 \begin{remark}
@@ -101,16 +101,16 @@ Note that free generating sets may \emph{not} exist!
         \set{rm}{r \in I, m \in M}.
     \]
     
-    We look at the quotient \(M / IM\). If \(r \in I\), then the left-multiplication operation
+    We look at the quotient \(\flatfrac{M}{IM}\). If \(r \in I\), then the left-multiplication operation
     \[
-        \function{r \times -}{M / IM}{M / IM}{\pqty{m + IM}}{\pqty{rm + IM}}
+        \function{r \times -}{\flatfrac{M}{IM}}{\flatfrac{M}{IM}}{\pqty{m + IM}}{\pqty{rm + IM}}
     \]
     is the zero map, since \(rm \in IM\).
 
-    Therefore, we can make \(M / IM\) into an \(R / I\)-module, by
+    Therefore, we can make \(\flatfrac{M}{IM}\) into an \(\flatfrac{R}{I}\)-module, by
     \[
         \pqty{r + I} \pqty{m + IM} = \pqty{rm + IM}.
     \]
 
-    Now, let \(I \idealsub R\) be maximal.\footnote{This is true for general rings, assuming Axiom of Choice, due to Zorn's Lemma. But if \(R\) is Noetherian, this is automatic.} Then \(R^n / I R^n\) and \(R^m / I R^m\) are both vector spaces on \(R / I\), and hence isomorphic respectively to \(\pqty{R / I}^n\) and \(\pqty{R / I}^m\). So \(m = n\) by linear algebra.
+    Now, let \(I \idealsub R\) be maximal.\footnote{This is true for general rings, assuming Axiom of Choice, due to Zorn's Lemma. But if \(R\) is Noetherian, this is automatic.} Then \(\flatfrac{R^n}{I R^n}\) and \(\flatfrac{R^m}{I R^m}\) are both vector spaces on \(\flatfrac{R}{I}\), and hence isomorphic respectively to \(\pqty{\flatfrac{R}{I}}^n\) and \(\pqty{\flatfrac{R}{I}}^m\). So \(m = n\) by linear algebra.
 \end{proof}

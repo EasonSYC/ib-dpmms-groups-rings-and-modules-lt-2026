@@ -10,7 +10,7 @@ In the late 19th century, Kurt Hensel explored an analogy between the rings \(\C
         Primes & \(x, x - 1, x - \alpha, \) etc. & \(2, 3, p, \) etc. \\
         Fraction Field & \(\CC\pqty{x}\) & \(\QQ\) \\
         Related Rings & \(\CC\bqty{x, y}\) & \(\ZZ\bqty{x}\) \\
-         & \(\CC\bqty{x, y} / \pqty{y^2 - x^3}\) & \(\ZZ\bqty{\sqrt{8}}\) \\
+         & \(\flatfrac{\CC\bqty{x, y}}{\pqty{y^2 - x^3}}\) & \(\ZZ\bqty{\sqrt{8}}\) \\
         ``Completions'' & \(\CC\bbrac{x}\) & ???
     \end{tabular}
     \caption{Analogies between \(\CC\bqty{x}\) and \(\ZZ\)}
@@ -21,9 +21,9 @@ Throughout this section, we assume \(p\) is a prime.
 
 \begin{definition}[\(p\)-Adic Integer]
     \label{def:p-adic-integer}%
-    A \emph{\(p\)-adic integer} is a sequence \(\pqty{a_n}_{n = 1}^{\infty}\) such that \(a_n \in \ZZ / p^n \ZZ\), and such that the projective map
+    A \emph{\(p\)-adic integer} is a sequence \(\pqty{a_n}_{n = 1}^{\infty}\) such that \(a_n \in \flatfrac{\ZZ}{p^n \ZZ}\), and such that the projective map
     \[
-        \functiondomain{\pi_n}{\ZZ / p^n \ZZ}{\ZZ / p^{n - 1} \ZZ}
+        \functiondomain{\pi_n}{\flatfrac{\ZZ}{p^n \ZZ}}{\flatfrac{\ZZ}{p^{n - 1} \ZZ}}
     \]
     maps \(\pi_n \pqty{a_n} = a_{n - 1}\).
 
@@ -35,12 +35,12 @@ We may equip \(\ZZ_p\) with a ring structure by term-by-term addition and multip
 \begin{remark}
     This is often written as an \emph{inverse limit}, and is denoted as
     \[
-        \ZZ_p = \varprojlim \pqty{\ZZ / p^n \ZZ}.
+        \ZZ_p = \varprojlim \pqty{\flatfrac{\ZZ}{p^n \ZZ}}.
     \]
 
     Similarly, we denote
     \[
-        \CC\bbrac{t} = \varprojlim \pqty{\CC\bqty{t} / t^n}.
+        \CC\bbrac{t} = \varprojlim \pqty{\flatfrac{\CC\bqty{t}}{t^n}}.
     \]
 \end{remark}
 
@@ -67,7 +67,7 @@ We may represent the elements in \(\ZZ_p\) as \(b_0 + b_1 p + b_2 p^2 + \cdots\)
 \[
     b_0 = a_1, \quad b_1 = \frac{a_2 - a_1}{p}, \quad  b_2 = \frac{a_3 - a_2}{p^2}, \quad \ldots
 \]
-are all elements of \(\ZZ / p \ZZ\).
+are all elements of \(\flatfrac{\ZZ}{p \ZZ}\).
 
 This is called the \emph{\(p\)-adic expansion} for \(a \in \ZZ_p\). This turns the sequences into na\"ive arithmetic. (Note that this series, however, need not converge.)
 
@@ -99,7 +99,7 @@ Note the similarity with \(\CC\bbrac{x}\): in \(\CC\bbrac{x}\), a formal power s
 \end{proposition}
 
 \begin{proof}
-    We may check that \(\ZZ_p / p \ZZ p \isomorphic \FF_p\), the field of order \(p\).
+    We may check that \(\flatfrac{\ZZ_p}{p \ZZ_p} \isomorphic \FF_p\), the field of order \(p\).
     
     For any element \(a \in \ZZ_p\), let \(k \in \ZZ_{\geq 0}\) be the smallest index such that \(b_k \neq 0\), then we have
     \[

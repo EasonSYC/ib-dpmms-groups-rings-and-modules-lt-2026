@@ -157,11 +157,11 @@ Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
     We first find \(\abs{G}\) by building this invertible matrix column-wise.
 
     \[
-        \begin{bmatrix}
+        \bmqty{
             \vert & \vert & & \vert \\
             \vb{v}_1 & \vb{v}_2 & \cdots & \vb{v}_n \\
             \vert & \vert & & \vert
-        \end{bmatrix}
+        }
     \]
 
     We have \(p^n - 1\) choices for the first column \(\vb{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vb{v}_2\), since \(\vb{v}_2 \notin \spn \Bqty{\vb{v}_1}\), and the span has size \(p\).
@@ -177,13 +177,13 @@ Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
 
     For example,
     \[
-        \begin{bmatrix}
+        \bmqty{
             1 & \ast & \ast   & \cdots & \ast \\
               & 1    & \ast   & \ddots & \vdots \\
               &      & \ddots & \ast   & \ast \\
               &      &        & 1      & \ast \\
             0 &      &        &        & 1 
-        \end{bmatrix}
+        }
     \]
     is a Sylow-\(p\) subgroup, and hence by conjugation we may find all the Sylow \(p\)-subgroups.
 \end{example}

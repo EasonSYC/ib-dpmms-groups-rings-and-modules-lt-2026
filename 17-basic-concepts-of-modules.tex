@@ -38,9 +38,9 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
             \function{\cdot}{R \times I}{I}{\pqty{r, x}}{rx.}
         \]
 
-        Similarly, \(R / I\) is also an \(R\)-module, via the multiplication action
+        Similarly, \(\flatfrac{R}{I}\) is also an \(R\)-module, via the multiplication action
         \[
-            \function{\cdot}{R \times R / I}{R / I}{\pqty{r, x + I}}{\pqty{r + I} \cdot \pqty{x + I}.}
+            \function{\cdot}{R \times \flatfrac{R}{I}}{\flatfrac{R}{I}}{\pqty{r, x + I}}{\pqty{r + I} \cdot \pqty{x + I}.}
         \]
     \end{itemize}
 \end{examples}
@@ -58,7 +58,7 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
         \function{\cdot}{R \times S}{S}{\pqty{r, s}}{\phi\pqty{r} \cdot s.}
     \]
 
-    For example, the quotient map \(\functiondomain{q}{\CC\bqty{x}}{\CC\bqty{x} / x^2}\) makes \(\CC\bqty{x} / x^2\) a \(\CC\bqty{x}\)-module, and the inclusion map \(\functiondomain{i}{\CC\bqty{x}}{\CC\bqty{x, y}}\) makes \(\CC\bqty{x, y}\) a \(\CC\bqty{x}\) module.
+    For example, the quotient map \(\functiondomain{q}{\CC\bqty{x}}{\flatfrac{\CC\bqty{x}}{x^2}}\) makes \(\flatfrac{\CC\bqty{x}}{x^2}\) a \(\CC\bqty{x}\)-module, and the inclusion map \(\functiondomain{i}{\CC\bqty{x}}{\CC\bqty{x, y}}\) makes \(\CC\bqty{x, y}\) a \(\CC\bqty{x}\) module.
 \end{example*}
 
 \begin{definition}[Submodule]
@@ -81,9 +81,9 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
 
 \begin{definition}[Quotient by Submodule]
     \label{def:quotient-submodule}%
-    Let \(N \submodule M\) be an \(R\)-submodule. The \emph{quotient} \(R\)-module is the abelian group \(M / N\), with the \(R\)-module structure
+    Let \(N \submodule M\) be an \(R\)-submodule. The \emph{quotient} \(R\)-module is the abelian group \(\flatfrac{M}{N}\), with the \(R\)-module structure
     \[
-        \function{\cdot}{R \times M / N}{M / N}{\pqty{r, m + N}}{\pqty{rm} + N.}
+        \function{\cdot}{R \times \flatfrac{M}{N}}{\flatfrac{M}{N}}{\pqty{r, m + N}}{\pqty{rm} + N.}
     \] 
 \end{definition}
 
@@ -110,7 +110,7 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
     \]
     is an \(R\)-submodule of \(N\), and we have an isomorphism
     \[
-        \function{\psi}{M / \ker \phi}{\img \phi}{m + \ker \phi}{\phi\pqty{m}.}
+        \function{\psi}{\flatfrac{M}{\ker \phi}}{\img \phi}{m + \ker \phi}{\phi\pqty{m}.}
     \]
 \end{theorem}
 
@@ -122,7 +122,7 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
     \]
     is a submodule of \(M\). Furthermore, there is an isomorphism
     \[
-        \pqty{K + L} / K \isomorphic L / \pqty{K \cap L}.
+        \flatfrac{\pqty{K + L}}{K} \isomorphic \flatfrac{L}{\pqty{K \cap L}}.
     \]
 \end{theorem}
 
@@ -130,13 +130,13 @@ Let \(R\) be a ring and \(\pqty{M, +, 0}\) be an abelian group.
     \label{thm:third-isomorphism-theorem-modules}%
     Let \(N \submodule L \submodule M\) be submodules of \(M\). Then
     \[
-        M / L \isomorphic \pqty{M / N} / \pqty{L / N}.
+        \flatfrac{M}{L} \isomorphic \flatfrac{\pqty{\flatfrac{M}{N}}}{\pqty{\flatfrac{L}{N}}}.
     \]
 \end{theorem}
 
 There is also a correspondence result. Let \(N \submodule M\), then the sets
 \[
-    \Bqty{\text{submodules of }M / N} \leftrightarrow \Bqty{\text{submodules of }M\text{ that contain }N}
+    \Bqty{\text{submodules of }\flatfrac{M}{N}} \leftrightarrow \Bqty{\text{submodules of }M\text{ that contain }N}
 \]
 are bijective.
 
@@ -166,7 +166,7 @@ When \(R\) is a field, \(M\) is an \(R\)-vector space, so we have
 for any \(m \in M\). This notion is useless in the theory of vector spaces, but not in general for modules.
 
 \begin{example*}[Annihilator]
-    Take \(R = \ZZ\), and \(M = \ZZ / n\ZZ\) with the usual scaling. The annihilator of this is interesting, for example, for \(1 \in M = \ZZ / n \ZZ\), we have \(\Ann\pqty{1} = n\ZZ\).
+    Take \(R = \ZZ\), and \(M = \flatfrac{\ZZ}{n\ZZ}\) with the usual scaling. The annihilator of this is interesting, for example, for \(1 \in M = \flatfrac{\ZZ}{n\ZZ}\), we have \(\Ann\pqty{1} = n\ZZ\).
 \end{example*}
 
 \begin{proposition}[Annihilator is an Ideal]
@@ -178,7 +178,7 @@ for any \(m \in M\). This notion is useless in the theory of vector spaces, but 
     \label{prop:isomorphism-annihilator-submodule}%
     For a fixed \(m \in M\), there is an isomorphism
     \[
-        R / \Ann\pqty{m} \isomorphic Rm.
+        \flatfrac{R}{\Ann\pqty{m}} \isomorphic Rm.
     \]
 \end{proposition}
 
@@ -235,11 +235,11 @@ The modules \(R^k\) are often called \emph{free \(R\)-modules}.
 
 \begin{corollary}[Quotient of Finitely Generated Module is Finitely Generated]
     \label{cor:quotient-finitely-generated}%
-    Let \(M\) be finitely generated. If \(N \submodule M\) is a submodule, then the quotient \(M / N\) is finitely generated as well.
+    Let \(M\) be finitely generated. If \(N \submodule M\) is a submodule, then the quotient \(\flatfrac{M}{N}\) is finitely generated as well.
 \end{corollary}
 
 \begin{proof}
-    Take surjective \(R^k \to M\). The composition with the quotient map \(M \to M / N\) is a composition of surjective maps, hence surjective.
+    Take surjective \(R^k \to M\). The composition with the quotient map \(M \to \flatfrac{M}{N}\) is a composition of surjective maps, hence surjective.
 \end{proof}
 
 \begin{remark}

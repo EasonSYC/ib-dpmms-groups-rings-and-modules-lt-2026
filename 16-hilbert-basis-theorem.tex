@@ -69,14 +69,14 @@ Recall that an ideal is \emph{finitely generated} if it is equal to \(\pqty{r_1,
 
 \begin{proposition}[Quotient of Noetherian Ring by Ideal is Noetherian]
     \label{prop:quotient-noetherian-by-ideal-noetherian}%
-    If \(R\) is noetherian, and \(I \idealsub R\), then \(R / I\) is also noetherian.
+    If \(R\) is noetherian, and \(I \idealsub R\), then \(\flatfrac{R}{I}\) is also noetherian.
 \end{proposition}
 
 \begin{proof}
-    Let \(J \idealsub R / I\), and let \(J' \idealsub R / I\) be the corresponding ideal in \(R\). If \(r_1, \ldots, r_m\) generates \(J'\), then because \(J\) is the image (as a set) of \(J'\) under the homomorphism \(R \to R / I\), then \(r_1 + I, \ldots, r_m + I\) must generate \(J\).
+    Let \(J \idealsub \flatfrac{R}{I}\), and let \(J' \idealsub \flatfrac{R}{I}\) be the corresponding ideal in \(R\). If \(r_1, \ldots, r_m\) generates \(J'\), then because \(J\) is the image (as a set) of \(J'\) under the homomorphism \(R \to \flatfrac{R}{I}\), then \(r_1 + I, \ldots, r_m + I\) must generate \(J\).
 \end{proof}
 
-This gives more examples, for example, \(\CC\bqty{x, y} / \pqty{y^2 - x^3}\), is noetherian, but not a PID.
+This gives more examples, for example, \(\flatfrac{\CC\bqty{x, y}}{\pqty{y^2 - x^3}}\), is noetherian, but not a PID.
 
 \begin{remark}
     Although \autoref{prop:quotient-noetherian-by-ideal-noetherian} tells us that noetherian properties pass to quotients by ideals, but note that \textbf{subrings need not be noetherian}. Take \(R = \CC\bqty{x_1, x_2, \ldots}\) be a polynomial ring of countably many variables. Let \(F\) be a fraction field of \(R\). \(F\) is noetherian, but \(R \subring F\) is not.

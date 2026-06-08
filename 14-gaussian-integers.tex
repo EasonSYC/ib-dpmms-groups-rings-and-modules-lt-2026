@@ -39,7 +39,7 @@ This is not completely conclusive -- it only talks about the primes which lie in
 
 \begin{lemma}[Multiplicative Group of Integers modulo \(p\) is Cyclic]
     \label{lem:multiplicative-group-int-mod-p-cyclic}%
-    Let \(p\) be a prime, and \(\FF_p \isomorphic \ZZ / p \ZZ\) be the finite field with \(p\) elements. Then the group \(\FF_p\multiplicative\) (the non-zero elements under multiplication) is cyclic, i.e., \(\FF_p\multiplicative \isomorphic C_{p - 1}\).
+    Let \(p\) be a prime, and \(\FF_p \isomorphic \flatfrac{\ZZ}{p \ZZ}\) be the finite field with \(p\) elements. Then the group \(\FF_p\multiplicative\) (the non-zero elements under multiplication) is cyclic, i.e., \(\FF_p\multiplicative \isomorphic C_{p - 1}\).
 \end{lemma}
 
 \begin{proof}
@@ -124,7 +124,7 @@ Note that the proof actually gives a way to find \(\alpha \in \ZZ\bqty{i}\), suc
 
     Conversely, let \(n = \prod p_i n^i\) with the given conditions. In this case, if \(p_i \equiv 3 \pmod{4}\), we have
     \[
-        p_i^{n_i} = \pqty{p_i^{n_i / 2}}^2 = N\pqty{p_i^{n_i / 2}}.
+        p_i^{n_i} = \pqty{p_i^{\flatfrac{n_i}{2}}}^2 = N\pqty{p_i^{\flatfrac{n_i}{2}}}.
     \]
 
     If \(p_i \equiv 1 \pmod{4}\) or \(p_i = 2\), then we know
