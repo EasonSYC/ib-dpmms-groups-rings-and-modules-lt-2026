@@ -142,16 +142,16 @@ We try abstract arithmetic properties by describing them in more general algebra
     \label{fig:div-gaussian}
 \end{figure}
 
-In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principle -- recall \autoref{ex:ideals-of-z}.
+In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principal -- recall \autoref{ex:ideals-of-z}.
 
-\begin{definition}[Principle Ideal Domain]
+\begin{definition}[Principal Ideal Domain]
     \label{def:pid}%
-    An integral domain \(R\) is a \emph{principle ideal domain} (PID) such that every ideal \(I \idealsub R\) is principle.
+    An integral domain \(R\) is a \emph{principal ideal domain} (PID) such that every ideal \(I \idealsub R\) is principal.
 \end{definition}
 
 \begin{proposition}[Euclidean Domains are PIDs]
     \label{prop:euclidean-pid}%
-    Every Euclidean domain is a Principle Ideal Domain.
+    Every Euclidean domain is a Principal Ideal Domain.
 \end{proposition}
 
 \begin{proof}
@@ -160,7 +160,7 @@ In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principl
 
 \begin{example}[Non-Example of PID]
     \label{ex:non-example-pid}%
-    Let \(R = \ZZ\bqty{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \pqty{2, x}\). We claim that this ideal is not principle.
+    Let \(R = \ZZ\bqty{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \pqty{2, x}\). We claim that this ideal is not principal.
 
     Say \(I = \pqty{f}\). Then \(f \divides 2\), so \(f \in \Bqty{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\pqty{f} = \ZZ\bqty{x}\). But \(\pqty{2, x} \neq \ZZ\bqty{x}\) by looking at constant terms.
 
@@ -180,13 +180,13 @@ We want to show that all PIDs are UFDs.
 
 \begin{lemma}[Irreducibles are Primes in PID]
     \label{lem:irreducible-primes-pid}%
-    In a principle ideal domain, any irreducible is prime.
+    In a principal ideal domain, any irreducible is prime.
 \end{lemma}
 
 \begin{proof}
     Let \(p \in R\) be irreducible, and let \(p \divides ab\) but \(p \notdivides a\). We want to show \(p \divides b\).
 
-    Consider \(\pqty{p, a} \idealsub R\). This is principle, so
+    Consider \(\pqty{p, a} \idealsub R\). This is principal, so
     \[
         \pqty{d} = \pqty{p, a}
     \]
@@ -207,10 +207,10 @@ We want to show that all PIDs are UFDs.
 
 \begin{theorem}[PIDs are UFDs]
     \label{thm:pid-ufd}%
-    Any principle ideal domain is a unique factorisation domain.
+    Any principal ideal domain is a unique factorisation domain.
 \end{theorem}
 
-We first prove the following. Let \(R\) be a principle ideal domain. If \(I_1 \idealsub I_2 \idealsub I_3 \idealsub \cdots\) is a chain of ideals in a chain of ideals in \(R\), there exists \(N > 0\) such that for all \(n \geq N\), we have \(I_n = I_{n + 1}\). (In \(\ZZ\), this is very familiar.)
+We first prove the following. Let \(R\) be a principal ideal domain. If \(I_1 \idealsub I_2 \idealsub I_3 \idealsub \cdots\) is a chain of ideals in a chain of ideals in \(R\), there exists \(N > 0\) such that for all \(n \geq N\), we have \(I_n = I_{n + 1}\). (In \(\ZZ\), this is very familiar.)
 
 \begin{proof}
     Consider the infinite union of the ideals
@@ -218,7 +218,7 @@ We first prove the following. Let \(R\) be a principle ideal domain. If \(I_1 \i
         I = \bigcup_{j \in \NN} I_j.
     \]
 
-    This is an ideal in \(R\), and hence principle, since \(R\) is a principle ideal domain. Therefore, \(I = \pqty{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
+    This is an ideal in \(R\), and hence principal, since \(R\) is a principal ideal domain. Therefore, \(I = \pqty{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
 \end{proof}
 
 Rings that satisfy this property are \emph{Noetherian} -- we will come back to this later.
@@ -253,7 +253,7 @@ Rings that satisfy this property are \emph{Noetherian} -- we will come back to t
     \label{def:gcd-lcm}%
     Let \(a_1, \ldots, a_n \in R\). We say that \(d\) is a \emph{greatest common divisor} (GCD) of them, if \(d \divides a_i\) for \(i\), and if \(d'\) is another number such that \(d' \divides a_i\) for all \(i\), then \(d' \divides d\).
 
-    Similarly, we say that \(l\) is a \emph{lowest common multiple} (LCM) of them, if \(a_i \divides m\) for all \(i\), and if \(m'\) is another number such that \(a_i \divides m'\) for all \(i\), then \(m \divides m'\).
+    Similarly, we say that \(l\) is a \emph{lowest common multiple} (LCM) of them, if \(a_i \divides l\) for all \(i\), and if \(l'\) is another number such that \(a_i \divides l'\) for all \(i\), then \(l \divides l'\).
 \end{definition}
 
 An integral domain where any two elements have a greatest common divisor is called a \emph{GCD domain} -- this is equivalent to the notion of a \emph{LCM domain} which is defined similarly.

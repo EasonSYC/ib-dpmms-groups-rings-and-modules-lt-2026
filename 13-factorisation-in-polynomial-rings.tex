@@ -2,7 +2,7 @@
 
 Recall that is \(K\) is a field, then \(K\bqty{x}\) is Euclidean (recall \autoref{prop:euclidean-algorithm-polynomials}). Therefore, we have
 \begin{itemize}
-    \item any ideal \(I \idealsub K\bqty{x}\) is principle (so \(I = \pqty{f}\)), by \autoref{prop:euclidean-pid};
+    \item any ideal \(I \idealsub K\bqty{x}\) is principal (so \(I = \pqty{f}\)), by \autoref{prop:euclidean-pid};
     \item \(f \in K\bqty{x}\) is irreducible if and only if it is prime, by \autoref{lem:irreducible-primes-pid} and \autoref{prop:primes-are-irreducible};
     \item let \(f\) be irreducible, and we consider \(\pqty{f} \idealsub K\bqty{x}\). Suppose \(\pqty{f} \subseteq J \idealsub k\bqty{x}\), then \(J = \pqty{g}\), so \(f = gh\). But either \(g\) and \(f\) are associates, or \(g\) is a unit. So \(\pqty{f}\) must be maximal. In fact, this is true for all PIDs.
 \end{itemize}
@@ -16,7 +16,7 @@ In particular, for \(f \in K\bqty{x}\),
     \label{def:content-polynomial-primitive}%
     Let \(R\) be a UFD, and \(f = a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n\in R\bqty{x}\). The \emph{content} of \(f\) is
     \[
-        \content\pqty{f} = \gcd\Bqty{a_0, \cdots, a_n} \in R.
+        \content\pqty{f} = \gcd\Bqty{a_0, \ldots, a_n} \in R.
     \]
 
     If \(\content\pqty{f}\) is a unit, then we say \(f\) is \emph{primitive}.
@@ -24,7 +24,7 @@ In particular, for \(f \in K\bqty{x}\),
 
 \begin{theorem}[Gauss's Lemma]
     \label{thm:gauss-lemma}%
-    Let \(R\) be a UFD, and \(f \in R\bqty{x}\). If \(f\) is primitive, then \(f\) is irreducible in \(R \bqty{x}\) if and only if \(f\) is reducible in \(F\bqty{x}\), where \(F\) is a fraction field over \(R\).
+    Let \(R\) be a UFD, and \(f \in R\bqty{x}\). If \(f\) is primitive, then \(f\) is irreducible in \(R \bqty{x}\) if and only if \(f\) is irreducible in \(F\bqty{x}\), where \(F\) is a fraction field over \(R\).
 \end{theorem}
 
 Recall \autoref{def:field-of-fractions} for fraction fields.
