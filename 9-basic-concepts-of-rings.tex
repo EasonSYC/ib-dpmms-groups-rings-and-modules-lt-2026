@@ -4,7 +4,7 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
 
 \begin{definition}[Ring]
     \label{def:ring}%
-    A \emph{ring} is a quintuple \(\pqty{R, +, \cdot, 0_R, 1_R}\) where \(R\) is a set, \(0_R, 1_R \in R\), and
+    A \term{ring} is a quintuple \(\pqty{R, +, \cdot, 0_R, 1_R}\) where \(R\) is a set, \(0_R, 1_R \in R\), and
     \begin{align*}
         \functiondomain{+&}{R \times R}{R} && \text{``addition''} \\
         \functiondomain{\cdot&}{R \times R}{R}, && \text{``multiplication''}
@@ -23,12 +23,12 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
 \end{notation}
 
 \begin{remark}
-    In this course, all rings are assumed to \emph{commutative}, that \(r_1 \cdot r_2 = r_2 \cdot r_1\) for all \(r_1, r_2 \in R\).
+    In this course, all rings are assumed to \term{commutative}, that \(r_1 \cdot r_2 = r_2 \cdot r_1\) for all \(r_1, r_2 \in R\).
 \end{remark}
 
 \begin{definition}[Subring]
     \label{def:subring}%
-    A \emph{subring} of a ring \(R\) is a subset \(S \subseteq R\), such that \(0_R, 1_R \in S\), and if \(s, s' \in S\), then \(s + s', s \cdot s'\) also lie in \(S\), and \(\pqty{S, +, \cdot, 0_R, 1_R}\) is a ring.
+    A \term{subring} of a ring \(R\) is a subset \(S \subseteq R\), such that \(0_R, 1_R \in S\), and if \(s, s' \in S\), then \(s + s', s \cdot s'\) also lie in \(S\), and \(\pqty{S, +, \cdot, 0_R, 1_R}\) is a ring.
 
     We note this as \(S \subring R\).
 \end{definition}
@@ -41,7 +41,7 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
     \]
     are all rings.
 
-    The \emph{Gaussian Integers} is
+    The \term{Gaussian Integers} is
     \[
         \ZZ \bqty{i} = \set{a + ib}{a, b \in \ZZ} \subring \CC.
     \]
@@ -68,12 +68,12 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
         0 = 0 + 0 \cdot \epsilon, 1 = 1 + 0 \cdot \epsilon.
     \]
 
-    This is the ring of \emph{dual numbers}. In particular, \(\epsilon^2 = 0\) even though \(\epsilon \neq 0\).
+    This is the ring of \term{dual numbers}. In particular, \(\epsilon^2 = 0\) even though \(\epsilon \neq 0\).
 \end{example}
 
 \begin{definition}[Unit]
     \label{def:unit}%
-    An element \(u \in R\) is a \emph{unit} if there exists \(v \in R\), such that \(uv = 1\).
+    An element \(u \in R\) is a \term{unit} if there exists \(v \in R\), such that \(uv = 1\).
 \end{definition}
 
 \begin{remark}
@@ -82,7 +82,7 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
 
 \begin{definition}[Field]
     \label{def:field}%
-    A ring \(R\) is a \emph{field} if every non-zero element is a unit.
+    A ring \(R\) is a \term{field} if every non-zero element is a unit.
 \end{definition}
 
 Note that the product of units must be a unit, although their sum might not be. The units form a subgroup under multiplication.
@@ -93,13 +93,13 @@ Notice that for any ring \(R\), we have \(0 + 0 = 0\), and hence using multiplic
 \]
 and if we cancel terms additively, we get \(r \cdot 0 = 0\), as desired.
 
-In particular, if \(1 = 0\), then for any \(r \in R\), we have \(r = 0\) by multiplying \(r \in R\) on both sides. This gives the \emph{zero ring}.
+In particular, if \(1 = 0\), then for any \(r \in R\), we have \(r = 0\) by multiplying \(r \in R\) on both sides. This gives the \term{zero ring}.
 
 Similar to what we do with sets and groups, with the rings, we also want to construct new rings from them.
 
 \begin{definition}[Direct Product of Rings]
     \label{def:direct-product-ring}%
-    Let \(R\), \(S\) be rings. The \emph{direct product} \(R \times S\) is a ring by addition and multiplication by coordinate, i.e.,
+    Let \(R\), \(S\) be rings. The \term{direct product} \(R \times S\) is a ring by addition and multiplication by coordinate, i.e.,
     \[
         \pqty{r_1, s_1} + \pqty{r_2, s_2} = \pqty{r_1 + r_2, s_1 + s_2}
     \]
@@ -114,20 +114,20 @@ The following is perhaps one of the most important rings.
 
 \begin{definition}[Polynomial]
     \label{def:polynomial}%
-    Let \(R\) be a ring. A \emph{polynomial in \(x\) of coefficients in R} is an expression
+    Let \(R\) be a ring. A \term{polynomial in \(x\) of coefficients in R} is an expression
     \[
     f\pqty{x} = a_0 + a_1 x + \cdots + a_n x^n,
     \]
     where \(a_i \in R\) and \(x^i\) are formal symbols. As convention, we may identify \(f\pqty{x}\) with \(f\pqty{x} + 0 \cdot x^{n + 1}\) (which allows us to talk about coefficients larger than \(n\)).
     
-    The largest \(n\) such that \(a_n \neq 0\) is called \emph{the degree} of \(f\pqty{x}\), and as a convention, the zero polynomial has degree \(\minusinfty\).
+    The largest \(n\) such that \(a_n \neq 0\) is called \term{the degree} of \(f\pqty{x}\), and as a convention, the zero polynomial has degree \(\minusinfty\).
 
-    A polynomial \(f\pqty{x}\) is \emph{monic} if it has degree \(n\) and \(a_n = 1\).
+    A polynomial \(f\pqty{x}\) is \term{monic} if it has degree \(n\) and \(a_n = 1\).
 \end{definition}
 
 \begin{definition}[Polynomial Ring]
     \label{def:polynomial-ring}%
-    The \emph{polynomial ring} \(R\bqty{x}\) is
+    The \term{polynomial ring} \(R\bqty{x}\) is
     \[
         R \bqty{x} = \set{f\pqty{x}}{f\pqty{x} \text{ is a polynomial with coefficients in }R},
     \]
@@ -157,7 +157,7 @@ The following is perhaps one of the most important rings.
 
 \begin{definition}[Formal Power Series]
     \label{def:formal-power-series}%
-    The \emph{ring of formal power series over \(R\) with variable \(x\)} is
+    The \term{ring of formal power series over \(R\) with variable \(x\)} is
     \[
         R \bbrac{x} = \set{\sum_{i = 0}^{\infty} r_i x^i}{r_i \in R}
     \]
@@ -192,7 +192,7 @@ There is also another series that gives an interesting ring.
 
 \begin{definition}[Laurent Polynomials]
     \label{def:laurent-polynomials}%
-    Write \(R\bqty{x, x\inverse}\) for the ring of \emph{Laurent polynomials}, i.e.,
+    Write \(R\bqty{x, x\inverse}\) for the ring of \term{Laurent polynomials}, i.e.,
     \[
         f = \sum_{i = \minusinfty}^{\plusinfty} a_i x^i
     \]

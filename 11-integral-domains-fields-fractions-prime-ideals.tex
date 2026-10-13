@@ -4,12 +4,12 @@ Notice that in the ring \(\flatfrac{\ZZ}{6}\), we have \(2 \cdot 3 = 0\) but \(2
 
 \begin{definition}[Integral Domain, Zero Divisor]
     \label{def:integral-domain-zero-divisor}%
-    A non-zero ring \(R\) is an \emph{integral domain}, if for all \(a, b \in R\), we have
+    A non-zero ring \(R\) is an \term{integral domain}, if for all \(a, b \in R\), we have
     \[
         a b = 0 \implies a = 0 \qor b = 0.
     \]
 
-    A \emph{zero divisor} is a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
+    A \term{zero divisor} is a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
 \end{definition}
 
 For example, in \(\flatfrac{\ZZ}{6}\), we say both \(2\) and \(3\) are zero divisors.
@@ -58,7 +58,7 @@ An example of this is \(\flatfrac{\ZZ}{p}\) for a prime \(p\).
 
 \begin{definition}[Field of Fractions]
     \label{def:field-of-fractions}%
-    Let \(R\) be an integral domain. A \emph{field of fractions} of \(R\) is a field \(F\), such that
+    Let \(R\) be an integral domain. A \term{field of fractions} of \(R\) is a field \(F\), such that
     \begin{enumerate}
         \item \(R \subring F\) is a subring, meaning there is an injective ring homomorphism from \(R\) to \(F\); and
         \item any \(x \in F\) can be written as \(a b \inverse\), for \(a, b \in R\), and \(b\inverse\) as the multiplicative inverse of \(b\) in \(F\).
@@ -151,7 +151,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
 \begin{definition}[Maximal Ideal]
     \label{def:maximal-ideal}%
-    An ideal \(I \idealsub R\) with \(I \neq R\) is \emph{maximal}, if for any \(J \idealsub R\), such that \(I \subseteq J \subseteq R\), we have either \(J = I\) or \(J = R\).
+    An ideal \(I \idealsub R\) with \(I \neq R\) is \term{maximal}, if for any \(J \idealsub R\), such that \(I \subseteq J \subseteq R\), we have either \(J = I\) or \(J = R\).
 \end{definition}
 
 Note that the zero ideal is maximal if and only if the ring itself is a field.
@@ -169,7 +169,7 @@ Note that the zero ideal is maximal if and only if the ring itself is a field.
 
 \begin{definition}[Prime Ideal]
     \label{def:prime-ideal}%
-    An ideal \(I \idealsub R\) with \(I \neq R\) is \emph{prime}, if whenever \(ab \in I\), we have \(a \in I\) or \(b \in I\).
+    An ideal \(I \idealsub R\) with \(I \neq R\) is \term{prime}, if whenever \(ab \in I\), we have \(a \in I\) or \(b \in I\).
 \end{definition}
 
 \begin{example}[Prime Ideals of \(\ZZ\)]

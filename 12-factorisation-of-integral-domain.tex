@@ -4,14 +4,14 @@ Throughout this section, we assume \(R\) is an integral domain.
 
 \begin{definition}[Divisor]
     \label{def:divisor}%
-    Let \(a, b \in R\). We say \(a\) \emph{divides} \(b\), written as \(a \divides b\), if there exists some \(c \in R\), such that \(b = ac\).
+    Let \(a, b \in R\). We say \(a\) \term{divides} \(b\), written as \(a \divides b\), if there exists some \(c \in R\), such that \(b = ac\).
 
     Equivalently, \(a\) divides \(b\) if and only if \(\pqty{b} \subseteq \pqty{a}\).
 \end{definition}
 
 \begin{definition}[Associate]
     \label{def:associate}%
-    Let \(a, b \in R\). We say \(a, b \in R\) are \emph{associates}, if \(a = bc\) for \(c \in R\) is a unit.
+    Let \(a, b \in R\). We say \(a, b \in R\) are \term{associates}, if \(a = bc\) for \(c \in R\) is a unit.
 
     Equivalently, \(a\) and \(b\) are associates if and only if \(\pqty{a} = \pqty{b}\), and equivalently, \(a \divides b\) and \(b \divides a\).
 \end{definition}
@@ -23,12 +23,12 @@ In a ring like the power series \(\RR\bbrac{x}\), then \(x\) and \(\pqty{x + x^2
 
 \begin{definition}[Irreducible]
     \label{def:irreducible}%
-    An element \(r \in R\) is \emph{irreducible}, if \(r \neq 0\), \(r\) is not a unit, and if \(r = xy\), then \(x\) is a unit or \(y\) is a unit.
+    An element \(r \in R\) is \term{irreducible}, if \(r \neq 0\), \(r\) is not a unit, and if \(r = xy\), then \(x\) is a unit or \(y\) is a unit.
 \end{definition}
 
 \begin{definition}[Prime Element]
     \label{def:prime-element}%
-    We say some \(p \in R\) is a \emph{prime element}, if \(p \neq 0\), \(p\) is not a unit, and if \(p \divides x \cdot y\), then \(p \divides x\) or \(p \divides y\).
+    We say some \(p \in R\) is a \term{prime element}, if \(p \neq 0\), \(p\) is not a unit, and if \(p \divides x \cdot y\), then \(p \divides x\) or \(p \divides y\).
 \end{definition}
 
 Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this is generally not the case.
@@ -99,13 +99,13 @@ We try abstract arithmetic properties by describing them in more general algebra
 
 \begin{definition}[Euclidean Domain]
     \label{def:euclidean-domain}%
-    An integral domain \(R\) is a \emph{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
+    An integral domain \(R\) is a \term{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
     \begin{enumerate}
         \item \(\phi\pqty{ab} \geq \phi\pqty{b}\) for all non-zero \(a, b\); and
         \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\pqty{r} \leq \phi\pqty{b}\).
     \end{enumerate}
 
-    Such a function \(\phi\) is called a \emph{Euclidean function}.
+    Such a function \(\phi\) is called a \term{Euclidean function}.
 \end{definition}
 
 \begin{example*}[Examples and Non-Examples of Euclidean Domains]
@@ -116,7 +116,7 @@ We try abstract arithmetic properties by describing them in more general algebra
 
 \begin{example}[Gaussian Integers are a Euclidean Domain]
     \label{ex:gaussian-integers-euclidean-domain}%
-    Let \(R = \ZZ\bqty{i} \subring \CC\) be the \emph{Gaussian Integers}. We define the function
+    Let \(R = \ZZ\bqty{i} \subring \CC\) be the \term{Gaussian Integers}. We define the function
     \[
         \phi\pqty{z} = \abs{z}^2
     \]
@@ -146,7 +146,7 @@ In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principa
 
 \begin{definition}[Principal Ideal Domain]
     \label{def:pid}%
-    An integral domain \(R\) is a \emph{principal ideal domain} (PID) such that every ideal \(I \idealsub R\) is principal.
+    An integral domain \(R\) is a \term{principal ideal domain} (PID) such that every ideal \(I \idealsub R\) is principal.
 \end{definition}
 
 \begin{proposition}[Euclidean Domains are PIDs]
@@ -169,7 +169,7 @@ In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principa
 
 \begin{definition}[Unique Factorisation Domain]
     \label{def:ufd}%
-    An integral domain \(R\) is a \emph{unique factorisation domain} (UFD) if:
+    An integral domain \(R\) is a \term{unique factorisation domain} (UFD) if:
     \begin{enumerate}
         \item Every non-unit in \(R\) is a product of (finitely many) irreducibles.
         \item If \(p_1 \cdot \cdots p_n = q_1 \cdot \cdots q_m\), with all \(p_i\) and \(q_j\)s are irreducible, then \(n = m\), and after some possible re-ordering, we have \(p_i\) and \(q_i\) are associates for all \(i\).
@@ -221,7 +221,7 @@ We first prove the following. Let \(R\) be a principal ideal domain. If \(I_1 \s
     This is an ideal in \(R\), and hence principal, since \(R\) is a principal ideal domain. Therefore, \(I = \pqty{r}\) for some \(r \in R\). Therefore, there is some \(N\) such that \(r \in I_N\), and the sequence of increasing ideals must stabilise from this point onwards.
 \end{proof}
 
-Rings that satisfy this property are \emph{Noetherian} -- we will come back to this later.
+Rings that satisfy this property are \term{Noetherian} -- we will come back to this later.
 
 \begin{proof}[\proofname\ of \autoref{thm:pid-ufd}]
     First we show that \(r \in R\) is a product of irreducibles. If \(r\) is itself irreducible, then we are done.
@@ -251,12 +251,12 @@ Rings that satisfy this property are \emph{Noetherian} -- we will come back to t
 
 \begin{definition}[Greatest Common Divisor, Lowest Common Multiple]
     \label{def:gcd-lcm}%
-    Let \(a_1, \ldots, a_n \in R\). We say that \(d\) is a \emph{greatest common divisor} (GCD) of them, if \(d \divides a_i\) for \(i\), and if \(d'\) is another number such that \(d' \divides a_i\) for all \(i\), then \(d' \divides d\).
+    Let \(a_1, \ldots, a_n \in R\). We say that \(d\) is a \term{greatest common divisor} (GCD) of them, if \(d \divides a_i\) for \(i\), and if \(d'\) is another number such that \(d' \divides a_i\) for all \(i\), then \(d' \divides d\).
 
-    Similarly, we say that \(l\) is a \emph{lowest common multiple} (LCM) of them, if \(a_i \divides l\) for all \(i\), and if \(l'\) is another number such that \(a_i \divides l'\) for all \(i\), then \(l \divides l'\).
+    Similarly, we say that \(l\) is a \term{lowest common multiple} (LCM) of them, if \(a_i \divides l\) for all \(i\), and if \(l'\) is another number such that \(a_i \divides l'\) for all \(i\), then \(l \divides l'\).
 \end{definition}
 
-An integral domain where any two elements have a greatest common divisor is called a \emph{GCD domain} -- this is equivalent to the notion of a \emph{LCM domain} which is defined similarly.
+An integral domain where any two elements have a greatest common divisor is called a \term{GCD domain} -- this is equivalent to the notion of a \term{LCM domain} which is defined similarly.
 
 \begin{theorem}[UFDs are GCD Domains]
     \label{thm:ufd-gcd}%

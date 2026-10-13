@@ -9,7 +9,7 @@ Therefore, we have
     gH = g' H \iff \pqty{g'}\inverse g \in H.
 \]
 
-We denote the set of \emph{left-cosets} of \(H \subgroup G\) by
+We denote the set of \term{left-cosets} of \(H \subgroup G\) by
 \[
     \flatfrac{G}{H} = \set{gH}{g \in G},
 \]
@@ -39,19 +39,19 @@ for all \(h \in H\) and \(g_2 \in G\), in order for the proposed rule to define 
 
 \begin{definition}[Normality]
     \label{def:normality}%
-    A subgroup \(H \subgroup G\) is \emph{normal}, if for all \(g \in G\), and \(h \in H\), we have \(g h g \inverse \in H\). We denote this as \(H \normalsub G\).
+    A subgroup \(H \subgroup G\) is \term{normal}, if for all \(g \in G\), and \(h \in H\), we have \(g h g \inverse \in H\). We denote this as \(H \normalsub G\).
 \end{definition}
 
 \begin{definition}[Quotient Group]
     \label{def:quotient-group}%
-    When \(H \normalsub G\), then \(\flatfrac{G}{H}\) does inherit a group structure by the rule above. We refer to this as the \emph{quotient group of \(G\) by \(H\)}, where the identity is \(H\).
+    When \(H \normalsub G\), then \(\flatfrac{G}{H}\) does inherit a group structure by the rule above. We refer to this as the \term{quotient group of \(G\) by \(H\)}, where the identity is \(H\).
 \end{definition}
 
 We recall the definition of a homomorphism in group theory.
 
 \begin{definition}[Group Homomorphism]
     \label{def:group-homomorphism}%
-    Let \(G\) and \(H\) be groups. A \emph{homomorphism} from \(G\) to \(H\) is a function \(\functiondomain{f}{G}{H}\), such that for all \(g_1, g_2 \in G\),
+    Let \(G\) and \(H\) be groups. A \term{homomorphism} from \(G\) to \(H\) is a function \(\functiondomain{f}{G}{H}\), such that for all \(g_1, g_2 \in G\),
     \[
         f\pqty{g_1 g_2} = f\pqty{g_1} f\pqty{g_2}.
     \]
@@ -86,11 +86,11 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
 
 \begin{definition}[Kernel, Image]
     \label{def:group-homomorphism-kernel-image}%
-    Let \(\functionmap{f}{G}{H}\) be a homomorphism. The \emph{kernel} of \(f\) is given by
+    Let \(\functionmap{f}{G}{H}\) be a homomorphism. The \term{kernel} of \(f\) is given by
     \[
         \ker \pqty{f} = \set{g \in G}{f\pqty{g} = e_H}
     \]
-    and the \emph{image} of \(f\) is given by
+    and the \term{image} of \(f\) is given by
     \[
         \img \pqty{f} = \set{h \in H}{\exists g \in G: f\pqty{g} = h}.
     \]
@@ -131,7 +131,7 @@ In other words, \emph{homomorphism are maps between groups that preserve the gro
 
 \begin{definition}[Group Isomorphism]
     \label{def:group-isomorphism}%
-    A group homomorphism \(\functiondomain{f}{G}{H}\) is an \emph{isomorphism} when it is a bijection. Two groups are said to be \emph{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
+    A group homomorphism \(\functiondomain{f}{G}{H}\) is an \term{isomorphism} when it is a bijection. Two groups are said to be \term{isomorphic} if there exists an isomorphism between them, denoted as \(G \isomorphic H\).
 \end{definition}
 
 \begin{theorem}[First Isomorphism Theorem for Groups]
@@ -272,7 +272,7 @@ We often study groups by taking quotients of normal subgroups -- but this only w
 
 \begin{definition}[Simplicity]
     \label{def:simplicity}%
-    A group \(G\) is called \emph{simple} if the only normal subgroups of \(G\) are \(G\) and \(\Bqty{e}\).
+    A group \(G\) is called \term{simple} if the only normal subgroups of \(G\) are \(G\) and \(\Bqty{e}\).
 \end{definition}
 
 \begin{proposition}[Simplicity Condition of Abelian Groups]
