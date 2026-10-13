@@ -2,7 +2,7 @@
 
 \begin{definition}[Group]
     \label{def:group}%
-    A \emph{group} is a triple \(\pqty{G, \cdot, e}\) where:
+    A \term{group} is a triple \(\pqty{G, \cdot, e}\) where:
     \begin{itemize}
         \item \(G\) is a set;
         \item \(\functiondomain{\cdot}{G \times G}{G}\) is a binary operation on \(G\); and
@@ -10,12 +10,12 @@
     \end{itemize}
     such that the following properties hold:
     \begin{itemize}
-        \item \emph{Associativity.} For all \(a, b, c \in G\), we have \(\pqty{a \cdot b} \cdot c = a \cdot \pqty{b \cdot c}\);
-        \item \emph{Identity.} For all \(a \in G\), we have \(e \cdot a = a \cdot e = a\);
-        \item \emph{Inverses.} For all \(a \in G\), there exists \(a \inverse \in G\), such that \(a \cdot a \inverse = a \inverse \cdot a = e\).
+        \item \term{Associativity.} For all \(a, b, c \in G\), we have \(\pqty{a \cdot b} \cdot c = a \cdot \pqty{b \cdot c}\);
+        \item \term{Identity.} For all \(a \in G\), we have \(e \cdot a = a \cdot e = a\);
+        \item \term{Inverses.} For all \(a \in G\), there exists \(a \inverse \in G\), such that \(a \cdot a \inverse = a \inverse \cdot a = e\).
     \end{itemize}
 
-    The size of \(G\) is called the \emph{order} of \(\pqty{G, \cdot, e}\), written by \(\abs{G}\).
+    The size of \(G\) is called the \term{order} of \(\pqty{G, \cdot, e}\), written by \(\abs{G}\).
 \end{definition}
 
 From now on we refer to the group just using \(G\), the set itself.
@@ -31,11 +31,11 @@ From now on we refer to the group just using \(G\), the set itself.
 
 \begin{definition}[Subgroup]
     \label{def:subgroup}%
-    If \(G\) is a group, and \(H \subseteq G\) is a subset of \(G\), then we say \(H\) is a \emph{subgroup} of \(G\), if the following three conditions hold:
+    If \(G\) is a group, and \(H \subseteq G\) is a subset of \(G\), then we say \(H\) is a \term{subgroup} of \(G\), if the following three conditions hold:
     \begin{itemize}
-        \item \emph{Identity.} \(e \in H\);
-        \item \emph{Closure.} For any \(a, b \in H\), we have \(a \cdot b \in H\).
-        \item \emph{Group as subgroup.} \(\pqty{H, \cdot, e}\) is a subgroup.
+        \item \term{Identity.} \(e \in H\);
+        \item \term{Closure.} For any \(a, b \in H\), we have \(a \cdot b \in H\).
+        \item \term{Group as subgroup.} \(\pqty{H, \cdot, e}\) is a subgroup.
     \end{itemize}
 \end{definition}
 
@@ -52,7 +52,7 @@ We often think of subgroups simply as the third point here; the first two points
 
 \begin{definition}[Abelian Group]
     \label{def:abelian-groups}%
-    A group \(G\) is \emph{abelian} if for all \(g_1, g_2 \in G\), we have \(g_1 g_2 = g_2 g_1\).
+    A group \(G\) is \term{abelian} if for all \(g_1, g_2 \in G\), we have \(g_1 g_2 = g_2 g_1\).
 \end{definition}
 
 We can classify all finitely-generated abelian groups: in fact they are just direct products of cyclic groups. However, the proof involves a result towards the end of this course (finite-generate modules over principal ideal domain) --- and this result implies Jordan Canonical Form's existence as well!
@@ -65,19 +65,19 @@ We can classify all finitely-generated abelian groups: in fact they are just dir
     
     More generally, for \emph{any} set \(X\) (which could be infinite/uncountable), there is a group \(\Sym\pqty{X}\) defined in the same way.
 
-    The \emph{dihedral group} \(D_{2n}\) is the group of symmetries of a regular \(n\)-gon.
+    The \term{dihedral group} \(D_{2n}\) is the group of symmetries of a regular \(n\)-gon.
 
     If we label the \(6\) vertices of the hexagon as \(1, 2, \ldots, 6\), then we see that element in \(D_{12}\) in fact \emph{permutes} the elements -- so in some sense, \(D_{12} \subseteq S_6\), and we will see that it means there is some \emph{injective} homomorphism from \(D_{12}\) to \(S_6\).
 
-    The \emph{general linear group over \(\RR\)}, denoted \(\GL\pqty{n, \RR}\) or \(\GL_n\pqty{\RR}\), is
+    The \term{general linear group over \(\RR\)}, denoted \(\GL\pqty{n, \RR}\) or \(\GL_n\pqty{\RR}\), is
     \begin{align*}
         \GL\pqty{n, \RR} &= \set{\functiondomain{f}{\RR^n}{\RR^n}}{f \text{ is a }\RR\text{--linear bijection}} \subseteq \Sym\pqty{\RR^n} \\
-        &= \Bqty{n \times n \emph{ invertible matrices over }\RR}.
+        &= \Bqty{n \times n \term{ invertible matrices over }\RR}.
     \end{align*}
 
     We have some examples of subgroups:
     \begin{itemize}
-        \item The even permutations in \(S_n\) form the \emph{alternating group} \(A_n \subgroup S_n\).
+        \item The even permutations in \(S_n\) form the \term{alternating group} \(A_n \subgroup S_n\).
         \item The rotational symmetries of an \(n\)-gon as \(C_n \subgroup D_{2n}\).
         \item The determinant-\(1\) matrices \(\SL\pqty{n, \RR} \subgroup \GL\pqty{n, \RR}\).
     \end{itemize}
@@ -92,7 +92,7 @@ We can classify all finitely-generated abelian groups: in fact they are just dir
     \label{def:coset}%
     Let \(G\) be a group and  \(g \in G\). Let \(H \subgroup G\) be a subgroup.
     
-    The \emph{left-coset} \(gH\) is defined as
+    The \term{left-coset} \(gH\) is defined as
     \[
         gH = \set{x \in G}{x = gh \text{ for some } h \in H}.
     \]
@@ -112,12 +112,12 @@ defines a bijection between \(H\) and \(gH\).
     \[
         \abs{G} = \abs{H} \cdot \abs{G : H},
     \]
-    where \(\abs{G : H}\) is the \emph{index of \(H\) in \(G\)}, the number of cosets of \(H\) in \(G\).
+    where \(\abs{G : H}\) is the \term{index of \(H\) in \(G\)}, the number of cosets of \(H\) in \(G\).
 \end{theorem}
 
 \begin{definition}[Order of an Element]
     \label{def:order-of-element}%
-    Let \(G\) be a group and \(g \in G\). The \emph{order} of \(g\) is the smallest positive integer \(n \in \NN\) such that \(g^n = e\).
+    Let \(G\) be a group and \(g \in G\). The \term{order} of \(g\) is the smallest positive integer \(n \in \NN\) such that \(g^n = e\).
 
     By convention, if no such \(n\) exists, we take \(n = \infty\).
 
