@@ -29,7 +29,7 @@ Let \(p\) be a prime. Groups of order \(p^n\) for \(n \geq 1\) are often called 
 \end{lemma}
 
 \begin{proof}
-    That \(\flatfrac{G}{Z\pqty{G}}\) is cyclic implies that there is some coset \(x Z \pqty{G} \in \flatfrac{G}{Z\pqty{G}}\) that generates the whole quotient. In other words, every coset has the form \(x^m Z\pqty{G}\), for some \(m \geq 0\).
+    That \(\flatfrac{G}{Z\pqty{G}}\) is cyclic implies that there is some coset \(x Z \pqty{G} \in \flatfrac{G}{Z\pqty{G}}\) that generates the whole quotient. In other words, every coset has the form \(x^m Z\pqty{G}\),for some \(m \in \mathbb{Z}\).
 
     Since every \(g \in G\) can be written as some \(g = x^m z\) for some \(m \geq 0, z \in Z\pqty{G}\).
 
@@ -60,7 +60,7 @@ Let \(p\) be a prime. Groups of order \(p^n\) for \(n \geq 1\) are often called 
 
     Otherwise, note that the centre \(Z\pqty{G}\) is non-trivial, and for \(x \in G\) where \(x \neq e\), we have \(\ord\pqty{x}\) is a power of \(p\). If we replace with a power of itself, we can assume it has order exactly \(p\). (Alternatively, \(p\) divides the order of \(Z\pqty{G}\) and apply Cauchy's Theorem.)
 
-    Then, \(\angBrac{x}\) has order \(p\), and since \(x \in Z\pqty{G}\), we have \(\angBrac{x} \normalsub G\). This allows us to take the quotient \(\flatfrac{G}{\angBrac{x}}\). This is a group of size \(p^{n - 1}\), and by induction it contains some subgroup of size \(p^{k - 1}\), call it \(L \subgroup \flatfrac{G}{\angBrac{X}}\).
+    Then, \(\angBrac{x}\) has order \(p\), and since \(x \in Z\pqty{G}\), we have \(\angBrac{x} \normalsub G\). This allows us to take the quotient \(\flatfrac{G}{\angBrac{x}}\). This is a group of size \(p^{n - 1}\), and by induction it contains some subgroup of size \(p^{k - 1}\), call it \(L \subgroup \flatfrac{G}{\angBrac{x}}\).
 
-    But by the correspondence result (between the subgroups of \(G\) and subgroups of the quotient), we find some \(K \subgroup G\) containing \(\angBrac{x}\), such that \(\flatfrac{K}{\angBrac{x}} \isomorphic L\). This gives \(\abs{K} = p^k\) ad so we are done.
+    But by the correspondence result (between the subgroups of \(G\) and subgroups of the quotient), we find some \(K \subgroup G\) containing \(\angBrac{x}\), such that \(\flatfrac{K}{\angBrac{x}} \isomorphic L\). This gives \(\abs{K} = p^k\), and so we are done.
 \end{proof}

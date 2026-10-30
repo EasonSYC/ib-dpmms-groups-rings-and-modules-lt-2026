@@ -82,7 +82,7 @@ It follows that we must have \(f\pqty{e_G} = e_H\) by calculating \(f\pqty{e_G \
     The result follows from the uniqueness of inverses.
 \end{proof}
 
-In other words, \emph{homomorphism are maps between groups that preserve the group structure}.
+In other words, \emph{homomorphisms are maps between groups that preserve the group structure}.
 
 \begin{definition}[Kernel, Image]
     \label{def:group-homomorphism-kernel-image}%
@@ -258,7 +258,7 @@ This theorem might seem unnatural at first, but the idea is as follows. We not o
         \function{\phi}{\flatfrac{G}{K}}{\flatfrac{G}{L}}{gK}{gL}.
     \]
 
-    This map is well-defined. Indeed, if \(gK = g'K\), then we know \(g' g\inverse \in L \subseteq L\), so \(gL = g'L\).
+    This map is well-defined. Indeed, if \(gK = g'K\), then we know \(g' g\inverse \in K \subseteq L\), so \(gL = g'L\).
 
     This is clearly a homomorphism by basic algebra. We now calculate the kernel, which is
     \[
@@ -312,7 +312,7 @@ We often study groups by taking quotients of normal subgroups -- but this only w
         \functiondomain{\pi}{G}{\flatfrac{G}{H_2}}.
     \]
 
-    Indeed, if \(\flatfrac{G}{H_2}\) is a proper normal subgroup, by the correspondence, we can find such a proper normal subgroup in \(G\) that contains \(H_2\). This contradicts with the maximality of the order of \(\abs{H_2}\).
+    Indeed, if \(\flatfrac{G}{H_2}\) has a proper non-trivial normal subgroup, by the correspondence, we can find such a proper normal subgroup in \(G\) that contains \(H_2\). This contradicts with the maximality of the order of \(\abs{H_2}\).
 
     We simply repeat the argument to find \(H_3, H_4, \ldots\). Note that \(H_{i + 1} \neq H_i\), and hence \(\abs{H_{i + 1}} \lneq \abs{H_i}\), so the process terminates.
 \end{proof}

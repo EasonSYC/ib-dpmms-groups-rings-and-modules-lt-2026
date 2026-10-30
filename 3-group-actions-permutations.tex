@@ -57,7 +57,7 @@ These are just sets. But we are going to define some relationship between them. 
 
 Note that \(a\pqty{\phi}\) is a group action by the homomorphism property, so this is a well-defined map.
 
-\begin{proposition}[Bijection between Permutation Representaion and Actions]
+\begin{proposition}[Bijection between Permutation Representation and Actions]
     \label{prop:permutation-representation-actions}%
     The map \(a\) defined above is a bijection.
 \end{proposition}
@@ -86,7 +86,7 @@ Note that \(a\pqty{\phi}\) is a group action by the homomorphism property, so th
     \]
     which shows that \(\phi\pqty{g}\) is indeed \(\Sym\pqty{X}\).
 
-    To see \(\phi\) is indeed is a homomorphism, we see
+    To see \(\phi\) is indeed a homomorphism, we see
     \begin{align*}
         \phi\pqty{g_1} \circ \phi\pqty{g_2} \pqty{x} &= \phi\pqty{g_1} \pqty{\phi\pqty{g_2} \pqty{x}} \\
         &= g_1 \ast \pqty{g_2 \ast x} \\
@@ -152,12 +152,12 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
 
 \begin{example}[Left-Multiplication on Cosets and its Kernel]
     \label{ex:left-multiplation-cosets}%
-    Let \(H \subgroup G\) and \(X = \flatfrac{G}{H}\). Let \(G \actson H\) by
+    Let \(H \subgroup G\) and \(X = \flatfrac{G}{H}\). Let \(G \actson X\) by
     \[
         \function{\alpha}{G \times \flatfrac{G}{H}}{\flatfrac{G}{H}}{\pqty{g, g_1 H}}{\pqty{g \cdot g_1} H}.
     \]
 
-    We get the corresponding homomorphism \(\functiondomain{\phi}{G}\Sym\pqty{X}\). Trivially, we have \(\ker\pqty{\phi} \subseteq H\).
+    We get the corresponding homomorphism \(\functiondomain{\phi}{G}{\Sym\pqty{X}}\). Trivially, we have \(\ker\pqty{\phi} \subseteq H\).
 
     But we have more to this. If \(g \in \ker \pqty{\phi}\), then
     \[
@@ -252,7 +252,7 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \begin{itemize}
         \item The \term{orbit} of \(x\), denoted as \(G x\), is defined to be
         \[
-            G x = \set{gx}{g \in G} \subseteq x.
+            G x = \set{gx}{g \in G} \subseteq X.
         \]
         \item The \term{stabiliser}  of \(x\), denoted as \(G_x\),is defined to be
         \[

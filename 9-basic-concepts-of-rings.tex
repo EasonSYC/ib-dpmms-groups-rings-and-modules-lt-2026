@@ -87,7 +87,7 @@ Good examples of rings to keep in mind are \(\ZZ, \flatfrac{\ZZ}{n}, \RR \bqty{x
 
 Note that the product of units must be a unit, although their sum might not be. The units form a subgroup under multiplication.
 
-Notice that for any ring \(R\), we have \(0 + 0 = 0\), and hence using multiplication and distribution rules, for any \(r \in \RR\)
+Notice that for any ring \(R\), we have \(0 + 0 = 0\), and hence using multiplication and distribution rules, for any \(r \in R\)
 \[
     r \cdot 0 + r \cdot 0 = r \cdot 0
 \]
@@ -164,7 +164,7 @@ The following is perhaps one of the most important rings.
     with standard operations.
 \end{definition}
 
-\(R\bqty{x}\) `lives in' \(R\bbrac{x}\) -- but remember that restriction don't preserve units -- as we will see in \autoref{ex:inverse-in-power-series}!
+\(R\bqty{x}\) `lives in' \(R\bbrac{x}\) -- but remember that restrictions do not preserve units -- as we will see in \autoref{ex:inverse-in-power-series}!
 
 \begin{example}[Inverse in Power Series]
     \label{ex:inverse-in-power-series}%
@@ -174,9 +174,9 @@ The following is perhaps one of the most important rings.
     \[
         g\pqty{x} = a_0 + a_1 x + \cdots + a_n x^n
     \]
-    for \(x_n \neq 0\). Thus,
+    for \(a_n \neq 0\). Thus,
     \[
-        \pqty{1 - x} g\pqty{x} = a_0 + x\pqty{a_! - a_0} + \cdots + \pqty{a_n - a_{n - 1}} x^n - a_n x^{n + 1}.
+        \pqty{1 - x} g\pqty{x} = a_0 + x\pqty{a_1 - a_0} + \cdots + \pqty{a_n - a_{n - 1}} x^n - a_n x^{n + 1}.
     \]
 
     But this is clearly not \(1\) by computing the \(x^{n + 1}\) coefficient.

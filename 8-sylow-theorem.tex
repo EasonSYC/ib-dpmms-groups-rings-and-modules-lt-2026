@@ -9,7 +9,7 @@ Let \(G\) be a finite group of size \(p^{a} m\) where \(p \notdivides m\), which
     \begin{enumerate}
         \item The set \(\Syl_p\pqty{G} = \set{P \leq G}{P \text{ is a Sylow } p\text{-subgroup}}\) is non-empty.
         \item Any \(H, H' \in \Syl_p \pqty{G}\) are conjugate, i.e., there is some \(g\) such that \(H' = g H g\inverse\).
-        \item If \(n_p = \abs{\Syl_p \pqty{G}}\), then \(n_p \equiv 1 \pmod{p}\), and \(n_p\) divides \(\abs{G}\), so \(m\).
+        \item If \(n_p = \abs{\Syl_p \pqty{G}}\), then \(n_p \equiv 1 \pmod{p}\), and \(n_p\) divides \(m\).
     \end{enumerate}
 \end{theorem}
 
@@ -40,7 +40,7 @@ Another consequence of Sylow's theorem is as follows.
 
     If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \Bqty{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\pqty{P} \normalsub P\).
 
-    Therefore, \(\ker \phi = \Bqty{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
+    Therefore, \(\ker \phi = \Bqty{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic to a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
 
     \[
         G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \Bqty{\pm 1}.
@@ -48,7 +48,7 @@ Another consequence of Sylow's theorem is as follows.
 
     If the composition is surjective, then \(\ker \pqty{\sign \circ \phi}\) is an index \(2\) subgroup of \(G\). But \(G\) is simple, so this is impossible, unless \(G \isomorphic C_2\) but this is abelian. (Alternatively, since this composition cannot be injective and since \(G\) is simple, we have \(\ker \pqty{\sign \circ \phi} = G\), so this map is trivial.)
 
-    Therefore, \(\img \pqty{\phi} \subgroup A_{n_p}\) and we have \(\frac{n_ p!}{2}\), so we can calculate by Lagrange.
+    Therefore, \(\img \pqty{\phi} \subgroup A_{n_p}\) and \(\abs{G}\) divides \(\frac{n_p!}{2}\), by Lagrange's theorem.
 
     Now we may verify directly that \(A_1, A_2, \ldots, A_4\) are not simple directly.
 \end{proof}
@@ -56,7 +56,7 @@ Another consequence of Sylow's theorem is as follows.
 A nice application of the numerology provided by \autoref{thm:sylow} (Sylow's Theorems) is explored below.
 
 \begin{example*}[Counting Subgroups of Simple Group]
-    Suppose \(G\) has size \(11 \times 12 = 132\). If \(g\) is simple, then none of the \(n_p\)s are equal to \(1\).
+    Suppose \(G\) has size \(11 \times 12 = 132\). If \(G\) is simple, then none of the \(n_p\)s are equal to \(1\).
 
     By \autoref{thm:sylow} (Sylow's Third Theorem), we have \(n_{11} \equiv 1 \pmod{11}\) but also \(n_{11} \divides 12\), so \(n_{11} = 12\), so there are \(12\) Sylow \(11\)-subgroups.
 
@@ -128,7 +128,7 @@ Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
 \begin{proof}[\proofname\ of Sylow's Third Theorem, Part of \autoref{thm:sylow}]
     We need to show \(n_p \divides \abs{G}\) and \(n_p \equiv 1 \pmod{p}\).
 
-    The first part is straightforward. The conjugation action of \(G\) on \(\Syl_{\pqty{G}}\) is transitive, so it has only one orbit. Therefore, the size of the orbit is \(n_p\), and hence \(n_p \divides G\).
+    The first part is straightforward. The conjugation action of \(G\) on \(\Syl_p\pqty{G}\) is transitive, so it has only one orbit. Therefore, the size of the orbit is \(n_p\), and hence \(n_p \divides G\).
 
     Now, let \(P \in \Syl_p\pqty{G}\). We consider an action \(P \actson \Syl_p\pqty{G}\) by conjugation.
 
