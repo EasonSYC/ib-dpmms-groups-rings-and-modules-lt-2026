@@ -142,7 +142,7 @@ are bijective.
 
 \begin{definition}[Annihilator]
     \label{def:annihiliator}%
-    Let \(M\) be an \(R\)-submodule. For \(m \in M\), its \term{annihilator} is
+    Let \(M\) be an \(R\)-module. For \(m \in M\), its \term{annihilator} is
     \[
         \Ann\pqty{m} = \set{r \in R}{r \cdot m = 0}.
     \]
@@ -163,7 +163,7 @@ When \(R\) is a field, \(M\) is an \(R\)-vector space, so we have
 \[
     \Ann\pqty{m} = \Bqty{0}
 \]
-for any \(m \in M\). This notion is useless in the theory of vector spaces, but not in general for modules.
+for any non-zero \(m \in M\). This notion is useless in the theory of vector spaces, but not in general for modules.
 
 \begin{example*}[Annihilator]
     Take \(R = \ZZ\), and \(M = \flatfrac{\ZZ}{n\ZZ}\) with the usual scaling. The annihilator of this is interesting, for example, for \(1 \in M = \flatfrac{\ZZ}{n\ZZ}\), we have \(\Ann\pqty{1} = n\ZZ\).
@@ -255,4 +255,3 @@ The modules \(R^k\) are often called \term{free \(R\)-modules}.
     \]
     which consists of all the polynomials without constant terms. This is not finitely generated.
 \end{remark}
-

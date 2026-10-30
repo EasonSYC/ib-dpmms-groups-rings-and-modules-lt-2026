@@ -21,11 +21,11 @@ Throughout this section, we assume \(p\) is a prime.
 
 \begin{definition}[\(p\)-Adic Integer]
     \label{def:p-adic-integer}%
-    A \term{\(p\)-adic integer} is a sequence \(\pqty{a_n}_{n = 1}^{\infty}\) such that \(a_n \in \flatfrac{\ZZ}{p^n \ZZ}\), and such that the projective map
+    A \term{\(p\)-adic integer} is a sequence \(\pqty{a_n}_{n = 0}^{\infty}\) such that \(a_n \in \flatfrac{\ZZ}{p^n \ZZ}\), and such that the projective map
     \[
         \functiondomain{\pi_n}{\flatfrac{\ZZ}{p^n \ZZ}}{\flatfrac{\ZZ}{p^{n - 1} \ZZ}}
     \]
-    maps \(\pi_n \pqty{a_n} = a_{n - 1}\).
+    maps \(\pi_n \pqty{a_n} = a_{n - 1}\) for \(n \geq 1\).
 
     The set of all such sequences is called the set of \term{\(p\)-adic integers}, denoted by \(\ZZ_p\).
 \end{definition}
@@ -130,7 +130,7 @@ Note the similarity with \(\CC\bbrac{x}\): in \(\CC\bbrac{x}\), a formal power s
         F\pqty{\alpha_n} = 0 \pmod{p^n}, \qand \alpha_{n + 1} \equiv \alpha_n \pmod{p^n}.
     \]
 
-    Given \(\alpha_n\) with \(F\pqty{\alpha_n} \equiv 0 \pmod{p^n}\), we let \(a_{n + 1} = a_n + b_n p^n\). Expanding \(F\) around \(\alpha_n\), we have
+    Given \(\alpha_n\) with \(F\pqty{\alpha_n} \equiv 0 \pmod{p^n}\), we let \(\alpha_{n + 1} = \alpha_n + b_n p^n\). Expanding \(F\) around \(\alpha_n\), we have
     \[
         F\pqty{\alpha_n + b_n p^n} = F\pqty{\alpha_n} + F'\pqty{\alpha_n} \cdot b_n p^n + \bigO\pqty{b_n^2 p^{2n}},
     \]

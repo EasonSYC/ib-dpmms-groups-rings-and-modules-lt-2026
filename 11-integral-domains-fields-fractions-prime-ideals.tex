@@ -9,7 +9,7 @@ Notice that in the ring \(\flatfrac{\ZZ}{6}\), we have \(2 \cdot 3 = 0\) but \(2
         a b = 0 \implies a = 0 \qor b = 0.
     \]
 
-    A \term{zero divisor} is a non-zero \(a\), such that there exists \(b \neq 0\) if \(ab = 0\).
+    A \term{zero divisor} is a non-zero \(a\), such that there exists \(b \neq 0\) with \(ab = 0\).
 \end{definition}
 
 For example, in \(\flatfrac{\ZZ}{6}\), we say both \(2\) and \(3\) are zero divisors.
@@ -23,7 +23,7 @@ For example, in \(\flatfrac{\ZZ}{6}\), we say both \(2\) and \(3\) are zero divi
     \]
     so \(a = 0\).
         \item Similarly, any subring of a field is also an integral domain. This is really how we should think of integral domains.
-        \item The rings \(\ZZ\), \(\ZZ\bqty{i}\), \(\QQ\), \(\CC\), \(\RR\bqty{x}\) \(\ZZ\bqty{X}\) are integral domains.
+        \item The rings \(\ZZ\), \(\ZZ\bqty{i}\), \(\QQ\), \(\CC\), \(\RR\bqty{x}\), and \(\ZZ\bqty{X}\) are integral domains.
         \item The rings \(\flatfrac{\ZZ}{6}\), \(\flatfrac{\ZZ}{\pqty{pq}}\), \(\flatfrac{\ZZ}{2} \times \flatfrac{\ZZ}{2}\), etc. are \textit{not} integral domains.
         \item In particular, direct products cannot be integral domains, since \(\pqty{0, 1}\) and \(\pqty{1, 0}\) product to \(0\).
     \end{itemize}
@@ -91,7 +91,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
     \]
     where here the multiplication is in \(R\).
 
-    We want to show \(\sim\) is an equivalence relation. \emph{Symmetry} and \emph{reflective} are obvious. We conduct a non-trivial check on the \emph{transitivity}. Suppose that
+    We want to show \(\sim\) is an equivalence relation. \emph{Symmetry} and \emph{reflexivity} are obvious. We conduct a non-trivial check on the \emph{transitivity}. Suppose that
     \[
         \pqty{a, b} \sim \pqty{c, d} \qand \pqty{c, d} \sim \pqty{e, f}.
     \]
@@ -111,7 +111,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
     \[
         F = \flatfrac{S}{\sim},
     \]
-    and we denote \(\frac{a}{b} = \bqty{\pqty{a, b}}\) for the conjugacy class. We make \(F\) a ring by the following operations.
+    and we denote \(\frac{a}{b} = \bqty{\pqty{a, b}}\) for the equivalence class. We make \(F\) a ring by the following operations.
 
     \[
         \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd} \qand \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}.
@@ -195,7 +195,7 @@ Note the similarity in this definition with \autoref{def:integral-domain-zero-di
     \]
     is the zero ideal if and only if \(ab \in I\). This, since \(I\) is prime, implies that \(a \in I\) or \(b \in I\), so \(a + I = 0 + I\) or \(b + I = 0 + I\), showing that \(\flatfrac{R}{I}\) is indeed integral.
 
-    Conversely, if \(\flatfrac{R}{I}\) is integral, consider \(ab \in I\) where \(ab = 0\). Then
+    Conversely, if \(\flatfrac{R}{I}\) is integral, consider \(a, b \in R\) with \(ab \in I\). Then
     \[
         ab + I = \pqty{a + I} \pqty{b + I} = 0 + I
     \]

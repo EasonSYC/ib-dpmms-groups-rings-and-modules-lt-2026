@@ -43,7 +43,7 @@ Note that in \(\ZZ\), the irreducibles are precisely prime elements -- but this 
 
     Suppose \(r \divides ab\). Then \(ab \in \pqty{r}\) which is prime, so \(a \in \pqty{r}\) or \(b \in \pqty{r}\), so \(r \divides a\) or \(r \divides b\).
 
-    Conversely, let \(r\) be a prime element. Now, suppose \(ab \in \pqty{r}\). Then \(r \divides ab\), and since \(r\) is prime, we have \(r \divides a\) and \(r \divides b\), and hence \(a \in \pqty{r}\) or \(b \in \pqty{r}\).
+    Conversely, let \(r\) be a prime element. Now, suppose \(ab \in \pqty{r}\). Then \(r \divides ab\), and     Since \(r\) is prime, we have \(r \divides a\) or \(r \divides b\), and hence \(a \in \pqty{r}\) or \(b \in \pqty{r}\).
 \end{proof}
 
 \begin{proposition}[Primes are Irreducible]
@@ -68,12 +68,12 @@ The converse is false. We consider \(R = \ZZ\bqty{\sqrt{-5}}\).
     \label{ex:irreducible-not-prime}%
     Consider the ring \(R = \ZZ\bqty{\sqrt{-5}} \subring \CC\) is obviously an integral domain, since it is a subring of a field (and a field is always integral). This ring structure comes with the \emph{norm}:
     \[
-        \function{N}{\ZZ\bqty{\sqrt{-5}}}{\ZZ_{\geq 0}}{a + b \sqrt{5}}{a^2 + 5 b^2.}
+        \function{N}{\ZZ\bqty{\sqrt{-5}}}{\ZZ_{\geq 0}}{a + b \sqrt{-5}}{a^2 + 5 b^2.}
     \]
 
     This function is multiplicative, namely \(N\pqty{a} N\pqty{b} = N\pqty{ab}\) for any \(a, b \in R\).
 
-    We first claim all units in \(R\) have norm \(1\). Note that if \(1 = uv\) for \(u, v \in \RR\), we have \(N\pqty{1} = N\pqty{u} \cdot N\pqty{v}\), so both norms have to be \(1\).
+    We first claim all units in \(R\) have norm \(1\). Note that if \(1 = uv\) for \(u, v \in R\), we have \(N\pqty{1} = N\pqty{u} \cdot N\pqty{v}\), so both norms have to be \(1\).
 
     The only units are in fact \(\pm 1 \in R\), because they are indeed units, and they are the only elements with norm \(1\). 
 
@@ -99,7 +99,7 @@ We try abstract arithmetic properties by describing them in more general algebra
 
 \begin{definition}[Euclidean Domain]
     \label{def:euclidean-domain}%
-    An integral domain \(R\) is a \term{Euclidean Domain} \(f\), if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
+    An integral domain \(R\) is a \term{Euclidean Domain} if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
     \begin{enumerate}
         \item \(\phi\pqty{ab} \geq \phi\pqty{b}\) for all non-zero \(a, b\); and
         \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\pqty{r} \leq \phi\pqty{b}\).
@@ -120,7 +120,7 @@ We try abstract arithmetic properties by describing them in more general algebra
     \[
         \phi\pqty{z} = \abs{z}^2
     \]
-    where \(\abs{ \cdot }\) denotes the complex norm. Note that it does satisfy the first property, so it remains to show that the division algorithm shows.
+    where \(\abs{ \cdot }\) denotes the complex norm. Note that it does satisfy the first property, so it remains to verify the division algorithm.
 
     Consider \(a, b \in \ZZ\bqty{i}\), and we let \(b \neq 0\). Since \(\CC\) is a field, we have \(\flatfrac{a}{b} \in \CC\), then there is a point \(q \in \ZZ\bqty{i}\), such that
     \[

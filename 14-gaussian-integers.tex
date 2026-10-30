@@ -16,7 +16,7 @@ We first list some results that are useful for the future.
 \begin{proposition}[Properties of Gaussian Integers]
     \label{prop:properties-gaussian-integers}%
     \begin{itemize}
-        \item Irreducibles coincides with primes in \(\ZZ\bqty{i}\).
+        \item Irreducibles coincide with primes in \(\ZZ\bqty{i}\).
         \item The units have norm \(1\), and they are precisely \(\pm 1\) and \(\pm i\).
         \item Primes in \(\ZZ\) are \emph{not necessarily} primes in \(\ZZ\bqty{i}\): indeed, note \(2 = \pqty{1 + i} \pqty{1 - i}\), so \(2\) is not a prime.    
     \end{itemize}
@@ -50,7 +50,7 @@ This is not completely conclusive -- it only talks about the primes which lie in
     But \(x^m - 1\) can have at most \(m\) roots (as it is over a field).
 \end{proof}
 
-\begin{theorem}[Primes in Gaussian Integrs]
+\begin{theorem}[Primes in Gaussian Integers]
     \label{thm:prime-gaussian}%
     The primes in \(\ZZ\bqty{i}\), up to associates, are given by
     \begin{enumerate}
@@ -118,11 +118,11 @@ Note that the proof actually gives a way to find \(\alpha \in \ZZ\bqty{i}\), suc
 
     Now we take the norm to get
     \[
-        x^2 + y^2 = N\pqty{z} = \prod N\pqty{a_i}
+        x^2 + y^2 = N\pqty{z} = \prod N\pqty{\alpha_i}
     \]
     and each \(N\pqty{a_i}\) is \(p^2\) for \(p \equiv 3 \pmod{4}\), or \(N\pqty{\alpha_i}\) is \(p\) for \(p \equiv 1 \pmod{4}\) or \(p = 2\).
 
-    Conversely, let \(n = \prod p_i n^i\) with the given conditions. In this case, if \(p_i \equiv 3 \pmod{4}\), we have
+    Conversely, let \(n = \prod_i p_i^{n_i}\) with the given conditions. In this case, if \(p_i \equiv 3 \pmod{4}\), we have
     \[
         p_i^{n_i} = \pqty{p_i^{\flatfrac{n_i}{2}}}^2 = N\pqty{p_i^{\flatfrac{n_i}{2}}}.
     \]

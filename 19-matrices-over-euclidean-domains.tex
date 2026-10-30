@@ -57,7 +57,7 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
 
 \begin{definition}[Equivalent Matrices]
     \label{def:equivalent-matrix}%
-    Matrices \(\vb{A}\) and \(\vb{B}\) are \term{equivalent}, if \(A\) can be obtained from \(\vb{B}\) via row/column operations. Equivalently,
+    Matrices \(\vb{A}\) and \(\vb{B}\) are \term{equivalent}, if \(\vb{A}\) can be obtained from \(\vb{B}\) via row/column operations. Equivalently,
     \[
         \vb{B} = \vb{Q} \vb{A} \vb{T}\inverse
     \]
@@ -103,7 +103,7 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
             }
         \]
 
-        \item Now, suppose \(A_{i, j}\) in \(\vb{C}\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\pqty{r}, \phi\pqty{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\pqty{i, j}\) entry. Now, swap back this \(r\) to the \(\pqty{1, 1}\) position, and then we have \(\phi\pqty{r} < \phi\pqty{d}\).
+        \item Now, suppose \(A_{i, j}\) in \(\vb{C}\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\pqty{r} < \phi\pqty{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\pqty{i, j}\) entry. Now, swap back this \(r\) to the \(\pqty{1, 1}\) position, and then we have \(\phi\pqty{r} < \phi\pqty{d}\).
 
         \item We return to 1 and 2, and replace \(\vb{A}\) with the new matrix
         \[
@@ -148,9 +148,9 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 \end{proposition}
 
 \begin{proof}
-    It suffices to check that individual row/column operations do not change the Fitting ideals. Since \(\Fit_k\pqty{\vb{A}} = \Fit_k\pqty{\vb{A}\transpose}\), it suffices to check this for the row operations. Swapping row are straightforward.
+    It suffices to check that individual row/column operations do not change the Fitting ideals. Since \(\Fit_k\pqty{\vb{A}} = \Fit_k\pqty{\vb{A}\transpose}\), it suffices to check this for the row operations. Swapping rows is straightforward.
 
-    Consider \(\vb{C}\) a \(k \times k\) sub-matrix, and consider adding \(c\) times row \(i\) of \(\vb{A}\) to row \(j\). This gives a new sub-matrix \(\vb{C}'\). We show that \(\det\pqty{\vb{C}'} \in \Fit\pqty{\vb{A}}\).
+    Consider \(\vb{C}\) a \(k \times k\) sub-matrix, and consider adding \(c\) times row \(i\) of \(\vb{A}\) to row \(j\). This gives a new sub-matrix \(\vb{C}'\). We show that \(\det\pqty{\vb{C}'} \in \Fit_k\pqty{\vb{A}}\).
 
     If the \(j\)th row is outside \(\vb{C}\), then this does not change anything.
 
@@ -207,7 +207,7 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 \end{proposition}
 
 \begin{proof}
-    We proceed by induction on \(m\). Let \(N \submodule \RR^m\) be a submodule. We consider the ideal
+    We proceed by induction on \(m\). Let \(N \submodule R^m\) be a submodule. We consider the ideal
     \[
         I = \set{r \in R}{\pqty{r, r_2, \ldots, r_m} \in N \text{ for some }r_i}.
     \]
@@ -353,7 +353,7 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
     \label{thm:primary-decomposition-classification}%
     Let \(R\) be a Euclidean domain, and \(M\) a finitely-generated \(R\)-module. Then
     \[
-        M \isomorphic N_1 \oplus \cdots N_t,
+        M \isomorphic N_1 \oplus \cdots \oplus N_t,
     \]
     where each \(N_i\) is either \(N_i \isomorphic R\), or \(N_i \isomorphic \flatfrac{R}{\pqty{{p_i}^{n_i}}}\) for some prime \(p_i\) and exponent \(n_i \geq 1\).
 \end{theorem}
