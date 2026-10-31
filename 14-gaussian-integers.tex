@@ -68,9 +68,9 @@ This is not completely conclusive -- it only talks about the primes which lie in
 
     It remains to show these are all the prime in \(\ZZ\bqty{i}\). Suppose now, that \(p \divides N\pqty{z}\) in \(\ZZ\) where \(p\) is a prime.
     
-    If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\bqty{i}\), so \(p \divides z \conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\), and therefore \(p = z\), up to associates.
+    If \(p \equiv 3 \pmod{4}\), then \(p\) is prime in \(\ZZ\bqty{i}\), so \(p \divides z\conjugate{z}\), and hence \(p \divides z\) or \(p \divides \conjugate{z}\); since \(z\) is irreducible, \(z\) is associate to \(p\).
 
-    If \(p = 2\) or \(p \equiv 1 \pmod{4}\), we want to show that \(N\pqty{z} = p\). If \(p \equiv 1 \pmod{4}\) or \(2\), then \(p - 1 = 4k\) for some \(k \in \ZZ\). By \autoref{lem:multiplicative-group-int-mod-p-cyclic}, \(\FF_p\multiplicative \isomorphic C_{4k}\), and hence there is a \emph{unique} element in \(\FF_p\multiplicative\) in \(C_{4k}\) with order \(2\), namely \(\pqty{-1}\).
+    If \(p = 2\), then \(2 = \pqty{1 + i}\pqty{1 - i}\), so \(1 + i\) is a Gaussian prime of norm \(2\). If \(p \equiv 1 \pmod{4}\), we want to show that \(N\pqty{z} = p\). Then \(p - 1 = 4k\) for some \(k \in \ZZ\). By \autoref{lem:multiplicative-group-int-mod-p-cyclic}, \(\FF_p\multiplicative \isomorphic C_{4k}\), and hence there is a \emph{unique} element in \(\FF_p\multiplicative\) in \(C_{4k}\) with order \(2\), namely \(\pqty{-1}\).
 
     Furthermore, we know there is some \(a \in \FF_p\multiplicative\) with order \(4\). This means \(a^2 \equiv -1 \pmod{p}\), and hence \(p \divides a^2 + 1\). Hence, \(p \divides \pqty{a + i} \pqty{a - i}\). In other words, \(p\) is not irreducible.
 
