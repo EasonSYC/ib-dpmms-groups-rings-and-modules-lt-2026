@@ -14,7 +14,7 @@
 
 \begin{definition}[Linear Dependence]
     \label{def:linear-dependence}%
-    Let \(m_1, \ldots, m_k \in M\). We say the set \(\Bqty{m_1, \ldots, m_k}\) is \term{linearly independent}, if and only if
+    Let \(m_1, \ldots, m_k \in M\). We say the set \(\set{m_1, \ldots, m_k}\) is \term{linearly independent}, if and only if
     \[
         \sum_{i = 1}^{k} r_i m_i = 0
     \]
@@ -36,7 +36,7 @@ Note that free generating sets may \emph{not} exist!
 
 \begin{example}[Module without Free-Generating Set]
     \label{ex:module-without-free-generating-set}%
-    Consider the \(\ZZ\)-module \(\flatfrac{\ZZ}{2}\). If it were freely generated, the only possibility for a basis is \(S = \Bqty{1}\). But this is \emph{not} free.
+    Consider the \(\ZZ\)-module \(\flatfrac{\ZZ}{2}\). If it were freely generated, the only possibility for a basis is \(S = \set{1}\). But this is \emph{not} free.
 
     For example, if \(N = \ZZ\), \(f\pqty{1} = 1\), we would need a non-zero homomorphism \(\flatfrac{\ZZ}{2} \to \ZZ\), but this does not exist.
 \end{example}
@@ -47,7 +47,7 @@ Note that free generating sets may \emph{not} exist!
 
 \begin{proposition}[Basis, Linear Independence, and Unique Linear Combination]
     \label{prop:basis-linear-independence-unique-combination}%
-    Let \(S = \Bqty{m_1, \ldots, m_k} \subseteq M\). Then, the following are equivalent:
+    Let \(S = \set{m_1, \ldots, m_k} \subseteq M\). Then, the following are equivalent:
     \begin{enumerate}
         \item \(S\) generates \(M\) freely;
         \item \(S\) generates \(M\), and \(S\) is linearly independent;
@@ -92,7 +92,7 @@ Note that free generating sets may \emph{not} exist!
 
 \begin{proposition}[Isomorphism as Modules between \(R^n\) and \(R^m\)]
     \label{prop:isomorphism-modules-rn-rm}%
-    Let \(R \neq \Bqty{0}\) be a ring. Then, if \(R^n \isomorphic R^m\) for some \(n, m \in \NN\), then \(n = m\).
+    Let \(R \neq \set{0}\) be a ring. Then, if \(R^n \isomorphic R^m\) for some \(n, m \in \NN\), then \(n = m\).
 \end{proposition}
 
 \begin{proof}
