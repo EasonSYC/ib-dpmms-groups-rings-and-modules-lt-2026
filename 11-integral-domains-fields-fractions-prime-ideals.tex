@@ -44,7 +44,7 @@ An example of this is \(\flatfrac{\ZZ}{p}\) for a prime \(p\).
 
     This is a group homomorphism for the underlying group structure. Since \(R\) is an integral domain, by definition, we have
     \[
-        \ker \pqty{\mu_a} = \Bqty{0}.
+        \ker \pqty{\mu_a} = \set{0}.
     \]
 
     So \(\mu_a\) is injective. Recall that \(R\) is finite, which means \(\mu_a\) is bijective.
@@ -128,7 +128,7 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
     Clearly, \(\phi\) is a ring homomorphism, and observe that
     \[
-        \ker\pqty{\phi} = \set{r \in R}{\frac{r}{1} = 0} = \Bqty{0}.
+        \ker\pqty{\phi} = \set{r \in R}{\frac{r}{1} = 0} = \set{0}.
     \]
 
     By \autoref{thm:first-isomorphism-theorem-ring} (First Isomorphism Theorem for Rings), we have \(\img \pqty{\phi} \isomorphic R\). Since every \(\frac{a}{b} \in R\) can be written as
@@ -140,11 +140,11 @@ Note \autoref{thm:existence-field-of-fractions} tells us that all integral rings
 
 \begin{proposition}[Ideals of Fields]
     \label{prop:ideals-fields}%
-    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\Bqty{0}\) and \(R\).
+    Let \(R\) be a ring. Then \(R\) is a field if and only if the only ideals of \(R\) are \(\set{0}\) and \(R\).
 \end{proposition}
 
 \begin{proof}
-    Let \(R\) be a field and take some ideal \(I \idealsub R\). Say \(I \neq \Bqty{0}\). Then \(I\) contains a unit, say \(u \in I\). But then \(1 \in I\) since \(1 = uv\) for some \(v \in R\). So \(I = R\).
+    Let \(R\) be a field and take some ideal \(I \idealsub R\). Say \(I \neq \set{0}\). Then \(I\) contains a unit, say \(u \in I\). But then \(1 \in I\) since \(1 = uv\) for some \(v \in R\). So \(I = R\).
 
     Conversely, take \(0 \neq r \in R\). Then we have \(\pqty{r} = R\), and hence \(1 \in R\) gives \(1 = r \cdot s\) for some \(s \in R\). So \(r\) is a unit, and \(R\) is a field.
 \end{proof}
@@ -162,7 +162,7 @@ Note that the zero ideal is maximal if and only if the ring itself is a field.
 \end{proposition}
 
 \begin{proof}
-    \(\flatfrac{R}{I}\) is a field if and only if its only ideals are the trivial ones, i.e., \(\Bqty{0}\) and \(\flatfrac{R}{I}\) itself, by \autoref{prop:ideals-fields}.
+    \(\flatfrac{R}{I}\) is a field if and only if its only ideals are the trivial ones, i.e., \(\set{0}\) and \(\flatfrac{R}{I}\) itself, by \autoref{prop:ideals-fields}.
 
     Using the correspondence result for ideals between \(R\) and \(\flatfrac{R}{I}\) finishes the proof.
 \end{proof}

@@ -35,7 +35,7 @@
 
 \begin{lemma}[Homomorphisms are Injective if and only if it has Trivial Kernel]
     \label{lem:homomorphisms-injective-trivial-kernel}%
-    A ring homomorphism \(\functiondomain{f}{R}{S}\) is injective if and only if \(\ker f = \Bqty{0}\).
+    A ring homomorphism \(\functiondomain{f}{R}{S}\) is injective if and only if \(\ker f = \set{0}\).
 \end{lemma}
 
 \begin{proof}
@@ -80,11 +80,11 @@ Recall a group homomorphism's kernel must be a \emph{normal subgroup} -- there i
     \label{ex:ideals-of-z}%
     Let \(\ZZ\) be the ring of integers. Then
     \[
-        n \ZZ = \Bqty{\ldots, -2n, -n, 0, n, 2n, \ldots}
+        n \ZZ = \set{\ldots, -2n, -n, 0, n, 2n, \ldots}
     \]
     is an ideal. In fact, every (non-zero) ideal of \(\ZZ\) has this form, for some \(n \in \ZZ\). This result follows from the subgroup structure of \(\ZZ\), but we reproduce the proof as follows to motivate an algebraic structure.
 
-    Indeed, if \(I \neq \Bqty{0}\), let \(n \in \ZZ\) be the smallest positive element \(n\) that lies in \(I\). We claim \(I = n\ZZ\).
+    Indeed, if \(I \neq \set{0}\), let \(n \in \ZZ\) be the smallest positive element \(n\) that lies in \(I\). We claim \(I = n\ZZ\).
 
     By the Euclidean algorithm, \(m = q \cdot n + r\) for \(q \in \ZZ\) and \(0 \leq r < n\), but \(q \cdot n \in I\) by definition of an ideal, so \(r \in I\). If \(r \neq 0\), then this contradicts minimality. So \(r = 0\) and this finishes the proof.
 \end{example}
@@ -270,11 +270,11 @@ Similar to the isomorphism theorems we had in groups, we have them in rings as w
 \begin{remark}
     Similar to rings, there is a correspondence for rings and ideals. Let \(I \idealsub R\) be an ideal. There is a bijection
     \[
-        \function{f}{\Bqty{\text{subrings of }\flatfrac{R}{I}}}{\Bqty{\text{subrings of }R\text{ containing }I}}{L \subring \flatfrac{R}{I}}{\set{r \in R}{r + I \in L}}
+        \function{f}{\set{\text{subrings of }\flatfrac{R}{I}}}{\set{\text{subrings of }R\text{ containing }I}}{L \subring \flatfrac{R}{I}}{\set{r \in R}{r + I \in L}}
     \]
     and the inverse is given by
     \[
-        \function{f\inverse}{\Bqty{\text{subrings of }R\text{ containing }I}}{\Bqty{\text{subrings of }\flatfrac{R}{I}}}{I \idealsub S \subring R}{\flatfrac{S}{I} \subring \flatfrac{R}{I}.}
+        \function{f\inverse}{\set{\text{subrings of }R\text{ containing }I}}{\set{\text{subrings of }\flatfrac{R}{I}}}{I \idealsub S \subring R}{\flatfrac{S}{I} \subring \flatfrac{R}{I}.}
     \]
 \end{remark}
 

@@ -99,7 +99,7 @@ We try abstract arithmetic properties by describing them in more general algebra
 
 \begin{definition}[Euclidean Domain]
     \label{def:euclidean-domain}%
-    An integral domain \(R\) is a \term{Euclidean Domain} if there exists some function \(\functiondomain{\phi}{R \setminus \Bqty{0}}{\ZZ_{\geq 0}}\), such that
+    An integral domain \(R\) is a \term{Euclidean Domain} if there exists some function \(\functiondomain{\phi}{R \setminus \set{0}}{\ZZ_{\geq 0}}\), such that
     \begin{enumerate}
         \item \(\phi\pqty{ab} \geq \phi\pqty{b}\) for all non-zero \(a, b\); and
         \item If \(a, b \in R\) with \(b \neq 0\), there is some \(q, r \in R\), such that \(a = bq + r\), and either \(r = 0\) or \(\phi\pqty{r} \leq \phi\pqty{b}\).
@@ -162,7 +162,7 @@ In particular, this means that any ideal \(I \idealsub \ZZ\bqty{i}\) is principa
     \label{ex:non-example-pid}%
     Let \(R = \ZZ\bqty{X}\), and we want to show \(R\) is not a PID (hence not Euclidean). Let \(I = \pqty{2, x}\). We claim that this ideal is not principal.
 
-    Say \(I = \pqty{f}\). Then \(f \divides 2\), so \(f \in \Bqty{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\pqty{f} = \ZZ\bqty{x}\). But \(\pqty{2, x} \neq \ZZ\bqty{x}\) by looking at constant terms.
+    Say \(I = \pqty{f}\). Then \(f \divides 2\), so \(f \in \set{\pm 1, \pm 2}\). If \(f = \pm 1\), then \(\pqty{f} = \ZZ\bqty{x}\). But \(\pqty{2, x} \neq \ZZ\bqty{x}\) by looking at constant terms.
 
     Therefore, \(f = \pm 2\). But \(2 \notdivides x\), so \(\pqty{f} \neq \pqty{2, x}\).
 \end{example}
@@ -266,7 +266,7 @@ An integral domain where any two elements have a greatest common divisor is call
 \begin{proof}
     Let \(p_1, \ldots, p_m\) be the list of all irreducible factors in the factorisations of all the \(a_i\)s, up to associates.
 
-    Let \(a_i = u_i \cdot \prod_{j = 1}^{m} p_j^{n_{i, j}}\) where \(n_{i, j} \geq 0\), and let \(m_j = \min \Bqty{n_{i, j}}\). We choose
+    Let \(a_i = u_i \cdot \prod_{j = 1}^{m} p_j^{n_{i, j}}\) where \(n_{i, j} \geq 0\), and let \(m_j = \min \set{n_{i, j}}\). We choose
     \[
         d = \prod_{j = 1}^{m} p_j^{m_j},
     \]
