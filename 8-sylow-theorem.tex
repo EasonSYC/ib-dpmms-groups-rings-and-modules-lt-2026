@@ -16,7 +16,7 @@ Let \(G\) be a finite group of size \(p^{a} m\) where \(p \notdivides m\), which
 The first part of \autoref{thm:sylow} (Sylow Theorem) itself is already very interesting -- since it is not easy to specify that we have a subgroup is of a particular size. The second is also non-trivial, since there could be subgroups with different structures, or with the same structure but not conjugate. Nevertheless, we will build up the necessary foundations to a proof.
 
 \begin{lemma}[Unique Sylow \(p\)-Subgroup implies Normality]
-    If \(\Syl_p\pqty{G} = \Bqty{P}\) has size \(1\), then \(P\) is normal.
+    If \(\Syl_p\pqty{G} = \set{P}\) has size \(1\), then \(P\) is normal.
 \end{lemma}
 
 \begin{proof}
@@ -36,14 +36,14 @@ Another consequence of Sylow's theorem is as follows.
         \functiondomain{\phi}{G}{\Sym\pqty{\Syl_p\pqty{G}} \isomorphic S_{n_p}}.
     \]
 
-    By simplicity of \(G\), since \(\ker \phi \normalsub G\), we therefore have \(\ker \phi = \Bqty{e}\) or \(\ker \phi = G\).
+    By simplicity of \(G\), since \(\ker \phi \normalsub G\), we therefore have \(\ker \phi = \set{e}\) or \(\ker \phi = G\).
 
-    If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \Bqty{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\pqty{P} \normalsub P\).
+    If \(\ker \phi = G\), this means the conjugation action is trivial, so \(g P g\inverse = P\) for all \(g \in G\), then \(P\) is normal. Since \(P \neq \set{e}\), we must have \(G = P\). But this is impossible, because \autoref{thm:p-groups-non-trivial-centre} (\(p\)-groups have Non-Trivial Centres) gives a normal subgroup \(Z\pqty{P} \normalsub P\).
 
-    Therefore, \(\ker \phi = \Bqty{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic to a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
+    Therefore, \(\ker \phi = \set{e}\), so \(\phi\) is injective, and hence \(G\) must be isomorphic to a subgroup of \(S_{n_p}\). We want to make sure it lies in \(A_{n_p}\). We consider the composition
 
     \[
-        G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \Bqty{\pm 1}.
+        G \overset{\phi}{\longrightarrow} S_{n_p} \overset{\sign}{\longrightarrow} \set{\pm 1}.
     \]
 
     If the composition is surjective, then \(\ker \pqty{\sign \circ \phi}\) is an index \(2\) subgroup of \(G\). But \(G\) is simple, so this is impossible, unless \(G \isomorphic C_2\) but this is abelian. (Alternatively, since this composition cannot be injective and since \(G\) is simple, we have \(\ker \pqty{\sign \circ \phi} = G\), so this map is trivial.)
@@ -64,7 +64,7 @@ A nice application of the numerology provided by \autoref{thm:sylow} (Sylow's Th
 
     By \autoref{cor:np-and-g}, we have \(n_3 = 22\) since \(n_3 \geq 5\).
 
-    Any two Sylow \(11\)-Subgroups intersect trivially at \(\Bqty{e}\), which gives already \(120\) elements. Similarly, any two Sylow \(3\)-Subgroups contribute another \(44\) elements. But we only have a total of \(132\) elements, which is impossible.
+    Any two Sylow \(11\)-Subgroups intersect trivially at \(\set{e}\), which gives already \(120\) elements. Similarly, any two Sylow \(3\)-Subgroups contribute another \(44\) elements. But we only have a total of \(132\) elements, which is impossible.
 \end{example*}
 
 Now we prove Sylow's theorems.
@@ -79,7 +79,7 @@ Now we prove Sylow's theorems.
 
     Let \(G\) act on \(\Omega\) by left-multiplication element-wise, i.e.,
     \[
-        g \ast \Bqty{g_1, g_2, \ldots, g_{p^a}} = \Bqty{g g_1, \ldots, g g_{p^a}}.
+        g \ast \set{g_1, g_2, \ldots, g_{p^a}} = \set{g g_1, \ldots, g g_{p^a}}.
     \]
 
     We want to have an orbit of size \(m\), so its stabiliser would have size \(p^a\).
@@ -132,9 +132,9 @@ Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
 
     Now, let \(P \in \Syl_p\pqty{G}\). We consider an action \(P \actson \Syl_p\pqty{G}\) by conjugation.
 
-    By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), the orbits have size \(1\) or divisible by \(p\). Now \(\Bqty{P}\) has size \(1\) and is hence a size-\(1\) orbit. It suffices to show that all the remaining orbits have size \(p\).
+    By \autoref{thm:orbit-stabiliser} (Orbit--Stabiliser), the orbits have size \(1\) or divisible by \(p\). Now \(\set{P}\) has size \(1\) and is hence a size-\(1\) orbit. It suffices to show that all the remaining orbits have size \(p\).
 
-    Say \(\Bqty{Q}\) is another size \(1\) orbit. So for any \(h \in P\), we have \(h Q h\inverse = Q\).
+    Say \(\set{Q}\) is another size \(1\) orbit. So for any \(h \in P\), we have \(h Q h\inverse = Q\).
 
     Thus, \(P\) is contained in the normaliser
     \[
@@ -164,9 +164,9 @@ Recall that \(n_p = \abs{\Syl_p\pqty{G}}\).
         }
     \]
 
-    We have \(p^n - 1\) choices for the first column \(\vb{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vb{v}_2\), since \(\vb{v}_2 \notin \spn \Bqty{\vb{v}_1}\), and the span has size \(p\).
+    We have \(p^n - 1\) choices for the first column \(\vb{v}_1\). Similarly, there are \(p^n - p\) choices for the second column \(\vb{v}_2\), since \(\vb{v}_2 \notin \spn \set{\vb{v}_1}\), and the span has size \(p\).
 
-    Similarly, there are \(p^n - p^2\) choices for the third column \(\vb{v}_3\), since \(\vb{v}_3 \notin \spn \Bqty{\vb{v}_1, \vb{v}_2}\), and the span has size \(p^2\).
+    Similarly, there are \(p^n - p^2\) choices for the third column \(\vb{v}_3\), since \(\vb{v}_3 \notin \spn \set{\vb{v}_1, \vb{v}_2}\), and the span has size \(p^2\).
 
     Therefore,
     \[

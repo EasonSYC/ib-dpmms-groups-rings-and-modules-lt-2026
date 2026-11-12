@@ -220,11 +220,11 @@ This theorem might seem unnatural at first, but the idea is as follows. We not o
 \begin{remark}[Correspondence between subgroups of \(\flatfrac{G}{K}\) and \(G\)]
     Let \(\functiondomain{\phi}{G}{\flatfrac{G}{K}}\), the quotient map. There is a bijection between
     \[
-        \Bqty{\text{subgroups of }\flatfrac{G}{K}},
+        \set{\text{subgroups of }\flatfrac{G}{K}},
     \]
     and
     \[
-        \Bqty{\text{subgroups of }G\text{ that contain }K}.
+        \set{\text{subgroups of }G\text{ that contain }K}.
     \]
 
     Given \(K \normalsub L \subgroup G\), we map this to
@@ -272,7 +272,7 @@ We often study groups by taking quotients of normal subgroups -- but this only w
 
 \begin{definition}[Simplicity]
     \label{def:simplicity}%
-    A group \(G\) is called \term{simple} if the only normal subgroups of \(G\) are \(G\) and \(\Bqty{e}\).
+    A group \(G\) is called \term{simple} if the only normal subgroups of \(G\) are \(G\) and \(\set{e}\).
 \end{definition}
 
 \begin{proposition}[Simplicity Condition of Abelian Groups]
@@ -299,13 +299,13 @@ We often study groups by taking quotients of normal subgroups -- but this only w
     \label{thm:infinite-chain-normal-subgroup}%
     Let \(G\) be a finite group. Then there exist subgroups
     \[
-        G = H_1 \normalsup H_2 \normalsup H_3 \normalsup \cdots \normalsup H_n = \Bqty{e}
+        G = H_1 \normalsup H_2 \normalsup H_3 \normalsup \cdots \normalsup H_n = \set{e}
     \]
     such that \(\flatfrac{H_i}{H_{i + 1}}\) is simple.
 \end{theorem}
 
 \begin{proof}
-    If \(G\) is simple, take \(H_2 = \Bqty{e}\), and we are done.
+    If \(G\) is simple, take \(H_2 = \set{e}\), and we are done.
 
     Otherwise, let \(H_2\) be a proper normal subgroup of maximal order in \(G\). We claim that \(\flatfrac{G}{H_2}\) is simple. If not, consider the quotient map
     \[

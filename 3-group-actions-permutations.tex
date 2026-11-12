@@ -8,7 +8,7 @@
     \]
     equipped with the identity as the identity function. For \(f, g \in \Sym\pqty{X}\), we define the group operation as composition. This gives the \term{symmetric group} of \(X\).
     
-    If \(\bqty{n} = \Bqty{1, 2, \ldots, n}\), then we write \(\Sym\pqty{\bqty{n}} = S_n\).
+    If \(\bqty{n} = \set{1, 2, \ldots, n}\), then we write \(\Sym\pqty{\bqty{n}} = S_n\).
 \end{definition}
 
 Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) as a product of disjoint cycles. Furthermore, every \(\sigma \in S_n\) is a product of transpositions, and the number of such transpositions needed, although not fixed, has some `invariant', and is related to the \emph{sign} of \(\sigma\).
@@ -17,7 +17,7 @@ Recall from IA Groups, that it is often convenient to write \(\sigma \in S_n\) a
     \label{def:sign-of-permutation}%
     The \term{sign} of a permutation is defined as
     \[
-        \function{\sign}{S_n}{\Bqty{\pm 1}}{\sigma}{\sign\pqty{\sigma} = \begin{cases}
+        \function{\sign}{S_n}{\set{\pm 1}}{\sigma}{\sign\pqty{\sigma} = \begin{cases}
             1, & \sigma \text{ is a product of an even number of transpositions}, \\
             -1, & \sigma \text{ is a product of an odd number of transpositions}.
         \end{cases}}
@@ -44,7 +44,7 @@ We denote this as \(G \actson X\).
 
 Now, we think of the relation between
 \[
-    H = \Bqty{\text{Homomorphisms } G \to \Sym\pqty{X}} \qand \Bqty{\text{Actions } G \actson X} = A.
+    H = \set{\text{Homomorphisms } G \to \Sym\pqty{X}} \qand \set{\text{Actions } G \actson X} = A.
 \]
 
 These are just sets. But we are going to define some relationship between them. Let
@@ -142,7 +142,7 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
 
     This induces a homomorphism \(\functiondomain{\phi}{G}{\Sym\pqty{G}}\). The kernel is
     \[
-        \ker\pqty{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \Bqty{e}.
+        \ker\pqty{\phi} = \set{g \in G}{g \cdot g_1 = g_1 \text{ for all }g_1 \in G} = \set{e}.
     \]
 
     So we have \(\phi\) is injective, and hence \(G\) is some subgroup of \(\Sym\pqty{G}\) by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups).
@@ -221,9 +221,9 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
         \functiondomain{\phi}{G}{\Sym\pqty{\flatfrac{G}{H}} \isomorphic S_n}.
     \]
 
-    We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \Bqty{e}\) or \(\ker \phi = G\).
+    We look at its kernel. Since \(\ker \phi \normalsub G\), and \(G\) is simple, there are only two possibilities: \(\ker \phi = \set{e}\) or \(\ker \phi = G\).
 
-    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \Bqty{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups),
+    But since \(\ker \phi \subgroup H\), and \(H\) is a proper subgroup, we have \(\ker \phi = \set{e}\), so the homomorphism is injective, and by \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for Groups),
     \[
         G \isomorphic \img \pqty{\phi} \subgroup \Sym\pqty{\flatfrac{G}{H}} \isomorphic S_n.
     \]
@@ -234,9 +234,9 @@ By \autoref{thm:first-isomorphism-theorem-groups} (First Isomorphism Theorem for
     \]
     and we in fact want \(G \subgroup A_n\), i.e., \(G \cap A_n = G\).
 
-    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups). But \(G\) is simple, so \(G \cap A_n = \Bqty{e}\), or \(G \cap A_n = G\).
+    Since \(A_n \normalsub S_n\), we must have \(A_n \cap G \normalsub G\). This is by \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups). But \(G\) is simple, so \(G \cap A_n = \set{e}\), or \(G \cap A_n = G\).
 
-    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups), if \(G \cap A_n = \Bqty{e}\), we see that
+    We need to rule out the case where \(G\) intersects \(A_n\) trivially. To see this, again, using \autoref{thm:second-isomorphism-theorem-groups} (Second Isomorphism Theorem for Groups), if \(G \cap A_n = \set{e}\), we see that
     \[
         G \isomorphic \flatfrac{G}{G \cap A_n} \isomorphic \flatfrac{G A_n}{A_n} \leq \flatfrac{S_n}{A_n} \isomorphic C_2,
     \]
