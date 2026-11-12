@@ -1,6 +1,6 @@
 \section{Matrices over Euclidean Domains}
 
-At this point of the course, we are interested in proving and generalising the previous result on finite/finitely generated abelian groups -- which are just \(\ZZ\)-modules. Furthermore, a matrix \(\vb{A}\) on \(\ZZ\) (or any Euclidean domain) gives a module homomorphism \(\functiondomain{\vb{A}}{\ZZ^m}{\ZZ^n}\) (or generally, \(\functiondomain{\vb{A}}{R^m}{R^n}\)). The groups/modules we are interested in will be \(\flatfrac{\ZZ^n}{\img \vb{A}}\), since they are finitely generated, and this perspective will give us a classification.
+At this point of the course, we are interested in proving and generalising the previous result on finite/finitely generated abelian groups -- which are just \(\ZZ\)-modules. Furthermore, a matrix \(A\) on \(\ZZ\) (or any Euclidean domain) gives a module homomorphism \(\functiondomain{A}{\ZZ^m}{\ZZ^n}\) (or generally, \(\functiondomain{A}{R^m}{R^n}\)). The groups/modules we are interested in will be \(\flatfrac{\ZZ^n}{\img A}\), since they are finitely generated, and this perspective will give us a classification.
 
 Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\functiondomain{\phi}{R \setminus \set{0}}{\NN_0}\). By Euclid's algorithm, for \(a, b \in R\), we can find \(x, y \in R\), such that
 \[
@@ -11,7 +11,7 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
 
 \begin{definition}[Elementary Row/Column Operations]
     \label{def:elementary-row-column-operation}%
-    Let \(\vb{A}\) be a matrix with entries in \(R\). The \term{elementary row operations} are the following:
+    Let \(A\) be a matrix with entries in \(R\). The \term{elementary row operations} are the following:
     \begin{enumerate}
         \item Add \(c \in R\) times the \(i\)th row to the \(j\)th row, i.e., left-multiply by the matrix
         \[
@@ -57,11 +57,11 @@ Now, we fix a Euclidean domain \(R\), and the associated Euclidean function \(\f
 
 \begin{definition}[Equivalent Matrices]
     \label{def:equivalent-matrix}%
-    Matrices \(\vb{A}\) and \(\vb{B}\) are \term{equivalent}, if \(\vb{A}\) can be obtained from \(\vb{B}\) via row/column operations. Equivalently,
+    Matrices \(A\) and \(B\) are \term{equivalent}, if \(A\) can be obtained from \(B\) via row/column operations. Equivalently,
     \[
-        \vb{B} = \vb{Q} \vb{A} \vb{T}\inverse
+        B = Q A T\inverse
     \]
-    for \(\vb{Q}\) and \(\vb{T}\) invertible.
+    for \(Q\) and \(T\) invertible.
 \end{definition}
 
 Observe that the matrix
@@ -84,7 +84,7 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 \end{theorem}
 
 \begin{proof}
-    Let the matrix be \(\vb{A}\). If \(\vb{A}\) is \(\zeroM\), then we are done.
+    Let the matrix be \(A\). If \(A\) is \(O\), then we are done.
 
     So assume \(A_{i, j} \neq 0\) for some \(i, j\). Then perform row/column operations, so that \(A_{1, 1}\) is non-zero.
 
@@ -98,28 +98,28 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
             \pmqty{
                 d & 0 & \cdots & 0 \\
                 0 & & & \\
-                \vdots & & \vb{C} & \\
+                \vdots & & C & \\
                 0 & & &
             }
         \]
 
-        \item Now, suppose \(A_{i, j}\) in \(\vb{C}\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\pqty{r} < \phi\pqty{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\pqty{i, j}\) entry. Now, swap back this \(r\) to the \(\pqty{1, 1}\) position, and then we have \(\phi\pqty{r} < \phi\pqty{d}\).
+        \item Now, suppose \(A_{i, j}\) in \(C\) is not divisible by \(d\). Then we write \(A_{i, j} = dq + r\) with \(\phi\pqty{r} < \phi\pqty{d}\). We now add column \(1\) to column \(j\), and subtract \(q\) times row \(1\) from row \(i\). This gives \(r\) in the \(\pqty{i, j}\) entry. Now, swap back this \(r\) to the \(\pqty{1, 1}\) position, and then we have \(\phi\pqty{r} < \phi\pqty{d}\).
 
-        \item We return to 1 and 2, and replace \(\vb{A}\) with the new matrix
+        \item We return to 1 and 2, and replace \(A\) with the new matrix
         \[
             \pmqty{
                 d' & 0 & \cdots & 0 \\
                 0 & & & \\
-                \vdots & & \vb{C}' & \\
+                \vdots & & C' & \\
                 0 & & &
             }
         \]
-        with \(\phi\pqty{d'} < \phi\pqty{r} < \phi\pqty{d}\). Repeat finitely many times, so eventually \(\vb{A}\) becomes
+        with \(\phi\pqty{d'} < \phi\pqty{r} < \phi\pqty{d}\). Repeat finitely many times, so eventually \(A\) becomes
         \[
             \pmqty{
                 d & 0 & \cdots & 0 \\
                 0 & & & \\
-                \vdots & & \vb{C} & \\
+                \vdots & & C & \\
                 0 & & &
             },
         \]
@@ -131,32 +131,32 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
 
 \begin{definition}[Minors, Fitting Ideals]
     \label{def:minor-fit-ideals}%
-    For a matrix \(\vb{A}\), a \term{\(k \times k\) minor} is the determinant of a \(k \times k\) sub-matrix. The \term{\(k\)th Fitting ideal}
+    For a matrix \(A\), a \term{\(k \times k\) minor} is the determinant of a \(k \times k\) sub-matrix. The \term{\(k\)th Fitting ideal}
     \[
-        \Fit_k \pqty{\vb{A}} \idealsub R
+        \Fit_k \pqty{A} \idealsub R
     \]
-    is the ideal generated by the \(k \times k\) minors of \(\vb{A}\).
+    is the ideal generated by the \(k \times k\) minors of \(A\).
 \end{definition}
 
 \begin{proposition}[Row/Column Operations preserve Fitting Ideals]
     \label{prop:row-column-operations-preserve-fit}%
-    If \(\vb{A}\) and \(\vb{B}\) are equivalent matrices, then
+    If \(A\) and \(B\) are equivalent matrices, then
     \[
-        \Fit_k \pqty{\vb{A}} = \Fit_k \pqty{\vb{B}}
+        \Fit_k \pqty{A} = \Fit_k \pqty{B}
     \]
     for all \(k\).
 \end{proposition}
 
 \begin{proof}
-    It suffices to check that individual row/column operations do not change the Fitting ideals. Since \(\Fit_k\pqty{\vb{A}} = \Fit_k\pqty{\vb{A}\transpose}\), it suffices to check this for the row operations. Swapping rows is straightforward.
+    It suffices to check that individual row/column operations do not change the Fitting ideals. Since \(\Fit_k\pqty{A} = \Fit_k\pqty{A\transpose}\), it suffices to check this for the row operations. Swapping rows is straightforward.
 
-    Consider \(\vb{C}\) a \(k \times k\) sub-matrix, and consider adding \(c\) times row \(i\) of \(\vb{A}\) to row \(j\). This gives a new sub-matrix \(\vb{C}'\). We show that \(\det\pqty{\vb{C}'} \in \Fit_k\pqty{\vb{A}}\).
+    Consider \(C\) a \(k \times k\) sub-matrix, and consider adding \(c\) times row \(i\) of \(A\) to row \(j\). This gives a new sub-matrix \(C'\). We show that \(\det\pqty{C'} \in \Fit_k\pqty{A}\).
 
-    If the \(j\)th row is outside \(\vb{C}\), then this does not change anything.
+    If the \(j\)th row is outside \(C\), then this does not change anything.
 
-    If both rows lie in \(\vb{C}\), this follows from the properties of the determinant.
+    If both rows lie in \(C\), this follows from the properties of the determinant.
 
-    Now, suppose the \(j\)th row is in \(\vb{C}\), and the \(i\)th row is not. Suppose row \(i\) is given by
+    Now, suppose the \(j\)th row is in \(C\), and the \(i\)th row is not. Suppose row \(i\) is given by
     \[
         \bmqty{
             f_1 & \cdots & f_k
@@ -170,33 +170,33 @@ cannot be further reduced in \(\ZZ\) -- unlike over a field, where a matrix can 
         }.
     \]
 
-    Now compute \(\det \pqty{\vb{C}'}\) along this row. Using the additivity of the determinant, we have
+    Now compute \(\det \pqty{C'}\) along this row. Using the additivity of the determinant, we have
     \[
-        \det\pqty{\vb{C}'} = \det\pqty{\vb{C}} + c \det\pqty{\vb{D}},
+        \det\pqty{C'} = \det\pqty{C} + c \det\pqty{D},
     \]
-    where \(\vb{D}\) is obtained by row \(j\) of \(\vb{C}\) with the original row \(i\). But both \(\vb{C}\) and \(\vb{D}\) are in fact \(k \times k\) sub-matrices, so we are done.
+    where \(D\) is obtained by row \(j\) of \(C\) with the original row \(i\). But both \(C\) and \(D\) are in fact \(k \times k\) sub-matrices, so we are done.
 
     So we concluded
     \[
-        \Fit_k \pqty{\vb{B}} \subseteq \Fit_k \pqty{\vb{A}}.
+        \Fit_k \pqty{B} \subseteq \Fit_k \pqty{A}.
     \]
 
     But such operations are invertible, so
     \[
-        \Fit_k \pqty{\vb{A}} = \Fit_k \pqty{\vb{B}}
+        \Fit_k \pqty{A} = \Fit_k \pqty{B}
     \]
     as desired.
 \end{proof}
 
 \begin{corollary}[Fitting Ideal from Smith Normal Form, Uniqueness of Invariant Factors]
     \label{cor:fit-ideal-snf-uniqueness-if}%
-    If \(\vb{A}\) has Smith normal form given by
+    If \(A\) has Smith normal form given by
     \[
         \diag\pqty{d_1, \ldots, d_r, 0, \ldots, 0},
     \]
     then
     \[
-        \Fit_k \pqty{\vb{A}} = \pqty{d_1 \cdots d_k},
+        \Fit_k \pqty{A} = \pqty{d_1 \cdots d_k},
     \]
     and in particular, the \(d_i\)s are unique, up to associates.
 \end{corollary}
@@ -298,7 +298,7 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
 
     The kernel of \(\gamma\) is therefore given by the image of the matrix
     \[
-        \vb{A} = \pmqty{
+        A = \pmqty{
             2 & 1 & 5 \\
             3 & 2 & 6 \\
             1 & 0 & 7
@@ -306,17 +306,17 @@ Note the multiples \(d_1, \ldots, d_r\) are the crucial difference between the E
     \]
     where we view this as a map \(\ZZ^3\) to \(\ZZ^3\). By construction,
     \[
-        G \isomorphic \flatfrac{\ZZ^3}{\img \pqty{\vb{A}}}.
+        G \isomorphic \flatfrac{\ZZ^3}{\img \pqty{A}}.
     \]
 
     To calculate the Smith Normal Form, we proceed by calculating Fitting ideals of 
     \(vm{A}\). We note
     \[
-        \Fit_1 \pqty{\vb{A}} = \Fit_2 \pqty{\vb{A}} = \pqty{1},
+        \Fit_1 \pqty{A} = \Fit_2 \pqty{A} = \pqty{1},
     \]
     while
     \[
-        \Fit_3 \pqty{\vb{A}} = \pqty{3}.
+        \Fit_3 \pqty{A} = \pqty{3}.
     \]
 
     Since \(d_1 = d_2 = 1, d_3 = 3\), we have
